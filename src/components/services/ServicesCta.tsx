@@ -1,7 +1,8 @@
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink, ExternalButton } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
-import { MANUFACTURING_CONTACT_URL } from "@/lib/site";
+import { DirectContact } from "@/components/site/DirectContact";
+import { MANUFACTURING_CONTACT, MANUFACTURING_CONTACT_URL } from "@/lib/site";
 
 // Quotes are taken by the Manufacturing site's RFQ form; WDF contact stays on this site.
 export function ServicesCta() {
@@ -33,7 +34,10 @@ export function ServicesCta() {
             delay={160}
             className="mt-10 grid gap-10 border-t border-ink-border pt-10 md:grid-cols-9"
           >
-            <p className="text-lg leading-relaxed text-ink-muted md:col-span-5">{c.body}</p>
+            <div className="md:col-span-5">
+              <p className="text-lg leading-relaxed text-ink-muted">{c.body}</p>
+              <DirectContact label={c.contact} contact={MANUFACTURING_CONTACT} className="mt-8" />
+            </div>
             <div className="flex flex-col gap-3 md:col-span-4">
               <ExternalButton href={MANUFACTURING_CONTACT_URL} variant="primary">
                 {c.primary}

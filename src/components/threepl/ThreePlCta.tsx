@@ -1,6 +1,7 @@
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
+import { DirectContact } from "@/components/site/DirectContact";
 import { THREEPL_CONTACT } from "@/lib/site";
 
 export function ThreePlCta() {
@@ -34,16 +35,7 @@ export function ThreePlCta() {
           >
             <div className="md:col-span-5">
               <p className="text-lg leading-relaxed text-ink-muted">{c.body}</p>
-              <div className="mt-8">
-                <p className="label-mono text-ink-muted">{c.contact}</p>
-                <p className="mt-3 text-lg font-semibold">{THREEPL_CONTACT.name}</p>
-                <a
-                  href={`tel:${THREEPL_CONTACT.tel}`}
-                  className="mt-1 inline-block border-b border-ink-border pb-1 text-ink-foreground transition-colors hover:border-primary hover:text-primary"
-                >
-                  {THREEPL_CONTACT.phone}
-                </a>
-              </div>
+              <DirectContact label={c.contact} contact={THREEPL_CONTACT} className="mt-8" />
             </div>
             <div className="flex flex-col gap-3 md:col-span-4">
               <ButtonLink to="/{-$locale}/contact" params={{ locale: localeParam(locale) }}>

@@ -276,6 +276,7 @@ const en = {
       body: "Let's talk about your next part, project or production requirement.",
       primary: "Request a Quote",
       secondary: "Contact WDF",
+      contact: "Direct contact",
     },
   },
   threepl: {

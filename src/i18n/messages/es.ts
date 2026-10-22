@@ -274,6 +274,7 @@ const es: Messages = {
       body: "Hablemos de su próxima pieza, proyecto o requerimiento de producción.",
       primary: "Solicitar cotización",
       secondary: "Contactar a WDF",
+      contact: "Contacto directo",
     },
   },
   threepl: {

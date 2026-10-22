@@ -1,6 +1,7 @@
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
+import { DirectContact } from "@/components/site/DirectContact";
 import { ENERGY_CONTACT } from "@/lib/site";
 import { Bolt } from "./Bolt";
 
@@ -32,24 +33,12 @@ export function EnergyCta() {
           >
             <div className="md:col-span-5">
               <p className="text-lg leading-relaxed text-ink/80">{c.body}</p>
-              <div className="mt-8">
-                <p className="label-mono text-ink/70">{c.contact}</p>
-                <p className="mt-3 text-lg font-semibold">{ENERGY_CONTACT.name}</p>
-                <div className="mt-1 flex flex-col items-start gap-1.5">
-                  <a
-                    href={`tel:${ENERGY_CONTACT.tel}`}
-                    className="border-b border-ink/30 pb-0.5 transition-colors hover:border-ink"
-                  >
-                    {ENERGY_CONTACT.phone}
-                  </a>
-                  <a
-                    href={`mailto:${ENERGY_CONTACT.email}`}
-                    className="break-all border-b border-ink/30 pb-0.5 transition-colors hover:border-ink"
-                  >
-                    {ENERGY_CONTACT.email}
-                  </a>
-                </div>
-              </div>
+              <DirectContact
+                label={c.contact}
+                contact={ENERGY_CONTACT}
+                tone="mustard"
+                className="mt-8"
+              />
             </div>
             <div className="flex flex-col gap-3 md:col-span-4">
               <ButtonLink
