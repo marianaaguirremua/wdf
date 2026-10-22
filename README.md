@@ -17,7 +17,12 @@ bun install
 bun run dev        # local preview at http://localhost:5173 (EN) and /es (ES)
 bun run typecheck && bun run lint && bun run test
 bun run build      # Cloudflare Worker output in .output/
+bun run preview    # build + run the real Worker locally with Wrangler
 ```
+
+`bun run deploy` publishes with Wrangler. Only run it once a release has been approved.
+
+The build is plain Vite (`vite.config.ts`). There is no Lovable tooling or sync.
 
 ## Structure
 
@@ -37,3 +42,14 @@ bun run build      # Cloudflare Worker output in .output/
 - Placeholder pages are `noindex` and excluded from `public/sitemap.xml`.
 - Do not publish statistics, clients, certifications, history, capabilities or contact details
   until they are verified (a test guards against emails, phone numbers and ISO claims).
+
+## Hero background video
+
+1. Export the clip (e.g. from Higgsfield): 8–15 s seamless loop, no audio, dark or
+   low-contrast footage so the headline stays legible.
+2. Add to `public/media/`: `hero.mp4` (H.264, 1920×1080, ≤ 6 MB), optionally `hero.webm`
+   and `hero-mobile.mp4` (720p), and `hero-poster.jpg` (first frame).
+3. Set `HERO_VIDEO` in `src/lib/site.ts`. While it is `null` the animated drawing shows.
+
+The video starts after page load only when the visitor allows motion and isn't on Data
+Saver. It pauses off screen and has a pause button.

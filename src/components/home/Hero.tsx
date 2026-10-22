@@ -2,7 +2,9 @@ import type { CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { DraftMark } from "@/components/site/Draft";
+import { HERO_VIDEO } from "@/lib/site";
 import { HeroDrawing } from "./HeroDrawing";
+import { HeroVideo } from "./HeroVideo";
 
 export function Hero() {
   const { locale, t } = useI18n();
@@ -19,19 +21,28 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-ink-foreground"
     >
-      <div
-        aria-hidden
-        className="blueprint absolute inset-0 -z-20 opacity-50 [mask-image:radial-gradient(90%_80%_at_75%_45%,#000_20%,transparent_75%)]"
-      />
-      <div aria-hidden className="column-rules -z-20" />
+      {HERO_VIDEO ? (
+        <>
+          <HeroVideo video={HERO_VIDEO} />
+          <div aria-hidden className="column-rules -z-20 opacity-60" />
+        </>
+      ) : (
+        <>
+          <div
+            aria-hidden
+            className="blueprint absolute inset-0 -z-20 opacity-50 [mask-image:radial-gradient(90%_80%_at_75%_45%,#000_20%,transparent_75%)]"
+          />
+          <div aria-hidden className="column-rules -z-20" />
 
-      {/* Drawing: right half on desktop, a quiet backdrop on small screens */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -z-10 inset-x-0 top-[calc(var(--header-h)+1rem)] mx-auto aspect-square w-[min(118vw,560px)] opacity-[0.16] sm:opacity-30 lg:inset-x-auto lg:right-[2%] lg:top-1/2 lg:w-[min(46vw,700px)] lg:-translate-y-[46%] lg:opacity-100"
-      >
-        <HeroDrawing className="h-full w-full" />
-      </div>
+          {/* Drawing: right half on desktop, a quiet backdrop on small screens */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -z-10 inset-x-0 top-[calc(var(--header-h)+1rem)] mx-auto aspect-square w-[min(118vw,560px)] opacity-[0.16] sm:opacity-30 lg:inset-x-auto lg:right-[2%] lg:top-1/2 lg:w-[min(46vw,700px)] lg:-translate-y-[46%] lg:opacity-100"
+          >
+            <HeroDrawing className="h-full w-full" />
+          </div>
+        </>
+      )}
 
       <div className="container-wdf flex flex-1 flex-col justify-end pb-14 pt-[calc(var(--header-h)+4rem)] lg:justify-center lg:pb-10">
         <div className="max-w-[46rem] lg:max-w-[52%]">

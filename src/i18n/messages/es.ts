@@ -60,6 +60,8 @@ const es: Messages = {
     secondary: "Contactar a WDF",
     index: "Divisiones",
     drawingLabel: "Dibujo técnico — decorativo",
+    pauseVideo: "Pausar video de fondo",
+    playVideo: "Reproducir video de fondo",
   },
   intro: {
     eyebrow: "01 · WDF",

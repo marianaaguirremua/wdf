@@ -58,6 +58,8 @@ const en = {
     secondary: "Contact WDF",
     index: "Divisions",
     drawingLabel: "Technical drawing — decorative",
+    pauseVideo: "Pause background video",
+    playVideo: "Play background video",
   },
   intro: {
     eyebrow: "01 · WDF",

@@ -23,3 +23,19 @@ export const NAV_ITEMS = [
   { key: "threepl", to: "/{-$locale}/3pl" },
   { key: "contact", to: "/{-$locale}/contact" },
 ] as const;
+
+/**
+ * Optional hero background video (e.g. a Higgsfield export). Put the files in public/media/
+ * and fill this in; while it is null the hero shows the animated technical drawing instead.
+ * Recommended: 8–15 s seamless loop, no audio, dark/low-contrast footage, H.264 MP4
+ * (1920×1080, ≤ 6 MB) plus an optional WebM and a 720p mobile MP4, and a JPG/WebP poster
+ * taken from the first frame.
+ */
+export type HeroVideo = {
+  mp4: string;
+  webm?: string;
+  /** Lighter file served to screens ≤ 767px wide. */
+  mobileMp4?: string;
+  poster: string;
+};
+export const HERO_VIDEO: HeroVideo | null = null;
