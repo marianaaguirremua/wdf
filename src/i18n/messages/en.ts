@@ -29,7 +29,8 @@ const en = {
     },
     threepl: {
       title: "3PL | WDF",
-      description: "WDF third-party logistics division. Coming soon.",
+      description:
+        "WDF 3PL: warehousing, material handling, inventory and U.S.–Mexico cross-border coordination, with responsibilities and conditions defined for each operation.",
     },
     contact: { title: "Contact | WDF", description: "Contact WDF. This page is being prepared." },
     notFound: { title: "Page not found | WDF" },
@@ -272,6 +273,83 @@ const en = {
       secondary: "Contact WDF",
     },
   },
+  threepl: {
+    hero: {
+      eyebrow: "3PL · WDF",
+      title: ["Two countries.", "One connected operation."],
+      body: "Warehousing, material handling, inventory and cross-border coordination, with responsibilities and conditions defined for each operation.",
+      tags: ["US ↔ MX", "Warehousing", "Cross-border"],
+      primary: "Contact WDF",
+      drawingLabel: "U.S.–Mexico cross-border flow — decorative",
+    },
+    capabilities: {
+      eyebrow: "01 · Capabilities",
+      title: "A scope configured for your project.",
+      body: "We select the services and deliverables based on the technical need, the schedule and the resources required.",
+      items: [
+        {
+          title: "Warehousing & inventory",
+          body: "Space, locations, identification, counts and reports agreed according to product and volume.",
+        },
+        {
+          title: "Loading, unloading & handling",
+          body: "Receiving, visual inspection and handling with equipment sized for the goods.",
+        },
+        {
+          title: "Picking & distribution",
+          body: "Picking, packing, consolidation, cross-dock and coordination of delivery or returns.",
+        },
+        {
+          title: "Customs entries & crossing",
+          body: "Coordination of the file with the importer/exporter and authorized customs brokers.",
+        },
+        {
+          title: "IMMEX & shelter",
+          body: "Evaluation of the authorized model that fits the product, the company and the activity.",
+        },
+        {
+          title: "Staffing & continuity",
+          body: "Design of the operating organization and evaluation of labor transitions with specialists.",
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: "02 · Deliverables & responsibilities",
+      title: "Capacity becomes a defined package.",
+      items: [
+        "Flow map and operating sheet",
+        "Resources, locations and owners",
+        "Procedures and service levels",
+        "Inventory and movement reports",
+      ],
+      note: "Facilities, availability, IMMEX holder, customs regime, employer of record and third-party services are validated and documented for each project.",
+    },
+    process: {
+      eyebrow: "03 · How we work",
+      title: "A clear route. From start to delivery.",
+      body: "Every project is built on deliverables, owners and checkpoints.",
+      steps: [
+        { title: "Understand", body: "Requirements, flow, product, site and constraints." },
+        { title: "Define", body: "Engineering, resources, scope, cost and responsibilities." },
+        { title: "Execute", body: "Sourcing, manufacturing, integration and follow-up." },
+        {
+          title: "Verify & deliver",
+          body: "Testing, evidence, documentation and agreed acceptance.",
+        },
+      ],
+    },
+    connect: {
+      eyebrow: "04 · Connected capabilities",
+      title: "This division works with the others.",
+      manufacturing: "From engineering to manufacturing.",
+    },
+    cta: {
+      eyebrow: "05 · Your next project",
+      title: "What do you need to move, store or connect?",
+      body: "Tell us the goal, the place and the schedule. Together we define the combination of capabilities and the scope of work.",
+      primary: "Contact WDF",
+    },
+  },
   placeholder: {
     status: "In preparation",
     body: "This page is being prepared. Content will be published once it has been approved.",
@@ -279,7 +357,6 @@ const en = {
     pages: {
       about: { eyebrow: "About", title: "About WDF" },
       integration: { eyebrow: "Integration", title: "Integration" },
-      threepl: { eyebrow: "3PL", title: "3PL" },
       contact: {
         eyebrow: "Contact",
         title: "Contact WDF",

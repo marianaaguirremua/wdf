@@ -25,4 +25,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services" />
   </url>
+  <url>
+    <loc>https://wdfgroup.us/3pl</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/3pl" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/trespl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/3pl" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/es/trespl</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/3pl" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/trespl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/3pl" />
+  </url>
 </urlset>

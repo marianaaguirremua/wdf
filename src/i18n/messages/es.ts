@@ -26,7 +26,8 @@ const es: Messages = {
     },
     threepl: {
       title: "3PL | WDF",
-      description: "División de logística de terceros de WDF. Próximamente.",
+      description:
+        "WDF 3PL: almacenamiento, maniobras, inventarios y coordinación transfronteriza entre EE. UU. y México, con responsables y condiciones definidos para cada operación.",
     },
     contact: {
       title: "Contacto | WDF",
@@ -272,6 +273,83 @@ const es: Messages = {
       secondary: "Contactar a WDF",
     },
   },
+  threepl: {
+    hero: {
+      eyebrow: "3PL · WDF",
+      title: ["Dos países.", "Una operación conectada."],
+      body: "Almacenamiento, maniobras, inventarios y coordinación transfronteriza, con responsables y condiciones definidos para cada operación.",
+      tags: ["US ↔ MX", "Warehousing", "Cross-border"],
+      primary: "Contactar a WDF",
+      drawingLabel: "Flujo transfronterizo entre EE. UU. y México — decorativo",
+    },
+    capabilities: {
+      eyebrow: "01 · Capacidades",
+      title: "Un alcance que se configura para tu proyecto.",
+      body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
+      items: [
+        {
+          title: "Almacenamiento e inventario",
+          body: "Espacio, ubicaciones, identificación, conteos y reportes acordados según producto y volumen.",
+        },
+        {
+          title: "Carga, descarga y maniobras",
+          body: "Recepción, inspección aparente y maniobras con equipo dimensionado para la mercancía.",
+        },
+        {
+          title: "Preparación y distribución",
+          body: "Surtido, empaque, consolidación, cross-dock y coordinación de entrega o retorno.",
+        },
+        {
+          title: "Pedimentos y cruce",
+          body: "Coordinación del expediente con el importador/exportador y representantes aduanales autorizados.",
+        },
+        {
+          title: "IMMEX y shelter",
+          body: "Evaluación del modelo autorizado que corresponda al producto, la empresa y la actividad.",
+        },
+        {
+          title: "Personal y continuidad",
+          body: "Diseño de la organización operativa y evaluación de transiciones laborales con especialistas.",
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: "02 · Entregables y responsabilidades",
+      title: "La capacidad se convierte en un paquete definido.",
+      items: [
+        "Mapa de flujo y ficha operativa",
+        "Recursos, ubicaciones y responsables",
+        "Procedimientos y niveles de servicio",
+        "Reportes de inventario y movimientos",
+      ],
+      note: "Instalaciones, disponibilidad, titular IMMEX, régimen aduanero, patrón y servicios de terceros se validan y documentan por proyecto.",
+    },
+    process: {
+      eyebrow: "03 · Cómo trabajamos",
+      title: "Una ruta clara. De principio a entrega.",
+      body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
+      steps: [
+        { title: "Entender", body: "Requerimientos, flujo, producto, sitio y restricciones." },
+        { title: "Definir", body: "Ingeniería, recursos, alcance, costo y responsabilidades." },
+        { title: "Ejecutar", body: "Abastecimiento, fabricación, integración y seguimiento." },
+        {
+          title: "Verificar y entregar",
+          body: "Pruebas, evidencia, documentación y aceptación acordada.",
+        },
+      ],
+    },
+    connect: {
+      eyebrow: "04 · Conecta capacidades",
+      title: "Este pilar trabaja con los demás.",
+      manufacturing: "De la ingeniería a la fabricación.",
+    },
+    cta: {
+      eyebrow: "05 · Tu siguiente proyecto",
+      title: "¿Qué necesitas mover, guardar o conectar?",
+      body: "Cuéntanos el objetivo, el lugar y el calendario. Definimos contigo la combinación de capacidades y el alcance de trabajo.",
+      primary: "Contactar a WDF",
+    },
+  },
   placeholder: {
     status: "En preparación",
     body: "Esta página está en preparación. El contenido se publicará una vez aprobado.",
@@ -279,7 +357,6 @@ const es: Messages = {
     pages: {
       about: { eyebrow: "Nosotros", title: "Acerca de WDF" },
       integration: { eyebrow: "Integración", title: "Integración" },
-      threepl: { eyebrow: "3PL", title: "3PL" },
       contact: {
         eyebrow: "Contacto",
         title: "Contacto WDF",
