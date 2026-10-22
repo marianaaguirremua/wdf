@@ -1,11 +1,13 @@
 // English copy (default locale). `es.ts` must mirror this shape exactly (enforced by type + test).
 //
 // Content rules for Phase 1:
-// - Manufacturing copy is quoted from the approved manufacturing.wdfgroup.us site.
+// - Manufacturing copy (including the whole Services page) is quoted verbatim from the
+//   approved manufacturing.wdfgroup.us site.
 // - Integration and 3PL show only their names and neutral "coming soon" copy.
 // - Copy listed under `draft` sections is a creative proposal pending approval and renders
 //   with a visible "Draft" marker until DRAFT_MARKERS is turned off (see src/lib/site.ts).
-// - No statistics, clients, certifications, history, capabilities or contact details.
+// - No statistics, clients, certifications, history or contact details, and no capabilities
+//   beyond those approved on the Manufacturing site.
 
 const en = {
   meta: {
@@ -19,7 +21,7 @@ const en = {
     services: {
       title: "Services | WDF",
       description:
-        "WDF services. Our Manufacturing division is online at manufacturing.wdfgroup.us.",
+        "WDF integrates engineering, supply chain, precision manufacturing, finishing, assembly, testing and logistics from the U.S.–Mexico border.",
     },
     integration: {
       title: "Integration | WDF",
@@ -118,18 +120,164 @@ const en = {
     rights: "All rights reserved.",
     external: "opens in a new tab",
   },
+  services: {
+    hero: {
+      eyebrow: "Services · WDF Manufacturing",
+      pre: "Manufacturing is our foundation.",
+      accent: "Integration is our value.",
+      sub: "Precision Manufacturing. Integrated Expertise.",
+      body: "WDF combines precision manufacturing, engineering, and industrial integration to help businesses scale smarter. Strategically positioned along the U.S.–Mexico border.",
+      primary: "Request a Quote",
+      secondary: "Visit WDF Manufacturing",
+      index: "What we integrate",
+    },
+    capabilities: {
+      eyebrow: "01 · What We Integrate",
+      title: "What We Integrate",
+      hub: "One partner coordinating engineering, supply chain, manufacturing, finishing, assembly, testing and logistics — in-house and through coordinated external processes.",
+      items: [
+        {
+          title: "Engineering & Product Understanding",
+          processes: [
+            "Reverse engineering",
+            "dimensional analysis",
+            "CAD support",
+            "functional understanding",
+            "process definition",
+            "design-for-manufacturing support",
+          ],
+        },
+        {
+          title: "Supply Chain Management",
+          processes: [
+            "Raw materials",
+            "purchased components",
+            "castings",
+            "forgings",
+            "external processes",
+            "supplier coordination",
+            "inbound logistics",
+          ],
+        },
+        {
+          title: "Manufacturing Capabilities",
+          processes: [
+            "CNC machining",
+            "turning",
+            "3-, 4- and 5-axis milling",
+            "forming",
+            "welding",
+            "tooling and fixtures",
+          ],
+        },
+        {
+          title: "External Processes & Finishing",
+          processes: [
+            "Zinc plating",
+            "chrome plating",
+            "anodizing",
+            "powder coating",
+            "painting",
+            "heat treatment",
+            "grinding",
+            "polishing",
+            "passivation",
+            "laser marking",
+            "specialty coatings",
+          ],
+        },
+        {
+          title: "Assembly & Product Integration",
+          processes: [
+            "Subassemblies",
+            "mechanical assemblies",
+            "complete product assembly",
+            "component integration",
+          ],
+        },
+        {
+          title: "Testing & Validation",
+          processes: [
+            "Dimensional inspection",
+            "functional testing",
+            "quality control",
+            "documentation",
+            "validation",
+          ],
+        },
+        {
+          title: "Packaging & Logistics",
+          processes: [
+            "Packaging",
+            "labeling",
+            "warehousing",
+            "inbound / outbound coordination",
+            "IMMEX support",
+            "final distribution",
+          ],
+        },
+      ],
+    },
+    support: {
+      eyebrow: "02 · Manufacturing Support",
+      title: "Manufacturing Capacity When You Need It.",
+      items: [
+        {
+          title: "Additional Capacity",
+          body: "Support when internal manufacturing resources are constrained.",
+        },
+        {
+          title: "Production Overflow",
+          body: "Additional manufacturing resources during production peaks.",
+        },
+        {
+          title: "Low-Volume Production",
+          body: "Flexible support for specialized or smaller production requirements.",
+        },
+        {
+          title: "High-Mix Production",
+          body: "Manufacturing support for multiple part numbers and changing requirements.",
+        },
+        {
+          title: "Custom Components",
+          body: "Manufacturing based on customer drawings and specifications.",
+        },
+        {
+          title: "Engineering Support",
+          body: "Helping bridge the gap between engineering requirements and production.",
+        },
+        {
+          title: "Import Substitution",
+          body: "We are experts in mitigating tariff impact to supply chains in North America.",
+        },
+      ],
+    },
+    industries: {
+      eyebrow: "03 · Industries",
+      title: "Built for Industrial Environments.",
+      items: [
+        "Automotive",
+        "Aerospace",
+        "Electronics",
+        "Medical",
+        "Energy — Oil & Gas",
+        "Metalmechanic",
+      ],
+    },
+    cta: {
+      eyebrow: "04 · Request for Quote",
+      title: "Need Manufacturing Support?",
+      body: "Let's talk about your next part, project or production requirement.",
+      primary: "Request a Quote",
+      secondary: "Contact WDF",
+    },
+  },
   placeholder: {
     status: "In preparation",
     body: "This page is being prepared. Content will be published once it has been approved.",
     back: "Back to home",
     pages: {
       about: { eyebrow: "About", title: "About WDF" },
-      services: {
-        eyebrow: "Services",
-        title: "Services",
-        note: "Our Manufacturing division is online today.",
-        link: "Visit manufacturing.wdfgroup.us",
-      },
       integration: { eyebrow: "Integration", title: "Integration" },
       threepl: { eyebrow: "3PL", title: "3PL" },
       contact: {

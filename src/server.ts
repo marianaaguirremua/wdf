@@ -1,5 +1,6 @@
 import "./lib/error-capture";
 
+import { internalPath, publicPath } from "./i18n/config";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
@@ -16,6 +17,16 @@ function withRobotsPolicy(request: Request, response: Response): Response {
     statusText: response.statusText,
     headers,
   });
+}
+
+// Translated pages have one public URL each: "/es/about", "/es/Integración" or "/es/tresPL"
+// permanently redirect to "/es/nosotros", "/es/integracion" and "/es/trespl".
+function canonicalRedirect(request: Request): Response | undefined {
+  const url = new URL(request.url);
+  const canonical = publicPath(internalPath(url.pathname));
+  if (canonical === url.pathname) return undefined;
+  url.pathname = canonical;
+  return new Response(null, { status: 301, headers: { location: url.pathname + url.search } });
 }
 
 type ServerEntry = {
@@ -62,6 +73,8 @@ function isH3SwallowedErrorBody(body: string): boolean {
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      const redirect = canonicalRedirect(request);
+      if (redirect) return withRobotsPolicy(request, redirect);
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
       return withRobotsPolicy(request, await normalizeCatastrophicSsrResponse(response));

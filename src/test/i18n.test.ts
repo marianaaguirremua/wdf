@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import en from "@/i18n/messages/en";
 import es from "@/i18n/messages/es";
-import { localizedPath, splitLocalePath } from "@/i18n/config";
+import { internalPath, localizedPath, publicPath, splitLocalePath } from "@/i18n/config";
 
 function shape(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(shape);
@@ -20,7 +20,35 @@ describe("localization", () => {
     expect(localizedPath("en", "/")).toBe("/");
     expect(localizedPath("en", "/about")).toBe("/about");
     expect(localizedPath("es", "/")).toBe("/es");
-    expect(localizedPath("es", "/3pl")).toBe("/es/3pl");
+    expect(localizedPath("es", "/3pl")).toBe("/es/trespl");
+  });
+
+  it("serves Spanish pages under translated slugs", () => {
+    const slugs = {
+      "/about": "/es/nosotros",
+      "/services": "/es/servicios",
+      "/integration": "/es/integracion",
+      "/3pl": "/es/trespl",
+      "/contact": "/es/contacto",
+    };
+    for (const [page, url] of Object.entries(slugs)) {
+      expect(localizedPath("es", page)).toBe(url);
+      expect(publicPath(`/es${page}`)).toBe(url);
+      expect(internalPath(url)).toBe(`/es${page}`);
+    }
+  });
+
+  it("resolves accented, capitalized and English Spanish slugs to the same page", () => {
+    expect(internalPath("/es/integraci%C3%B3n")).toBe("/es/integration");
+    expect(internalPath("/es/tresPL")).toBe("/es/3pl");
+    expect(internalPath("/es/about")).toBe("/es/about");
+  });
+
+  it("leaves English and unknown paths untouched", () => {
+    for (const path of ["/", "/about", "/services", "/es", "/es/unknown", "/es/%E0%A4%A"]) {
+      expect(internalPath(path)).toBe(path);
+      expect(publicPath(path)).toBe(path);
+    }
   });
 
   it("splits a pathname into locale and page path", () => {

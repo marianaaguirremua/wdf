@@ -2,6 +2,7 @@ import { createRouter, rootRouteId } from "@tanstack/react-router";
 import { describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { NAV_ITEMS } from "@/lib/site";
+import { internalPath, localizedPath } from "@/i18n/config";
 import en from "@/i18n/messages/en";
 
 // Match routes without rendering: jsdom never loads the stylesheets React waits on.
@@ -22,9 +23,9 @@ describe("routing", () => {
   it.each(["/", "/about", "/services", "/integration", "/3pl", "/contact"])(
     "matches a page for %s in both languages",
     (path) => {
-      for (const url of [path, path === "/" ? "/es" : `/es${path}`]) {
-        expect(leaf(url)).not.toBe(rootRouteId);
-        expect(leaf(url)).not.toBe("/{-$locale}");
+      for (const url of [localizedPath("en", path), localizedPath("es", path)]) {
+        expect(leaf(internalPath(url))).not.toBe(rootRouteId);
+        expect(leaf(internalPath(url))).not.toBe("/{-$locale}");
       }
     },
   );

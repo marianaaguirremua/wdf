@@ -1,27 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getMessages, resolveLocale, useI18n } from "@/i18n";
+import { getMessages, resolveLocale } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { PlaceholderPage, ExternalNote } from "@/components/site/PlaceholderPage";
-import { MANUFACTURING_URL } from "@/lib/site";
+import { Capabilities } from "@/components/services/Capabilities";
+import { Industries } from "@/components/services/Industries";
+import { ServicesCta } from "@/components/services/ServicesCta";
+import { ServicesHero } from "@/components/services/ServicesHero";
+import { Support } from "@/components/services/Support";
 
-// Placeholder until approved content exists; kept out of search indexes (noindex).
+// Content quoted from the approved Manufacturing site (manufacturing.wdfgroup.us).
 export const Route = createFileRoute("/{-$locale}/services")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const meta = getMessages(locale).meta.services;
-    return pageHead({ locale, path: "/services", ...meta, noindex: true });
+    return pageHead({ locale, path: "/services", ...meta });
   },
   component: Page,
 });
 
 function Page() {
-  const { t } = useI18n();
-  const page = t.placeholder.pages.services;
   return (
-    <PlaceholderPage
-      eyebrow={page.eyebrow}
-      title={page.title}
-      extra={<ExternalNote note={page.note} label={page.link} href={MANUFACTURING_URL} />}
-    />
+    <>
+      <ServicesHero />
+      <Capabilities />
+      <Support />
+      <Industries />
+      <ServicesCta />
+    </>
   );
 }
