@@ -14,7 +14,7 @@ import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$local
 import { Route as Char123LocaleChar1253plRouteImport } from './routes/{-$locale}/3pl'
 import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
 import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
-import { Route as Char123LocaleChar125IntegrationRouteImport } from './routes/{-$locale}/integration'
+import { Route as Char123LocaleChar125EnergyRouteImport } from './routes/{-$locale}/energy'
 import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}/services'
 
 const Char123LocaleChar125RouteRoute =
@@ -46,10 +46,10 @@ const Char123LocaleChar125ContactRoute =
     path: '/contact',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125IntegrationRoute =
-  Char123LocaleChar125IntegrationRouteImport.update({
-    id: '/integration',
-    path: '/integration',
+const Char123LocaleChar125EnergyRoute =
+  Char123LocaleChar125EnergyRouteImport.update({
+    id: '/energy',
+    path: '/energy',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125ServicesRoute =
@@ -64,7 +64,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/3pl': typeof Char123LocaleChar1253plRoute
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
-  '/{-$locale}/integration': typeof Char123LocaleChar125IntegrationRoute
+  '/{-$locale}/energy': typeof Char123LocaleChar125EnergyRoute
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
 }
@@ -72,7 +72,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/3pl': typeof Char123LocaleChar1253plRoute
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
-  '/{-$locale}/integration': typeof Char123LocaleChar125IntegrationRoute
+  '/{-$locale}/energy': typeof Char123LocaleChar125EnergyRoute
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
 }
@@ -82,7 +82,7 @@ export interface FileRoutesById {
   '/{-$locale}/3pl': typeof Char123LocaleChar1253plRoute
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
-  '/{-$locale}/integration': typeof Char123LocaleChar125IntegrationRoute
+  '/{-$locale}/energy': typeof Char123LocaleChar125EnergyRoute
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
 }
@@ -93,7 +93,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/3pl'
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
-    | '/{-$locale}/integration'
+    | '/{-$locale}/energy'
     | '/{-$locale}/services'
     | '/{-$locale}/'
   fileRoutesByTo: FileRoutesByTo
@@ -101,7 +101,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/3pl'
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
-    | '/{-$locale}/integration'
+    | '/{-$locale}/energy'
     | '/{-$locale}/services'
     | '/{-$locale}'
   id:
@@ -110,7 +110,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/3pl'
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
-    | '/{-$locale}/integration'
+    | '/{-$locale}/energy'
     | '/{-$locale}/services'
     | '/{-$locale}/'
   fileRoutesById: FileRoutesById
@@ -156,11 +156,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125ContactRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/integration': {
-      id: '/{-$locale}/integration'
-      path: '/integration'
-      fullPath: '/{-$locale}/integration'
-      preLoaderRoute: typeof Char123LocaleChar125IntegrationRouteImport
+    '/{-$locale}/energy': {
+      id: '/{-$locale}/energy'
+      path: '/energy'
+      fullPath: '/{-$locale}/energy'
+      preLoaderRoute: typeof Char123LocaleChar125EnergyRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/services': {
@@ -177,7 +177,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar1253plRoute: typeof Char123LocaleChar1253plRoute
   Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
   Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
-  Char123LocaleChar125IntegrationRoute: typeof Char123LocaleChar125IntegrationRoute
+  Char123LocaleChar125EnergyRoute: typeof Char123LocaleChar125EnergyRoute
   Char123LocaleChar125ServicesRoute: typeof Char123LocaleChar125ServicesRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
 }
@@ -187,7 +187,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar1253plRoute: Char123LocaleChar1253plRoute,
     Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
     Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
-    Char123LocaleChar125IntegrationRoute: Char123LocaleChar125IntegrationRoute,
+    Char123LocaleChar125EnergyRoute: Char123LocaleChar125EnergyRoute,
     Char123LocaleChar125ServicesRoute: Char123LocaleChar125ServicesRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
   }

@@ -3,7 +3,8 @@
 // Content rules for Phase 1:
 // - Manufacturing copy (including the whole Services page) is quoted verbatim from the
 //   approved manufacturing.wdfgroup.us site.
-// - Integration and 3PL show only their names and neutral "coming soon" copy.
+// - Energy and 3PL copy is quoted from the approved WDF Energy and WDF 3PL pages
+//   (wdfintegrators.com/home/energy and /home/3pl).
 // - Copy listed under `draft` sections is a creative proposal pending approval and renders
 //   with a visible "Draft" marker until DRAFT_MARKERS is turned off (see src/lib/site.ts).
 // - No statistics, clients, certifications, history or contact details (approved contacts
@@ -16,7 +17,7 @@ const en = {
     home: {
       title: "WDF | Industrial Solutions Across North America",
       description:
-        "WDF brings together manufacturing, industrial integration, and third-party logistics divisions serving industry across North America.",
+        "WDF brings together manufacturing, energy, and third-party logistics divisions serving industry across North America.",
     },
     about: { title: "About | WDF", description: "About WDF. This page is being prepared." },
     services: {
@@ -24,9 +25,10 @@ const en = {
       description:
         "WDF integrates engineering, supply chain, precision manufacturing, finishing, assembly, testing and logistics from the U.S.–Mexico border.",
     },
-    integration: {
-      title: "Integration | WDF",
-      description: "WDF industrial integration division. Coming soon.",
+    energy: {
+      title: "Energy | WDF",
+      description:
+        "WDF Energy: engineering, equipment and integration for substations, energy storage, control rooms and industrial electrical infrastructure.",
     },
     threepl: {
       title: "3PL | WDF",
@@ -39,7 +41,7 @@ const en = {
   nav: {
     about: "About",
     services: "Services",
-    integration: "Integration",
+    energy: "Energy",
     threepl: "3PL",
     contact: "Contact",
     home: "WDF — Home",
@@ -68,7 +70,7 @@ const en = {
   intro: {
     eyebrow: "01 · WDF",
     title: "One company. Three industrial divisions.",
-    body: "WDF brings manufacturing, industrial integration, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
+    body: "WDF brings manufacturing, energy, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
   },
   divisions: {
     eyebrow: "02 · Divisions",
@@ -86,10 +88,11 @@ const en = {
       ],
       cta: "Visit WDF Manufacturing",
     },
-    integration: {
-      name: "Integration",
-      kicker: "Industrial integration",
-      body: "Information about WDF's industrial integration division will be published soon.",
+    energy: {
+      name: "Energy",
+      kicker: "Infrastructure for what comes next.",
+      body: "Engineering, equipment and integration for substations, energy storage, control rooms and industrial electrical infrastructure.",
+      tags: ["Substations & grid", "BESS infrastructure", "Control shelters & E-houses"],
       cta: "Learn more",
     },
     threepl: {
@@ -116,7 +119,7 @@ const en = {
     secondary: "Request a manufacturing quote",
   },
   footer: {
-    tagline: "Manufacturing · Integration · 3PL",
+    tagline: "Manufacturing · Energy · 3PL",
     company: "Company",
     divisions: "Divisions",
     manufacturing: "Manufacturing",
@@ -344,7 +347,7 @@ const en = {
       eyebrow: "04 · Connect capabilities",
       title: "This pillar works with the others.",
       manufacturing: "From engineering to manufacturing.",
-      integration: "Integration · Energy · Automation",
+      energy: "Infrastructure for what comes next.",
     },
     cta: {
       eyebrow: "05 · Your next project",
@@ -354,13 +357,90 @@ const en = {
       contact: "Direct contact",
     },
   },
+  energy: {
+    hero: {
+      eyebrow: "Energy · WDF",
+      title: ["Infrastructure for", "what comes next."],
+      body: "Engineering, equipment and integration for substations, energy storage, control rooms and industrial electrical infrastructure.",
+      tags: ["Substations", "BESS", "Control shelters"],
+      primary: "Contact WDF",
+      drawingLabel: "Single-line diagram of a substation — decorative",
+    },
+    capabilities: {
+      eyebrow: "01 · Capabilities",
+      title: "A scope configured for your project.",
+      body: "We select services and deliverables around the technical need, timeline and required resources.",
+      items: [
+        {
+          title: "Substations & grid",
+          body: "Technical definition, HV/MV equipment, protection, auxiliaries and civil/electrical interface coordination.",
+        },
+        {
+          title: "BESS infrastructure",
+          body: "Distribution, monitoring, controls, communications and auxiliary systems surrounding energy storage.",
+        },
+        {
+          title: "Control shelters & E-houses",
+          body: "Enclosures, layout, panels, AC/DC, HVAC, lighting, cable entries and documentation.",
+        },
+        {
+          title: "Equipment & electrical packages",
+          body: "Transformers, breakers, disconnectors, switchgear and protection-and-control packages.",
+        },
+        {
+          title: "Renewables & interconnection",
+          body: "Balance of plant, structures, electrical collection, gen-tie and grid-connection coordination.",
+        },
+        {
+          title: "Field support",
+          body: "Technical field services in Mexico, with U.S. installation and commissioning scope defined per project.",
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: "02 · Deliverables & responsibilities",
+      title: "Capability becomes a defined package.",
+      items: [
+        "Engineering, calculations, drawings & BOM",
+        "Equipment packages & submittals",
+        "Integration, FAT & documentation",
+        "Logistics & delivery coordination",
+      ],
+      note: "Manufacturer, ratings, standards, warranty, installation and testing are defined in the specific proposal.",
+    },
+    process: {
+      eyebrow: "03 · How we work",
+      title: "A clear path. From scope to delivery.",
+      body: "Every project is built around deliverables, owners and verification points.",
+      steps: [
+        { title: "Understand", body: "Requirements, flow, product, site and constraints." },
+        { title: "Define", body: "Engineering, resources, scope, cost and responsibilities." },
+        { title: "Execute", body: "Sourcing, fabrication, integration and follow-up." },
+        {
+          title: "Verify & deliver",
+          body: "Testing, evidence, documentation and agreed acceptance.",
+        },
+      ],
+    },
+    connect: {
+      eyebrow: "04 · Connect capabilities",
+      title: "This pillar works with the others.",
+      manufacturing: "From engineering to manufacturing.",
+      threepl: "Two countries. One connected operation.",
+    },
+    cta: {
+      eyebrow: "05 · Your next project",
+      title: "What infrastructure does your project need?",
+      body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
+      primary: "Contact WDF",
+    },
+  },
   placeholder: {
     status: "In preparation",
     body: "This page is being prepared. Content will be published once it has been approved.",
     back: "Back to home",
     pages: {
       about: { eyebrow: "About", title: "About WDF" },
-      integration: { eyebrow: "Integration", title: "Integration" },
       contact: {
         eyebrow: "Contact",
         title: "Contact WDF",

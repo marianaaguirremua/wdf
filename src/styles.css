@@ -36,6 +36,9 @@
   --color-paper-muted: var(--paper-muted);
   --color-paper-border: var(--paper-border);
   --color-iron: var(--iron);
+  --color-mustard: var(--mustard);
+  --color-mustard-deep: var(--mustard-deep);
+  --color-mustard-soft: var(--mustard-soft);
   --font-display: "Archivo", system-ui, sans-serif;
   --font-sans: "Archivo", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -68,6 +71,11 @@
   --ink-muted: #9fb0bf;
   --ink-border: rgb(255 255 255 / 0.09);
   --teal: #13bbb4;
+  /* Energy accent: mustard for fills and rules, deep mustard for text on light surfaces
+     (AA contrast), soft mustard for warm light bands. */
+  --mustard: #d9a21b;
+  --mustard-deep: #8a6200;
+  --mustard-soft: #fbf3dc;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --header-h: 4.5rem;
 }

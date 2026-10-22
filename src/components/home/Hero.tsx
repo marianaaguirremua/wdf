@@ -12,7 +12,7 @@ export function Hero() {
   const words = t.hero.title.split(" ");
   const divisions = [
     t.divisions.manufacturing.name,
-    t.divisions.integration.name,
+    t.divisions.energy.name,
     t.divisions.threepl.name,
   ];
 

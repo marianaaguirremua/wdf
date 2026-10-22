@@ -9,7 +9,7 @@ const es: Messages = {
     home: {
       title: "WDF | Soluciones industriales en Norteamérica",
       description:
-        "WDF reúne divisiones de manufactura, integración industrial y logística de terceros (3PL) al servicio de la industria en Norteamérica.",
+        "WDF reúne divisiones de manufactura, energía y logística de terceros (3PL) al servicio de la industria en Norteamérica.",
     },
     about: {
       title: "Nosotros | WDF",
@@ -20,9 +20,10 @@ const es: Messages = {
       description:
         "WDF integra ingeniería, cadena de suministro, manufactura de precisión, acabados, ensamble, pruebas y logística desde la frontera entre EE. UU. y México.",
     },
-    integration: {
-      title: "Integración | WDF",
-      description: "División de integración industrial de WDF. Próximamente.",
+    energy: {
+      title: "Energía | WDF",
+      description:
+        "WDF Energy: ingeniería, equipos e integración para subestaciones, almacenamiento de energía, salas de control e infraestructura eléctrica industrial.",
     },
     threepl: {
       title: "3PL | WDF",
@@ -38,7 +39,7 @@ const es: Messages = {
   nav: {
     about: "Nosotros",
     services: "Servicios",
-    integration: "Integración",
+    energy: "Energía",
     threepl: "3PL",
     contact: "Contacto",
     home: "WDF — Inicio",
@@ -67,7 +68,7 @@ const es: Messages = {
   intro: {
     eyebrow: "01 · WDF",
     title: "Una empresa. Tres divisiones industriales.",
-    body: "WDF reúne manufactura, integración industrial y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
+    body: "WDF reúne manufactura, energía y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
   },
   divisions: {
     eyebrow: "02 · Divisiones",
@@ -85,10 +86,11 @@ const es: Messages = {
       ],
       cta: "Visitar WDF Manufactura",
     },
-    integration: {
-      name: "Integración",
-      kicker: "Integración industrial",
-      body: "La información sobre la división de integración industrial de WDF se publicará próximamente.",
+    energy: {
+      name: "Energía",
+      kicker: "Infraestructura para lo que viene.",
+      body: "Ingeniería, equipos e integración para subestaciones, almacenamiento de energía, salas de control e infraestructura eléctrica industrial.",
+      tags: ["Subestaciones y red", "Infraestructura BESS", "Control shelters y E-houses"],
       cta: "Más información",
     },
     threepl: {
@@ -115,7 +117,7 @@ const es: Messages = {
     secondary: "Solicitar una cotización de manufactura",
   },
   footer: {
-    tagline: "Manufactura · Integración · 3PL",
+    tagline: "Manufactura · Energía · 3PL",
     company: "Empresa",
     divisions: "Divisiones",
     manufacturing: "Manufactura",
@@ -343,7 +345,7 @@ const es: Messages = {
       eyebrow: "04 · Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
       manufacturing: "De la ingeniería a la fabricación.",
-      integration: "Integración · Energía · Automatización",
+      energy: "Infraestructura para lo que viene.",
     },
     cta: {
       eyebrow: "05 · Su siguiente proyecto",
@@ -353,13 +355,90 @@ const es: Messages = {
       contact: "Contacto directo",
     },
   },
+  energy: {
+    hero: {
+      eyebrow: "Energía · WDF",
+      title: ["Infraestructura para", "lo que viene."],
+      body: "Ingeniería, equipos e integración para subestaciones, almacenamiento de energía, salas de control e infraestructura eléctrica industrial.",
+      tags: ["Substations", "BESS", "Control shelters"],
+      primary: "Contactar a WDF",
+      drawingLabel: "Diagrama unifilar de una subestación — decorativo",
+    },
+    capabilities: {
+      eyebrow: "01 · Capacidades",
+      title: "Un alcance que se configura para su proyecto.",
+      body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
+      items: [
+        {
+          title: "Subestaciones y red",
+          body: "Definición técnica, equipos HV/MV, protecciones, auxiliares y coordinación de interfaces civiles y eléctricas.",
+        },
+        {
+          title: "Infraestructura BESS",
+          body: "Distribución, monitoreo, controles, comunicaciones y sistemas auxiliares alrededor del almacenamiento.",
+        },
+        {
+          title: "Control shelters y E-houses",
+          body: "Envolventes, layout, paneles, AC/DC, HVAC, iluminación, entradas de cable y documentación.",
+        },
+        {
+          title: "Equipos y paquetes eléctricos",
+          body: "Transformadores, interruptores, seccionadores, switchgear y paquetes de protección y control.",
+        },
+        {
+          title: "Renovables e interconexión",
+          body: "Balance de planta, estructuras, colección eléctrica, gen-tie y coordinación de conexión a la red.",
+        },
+        {
+          title: "Soporte de campo",
+          body: "Servicios técnicos en México y definición por proyecto del alcance de instalación y commissioning en EE. UU.",
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: "02 · Entregables y responsabilidades",
+      title: "La capacidad se convierte en un paquete definido.",
+      items: [
+        "Ingeniería, cálculos, planos y BOM",
+        "Paquetes de equipos y submittals",
+        "Integración, FAT y documentación",
+        "Logística y coordinación de entrega",
+      ],
+      note: "Fabricante, ratings, normas, garantías, instalación y pruebas se definen en la propuesta específica.",
+    },
+    process: {
+      eyebrow: "03 · Cómo trabajamos",
+      title: "Una ruta clara. De principio a entrega.",
+      body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
+      steps: [
+        { title: "Entender", body: "Requerimientos, flujo, producto, sitio y restricciones." },
+        { title: "Definir", body: "Ingeniería, recursos, alcance, costo y responsabilidades." },
+        { title: "Ejecutar", body: "Abastecimiento, fabricación, integración y seguimiento." },
+        {
+          title: "Verificar y entregar",
+          body: "Pruebas, evidencia, documentación y aceptación acordada.",
+        },
+      ],
+    },
+    connect: {
+      eyebrow: "04 · Conecte capacidades",
+      title: "Este pilar trabaja con los demás.",
+      manufacturing: "De la ingeniería a la fabricación.",
+      threepl: "Dos países. Una operación conectada.",
+    },
+    cta: {
+      eyebrow: "05 · Su siguiente proyecto",
+      title: "¿Qué infraestructura necesita su proyecto?",
+      body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
+      primary: "Contactar a WDF",
+    },
+  },
   placeholder: {
     status: "En preparación",
     body: "Esta página está en preparación. El contenido se publicará una vez aprobado.",
     back: "Volver al inicio",
     pages: {
       about: { eyebrow: "Nosotros", title: "Acerca de WDF" },
-      integration: { eyebrow: "Integración", title: "Integración" },
       contact: {
         eyebrow: "Contacto",
         title: "Contacto WDF",

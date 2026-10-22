@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // Each division keeps the shared grid, type and motion language but owns an accent drawn
 // from the approved palette and a line motif: toolpath (Manufacturing), single-line
-// diagram (Integration) and routed flow (3PL). Motifs animate on hover/focus.
+// diagram (Energy) and routed flow (3PL). Motifs animate on hover/focus.
 
 function ToolpathMotif() {
   return (
@@ -209,15 +209,17 @@ export function Divisions() {
           />
           <Division
             index={1}
-            accent="var(--coast)"
-            status={d.comingSoon}
-            name={d.integration.name}
-            kicker={d.integration.kicker}
-            body={d.integration.body}
+            accent="var(--mustard)"
+            live
+            status={d.online}
+            name={d.energy.name}
+            kicker={d.energy.kicker}
+            body={d.energy.body}
+            tags={d.energy.tags}
             motif={<SingleLineMotif />}
             action={
-              <Link to="/{-$locale}/integration" params={params} className={actionClass}>
-                {d.integration.cta}
+              <Link to="/{-$locale}/energy" params={params} className={actionClass}>
+                {d.energy.cta}
                 <span aria-hidden className="arrow-nudge">
                   →
                 </span>

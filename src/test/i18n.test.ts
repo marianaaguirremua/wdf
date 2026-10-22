@@ -27,7 +27,7 @@ describe("localization", () => {
     const slugs = {
       "/about": "/es/nosotros",
       "/services": "/es/servicios",
-      "/integration": "/es/integracion",
+      "/energy": "/es/energia",
       "/3pl": "/es/trespl",
       "/contact": "/es/contacto",
     };
@@ -39,7 +39,7 @@ describe("localization", () => {
   });
 
   it("resolves accented, capitalized and English Spanish slugs to the same page", () => {
-    expect(internalPath("/es/integraci%C3%B3n")).toBe("/es/integration");
+    expect(internalPath("/es/Energ%C3%ADa")).toBe("/es/energy");
     expect(internalPath("/es/tresPL")).toBe("/es/3pl");
     expect(internalPath("/es/about")).toBe("/es/about");
   });

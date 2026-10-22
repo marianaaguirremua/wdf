@@ -29,13 +29,13 @@ export const PAGE_SLUGS: Partial<Record<Locale, Record<string, string>>> = {
   es: {
     "/about": "/nosotros",
     "/services": "/servicios",
-    "/integration": "/integracion",
+    "/energy": "/energia",
     "/3pl": "/trespl",
     "/contact": "/contacto",
   },
 };
 
-/** Lowercases and strips accents so "/es/Integración" and "/es/tresPL" still resolve. */
+/** Lowercases and strips accents so "/es/Energía" and "/es/tresPL" still resolve. */
 function normalizeSlug(path: string): string {
   return path
     .normalize("NFD")

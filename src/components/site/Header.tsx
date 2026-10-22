@@ -1,7 +1,7 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
-import { localeParam, useI18n } from "@/i18n";
-import { NAV_ITEMS } from "@/lib/site";
+import { localeParam, splitLocalePath, useI18n } from "@/i18n";
+import { LIGHT_HERO_PAGES, NAV_ITEMS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
@@ -17,6 +17,7 @@ export function Header() {
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelId = useId();
   const params = { locale: localeParam(locale) };
+  const solid = scrolled || LIGHT_HERO_PAGES.includes(splitLocalePath(pathname).path);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -79,7 +80,7 @@ export function Header() {
         "fixed inset-x-0 top-0 z-50 border-b text-ink-foreground transition-[background-color,border-color,backdrop-filter] duration-500",
         open
           ? "border-ink-border bg-ink"
-          : scrolled
+          : solid
             ? "border-ink-border bg-ink/95 backdrop-blur-xl backdrop-saturate-150"
             : "border-transparent bg-transparent",
       )}

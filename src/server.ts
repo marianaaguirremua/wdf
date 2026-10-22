@@ -19,8 +19,8 @@ function withRobotsPolicy(request: Request, response: Response): Response {
   });
 }
 
-// Translated pages have one public URL each: "/es/about", "/es/Integración" or "/es/tresPL"
-// permanently redirect to "/es/nosotros", "/es/integracion" and "/es/trespl".
+// Translated pages have one public URL each: "/es/about", "/es/Energía" or "/es/tresPL"
+// permanently redirect to "/es/nosotros", "/es/energia" and "/es/trespl".
 function canonicalRedirect(request: Request): Response | undefined {
   const url = new URL(request.url);
   const canonical = publicPath(internalPath(url.pathname));

@@ -14,13 +14,13 @@ describe("routing", () => {
     expect(NAV_ITEMS.map((i) => en.nav[i.key])).toEqual([
       "About",
       "Services",
-      "Integration",
+      "Energy",
       "3PL",
       "Contact",
     ]);
   });
 
-  it.each(["/", "/about", "/services", "/integration", "/3pl", "/contact"])(
+  it.each(["/", "/about", "/services", "/energy", "/3pl", "/contact"])(
     "matches a page for %s in both languages",
     (path) => {
       for (const url of [localizedPath("en", path), localizedPath("es", path)]) {

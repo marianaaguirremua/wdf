@@ -6,8 +6,7 @@ import { MANUFACTURING_URL } from "@/lib/site";
 const cardClass =
   "group flex items-center justify-between gap-6 rounded-sm border border-ink-border p-7 transition-colors hover:border-primary md:p-8";
 
-// Links 3PL to the other WDF divisions: Manufacturing to its own site, Integration (which
-// groups integration, energy and automation) to its page here.
+// Links 3PL to the other WDF divisions: Manufacturing to its own site, Energy to its page here.
 export function ThreePlConnect() {
   const { locale, t } = useI18n();
   const c = t.threepl.connect;
@@ -43,15 +42,15 @@ export function ThreePlConnect() {
                 <span className="sr-only">({t.footer.external})</span>
               </a>
               <Link
-                to="/{-$locale}/integration"
+                to="/{-$locale}/energy"
                 params={{ locale: localeParam(locale) }}
                 className={cardClass}
               >
                 <span>
                   <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">
-                    {d.integration.name}
+                    {d.energy.name}
                   </span>
-                  <span className="mt-2 block text-sm text-ink-muted">{c.integration}</span>
+                  <span className="mt-2 block text-sm text-ink-muted">{c.energy}</span>
                 </span>
                 <span aria-hidden className="arrow-nudge text-xl">
                   →

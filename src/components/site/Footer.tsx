@@ -50,12 +50,8 @@ export function Footer() {
               </a>
             </li>
             <li>
-              <Link
-                to="/{-$locale}/integration"
-                params={params}
-                className="nav-link text-[0.95rem]"
-              >
-                {t.nav.integration}
+              <Link to="/{-$locale}/energy" params={params} className="nav-link text-[0.95rem]">
+                {t.nav.energy}
               </Link>
             </li>
             <li>
