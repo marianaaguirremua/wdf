@@ -1,0 +1,390 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+/*
+ * WDF corporate design system.
+ * Tokens mirror the approved WDF Manufacturing system (manufacturing.wdfgroup.us):
+ * Archivo + JetBrains Mono, navy #0C1828, secondary navy #1A2635, turquoise #13BBB4,
+ * petroleum / steel / industrial blues and the paper light surfaces.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-border: var(--ink-border);
+  --color-teal: var(--teal);
+  --color-petroleum: var(--petroleum);
+  --color-steel: var(--steel);
+  --color-industrial: var(--industrial);
+  --color-coast: var(--coast);
+  --color-slate: var(--slate);
+  --color-paper: var(--paper);
+  --color-paper-foreground: var(--paper-foreground);
+  --color-paper-muted: var(--paper-muted);
+  --color-paper-border: var(--paper-border);
+  --color-iron: var(--iron);
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-sans: "Archivo", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* Official WDF palette: turquoise #13BBB4, dark navy #0C1828, secondary navy #1A2635 */
+:root {
+  --radius: 0.25rem;
+  --petroleum: oklch(0.36015 0.060188 204.78);
+  --steel: oklch(0.335629 0.060384 237.257);
+  --industrial: oklch(0.445553 0.069341 229.903);
+  --coast: oklch(0.661 0.064 215);
+  --slate: #9fb0bf;
+  --paper: oklch(0.973867 0.003192 197.104);
+  --paper-foreground: oklch(0.2068 0.036 256.2);
+  --paper-muted: oklch(0.4505 0.0309 244.4);
+  --paper-border: oklch(0.930498 0.00555 211.039);
+  --iron: #e4e9ea;
+  --background: #0c1828;
+  --foreground: #eef4f6;
+  --primary: #13bbb4;
+  --primary-foreground: #0c1828;
+  --muted-foreground: #9fb0bf;
+  --border: #253447;
+  --ring: #13bbb4;
+  --ink: #0c1828;
+  --ink-2: #1a2635;
+  --ink-3: #253447;
+  --ink-foreground: #eef4f6;
+  --ink-muted: #9fb0bf;
+  --ink-border: rgb(255 255 255 / 0.09);
+  --teal: #13bbb4;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --header-h: 4.5rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: var(--header-h);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--teal) 35%, transparent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ---------- Type & layout primitives ---------- */
+
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+@utility display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+@utility container-wdf {
+  width: 100%;
+  max-width: 82rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (min-width: 768px) {
+    padding-inline: 2.5rem;
+  }
+}
+@utility blueprint {
+  background-image:
+    linear-gradient(color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in oklab, var(--primary) 7%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Light sections re-scope semantic roles (same approach as the Manufacturing site). */
+.section-light {
+  --foreground: var(--paper-foreground);
+  --muted-foreground: var(--paper-muted);
+  --border: var(--paper-border);
+  --primary: var(--petroleum);
+  background: var(--paper);
+  color: var(--paper-foreground);
+}
+
+/* Architectural column rules behind sections: 4 columns on mobile, 12 on desktop. */
+.column-rules {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(90deg, var(--ink-border) 1px, transparent 1px);
+  background-size: calc(100% / 4) 100%;
+  mask-image: linear-gradient(to bottom, transparent, #000 15%, #000 85%, transparent);
+}
+@media (min-width: 1024px) {
+  .column-rules {
+    background-size: calc(100% / 12) 100%;
+  }
+}
+
+/* ---------- Navigation ---------- */
+
+.nav-link {
+  position: relative;
+  padding-block: 0.5rem;
+  color: color-mix(in oklab, var(--ink-foreground) 72%, transparent);
+  transition: color 0.3s ease;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.15rem;
+  height: 1px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out-expo);
+}
+.nav-link:hover,
+.nav-link[aria-current="page"] {
+  color: var(--ink-foreground);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
+.mobile-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s var(--ease-out-expo);
+}
+.mobile-panel[data-open="true"] {
+  grid-template-rows: 1fr;
+}
+.mobile-panel .mobile-item {
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity 0.35s ease,
+    transform 0.5s var(--ease-out-expo);
+}
+.mobile-panel[data-open="true"] .mobile-item {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(80ms + var(--i, 0) * 45ms);
+}
+
+/* ---------- Motion ---------- */
+
+/* Headline lines rise out of a mask on load (pure CSS, so it also runs before hydration). */
+.rise-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em;
+}
+.rise-line > span {
+  display: inline-block;
+  transform: translateY(105%);
+  animation: rise 1.1s var(--ease-out-expo) forwards;
+  animation-delay: calc(150ms + var(--i, 0) * 110ms);
+}
+@keyframes rise {
+  to {
+    transform: none;
+  }
+}
+.fade-up {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: fade-up 1s var(--ease-out-expo) forwards;
+  animation-delay: var(--d, 0ms);
+}
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll reveals: only hidden once JS is confirmed, so content never disappears without it. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s ease,
+    transform 1.1s var(--ease-out-expo);
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* SVG line drawing. Elements use pathLength="1" so a single dash covers any length. */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 2.4s var(--ease-out-expo) forwards;
+  animation-delay: var(--d, 0ms);
+}
+.js .reveal .draw-on-view {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 2.6s var(--ease-out-expo);
+  transition-delay: var(--d, 0ms);
+}
+.js .reveal.in .draw-on-view {
+  stroke-dashoffset: 0;
+}
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.spin-slow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: spin 24s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.scan {
+  animation: scan 7s ease-in-out infinite;
+}
+@keyframes scan {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(var(--scan, 300px));
+  }
+}
+.blink {
+  animation: blink 2.4s ease-in-out infinite;
+}
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* Division motifs: idle by default, animate on hover/focus of their panel. */
+.motif-tool {
+  offset-path: path("M30 150 L30 40 L210 40 L210 150 L160 150 L160 90 L80 90 L80 150 Z");
+  offset-rotate: 0deg;
+  animation: travel 9s linear infinite;
+}
+.motif-flow {
+  stroke-dasharray: 4 6;
+  animation: flow 1.4s linear infinite;
+}
+.motif-route {
+  offset-path: path("M20 140 H90 V70 H160 V30 H220");
+  offset-rotate: 0deg;
+  animation: travel 6s ease-in-out infinite alternate;
+}
+@keyframes travel {
+  to {
+    offset-distance: 100%;
+  }
+}
+@keyframes flow {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+.division .motif-tool,
+.division .motif-flow,
+.division .motif-route {
+  animation-play-state: paused;
+}
+.division:hover .motif-tool,
+.division:hover .motif-flow,
+.division:hover .motif-route,
+.division:focus-within .motif-tool,
+.division:focus-within .motif-flow,
+.division:focus-within .motif-route {
+  animation-play-state: running;
+}
+.division .division-rule {
+  transform: scaleX(0.18);
+  transform-origin: left;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+.division:hover .division-rule,
+.division:focus-within .division-rule {
+  transform: scaleX(1);
+}
+
+.arrow-nudge {
+  transition: transform 0.4s var(--ease-out-expo);
+}
+a:hover .arrow-nudge,
+a:focus-visible .arrow-nudge {
+  transform: translateX(4px);
+}
+a:hover .arrow-nudge-diag,
+a:focus-visible .arrow-nudge-diag {
+  transform: translate(3px, -3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+  .motif-tool,
+  .motif-route,
+  .motif-flow,
+  .spin-slow,
+  .scan,
+  .blink {
+    animation: none !important;
+  }
+}

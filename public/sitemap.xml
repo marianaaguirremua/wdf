@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Placeholder pages are noindex and intentionally omitted until their content is approved. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://wdfgroup.us/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/es</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/" />
+  </url>
+</urlset>

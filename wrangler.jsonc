@@ -1,0 +1,9 @@
+// Nitro merges this file into the generated .output/server/wrangler.json at build time.
+// Keep it limited to what `wrangler preview` needs: the Worker name, routes, custom
+// domains, vars and secrets stay in the Cloudflare dashboard (Workers Builds targets
+// the connected Worker by name).
+{
+  // Required by `wrangler preview`. Empty because the Worker has no bindings beyond
+  // static assets; Preview secrets are managed separately from production secrets.
+  "previews": {}
+}
