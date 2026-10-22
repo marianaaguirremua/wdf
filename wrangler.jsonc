@@ -3,7 +3,7 @@
 {
   // Must match the Worker name in the Cloudflare dashboard (Workers Builds checks it).
   // A dedicated name keeps deploys from ever targeting another WDF Worker.
-  "name": "wdf-corporate",
+  "name": "wdf",
   // Required by `wrangler preview`. Empty because the Worker has no bindings beyond
   // static assets; Preview secrets are managed separately from production secrets.
   "previews": {}

@@ -24,7 +24,7 @@ bun run preview    # build + run the real Worker locally with Wrangler
 
 ### Cloudflare (Workers Builds)
 
-- Worker name: `wdf-corporate` (must match `name` in `wrangler.jsonc`).
+- Worker name: `wdf` (must match `name` in `wrangler.jsonc`).
 - Build command: `bun run build`
 - Deploy command: `npx wrangler deploy --config .output/server/wrangler.json`
 - Non-production branch deploy command:
