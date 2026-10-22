@@ -94,7 +94,8 @@ const es: Messages = {
     threepl: {
       name: "3PL",
       kicker: "Logística de terceros",
-      body: "La información sobre la división de logística de terceros de WDF se publicará próximamente.",
+      body: "Almacenamiento, maniobras, inventarios y coordinación transfronteriza, con responsables y condiciones definidos para cada operación.",
+      tags: ["Almacenamiento e inventario", "Pedimentos y cruce", "IMMEX y shelter"],
       cta: "Más información",
     },
   },
@@ -284,7 +285,7 @@ const es: Messages = {
     },
     capabilities: {
       eyebrow: "01 · Capacidades",
-      title: "Un alcance que se configura para tu proyecto.",
+      title: "Un alcance que se configura para su proyecto.",
       body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
       items: [
         {
@@ -339,15 +340,17 @@ const es: Messages = {
       ],
     },
     connect: {
-      eyebrow: "04 · Conecta capacidades",
+      eyebrow: "04 · Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
       manufacturing: "De la ingeniería a la fabricación.",
+      integration: "Integración · Energía · Automatización",
     },
     cta: {
-      eyebrow: "05 · Tu siguiente proyecto",
-      title: "¿Qué necesitas mover, guardar o conectar?",
-      body: "Cuéntanos el objetivo, el lugar y el calendario. Definimos contigo la combinación de capacidades y el alcance de trabajo.",
+      eyebrow: "05 · Su siguiente proyecto",
+      title: "¿Qué necesita mover, guardar o conectar?",
+      body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
       primary: "Contactar a WDF",
+      contact: "Contacto directo",
     },
   },
   placeholder: {

@@ -227,10 +227,12 @@ export function Divisions() {
           <Division
             index={2}
             accent="var(--slate)"
-            status={d.comingSoon}
+            live
+            status={d.online}
             name={d.threepl.name}
             kicker={d.threepl.kicker}
             body={d.threepl.body}
+            tags={d.threepl.tags}
             motif={<RouteMotif />}
             action={
               <Link to="/{-$locale}/3pl" params={params} className={actionClass}>

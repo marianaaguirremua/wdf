@@ -4,6 +4,13 @@ export const SITE_URL = "https://wdfgroup.us";
 export const MANUFACTURING_URL = "https://manufacturing.wdfgroup.us";
 export const MANUFACTURING_CONTACT_URL = `${MANUFACTURING_URL}/contact`;
 
+/** 3PL contact, approved by the WDF team for the 3PL page. */
+export const THREEPL_CONTACT = {
+  name: "Martha Echagaray",
+  phone: "+52 (686) 160 0797",
+  tel: "+526861600797",
+} as const;
+
 export const LOGO_ON_DARK = "/brand/wdf-logo-white.svg";
 export const LOGO_ON_LIGHT = "/brand/wdf-logo-black.svg";
 /** Intrinsic size of the official logo SVGs (viewBox 1431 × 363). */

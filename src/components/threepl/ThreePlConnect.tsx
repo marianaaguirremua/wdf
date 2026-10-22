@@ -6,8 +6,8 @@ import { MANUFACTURING_URL } from "@/lib/site";
 const cardClass =
   "group flex items-center justify-between gap-6 rounded-sm border border-ink-border p-7 transition-colors hover:border-primary md:p-8";
 
-// Links 3PL to the other WDF divisions. Manufacturing uses the line from the 3PL source page;
-// Integration reuses its existing homepage copy until its own page is published.
+// Links 3PL to the other WDF divisions: Manufacturing to its own site, Integration (which
+// groups integration, energy and automation) to its page here.
 export function ThreePlConnect() {
   const { locale, t } = useI18n();
   const c = t.threepl.connect;
@@ -51,9 +51,7 @@ export function ThreePlConnect() {
                   <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">
                     {d.integration.name}
                   </span>
-                  <span className="mt-2 block text-sm text-ink-muted">
-                    {d.integration.kicker} · {d.comingSoon}
-                  </span>
+                  <span className="mt-2 block text-sm text-ink-muted">{c.integration}</span>
                 </span>
                 <span aria-hidden className="arrow-nudge text-xl">
                   →

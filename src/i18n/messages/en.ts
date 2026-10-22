@@ -6,7 +6,8 @@
 // - Integration and 3PL show only their names and neutral "coming soon" copy.
 // - Copy listed under `draft` sections is a creative proposal pending approval and renders
 //   with a visible "Draft" marker until DRAFT_MARKERS is turned off (see src/lib/site.ts).
-// - No statistics, clients, certifications, history or contact details, and no capabilities
+// - No statistics, clients, certifications, history or contact details (approved contacts
+//   live in src/lib/site.ts), and no capabilities
 //   beyond those approved on the Manufacturing site.
 
 const en = {
@@ -94,7 +95,8 @@ const en = {
     threepl: {
       name: "3PL",
       kicker: "Third-party logistics",
-      body: "Information about WDF's third-party logistics division will be published soon.",
+      body: "Storage, handling, inventory and cross-border coordination, with defined ownership and conditions for each operation.",
+      tags: ["Warehousing & inventory", "Customs documentation & crossing", "IMMEX & shelter"],
       cta: "Learn more",
     },
   },
@@ -342,12 +344,14 @@ const en = {
       eyebrow: "04 · Connect capabilities",
       title: "This pillar works with the others.",
       manufacturing: "From engineering to manufacturing.",
+      integration: "Integration · Energy · Automation",
     },
     cta: {
       eyebrow: "05 · Your next project",
       title: "What do you need to move, store or connect?",
       body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
       primary: "Contact WDF",
+      contact: "Direct contact",
     },
   },
   placeholder: {
