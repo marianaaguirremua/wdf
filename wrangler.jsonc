@@ -1,8 +1,9 @@
 // Nitro merges this file into the generated .output/server/wrangler.json at build time.
-// Keep it limited to what `wrangler preview` needs: the Worker name, routes, custom
-// domains, vars and secrets stay in the Cloudflare dashboard (Workers Builds targets
-// the connected Worker by name).
+// Routes, custom domains, vars and secrets stay in the Cloudflare dashboard.
 {
+  // Must match the Worker name in the Cloudflare dashboard (Workers Builds checks it).
+  // A dedicated name keeps deploys from ever targeting another WDF Worker.
+  "name": "wdf-corporate",
   // Required by `wrangler preview`. Empty because the Worker has no bindings beyond
   // static assets; Preview secrets are managed separately from production secrets.
   "previews": {}

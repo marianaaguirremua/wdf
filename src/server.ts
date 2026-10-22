@@ -3,6 +3,21 @@ import "./lib/error-capture";
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
 
+// Only the production domain may be indexed. Every other host (workers.dev previews,
+// branch preview URLs, local dev) is served with X-Robots-Tag: noindex.
+const INDEXABLE_HOSTS = new Set(["wdfgroup.us", "www.wdfgroup.us"]);
+
+function withRobotsPolicy(request: Request, response: Response): Response {
+  if (INDEXABLE_HOSTS.has(new URL(request.url).hostname)) return response;
+  const headers = new Headers(response.headers);
+  headers.set("X-Robots-Tag", "noindex, nofollow");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
 };
@@ -49,7 +64,7 @@ export default {
     try {
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      return withRobotsPolicy(request, await normalizeCatastrophicSsrResponse(response));
     } catch (error) {
       console.error(error);
       return new Response(renderErrorPage(), {

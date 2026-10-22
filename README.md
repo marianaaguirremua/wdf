@@ -22,6 +22,17 @@ bun run preview    # build + run the real Worker locally with Wrangler
 
 `bun run deploy` publishes with Wrangler. Only run it once a release has been approved.
 
+### Cloudflare (Workers Builds)
+
+- Worker name: `wdf-corporate` (must match `name` in `wrangler.jsonc`).
+- Build command: `bun run build`
+- Deploy command: `npx wrangler deploy --config .output/server/wrangler.json`
+- Non-production branch deploy command:
+  `npx wrangler versions upload --config .output/server/wrangler.json`
+- Search indexing: only `wdfgroup.us` / `www.wdfgroup.us` are indexable. Every other host
+  (workers.dev, preview URLs) is served with `X-Robots-Tag: noindex, nofollow`
+  (see `src/server.ts`).
+
 The build is plain Vite (`vite.config.ts`). There is no Lovable tooling or sync.
 
 ## Structure
