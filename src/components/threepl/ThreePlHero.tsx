@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
-import { TranslationDraft } from "./TranslationDraft";
 
 const ROUTE = "M40 70 H150 V210 H300 V330 H420";
 
@@ -77,7 +76,6 @@ export function ThreePlHero() {
             style={{ "--d": "50ms" } as CSSProperties}
           >
             <p className="label-mono text-primary">{h.eyebrow}</p>
-            <TranslationDraft className="text-ink-muted" />
           </div>
           <h1
             id="threepl-title"

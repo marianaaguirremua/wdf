@@ -1,7 +1,6 @@
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
-import { TranslationDraft } from "./TranslationDraft";
 
 export function ThreePlCta() {
   const { locale, t } = useI18n();
@@ -19,7 +18,6 @@ export function ThreePlCta() {
       <div className="container-wdf grid gap-12 py-24 md:py-36 lg:grid-cols-12 lg:gap-8">
         <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
           <p className="label-mono text-primary">{c.eyebrow}</p>
-          <TranslationDraft className="text-ink-muted" />
         </Reveal>
         <div className="lg:col-span-9">
           <Reveal

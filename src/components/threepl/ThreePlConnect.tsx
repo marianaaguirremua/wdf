@@ -2,7 +2,6 @@ import { localeParam, useI18n } from "@/i18n";
 import { Link } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { MANUFACTURING_URL } from "@/lib/site";
-import { TranslationDraft } from "./TranslationDraft";
 
 const cardClass =
   "group flex items-center justify-between gap-6 rounded-sm border border-ink-border p-7 transition-colors hover:border-primary md:p-8";
@@ -24,7 +23,6 @@ export function ThreePlConnect() {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
             <p className="label-mono text-primary">{c.eyebrow}</p>
-            <TranslationDraft className="text-ink-muted" />
           </Reveal>
           <div className="lg:col-span-9">
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">

@@ -30,7 +30,7 @@ const en = {
     threepl: {
       title: "3PL | WDF",
       description:
-        "WDF 3PL: warehousing, material handling, inventory and U.S.–Mexico cross-border coordination, with responsibilities and conditions defined for each operation.",
+        "WDF 3PL: storage, handling, inventory and U.S.–Mexico cross-border coordination, with defined ownership and conditions for each operation.",
     },
     contact: { title: "Contact | WDF", description: "Contact WDF. This page is being prepared." },
     notFound: { title: "Page not found | WDF" },
@@ -277,7 +277,7 @@ const en = {
     hero: {
       eyebrow: "3PL · WDF",
       title: ["Two countries.", "One connected operation."],
-      body: "Warehousing, material handling, inventory and cross-border coordination, with responsibilities and conditions defined for each operation.",
+      body: "Storage, handling, inventory and cross-border coordination, with defined ownership and conditions for each operation.",
       tags: ["US ↔ MX", "Warehousing", "Cross-border"],
       primary: "Contact WDF",
       drawingLabel: "U.S.–Mexico cross-border flow — decorative",
@@ -285,53 +285,53 @@ const en = {
     capabilities: {
       eyebrow: "01 · Capabilities",
       title: "A scope configured for your project.",
-      body: "We select the services and deliverables based on the technical need, the schedule and the resources required.",
+      body: "We select services and deliverables around the technical need, timeline and required resources.",
       items: [
         {
           title: "Warehousing & inventory",
-          body: "Space, locations, identification, counts and reports agreed according to product and volume.",
+          body: "Space, locations, identification, counts and reporting matched to product and volume.",
         },
         {
           title: "Loading, unloading & handling",
-          body: "Receiving, visual inspection and handling with equipment sized for the goods.",
+          body: "Receiving, visual condition checks and handling with equipment sized for the goods.",
         },
         {
-          title: "Picking & distribution",
-          body: "Picking, packing, consolidation, cross-dock and coordination of delivery or returns.",
+          title: "Fulfillment & distribution",
+          body: "Picking, packing, consolidation, cross-docking and delivery or returns coordination.",
         },
         {
-          title: "Customs entries & crossing",
-          body: "Coordination of the file with the importer/exporter and authorized customs brokers.",
+          title: "Customs documentation & crossing",
+          body: "Shipment-file coordination with the importer/exporter and authorized customs representatives.",
         },
         {
           title: "IMMEX & shelter",
-          body: "Evaluation of the authorized model that fits the product, the company and the activity.",
+          body: "Assessment of the authorized model applicable to the goods, company and activity.",
         },
         {
-          title: "Staffing & continuity",
-          body: "Design of the operating organization and evaluation of labor transitions with specialists.",
+          title: "People & continuity",
+          body: "Operating-team design and assessment of employment transitions with specialists.",
         },
       ],
     },
     deliverables: {
       eyebrow: "02 · Deliverables & responsibilities",
-      title: "Capacity becomes a defined package.",
+      title: "Capability becomes a defined package.",
       items: [
-        "Flow map and operating sheet",
-        "Resources, locations and owners",
-        "Procedures and service levels",
-        "Inventory and movement reports",
+        "Flow map & operating profile",
+        "Resources, locations & owners",
+        "Procedures & service levels",
+        "Inventory & movement reporting",
       ],
-      note: "Facilities, availability, IMMEX holder, customs regime, employer of record and third-party services are validated and documented for each project.",
+      note: "Facilities, availability, IMMEX holder, customs regime, employer and third-party services are verified and documented per project.",
     },
     process: {
       eyebrow: "03 · How we work",
-      title: "A clear route. From start to delivery.",
-      body: "Every project is built on deliverables, owners and checkpoints.",
+      title: "A clear path. From scope to delivery.",
+      body: "Every project is built around deliverables, owners and verification points.",
       steps: [
         { title: "Understand", body: "Requirements, flow, product, site and constraints." },
         { title: "Define", body: "Engineering, resources, scope, cost and responsibilities." },
-        { title: "Execute", body: "Sourcing, manufacturing, integration and follow-up." },
+        { title: "Execute", body: "Sourcing, fabrication, integration and follow-up." },
         {
           title: "Verify & deliver",
           body: "Testing, evidence, documentation and agreed acceptance.",
@@ -339,14 +339,14 @@ const en = {
       ],
     },
     connect: {
-      eyebrow: "04 · Connected capabilities",
-      title: "This division works with the others.",
+      eyebrow: "04 · Connect capabilities",
+      title: "This pillar works with the others.",
       manufacturing: "From engineering to manufacturing.",
     },
     cta: {
       eyebrow: "05 · Your next project",
       title: "What do you need to move, store or connect?",
-      body: "Tell us the goal, the place and the schedule. Together we define the combination of capabilities and the scope of work.",
+      body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
       primary: "Contact WDF",
     },
   },

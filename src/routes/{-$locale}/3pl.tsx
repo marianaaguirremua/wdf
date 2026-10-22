@@ -8,8 +8,7 @@ import { ThreePlDeliverables } from "@/components/threepl/ThreePlDeliverables";
 import { ThreePlHero } from "@/components/threepl/ThreePlHero";
 import { ThreePlProcess } from "@/components/threepl/ThreePlProcess";
 
-// Content quoted from the approved Spanish 3PL page (wdfintegrators.com/home/3pl);
-// the English version is a translation pending approval and shows Draft markers.
+// Content quoted from the approved English and Spanish 3PL page (wdfintegrators.com/home/3pl).
 export const Route = createFileRoute("/{-$locale}/3pl")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);

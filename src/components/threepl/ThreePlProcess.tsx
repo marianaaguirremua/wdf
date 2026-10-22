@@ -1,6 +1,5 @@
 import { useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
-import { TranslationDraft } from "./TranslationDraft";
 
 // Four steps in order; the numbering is the sequence.
 export function ThreePlProcess() {
@@ -13,7 +12,6 @@ export function ThreePlProcess() {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
             <p className="label-mono text-petroleum">{p.eyebrow}</p>
-            <TranslationDraft className="text-paper-muted" />
           </Reveal>
           <div className="lg:col-span-9">
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">

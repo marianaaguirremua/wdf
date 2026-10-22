@@ -1,6 +1,5 @@
 import { useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
-import { TranslationDraft } from "./TranslationDraft";
 
 export function ThreePlDeliverables() {
   const { t } = useI18n();
@@ -16,7 +15,6 @@ export function ThreePlDeliverables() {
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
             <p className="label-mono text-primary">{d.eyebrow}</p>
-            <TranslationDraft className="text-ink-muted" />
           </Reveal>
           <Reveal
             as="h2"
