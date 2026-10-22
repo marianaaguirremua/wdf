@@ -431,6 +431,7 @@ const es: Messages = {
       title: "¿Qué infraestructura necesita su proyecto?",
       body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
       primary: "Contactar a WDF",
+      contact: "Contacto directo",
     },
   },
   placeholder: {

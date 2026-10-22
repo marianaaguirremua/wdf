@@ -433,6 +433,7 @@ const en = {
       title: "What infrastructure does your project need?",
       body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
       primary: "Contact WDF",
+      contact: "Direct contact",
     },
   },
   placeholder: {

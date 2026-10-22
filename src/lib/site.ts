@@ -11,6 +11,14 @@ export const THREEPL_CONTACT = {
   tel: "+526861600797",
 } as const;
 
+/** Energy contact, approved by the WDF team for the Energy page. */
+export const ENERGY_CONTACT = {
+  name: "Jose Luis Rios",
+  phone: "+52 686 186 6996",
+  tel: "+526861866996",
+  email: "joseluis.rios@wdfservices.com",
+} as const;
+
 export const LOGO_ON_DARK = "/brand/wdf-logo-white.svg";
 export const LOGO_ON_LIGHT = "/brand/wdf-logo-black.svg";
 /** Intrinsic size of the official logo SVGs (viewBox 1431 × 363). */
