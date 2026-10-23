@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { localeParam, useI18n } from "@/i18n";
-import { MANUFACTURING_URL, NAV_ITEMS } from "@/lib/site";
+import { MANUFACTURING_URL, NAV_ITEMS, PARTNERS } from "@/lib/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
@@ -66,6 +66,34 @@ export function Footer() {
             </li>
           </ul>
         </nav>
+      </div>
+
+      <div className="border-t border-ink-border">
+        <div className="container-wdf flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12">
+          <h2 className="label-mono text-ink-muted">{t.footer.partners}</h2>
+          <ul className="flex flex-wrap items-center gap-10">
+            {PARTNERS.map((partner) => (
+              <li key={partner.name}>
+                <a
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="block opacity-80 transition-opacity hover:opacity-100 focus-visible:opacity-100"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    width={654}
+                    height={589}
+                    loading="lazy"
+                    className="h-16 w-auto"
+                  />
+                  <span className="sr-only">({t.footer.external})</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
 
       <div className="border-t border-ink-border">

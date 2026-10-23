@@ -140,6 +140,7 @@ const en = {
     manufacturing: "Manufacturing",
     rights: "All rights reserved.",
     external: "opens in a new tab",
+    partners: "Partners",
   },
   services: {
     hero: {

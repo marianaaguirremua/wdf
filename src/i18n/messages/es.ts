@@ -135,6 +135,7 @@ const es: Messages = {
     manufacturing: "Manufactura",
     rights: "Todos los derechos reservados.",
     external: "se abre en una pestaña nueva",
+    partners: "Empresas aliadas",
   },
   services: {
     hero: {

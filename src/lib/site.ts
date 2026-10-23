@@ -2,6 +2,15 @@
 
 export const SITE_URL = "https://wdfgroup.us";
 export const MANUFACTURING_URL = "https://manufacturing.wdfgroup.us";
+
+/** Partner companies shown in the footer; logos are white on transparent for the dark footer. */
+export const PARTNERS = [
+  {
+    name: "NESIS",
+    href: "https://www.nesisautomation.com/inicio.html?lang=es",
+    logo: "/partners/nesis-white.png",
+  },
+] as const;
 export const MANUFACTURING_CONTACT_URL = `${MANUFACTURING_URL}/contact`;
 
 /** Direct contacts approved by the WDF team, shown at the end of each division page. */
