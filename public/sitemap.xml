@@ -49,4 +49,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/energia" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/energy" />
   </url>
+  <url>
+    <loc>https://wdfgroup.us/technology</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/technology" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/technology" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/es/tecnologia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/technology" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/technology" />
+  </url>
 </urlset>

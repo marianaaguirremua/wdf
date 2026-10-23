@@ -1,15 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getMessages, resolveLocale } from "@/i18n";
+import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { EnergyCapabilities } from "@/components/energy/EnergyCapabilities";
-import { EnergyConnect } from "@/components/energy/EnergyConnect";
-import { EnergyCta } from "@/components/energy/EnergyCta";
-import { EnergyDeliverables } from "@/components/energy/EnergyDeliverables";
-import { EnergyHero } from "@/components/energy/EnergyHero";
-import { EnergyProcess } from "@/components/energy/EnergyProcess";
+import { ENERGY_CONTACT } from "@/lib/site";
+import { LightDivisionPage } from "@/components/division/LightDivisionPage";
+import { Bolt } from "@/components/energy/Bolt";
+import { SingleLineDiagram } from "@/components/energy/SingleLineDiagram";
 
 // Content quoted from the approved English and Spanish WDF Energy page
-// (wdfintegrators.com/home/energy). A light page with mustard accents, unlike the dark divisions.
+// (wdfintegrators.com/home/energy). A light page with mustard accents and a lightning-bolt mark.
 export const Route = createFileRoute("/{-$locale}/energy")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
@@ -20,14 +18,17 @@ export const Route = createFileRoute("/{-$locale}/energy")({
 });
 
 function Page() {
+  const { t } = useI18n();
   return (
-    <>
-      <EnergyHero />
-      <EnergyCapabilities />
-      <EnergyDeliverables />
-      <EnergyProcess />
-      <EnergyConnect />
-      <EnergyCta />
-    </>
+    <LightDivisionPage
+      id="energy"
+      content={t.energy}
+      accent="mustard"
+      mark={Bolt}
+      cardLabel="WDF Energy"
+      drawing={<SingleLineDiagram label={t.energy.hero.drawingLabel} />}
+      linked={["technology", "manufacturing"]}
+      contact={ENERGY_CONTACT}
+    />
   );
 }

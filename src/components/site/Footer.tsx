@@ -55,6 +55,11 @@ export function Footer() {
               </Link>
             </li>
             <li>
+              <Link to="/{-$locale}/technology" params={params} className="nav-link text-[0.95rem]">
+                {t.nav.technology}
+              </Link>
+            </li>
+            <li>
               <Link to="/{-$locale}/3pl" params={params} className="nav-link text-[0.95rem]">
                 {t.nav.threepl}
               </Link>

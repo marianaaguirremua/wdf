@@ -25,6 +25,11 @@ const es: Messages = {
       description:
         "WDF Energy: ingeniería, equipos e integración para subestaciones, almacenamiento de energía, salas de control e infraestructura eléctrica industrial.",
     },
+    technology: {
+      title: "Tecnología | WDF",
+      description:
+        "WDF Technology: automatización, controles y comunicaciones para conectar equipos, procesos y datos con una ejecución industrial disciplinada.",
+    },
     threepl: {
       title: "3PL | WDF",
       description:
@@ -40,6 +45,7 @@ const es: Messages = {
     about: "Nosotros",
     services: "Servicios",
     energy: "Energía",
+    technology: "Tecnología",
     threepl: "3PL",
     contact: "Contacto",
     home: "WDF — Inicio",
@@ -345,8 +351,6 @@ const es: Messages = {
     connect: {
       eyebrow: "04 · Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
-      manufacturing: "De la ingeniería a la fabricación.",
-      energy: "Infraestructura para lo que viene.",
     },
     cta: {
       eyebrow: "05 · Su siguiente proyecto",
@@ -424,8 +428,6 @@ const es: Messages = {
     connect: {
       eyebrow: "04 · Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
-      manufacturing: "De la ingeniería a la fabricación.",
-      threepl: "Dos países. Una operación conectada.",
     },
     cta: {
       eyebrow: "05 · Su siguiente proyecto",
@@ -434,6 +436,89 @@ const es: Messages = {
       primary: "Contactar a WDF",
       contact: "Contacto directo",
     },
+  },
+  technology: {
+    hero: {
+      eyebrow: "Tecnología · WDF",
+      title: ["Sistemas que entienden", "su operación."],
+      body: "Automatización, controles y comunicaciones para conectar equipos, procesos y datos con una ejecución industrial disciplinada.",
+      tags: ["Automation", "SCADA / PLC / DCS", "Robotics"],
+      primary: "Contactar a WDF",
+      drawingLabel: "Red de control que conecta un PLC con sus dispositivos de campo — decorativo",
+    },
+    capabilities: {
+      eyebrow: "01 · Capacidades",
+      title: "Un alcance que se configura para su proyecto.",
+      body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
+      items: [
+        {
+          title: "Automatización industrial",
+          body: "Lógica de control, secuencias, interlocks y modernización de sistemas existentes.",
+        },
+        {
+          title: "PLC, DCS y HMI",
+          body: "Programación, migración, visualización y pruebas según los requisitos de operación.",
+        },
+        {
+          title: "SCADA y telemetría",
+          body: "RTU, adquisición de datos, supervisión, historian y visibilidad operativa.",
+        },
+        {
+          title: "Redes y comunicaciones",
+          body: "Integración de redes industriales e interfaces de información entre sistemas.",
+        },
+        {
+          title: "Robótica e integración",
+          body: "Coordinación de robots, dispositivos, estaciones y controles dentro del proceso productivo.",
+        },
+        {
+          title: "Pruebas y puesta en servicio",
+          body: "Simulación, FAT/SAT, cierre de pendientes, documentación y transferencia al equipo operativo.",
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: "02 · Entregables y responsabilidades",
+      title: "La capacidad se convierte en un paquete definido.",
+      items: [
+        "Arquitectura y descripción funcional",
+        "Programas, interfaces y respaldos",
+        "Protocolos FAT/SAT y evidencia",
+        "Documentación y capacitación",
+      ],
+      note: "Las plataformas, licencias, interfaces y criterios de aceptación se definen con el cliente. La ciberseguridad y los accesos remotos requieren un alcance específico.",
+    },
+    process: {
+      eyebrow: "03 · Cómo trabajamos",
+      title: "Una ruta clara. De principio a entrega.",
+      body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
+      steps: [
+        { title: "Entender", body: "Requerimientos, flujo, producto, sitio y restricciones." },
+        { title: "Definir", body: "Ingeniería, recursos, alcance, costo y responsabilidades." },
+        { title: "Ejecutar", body: "Abastecimiento, fabricación, integración y seguimiento." },
+        {
+          title: "Verificar y entregar",
+          body: "Pruebas, evidencia, documentación y aceptación acordada.",
+        },
+      ],
+    },
+    connect: {
+      eyebrow: "04 · Conecte capacidades",
+      title: "Este pilar trabaja con los demás.",
+    },
+    cta: {
+      eyebrow: "05 · Su siguiente proyecto",
+      title: "¿Qué proceso necesita automatizar o modernizar?",
+      body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
+      primary: "Contactar a WDF",
+      contact: "Contacto directo",
+    },
+  },
+  divisionLines: {
+    manufacturing: "De la ingeniería a la fabricación.",
+    energy: "Infraestructura para lo que viene.",
+    technology: "Sistemas que entienden su operación.",
+    threepl: "Dos países. Una operación conectada.",
   },
   placeholder: {
     status: "En preparación",

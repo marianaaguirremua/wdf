@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "outline" | "outline-light" | "mustard" | "ink";
+type Variant = "primary" | "outline" | "outline-light" | "accent" | "ink";
 
 const base =
   "group inline-flex min-h-12 items-center justify-center gap-3 rounded-sm px-6 text-[0.9rem] font-semibold tracking-[-0.005em] transition-[background-color,color,border-color] duration-300";
@@ -12,7 +12,8 @@ const variants: Record<Variant, string> = {
   outline: "border border-ink-border text-ink-foreground hover:border-primary hover:text-primary",
   "outline-light":
     "border border-paper-foreground/20 text-paper-foreground hover:border-paper-foreground",
-  mustard: "bg-mustard text-ink hover:bg-ink hover:text-ink-foreground",
+  /** The light division pages' accent colour (see LightDivisionPage). */
+  accent: "bg-accent text-ink hover:bg-ink hover:text-ink-foreground",
   ink: "bg-ink text-ink-foreground hover:bg-ink-2",
 };
 

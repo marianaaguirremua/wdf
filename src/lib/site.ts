@@ -46,12 +46,13 @@ export const NAV_ITEMS = [
   { key: "about", to: "/{-$locale}/about" },
   { key: "services", to: "/{-$locale}/services" },
   { key: "energy", to: "/{-$locale}/energy" },
+  { key: "technology", to: "/{-$locale}/technology" },
   { key: "threepl", to: "/{-$locale}/3pl" },
   { key: "contact", to: "/{-$locale}/contact" },
 ] as const;
 
 /** Pages whose hero is light: the header shows its solid bar from the top so it stays legible. */
-export const LIGHT_HERO_PAGES = ["/energy"];
+export const LIGHT_HERO_PAGES = ["/energy", "/technology"];
 
 /**
  * Optional hero background video (e.g. a Higgsfield export). Put the files in public/media/

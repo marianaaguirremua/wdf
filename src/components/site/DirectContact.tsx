@@ -6,7 +6,7 @@ const tones = {
     label: "text-ink-muted",
     link: "border-ink-border hover:border-primary hover:text-primary",
   },
-  mustard: { label: "text-ink/70", link: "border-ink/30 hover:border-ink" },
+  accent: { label: "text-ink/70", link: "border-ink/30 hover:border-ink" },
 } as const;
 
 /** A division's approved direct contact: name, phone (tap to call) and optional email. */

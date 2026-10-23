@@ -30,6 +30,7 @@ export const PAGE_SLUGS: Partial<Record<Locale, Record<string, string>>> = {
     "/about": "/nosotros",
     "/services": "/servicios",
     "/energy": "/energia",
+    "/technology": "/tecnologia",
     "/3pl": "/trespl",
     "/contact": "/contacto",
   },

@@ -28,6 +28,7 @@ describe("localization", () => {
       "/about": "/es/nosotros",
       "/services": "/es/servicios",
       "/energy": "/es/energia",
+      "/technology": "/es/tecnologia",
       "/3pl": "/es/trespl",
       "/contact": "/es/contacto",
     };

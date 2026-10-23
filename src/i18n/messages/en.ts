@@ -30,6 +30,11 @@ const en = {
       description:
         "WDF Energy: engineering, equipment and integration for substations, energy storage, control rooms and industrial electrical infrastructure.",
     },
+    technology: {
+      title: "Technology | WDF",
+      description:
+        "WDF Technology: automation, controls and communications connecting equipment, processes and data through disciplined industrial execution.",
+    },
     threepl: {
       title: "3PL | WDF",
       description:
@@ -42,6 +47,7 @@ const en = {
     about: "About",
     services: "Services",
     energy: "Energy",
+    technology: "Technology",
     threepl: "3PL",
     contact: "Contact",
     home: "WDF — Home",
@@ -347,8 +353,6 @@ const en = {
     connect: {
       eyebrow: "04 · Connect capabilities",
       title: "This pillar works with the others.",
-      manufacturing: "From engineering to manufacturing.",
-      energy: "Infrastructure for what comes next.",
     },
     cta: {
       eyebrow: "05 · Your next project",
@@ -426,8 +430,6 @@ const en = {
     connect: {
       eyebrow: "04 · Connect capabilities",
       title: "This pillar works with the others.",
-      manufacturing: "From engineering to manufacturing.",
-      threepl: "Two countries. One connected operation.",
     },
     cta: {
       eyebrow: "05 · Your next project",
@@ -436,6 +438,90 @@ const en = {
       primary: "Contact WDF",
       contact: "Direct contact",
     },
+  },
+  technology: {
+    hero: {
+      eyebrow: "Technology · WDF",
+      title: ["Systems that understand", "your operation."],
+      body: "Automation, controls and communications connecting equipment, processes and data through disciplined industrial execution.",
+      tags: ["Automation", "SCADA / PLC / DCS", "Robotics"],
+      primary: "Contact WDF",
+      drawingLabel: "Control network linking a PLC to its field devices — decorative",
+    },
+    capabilities: {
+      eyebrow: "01 · Capabilities",
+      title: "A scope configured for your project.",
+      body: "We select services and deliverables around the technical need, timeline and required resources.",
+      items: [
+        {
+          title: "Industrial automation",
+          body: "Control logic, sequences, interlocks and modernization of existing systems.",
+        },
+        {
+          title: "PLC, DCS & HMI",
+          body: "Programming, migration, visualization and testing against operating requirements.",
+        },
+        {
+          title: "SCADA & telemetry",
+          body: "RTU, data acquisition, supervision, historian and operational visibility.",
+        },
+        {
+          title: "Networks & communications",
+          body: "Industrial network integration and information interfaces between systems.",
+        },
+        {
+          title: "Robotics & integration",
+          body: "Coordination of robots, devices, workstations and controls within the production process.",
+        },
+        {
+          title: "Testing & startup",
+          body: "Simulation, FAT/SAT, punch-list closure, documentation and operational handover.",
+        },
+      ],
+    },
+    deliverables: {
+      eyebrow: "02 · Deliverables & responsibilities",
+      title: "Capability becomes a defined package.",
+      items: [
+        "Architecture & functional description",
+        "Programs, interfaces & backups",
+        "FAT/SAT procedures & evidence",
+        "Documentation & training",
+      ],
+      note: "Platforms, licenses, interfaces and acceptance criteria are defined with the customer. Cybersecurity and remote access require a specific scope.",
+    },
+    process: {
+      eyebrow: "03 · How we work",
+      title: "A clear path. From scope to delivery.",
+      body: "Every project is built around deliverables, owners and verification points.",
+      steps: [
+        { title: "Understand", body: "Requirements, flow, product, site and constraints." },
+        { title: "Define", body: "Engineering, resources, scope, cost and responsibilities." },
+        { title: "Execute", body: "Sourcing, fabrication, integration and follow-up." },
+        {
+          title: "Verify & deliver",
+          body: "Testing, evidence, documentation and agreed acceptance.",
+        },
+      ],
+    },
+    connect: {
+      eyebrow: "04 · Connect capabilities",
+      title: "This pillar works with the others.",
+    },
+    cta: {
+      eyebrow: "05 · Your next project",
+      title: "What process do you need to automate or modernize?",
+      body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
+      primary: "Contact WDF",
+      contact: "Direct contact",
+    },
+  },
+  // One-line description of each division, used on the "works with the others" cards.
+  divisionLines: {
+    manufacturing: "From engineering to manufacturing.",
+    energy: "Infrastructure for what comes next.",
+    technology: "Systems that understand your operation.",
+    threepl: "Two countries. One connected operation.",
   },
   placeholder: {
     status: "In preparation",

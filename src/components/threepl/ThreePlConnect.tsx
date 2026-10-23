@@ -34,7 +34,9 @@ export function ThreePlConnect() {
                   <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">
                     {d.manufacturing.name}
                   </span>
-                  <span className="mt-2 block text-sm text-ink-muted">{c.manufacturing}</span>
+                  <span className="mt-2 block text-sm text-ink-muted">
+                    {t.divisionLines.manufacturing}
+                  </span>
                 </span>
                 <span aria-hidden className="arrow-nudge arrow-nudge-diag text-xl">
                   ↗
@@ -50,7 +52,9 @@ export function ThreePlConnect() {
                   <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">
                     {d.energy.name}
                   </span>
-                  <span className="mt-2 block text-sm text-ink-muted">{c.energy}</span>
+                  <span className="mt-2 block text-sm text-ink-muted">
+                    {t.divisionLines.energy}
+                  </span>
                 </span>
                 <span aria-hidden className="arrow-nudge text-xl">
                   →

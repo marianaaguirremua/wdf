@@ -36,9 +36,9 @@
   --color-paper-muted: var(--paper-muted);
   --color-paper-border: var(--paper-border);
   --color-iron: var(--iron);
-  --color-mustard: var(--mustard);
-  --color-mustard-deep: var(--mustard-deep);
-  --color-mustard-soft: var(--mustard-soft);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-soft: var(--accent-soft);
   --font-display: "Archivo", system-ui, sans-serif;
   --font-sans: "Archivo", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -76,6 +76,9 @@
   --mustard: #d9a21b;
   --mustard-deep: #8a6200;
   --mustard-soft: #fbf3dc;
+  /* Technology accent: the logo's cyan, with a deep cyan for text on light surfaces. */
+  --cyan-deep: #0a7570;
+  --cyan-soft: #e3f6f5;
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --header-h: 4.5rem;
 }
@@ -146,6 +149,18 @@
   --primary: var(--petroleum);
   background: var(--paper);
   color: var(--paper-foreground);
+}
+
+/* Accent sets for the light division pages (Energy, Technology): bg-accent, text-accent-deep… */
+.accent-mustard {
+  --accent: var(--mustard);
+  --accent-deep: var(--mustard-deep);
+  --accent-soft: var(--mustard-soft);
+}
+.accent-cyan {
+  --accent: var(--teal);
+  --accent-deep: var(--cyan-deep);
+  --accent-soft: var(--cyan-soft);
 }
 
 /* Architectural column rules behind sections: 4 columns on mobile, 12 on desktop. */
