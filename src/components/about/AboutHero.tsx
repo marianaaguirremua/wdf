@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
-import { DraftMark } from "@/components/site/Draft";
 import { Bolt } from "@/components/energy/Bolt";
 import { Chip } from "@/components/technology/Chip";
 import { MANUFACTURING_URL } from "@/lib/site";
@@ -150,16 +149,14 @@ export function AboutHero() {
           </h1>
           <div className="fade-up mt-10 max-w-[36rem]" style={{ "--d": "600ms" } as CSSProperties}>
             <p className="text-[1.0625rem] leading-relaxed text-paper-muted md:text-xl">{h.body}</p>
-            <DraftMark className="mt-4 text-paper-muted" />
           </div>
           <div
             className="fade-up mt-10 flex flex-col gap-3 sm:flex-row"
             style={{ "--d": "800ms" } as CSSProperties}
           >
             <ButtonLink
-              to="/{-$locale}/about"
+              to="/{-$locale}/about/leadership"
               params={{ locale: localeParam(locale) }}
-              hash="leadership"
               className="accent-cyan"
               variant="accent"
             >

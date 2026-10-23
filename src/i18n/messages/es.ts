@@ -16,6 +16,11 @@ const es: Messages = {
       description:
         "Nosotros: manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa, y el equipo de liderazgo de WDF.",
     },
+    leadership: {
+      title: "Equipo de liderazgo | WDF",
+      description:
+        "El equipo de liderazgo de WDF, con teléfono y correo directo de cada persona: un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
+    },
     services: {
       title: "Servicios | WDF",
       description:
@@ -124,7 +129,7 @@ const es: Messages = {
     secondary: "Solicitar una cotización de manufactura",
   },
   footer: {
-    tagline: "Manufactura · Energía · 3PL",
+    tagline: "Manufactura · Energía · Tecnología · 3PL",
     company: "Empresa",
     divisions: "Divisiones",
     manufacturing: "Manufactura",
@@ -523,22 +528,29 @@ const es: Messages = {
   },
   about: {
     hero: {
-      eyebrow: "Nosotros · WDF",
-      title: ["La manufactura es nuestra base.", "La integración es nuestro valor."],
-      body: "WDF reúne manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
+      eyebrow: "WDF Group · México / Estados Unidos",
+      title: ["Cuatro pilares.", "Una capacidad conectada."],
+      body: "Fabricamos, movemos, energizamos y automatizamos. Conectamos capacidades industriales para llevar su proyecto de la definición a la ejecución.",
       primary: "Conozca al equipo",
       secondary: "Contactar a WDF",
       divisions: "Nuestras divisiones",
     },
-    reachEyebrow: "01 · Dónde estamos",
     team: {
-      eyebrow: "02 · Liderazgo",
+      eyebrow: "01 · Liderazgo y contacto directo",
+      title: "Del objetivo comercial a la definición técnica.",
+      body: "Un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
+      cta: "Conozca a nuestro equipo de liderazgo",
+      visualLabel: "Monogramas del equipo de liderazgo de WDF",
+    },
+    ctaEyebrow: "02 · Contacto",
+    leadership: {
+      eyebrow: "Nosotros · Liderazgo y contacto directo",
       title: "Conozca a nuestro equipo de liderazgo.",
-      body: "Las personas detrás de cada proyecto de WDF. Contáctelas directamente.",
+      body: "Un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
+      back: "Volver a Nosotros",
       call: "Llamar",
       email: "Correo",
     },
-    ctaEyebrow: "03 · Contacto",
   },
   placeholder: {
     status: "En preparación",

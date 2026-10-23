@@ -73,4 +73,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about" />
   </url>
+  <url>
+    <loc>https://wdfgroup.us/about/leadership</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/about/leadership" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros/liderazgo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about/leadership" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/es/nosotros/liderazgo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/about/leadership" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros/liderazgo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about/leadership" />
+  </url>
 </urlset>

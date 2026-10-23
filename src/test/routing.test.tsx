@@ -21,13 +21,19 @@ describe("routing", () => {
     ]);
   });
 
-  it.each(["/", "/about", "/services", "/energy", "/technology", "/3pl", "/contact"])(
-    "matches a page for %s in both languages",
-    (path) => {
-      for (const url of [localizedPath("en", path), localizedPath("es", path)]) {
-        expect(leaf(internalPath(url))).not.toBe(rootRouteId);
-        expect(leaf(internalPath(url))).not.toBe("/{-$locale}");
-      }
-    },
-  );
+  it.each([
+    "/",
+    "/about",
+    "/about/leadership",
+    "/services",
+    "/energy",
+    "/technology",
+    "/3pl",
+    "/contact",
+  ])("matches a page for %s in both languages", (path) => {
+    for (const url of [localizedPath("en", path), localizedPath("es", path)]) {
+      expect(leaf(internalPath(url))).not.toBe(rootRouteId);
+      expect(leaf(internalPath(url))).not.toBe("/{-$locale}");
+    }
+  });
 });

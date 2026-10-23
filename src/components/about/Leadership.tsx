@@ -1,7 +1,9 @@
-import { useI18n } from "@/i18n";
-import { DraftMark } from "@/components/site/Draft";
+import { Link } from "@tanstack/react-router";
+import { localeParam, useI18n } from "@/i18n";
+import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 import { LEADERSHIP_TEAM, initials, telHref, type TeamMember } from "@/lib/team";
+import { cn } from "@/lib/utils";
 
 function PhoneIcon() {
   return (
@@ -61,7 +63,7 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
           <a
             href={telHref(member.phone)}
             className={contactLink}
-            aria-label={`${t.about.team.call} ${member.name}: ${member.phone}`}
+            aria-label={`${t.about.leadership.call} ${member.name}: ${member.phone}`}
           >
             <PhoneIcon />
             <span className="tabular-nums">{member.phone}</span>
@@ -69,7 +71,7 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
           <a
             href={`mailto:${member.email}`}
             className={contactLink}
-            aria-label={`${t.about.team.email} ${member.name}: ${member.email}`}
+            aria-label={`${t.about.leadership.email} ${member.name}: ${member.email}`}
           >
             <MailIcon />
             {/* Long addresses may wrap only before the "@", never mid-word. */}
@@ -84,33 +86,113 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
   );
 }
 
-export function Leadership() {
-  const { t } = useI18n();
+/** Monogram mosaic standing in for a team photo until one is available. */
+function TeamMosaic({ label }: { label: string }) {
+  return (
+    <div
+      role="img"
+      aria-label={label}
+      className="relative isolate grid aspect-[4/3] grid-cols-4 gap-2 overflow-hidden bg-ink p-4 sm:gap-3 sm:p-6"
+    >
+      <div aria-hidden className="blueprint absolute inset-0 -z-10 opacity-70" />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[radial-gradient(70%_70%_at_40%_45%,color-mix(in_oklab,var(--teal)_24%,transparent),transparent)]"
+      />
+      {LEADERSHIP_TEAM.map((member, i) => (
+        <span
+          key={member.email}
+          aria-hidden
+          className={cn(
+            "display grid place-items-center rounded-sm border text-[clamp(0.9rem,2.2vw,1.6rem)] font-semibold",
+            i % 5 === 0
+              ? "border-teal bg-teal text-ink"
+              : "border-ink-border bg-ink-2/70 text-ink-foreground",
+          )}
+        >
+          {initials(member.name)}
+        </span>
+      ))}
+    </div>
+  );
+}
+
+/**
+ * About-page entry to the team: a monogram mosaic overlapping a teal panel with the call to
+ * action, the way a team photo would sit beside it. The full team lives on its own page.
+ */
+export function LeadershipTeaser() {
+  const { locale, t } = useI18n();
   const c = t.about.team;
 
   return (
     <section
-      id="leadership"
       aria-labelledby="leadership-title"
-      className="scroll-mt-[var(--header-h)] bg-white text-paper-foreground"
+      className="bg-white py-24 text-paper-foreground md:py-36"
     >
-      <div className="container-wdf py-24 md:py-36">
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono text-cyan-deep">{c.eyebrow}</p>
-          </Reveal>
-          <div className="lg:col-span-9">
-            <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
-              <span id="leadership-title">{c.title}</span>
-            </Reveal>
-            <Reveal delay={160} className="mt-8 flex flex-wrap items-center gap-4">
-              <p className="max-w-2xl text-lg leading-relaxed text-paper-muted md:text-[1.25rem]">
-                {c.body}
-              </p>
-              <DraftMark className="text-paper-muted" />
-            </Reveal>
+      <div className="container-wdf grid lg:grid-cols-12">
+        <Reveal className="relative z-10 lg:col-[1/8] lg:row-[1] lg:self-start">
+          <TeamMosaic label={c.visualLabel} />
+        </Reveal>
+        <Reveal
+          delay={120}
+          className="-mt-10 bg-teal px-6 pb-10 pt-20 text-ink sm:px-10 lg:col-[2/13] lg:row-[1] lg:mt-20 lg:grid lg:grid-cols-11 lg:px-0 lg:py-20"
+        >
+          <div className="lg:col-[8/12] lg:pr-14">
+            <p className="label-mono text-ink/70">{c.eyebrow}</p>
+            <h2 id="leadership-title" className="display mt-5 text-[clamp(2rem,3.4vw,3rem)]">
+              {c.title}
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-ink/80">{c.body}</p>
+            <ButtonLink
+              to="/{-$locale}/about/leadership"
+              params={{ locale: localeParam(locale) }}
+              variant="ink"
+              className="mt-10"
+            >
+              {c.cta}
+            </ButtonLink>
           </div>
-        </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/** The leadership team page: header, then one card per person with direct phone and email. */
+export function LeadershipDirectory() {
+  const { locale, t } = useI18n();
+  const c = t.about.leadership;
+
+  return (
+    <section
+      aria-labelledby="leadership-title"
+      className="relative isolate bg-paper text-paper-foreground"
+    >
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 -z-10 h-[34rem] [background-image:linear-gradient(color-mix(in_oklab,var(--petroleum)_7%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--petroleum)_7%,transparent)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:linear-gradient(to_bottom,#000,transparent)]"
+      />
+      <div className="container-wdf pb-24 pt-[calc(var(--header-h)+4rem)] md:pb-36 md:pt-[calc(var(--header-h)+5.5rem)]">
+        <Link
+          to="/{-$locale}/about"
+          params={{ locale: localeParam(locale) }}
+          className="label-mono inline-flex items-center gap-2 text-paper-muted transition-colors hover:text-cyan-deep"
+        >
+          <span aria-hidden>←</span> {c.back}
+        </Link>
+        <p className="label-mono fade-up mt-10 text-cyan-deep">{c.eyebrow}</p>
+        <h1
+          id="leadership-title"
+          className="display mt-6 max-w-4xl text-[clamp(2.5rem,5.6vw,5rem)] font-semibold"
+        >
+          <span className="rise-line">
+            <span>{c.title}</span>
+          </span>
+        </h1>
+        <p className="fade-up mt-8 max-w-2xl text-lg leading-relaxed text-paper-muted md:text-[1.25rem]">
+          {c.body}
+        </p>
 
         <div className="mt-16 grid gap-5 sm:grid-cols-2 md:mt-20 lg:grid-cols-3 xl:grid-cols-4">
           {LEADERSHIP_TEAM.map((member, i) => (

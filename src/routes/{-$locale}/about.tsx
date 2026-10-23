@@ -2,12 +2,11 @@ import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { AboutHero } from "@/components/about/AboutHero";
-import { Leadership } from "@/components/about/Leadership";
+import { LeadershipTeaser } from "@/components/about/Leadership";
 import { ContactCta } from "@/components/home/ContactCta";
-import { NorthAmerica } from "@/components/home/NorthAmerica";
 
-// Who WDF is: the brand statement and the four divisions, where WDF operates, and the
-// leadership team with their direct contact details (src/lib/team.ts).
+// Who WDF is: the four pillars, an entry to the leadership team (its own page,
+// /about/leadership) and the contact CTA. Hero copy is the approved WDF Group text.
 export const Route = createFileRoute("/{-$locale}/about")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
@@ -22,8 +21,7 @@ function Page() {
   return (
     <>
       <AboutHero />
-      <NorthAmerica eyebrow={t.about.reachEyebrow} />
-      <Leadership />
+      <LeadershipTeaser />
       <ContactCta eyebrow={t.about.ctaEyebrow} />
     </>
   );

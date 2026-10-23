@@ -28,6 +28,7 @@ export function localeParam(locale: Locale): Locale | undefined {
 export const PAGE_SLUGS: Partial<Record<Locale, Record<string, string>>> = {
   es: {
     "/about": "/nosotros",
+    "/about/leadership": "/nosotros/liderazgo",
     "/services": "/servicios",
     "/energy": "/energia",
     "/technology": "/tecnologia",

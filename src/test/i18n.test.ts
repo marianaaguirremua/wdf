@@ -26,6 +26,7 @@ describe("localization", () => {
   it("serves Spanish pages under translated slugs", () => {
     const slugs = {
       "/about": "/es/nosotros",
+      "/about/leadership": "/es/nosotros/liderazgo",
       "/services": "/es/servicios",
       "/energy": "/es/energia",
       "/technology": "/es/tecnologia",

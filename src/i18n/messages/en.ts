@@ -24,6 +24,11 @@ const en = {
       description:
         "About WDF: manufacturing, energy, technology and third-party logistics under one corporate identity, and the leadership team behind them.",
     },
+    leadership: {
+      title: "Leadership team | WDF",
+      description:
+        "The WDF leadership team, with direct phone and email for each person: a team connecting strategy, engineering and customer follow-up.",
+    },
     services: {
       title: "Services | WDF",
       description:
@@ -129,7 +134,7 @@ const en = {
     secondary: "Request a manufacturing quote",
   },
   footer: {
-    tagline: "Manufacturing · Energy · 3PL",
+    tagline: "Manufacturing · Energy · Technology · 3PL",
     company: "Company",
     divisions: "Divisions",
     manufacturing: "Manufacturing",
@@ -529,22 +534,29 @@ const en = {
   },
   about: {
     hero: {
-      eyebrow: "About WDF",
-      title: ["Manufacturing is our foundation.", "Integration is our value."],
-      body: "WDF brings manufacturing, energy, technology and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
+      eyebrow: "WDF Group · Mexico / United States",
+      title: ["Four pillars.", "One connected capability."],
+      body: "We manufacture, move, power and automate. We connect industrial capabilities to take your project from definition to execution.",
       primary: "Meet the team",
       secondary: "Contact WDF",
       divisions: "Our divisions",
     },
-    reachEyebrow: "01 · Where we are",
     team: {
-      eyebrow: "02 · Leadership",
+      eyebrow: "01 · Leadership & direct contact",
+      title: "From business goal to technical definition.",
+      body: "A team connecting strategy, engineering and customer follow-up.",
+      cta: "Meet our leadership team",
+      visualLabel: "Monograms of the WDF leadership team",
+    },
+    ctaEyebrow: "02 · Contact",
+    leadership: {
+      eyebrow: "About · Leadership & direct contact",
       title: "Meet our leadership team.",
-      body: "The people behind every WDF project. Reach them directly.",
+      body: "A team connecting strategy, engineering and customer follow-up.",
+      back: "Back to About",
       call: "Call",
       email: "Email",
     },
-    ctaEyebrow: "03 · Contact",
   },
   placeholder: {
     status: "In preparation",
