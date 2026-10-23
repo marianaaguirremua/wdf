@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
+import { TECHNOLOGY_CONTACT } from "@/lib/site";
 import { LightDivisionPage } from "@/components/division/LightDivisionPage";
 import { Chip } from "@/components/technology/Chip";
 import { ControlNetworkDiagram } from "@/components/technology/ControlNetworkDiagram";
@@ -27,6 +28,7 @@ function Page() {
       cardLabel="WDF Technology"
       drawing={<ControlNetworkDiagram label={t.technology.hero.drawingLabel} />}
       linked={["manufacturing", "energy"]}
+      contact={TECHNOLOGY_CONTACT}
     />
   );
 }

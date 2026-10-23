@@ -22,13 +22,15 @@ export const THREEPL_CONTACT: DivisionContact = {
   tel: "+526861600797",
 };
 
-/** Energy contact. */
+/** Energy contact; also the Technology contact. */
 export const ENERGY_CONTACT: DivisionContact = {
   name: "Jose Luis Rios",
   phone: "+52 686 186 6996",
   tel: "+526861866996",
   email: "joseluis.rios@wdfservices.com",
 };
+
+export const TECHNOLOGY_CONTACT = ENERGY_CONTACT;
 
 export const LOGO_ON_DARK = "/brand/wdf-logo-white.svg";
 export const LOGO_ON_LIGHT = "/brand/wdf-logo-black.svg";
