@@ -294,11 +294,19 @@ const es: Messages = {
       eyebrow: "3PL · Logística transfronteriza",
       title: ["Dos países.", "Una operación conectada."],
       body: "Inventarios, empaque y coordinación transfronteriza operan desde nuestras instalaciones en Mexicali, justo en la **frontera entre EE. UU. y México**, con una oficina en Yuma, Arizona. Desde ahí, su carga se conecta con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
-      legend: [
-        { term: "Ubicación WDF", text: "Mexicali, B.C. y Yuma, AZ" },
-        { term: "Una operación", text: "enlazada a través de la frontera" },
-        { term: "Puertos y rutas comerciales", text: "rutas con las que nos conectamos" },
-      ],
+      legend: {
+        flow: [
+          { term: "Proveedores y puertos globales", text: "donde se origina la carga" },
+          { term: "Frontera EE. UU.–México", text: "se cruza como un solo flujo conectado" },
+          { term: "Yuma y clientes en EE. UU.", text: "entrega del lado estadounidense" },
+        ],
+        lines: [
+          { term: "Una operación", text: "enlazada a través de la frontera" },
+          { term: "Puertos y rutas comerciales", text: "rutas con las que nos conectamos" },
+          { term: "Puerto marítimo", text: "no es una instalación de WDF" },
+        ],
+      },
+      places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
       primary: "Hable con nuestro equipo 3PL",
       map: {
         label:

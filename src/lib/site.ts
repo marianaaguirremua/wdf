@@ -22,6 +22,12 @@ export const THREEPL_CONTACT: DivisionContact = {
   tel: "+526861600797",
 };
 
+/** 3PL locations shown on the 3PL page map and below its legend. */
+export const THREEPL_LOCATIONS = {
+  mexicali: { address: ["Calle Saturno 18, Alamitos", "21210 Mexicali, B.C."] },
+  yuma: { phone: "+1 928-246-4860", tel: "+19282464860" },
+} as const;
+
 /** Energy contact; also the Technology contact. */
 export const ENERGY_CONTACT: DivisionContact = {
   name: "Jose Luis Rios",

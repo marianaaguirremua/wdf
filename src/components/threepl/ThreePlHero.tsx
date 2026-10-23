@@ -1,8 +1,10 @@
 import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
+import { THREEPL_LOCATIONS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { BorderMap } from "./BorderMap";
+import { AnchorIcon, CubeIcon, GlobeIcon } from "./icons";
 
 /** Renders `**…**` spans in a copy string as emphasis. */
 function emphasize(text: string): ReactNode[] {
@@ -17,18 +19,42 @@ function emphasize(text: string): ReactNode[] {
   );
 }
 
-// Legend keys match the map: pin, the dashed Mexicali–Yuma link, dotted trade lanes.
-const LEGEND_KEYS: ReactNode[] = [
-  <span key="pin" className="block size-3 rounded-full bg-teal" />,
+const dash = (color: string, on: number, off: number) =>
+  `repeating-linear-gradient(90deg,${color} 0 ${on}px,transparent ${on}px ${on + off}px)`;
+
+// Legend keys, in message order: the flow (where freight starts, the border, where it lands),
+// then the map's line styles (the Mexicali–Yuma link, dotted trade lanes, seaport anchors).
+const FLOW_KEYS: ReactNode[] = [
+  <GlobeIcon key="globe" className="size-5 text-ink-foreground" />,
+  <span
+    key="border"
+    className="block h-0.5 w-6"
+    style={{ background: dash("var(--ink-muted)", 5, 4) }}
+  />,
+  <CubeIcon key="cube" className="size-5 text-primary" />,
+];
+const LINE_KEYS: ReactNode[] = [
   <span
     key="link"
-    className="block h-[3px] w-6 bg-[repeating-linear-gradient(90deg,var(--teal)_0_8px,transparent_8px_13px)]"
+    className="block h-[3px] w-6"
+    style={{ background: dash("var(--teal)", 8, 5) }}
   />,
-  <span
-    key="lane"
-    className="block h-[3px] w-6 bg-[radial-gradient(circle,var(--teal)_45%,transparent_50%)] bg-[length:6px_3px]"
-  />,
+  <span key="lane" className="block h-0.5 w-6" style={{ background: dash("var(--teal)", 3, 4) }} />,
+  <AnchorIcon key="anchor" className="size-5 text-primary" />,
 ];
+
+function LegendItem({ icon, term, text }: { icon: ReactNode; term: string; text: string }) {
+  return (
+    <li className="flex items-start gap-4 text-[0.95rem] leading-snug">
+      <span aria-hidden className="grid h-5 w-6 shrink-0 place-items-center">
+        {icon}
+      </span>
+      <span className="text-ink-muted">
+        <strong className="font-semibold text-ink-foreground">{term}</strong> — {text}
+      </span>
+    </li>
+  );
+}
 
 export function ThreePlHero() {
   const { locale, t } = useI18n();
@@ -41,86 +67,118 @@ export function ThreePlHero() {
     >
       <div aria-hidden className="column-rules -z-10" />
 
-      <div className="container-wdf grid gap-14 pb-20 pt-[calc(var(--header-h)+4rem)] md:pb-24 lg:grid-cols-12 lg:gap-10 lg:pt-[calc(var(--header-h)+5rem)]">
-        <div className="lg:col-span-5">
-          <p className="label-mono fade-up text-primary" style={{ "--d": "50ms" } as CSSProperties}>
-            {h.eyebrow}
-          </p>
-          <h1
-            id="threepl-title"
-            className="display mt-7 text-[clamp(2.5rem,4.4vw,4.25rem)] font-semibold"
-          >
-            {h.title.map((line, i) => (
-              <span key={line} className="rise-line">
-                <span style={{ "--i": i } as CSSProperties} className={i ? "text-primary" : ""}>
-                  {line}
-                </span>
+      <div className="container-wdf pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-24 lg:pt-[calc(var(--header-h)+3.5rem)]">
+        <p
+          className="label-mono fade-up text-primary md:text-right"
+          style={{ "--d": "50ms" } as CSSProperties}
+        >
+          {h.eyebrow}
+        </p>
+        <h1
+          id="threepl-title"
+          className="display mt-6 text-[clamp(2.6rem,6.6vw,6.25rem)] font-semibold md:text-center"
+        >
+          {h.title.map((line, i) => (
+            <span key={line} className="rise-line">
+              <span style={{ "--i": i } as CSSProperties} className={i ? "text-primary" : ""}>
+                {line}
               </span>
-            ))}
-          </h1>
-          <p
-            className="fade-up mt-8 text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg"
-            style={{ "--d": "600ms" } as CSSProperties}
-          >
-            {emphasize(h.body)}
-          </p>
+            </span>
+          ))}
+        </h1>
+        <p
+          className="fade-up mt-10 text-[1.0625rem] leading-relaxed text-ink-muted md:text-xl"
+          style={{ "--d": "600ms" } as CSSProperties}
+        >
+          {emphasize(h.body)}
+        </p>
 
-          <ul
-            className="fade-up mt-8 flex flex-col gap-4 rounded-sm border border-ink-border bg-ink-2/60 p-6"
-            style={{ "--d": "700ms" } as CSSProperties}
-          >
-            {h.legend.map((item, i) => (
-              <li key={item.term} className="flex items-center gap-4 text-[0.95rem]">
-                <span aria-hidden className="grid w-6 shrink-0 place-items-center">
-                  {LEGEND_KEYS[i]}
-                </span>
-                <span className="text-ink-muted">
-                  <strong className="font-semibold text-ink-foreground">{item.term}</strong> —{" "}
-                  {item.text}
-                </span>
-              </li>
-            ))}
-          </ul>
+        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-10">
+          <div className="fade-up lg:col-span-4" style={{ "--d": "700ms" } as CSSProperties}>
+            <div className="rounded-sm border border-ink-border bg-ink-2/60 p-6">
+              <ul className="flex flex-col gap-5">
+                {h.legend.flow.map((item, i) => (
+                  <LegendItem key={item.term} icon={FLOW_KEYS[i]} {...item} />
+                ))}
+              </ul>
+              <div className="my-6 h-px bg-ink-border" />
+              <ul className="flex flex-col gap-5">
+                {h.legend.lines.map((item, i) => (
+                  <LegendItem key={item.term} icon={LINE_KEYS[i]} {...item} />
+                ))}
+              </ul>
+            </div>
 
-          <div className="fade-up mt-8" style={{ "--d": "800ms" } as CSSProperties}>
-            <ButtonLink
-              to="/{-$locale}/3pl"
-              params={{ locale: localeParam(locale) }}
-              hash="threepl-contact"
-            >
-              {h.primary}
-            </ButtonLink>
-          </div>
-        </div>
+            <dl className="mt-8 grid grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-5 px-1 text-[0.95rem]">
+              <div>
+                <dt className="label-mono text-primary">{h.places.mexicali}</dt>
+                <dd className="mt-3 leading-relaxed text-ink-foreground/90">
+                  {THREEPL_LOCATIONS.mexicali.address.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+              <div>
+                <dt className="label-mono text-primary">{h.places.yuma}</dt>
+                <dd className="mt-3">
+                  <a
+                    href={`tel:${THREEPL_LOCATIONS.yuma.tel}`}
+                    className="tabular-nums text-ink-foreground/90 transition-colors hover:text-primary"
+                  >
+                    {THREEPL_LOCATIONS.yuma.phone}
+                  </a>
+                </dd>
+              </div>
+            </dl>
 
-        <div className="fade-up min-w-0 lg:col-span-7" style={{ "--d": "300ms" } as CSSProperties}>
-          {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
-          <div className="overflow-x-auto rounded-sm border border-ink-border">
-            <div className="min-w-[640px]">
-              <BorderMap copy={h.map} />
+            <div className="mt-8">
+              <ButtonLink
+                to="/{-$locale}/3pl"
+                params={{ locale: localeParam(locale) }}
+                hash="threepl-contact"
+              >
+                {h.primary}
+              </ButtonLink>
             </div>
           </div>
 
-          <ol className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
-            {h.flow.map((step, i) => (
-              <li key={step} className="flex items-center gap-2">
-                <span
-                  className={cn(
-                    "label-mono rounded-sm border px-2.5 py-2.5 text-[0.6rem] tracking-[0.12em]",
-                    i % 2 ? "border-primary text-primary" : "border-ink-border text-ink-foreground",
-                  )}
-                >
-                  {step}
-                </span>
-                {i < h.flow.length - 1 && (
-                  <span aria-hidden className="text-ink-muted">
-                    →
+          <div
+            className="fade-up min-w-0 lg:col-span-8"
+            style={{ "--d": "300ms" } as CSSProperties}
+          >
+            {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
+            <div className="overflow-x-auto rounded-md border border-ink-border">
+              <div className="min-w-[640px]">
+                <BorderMap copy={h.map} />
+              </div>
+            </div>
+
+            <ol className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
+              {h.flow.map((step, i) => (
+                <li key={step} className="flex items-center gap-2">
+                  <span
+                    className={cn(
+                      "label-mono inline-flex items-center gap-2 rounded-sm border px-3 py-2.5 text-[0.62rem] tracking-[0.14em]",
+                      i % 2
+                        ? "border-primary text-primary"
+                        : "border-ink-border text-ink-foreground",
+                    )}
+                  >
+                    {i === 0 && <GlobeIcon className="size-4" />}
+                    {step}
                   </span>
-                )}
-              </li>
-            ))}
-          </ol>
-          <p className="mt-5 text-sm leading-relaxed text-ink-muted">{h.note}</p>
+                  {i < h.flow.length - 1 && (
+                    <span aria-hidden className="text-ink-muted">
+                      →
+                    </span>
+                  )}
+                </li>
+              ))}
+            </ol>
+            <p className="mt-5 text-sm leading-relaxed text-ink-muted">{h.note}</p>
+          </div>
         </div>
       </div>
     </section>

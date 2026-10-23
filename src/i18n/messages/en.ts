@@ -300,11 +300,19 @@ const en = {
       title: ["Two countries.", "One connected operation."],
       // **…** marks emphasis.
       body: "Inventory, packaging and cross-border coordination run from our Mexicali facility, right on the **U.S.–Mexico border**, with a U.S. office in Yuma, Arizona. From there, your freight connects to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
-      legend: [
-        { term: "WDF location", text: "Mexicali, B.C. and Yuma, AZ" },
-        { term: "One operation", text: "linked across the border" },
-        { term: "Gateways & trade lanes", text: "routes we connect to" },
-      ],
+      legend: {
+        flow: [
+          { term: "Global suppliers & ports", text: "where freight originates" },
+          { term: "U.S.–Mexico border", text: "crossed as one connected flow" },
+          { term: "Yuma & U.S. customers", text: "delivery on the U.S. side" },
+        ],
+        lines: [
+          { term: "One operation", text: "linked across the border" },
+          { term: "Gateways & trade lanes", text: "routes we connect to" },
+          { term: "Seaport gateway", text: "not a WDF facility" },
+        ],
+      },
+      places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
       primary: "Talk to our 3PL team",
       map: {
         label:
