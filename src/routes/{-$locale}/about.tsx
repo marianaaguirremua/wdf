@@ -1,20 +1,30 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { PlaceholderPage } from "@/components/site/PlaceholderPage";
+import { AboutHero } from "@/components/about/AboutHero";
+import { Leadership } from "@/components/about/Leadership";
+import { ContactCta } from "@/components/home/ContactCta";
+import { NorthAmerica } from "@/components/home/NorthAmerica";
 
-// Placeholder until approved content exists; kept out of search indexes (noindex).
+// Who WDF is: the brand statement and the four divisions, where WDF operates, and the
+// leadership team with their direct contact details (src/lib/team.ts).
 export const Route = createFileRoute("/{-$locale}/about")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const meta = getMessages(locale).meta.about;
-    return pageHead({ locale, path: "/about", ...meta, noindex: true });
+    return pageHead({ locale, path: "/about", ...meta });
   },
   component: Page,
 });
 
 function Page() {
   const { t } = useI18n();
-  const page = t.placeholder.pages.about;
-  return <PlaceholderPage eyebrow={page.eyebrow} title={page.title} />;
+  return (
+    <>
+      <AboutHero />
+      <NorthAmerica eyebrow={t.about.reachEyebrow} />
+      <Leadership />
+      <ContactCta eyebrow={t.about.ctaEyebrow} />
+    </>
+  );
 }

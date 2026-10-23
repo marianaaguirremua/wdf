@@ -19,7 +19,11 @@ const en = {
       description:
         "WDF brings together manufacturing, energy, and third-party logistics divisions serving industry across North America.",
     },
-    about: { title: "About | WDF", description: "About WDF. This page is being prepared." },
+    about: {
+      title: "About | WDF",
+      description:
+        "About WDF: manufacturing, energy, technology and third-party logistics under one corporate identity, and the leadership team behind them.",
+    },
     services: {
       title: "Services | WDF",
       description:
@@ -523,12 +527,30 @@ const en = {
     technology: "Systems that understand your operation.",
     threepl: "Two countries. One connected operation.",
   },
+  about: {
+    hero: {
+      eyebrow: "About WDF",
+      title: ["Manufacturing is our foundation.", "Integration is our value."],
+      body: "WDF brings manufacturing, energy, technology and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
+      primary: "Meet the team",
+      secondary: "Contact WDF",
+      divisions: "Our divisions",
+    },
+    reachEyebrow: "01 · Where we are",
+    team: {
+      eyebrow: "02 · Leadership",
+      title: "Meet our leadership team.",
+      body: "The people behind every WDF project. Reach them directly.",
+      call: "Call",
+      email: "Email",
+    },
+    ctaEyebrow: "03 · Contact",
+  },
   placeholder: {
     status: "In preparation",
     body: "This page is being prepared. Content will be published once it has been approved.",
     back: "Back to home",
     pages: {
-      about: { eyebrow: "About", title: "About WDF" },
       contact: {
         eyebrow: "Contact",
         title: "Contact WDF",

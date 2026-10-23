@@ -13,7 +13,8 @@ const es: Messages = {
     },
     about: {
       title: "Nosotros | WDF",
-      description: "Acerca de WDF. Esta página está en preparación.",
+      description:
+        "Nosotros: manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa, y el equipo de liderazgo de WDF.",
     },
     services: {
       title: "Servicios | WDF",
@@ -520,12 +521,30 @@ const es: Messages = {
     technology: "Sistemas que entienden su operación.",
     threepl: "Dos países. Una operación conectada.",
   },
+  about: {
+    hero: {
+      eyebrow: "Nosotros · WDF",
+      title: ["La manufactura es nuestra base.", "La integración es nuestro valor."],
+      body: "WDF reúne manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
+      primary: "Conozca al equipo",
+      secondary: "Contactar a WDF",
+      divisions: "Nuestras divisiones",
+    },
+    reachEyebrow: "01 · Dónde estamos",
+    team: {
+      eyebrow: "02 · Liderazgo",
+      title: "Conozca a nuestro equipo de liderazgo.",
+      body: "Las personas detrás de cada proyecto de WDF. Contáctelas directamente.",
+      call: "Llamar",
+      email: "Correo",
+    },
+    ctaEyebrow: "03 · Contacto",
+  },
   placeholder: {
     status: "En preparación",
     body: "Esta página está en preparación. El contenido se publicará una vez aprobado.",
     back: "Volver al inicio",
     pages: {
-      about: { eyebrow: "Nosotros", title: "Acerca de WDF" },
       contact: {
         eyebrow: "Contacto",
         title: "Contacto WDF",

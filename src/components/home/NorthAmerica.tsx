@@ -12,7 +12,8 @@ const LABELS: [number, number][] = [
   [-103.5, 23.5],
 ];
 
-export function NorthAmerica() {
+/** `eyebrow` overrides the homepage section number when the map is reused on another page. */
+export function NorthAmerica({ eyebrow }: { eyebrow?: string }) {
   const { t } = useI18n();
 
   return (
@@ -20,7 +21,7 @@ export function NorthAmerica() {
       <div className="container-wdf grid items-center gap-14 py-24 md:py-32 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <Reveal className="flex flex-wrap items-center gap-4">
-            <p className="label-mono text-petroleum">{t.reach.eyebrow}</p>
+            <p className="label-mono text-petroleum">{eyebrow ?? t.reach.eyebrow}</p>
             <DraftMark className="text-paper-muted" />
           </Reveal>
           <Reveal as="h2" delay={80} className="display mt-6 text-[clamp(2.25rem,4.6vw,3.9rem)]">

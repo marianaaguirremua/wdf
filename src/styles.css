@@ -36,6 +36,8 @@
   --color-paper-muted: var(--paper-muted);
   --color-paper-border: var(--paper-border);
   --color-iron: var(--iron);
+  --color-cyan-deep: var(--cyan-deep);
+  --color-cyan-soft: var(--cyan-soft);
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
   --color-accent-soft: var(--accent-soft);

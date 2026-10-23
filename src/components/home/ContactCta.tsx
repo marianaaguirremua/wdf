@@ -3,7 +3,8 @@ import { ButtonLink, ExternalButton } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 import { MANUFACTURING_CONTACT_URL } from "@/lib/site";
 
-export function ContactCta() {
+/** `eyebrow` overrides the homepage section number when the CTA is reused on another page. */
+export function ContactCta({ eyebrow }: { eyebrow?: string }) {
   const { locale, t } = useI18n();
   return (
     <section
@@ -16,7 +17,7 @@ export function ContactCta() {
       />
       <div className="container-wdf grid gap-12 py-24 md:py-36 lg:grid-cols-12 lg:gap-8">
         <Reveal className="lg:col-span-3">
-          <p className="label-mono text-primary">{t.cta.eyebrow}</p>
+          <p className="label-mono text-primary">{eyebrow ?? t.cta.eyebrow}</p>
         </Reveal>
         <div className="lg:col-span-9">
           <Reveal
