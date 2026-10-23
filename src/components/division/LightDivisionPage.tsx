@@ -4,7 +4,7 @@ import { localeParam, useI18n, type Messages } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { DirectContact } from "@/components/site/DirectContact";
 import { Reveal } from "@/components/site/Reveal";
-import { MANUFACTURING_URL, type DivisionContact } from "@/lib/site";
+import { MANUFACTURING_URL, NESIS, type DivisionContact } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Light division page (Energy, Technology): white and paper sections with one accent colour,
@@ -66,7 +66,7 @@ function Hero({
   mark: Mark;
   drawing: ReactNode;
 }) {
-  const { locale } = useI18n();
+  const { locale, t } = useI18n();
   return (
     <section aria-labelledby={`${id}-title`} className="relative isolate overflow-hidden bg-white">
       <div
@@ -122,7 +122,10 @@ function Hero({
               </li>
             ))}
           </ul>
-          <div className="fade-up mt-10" style={{ "--d": "800ms" } as CSSProperties}>
+          <div
+            className="fade-up mt-10 flex flex-wrap items-center gap-x-8 gap-y-6"
+            style={{ "--d": "800ms" } as CSSProperties}
+          >
             <ButtonLink
               to="/{-$locale}/contact"
               params={{ locale: localeParam(locale) }}
@@ -130,6 +133,24 @@ function Hero({
             >
               {c.primary}
             </ButtonLink>
+            <a
+              href={NESIS.href}
+              target="_blank"
+              rel="noopener"
+              className="group inline-flex items-center gap-4 sm:border-l sm:border-paper-foreground/15 sm:pl-8"
+            >
+              <span className="label-mono text-paper-muted transition-colors group-hover:text-paper-foreground">
+                {t.footer.partneredWith}
+              </span>
+              <img
+                src={NESIS.logoColor}
+                alt={NESIS.name}
+                width={266}
+                height={240}
+                className="h-14 w-auto"
+              />
+              <span className="sr-only">({t.footer.external})</span>
+            </a>
           </div>
         </div>
 

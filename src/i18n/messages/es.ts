@@ -143,6 +143,7 @@ const es: Messages = {
     rights: "Todos los derechos reservados.",
     external: "se abre en una pestaña nueva",
     partners: "Empresas aliadas",
+    partneredWith: "En alianza con",
   },
   services: {
     hero: {

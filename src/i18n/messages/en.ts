@@ -148,6 +148,7 @@ const en = {
     rights: "All rights reserved.",
     external: "opens in a new tab",
     partners: "Partners",
+    partneredWith: "Partnered with",
   },
   services: {
     hero: {

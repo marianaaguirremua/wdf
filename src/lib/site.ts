@@ -9,8 +9,12 @@ export const PARTNERS = [
     name: "NESIS",
     href: "https://www.nesisautomation.com/inicio.html?lang=es",
     logo: "/partners/nesis-white.png",
+    logoColor: "/partners/nesis.png",
   },
 ] as const;
+
+/** Partner behind the Energy and Technology divisions, credited in their page heroes. */
+export const NESIS = PARTNERS[0];
 export const MANUFACTURING_CONTACT_URL = `${MANUFACTURING_URL}/contact`;
 
 /** Direct contacts approved by the WDF team, shown at the end of each division page. */
