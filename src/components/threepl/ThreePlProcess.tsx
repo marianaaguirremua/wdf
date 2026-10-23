@@ -7,7 +7,10 @@ export function ThreePlProcess() {
   const p = t.threepl.process;
 
   return (
-    <section aria-labelledby="threepl-process-title" className="section-light relative">
+    <section
+      aria-labelledby="threepl-process-title"
+      className="relative bg-white text-paper-foreground"
+    >
       <div className="container-wdf py-24 md:py-36">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">

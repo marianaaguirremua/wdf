@@ -9,7 +9,7 @@ export function ThreePlCapabilities() {
   return (
     <section
       aria-labelledby="threepl-capabilities-title"
-      className="relative bg-white text-paper-foreground"
+      className="relative bg-paper text-paper-foreground"
     >
       <div className="container-wdf py-24 md:py-36">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">

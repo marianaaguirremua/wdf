@@ -352,6 +352,48 @@ const es: Messages = {
       ],
       primary: "Hable de su expansión a EE. UU.",
     },
+    whyYuma: {
+      eyebrow: "¿Por qué Yuma, Arizona?",
+      title: "Una ubicación en EE. UU. cerca de California y México.",
+      body: [
+        "Explore una ubicación que acerca su negocio a clientes en EE. UU. y a recursos de manufactura transfronterizos.",
+        "Desde Yuma, WDF le ayuda a evaluar cómo los proveedores regionales, la logística, los servicios técnicos y los requisitos de operación se ajustan a sus planes de expansión, para que tome decisiones informadas antes de comprometer recursos.",
+      ],
+      diagram: {
+        label: "Yuma, Arizona, se ubica entre California y Mexicali, Baja California, México.",
+        california: "California, EE. UU.",
+        yuma: "Yuma, Arizona",
+        yumaRole: "Oficina de WDF",
+        mexico: "Mexicali, B.C., México",
+      },
+    },
+    establish: {
+      eyebrow: "Cómo le ayudamos a establecerse",
+      title: [
+        "Entienda los requisitos.",
+        "Conozca a las personas indicadas.",
+        "Planee su operación.",
+      ],
+      steps: [
+        {
+          title: "Evalúe su oportunidad",
+          body: "Defina sus objetivos, necesidades técnicas, requisitos de ubicación y costos de operación esperados.",
+        },
+        {
+          title: "Conecte con recursos regionales",
+          body: "Identifique proveedores, prestadores de servicios y contactos de negocio relevantes para su proyecto.",
+        },
+        {
+          title: "Coordine los requisitos de instalación",
+          body: "Organice los pasos, la documentación y la participación de especialistas que requiere la operación propuesta.",
+        },
+        {
+          title: "Integre su operación",
+          body: "Coordine ingeniería, manufactura, logística y soporte diario con un alcance, presupuesto y responsabilidades acordados.",
+        },
+      ],
+      primary: "Cuéntenos qué quiere construir",
+    },
     capabilities: {
       eyebrow: "01 · Capacidades",
       crossTag: "MX ⇄ US",

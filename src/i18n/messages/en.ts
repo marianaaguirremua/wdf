@@ -358,6 +358,44 @@ const en = {
       ],
       primary: "Discuss your U.S. expansion",
     },
+    whyYuma: {
+      eyebrow: "Why Yuma, Arizona?",
+      title: "A U.S. location close to California and Mexico.",
+      body: [
+        "Explore a location that brings your business closer to U.S. customers and cross-border manufacturing resources.",
+        "From Yuma, WDF helps you evaluate how regional suppliers, logistics, technical services, and operating requirements fit your expansion plans—so you can make informed decisions before committing resources.",
+      ],
+      diagram: {
+        label: "Yuma, Arizona sits between California and Mexicali, Baja California, Mexico.",
+        california: "California, USA",
+        yuma: "Yuma, Arizona",
+        yumaRole: "WDF office",
+        mexico: "Mexicali, B.C., Mexico",
+      },
+    },
+    establish: {
+      eyebrow: "How we help you get established",
+      title: ["Understand the requirements.", "Meet the right people.", "Plan your operation."],
+      steps: [
+        {
+          title: "Evaluate your opportunity",
+          body: "Define your goals, technical needs, location requirements, and expected operating costs.",
+        },
+        {
+          title: "Connect with regional resources",
+          body: "Identify relevant suppliers, service providers, and business contacts for your project.",
+        },
+        {
+          title: "Coordinate setup requirements",
+          body: "Organize the steps, documentation, and specialist input needed for your proposed operation.",
+        },
+        {
+          title: "Bring your operation together",
+          body: "Coordinate engineering, manufacturing, logistics, and day-to-day support around an agreed scope, budget, and responsibilities.",
+        },
+      ],
+      primary: "Tell us what you want to build",
+    },
     capabilities: {
       eyebrow: "01 · Capabilities",
       crossTag: "MX ⇄ US",
