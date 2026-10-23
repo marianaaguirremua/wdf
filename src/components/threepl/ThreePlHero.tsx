@@ -113,7 +113,7 @@ export function ThreePlHero() {
               </ul>
             </div>
 
-            <dl className="mt-8 grid grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] gap-5 px-1 text-[0.95rem]">
+            <dl className="mt-8 grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-4 px-1 text-[0.95rem]">
               <div>
                 <dt className="label-mono text-accent">{h.places.mexicali}</dt>
                 <dd className="mt-3 leading-relaxed text-ink-foreground/90">
@@ -126,10 +126,15 @@ export function ThreePlHero() {
               </div>
               <div>
                 <dt className="label-mono text-accent">{h.places.yuma}</dt>
-                <dd className="mt-3">
+                <dd className="mt-3 leading-relaxed text-ink-foreground/90">
+                  {THREEPL_LOCATIONS.yuma.address.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
                   <a
                     href={`tel:${THREEPL_LOCATIONS.yuma.tel}`}
-                    className="tabular-nums text-ink-foreground/90 transition-colors hover:text-accent"
+                    className="mt-1 block tabular-nums transition-colors hover:text-accent"
                   >
                     {THREEPL_LOCATIONS.yuma.phone}
                   </a>

@@ -405,14 +405,19 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
       <Dot at={P.sanLuis} name="San Luis R.C." dx={16} dy={26} />
 
       {/* WDF locations */}
-      <line x1={yx} y1={yy} x2={yx} y2={yy - 80} stroke="var(--ink-3)" strokeWidth="2" />
+      <path
+        d={`M${yx} ${yy}V${yy - 40}H${yx + 50}`}
+        fill="none"
+        stroke="var(--ink-3)"
+        strokeWidth="2"
+      />
       <line x1={mx} y1={my} x2={mx} y2={my + 80} stroke="var(--ink-3)" strokeWidth="2" />
       <Card
-        x={yx - 40}
-        y={yy - 80 - 178}
-        w={270}
+        x={yx + 50}
+        y={yy - 40 - 230}
+        w={290}
         {...copy.yuma}
-        lines={[THREEPL_LOCATIONS.yuma.phone]}
+        lines={[...THREEPL_LOCATIONS.yuma.address, THREEPL_LOCATIONS.yuma.phone]}
       />
       <Card
         x={mx - 30}

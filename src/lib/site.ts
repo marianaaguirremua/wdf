@@ -25,7 +25,11 @@ export const THREEPL_CONTACT: DivisionContact = {
 /** 3PL locations shown on the 3PL page map and below its legend. */
 export const THREEPL_LOCATIONS = {
   mexicali: { address: ["Calle Saturno 18, Alamitos", "21210 Mexicali, B.C."] },
-  yuma: { phone: "+1 928-246-4860", tel: "+19282464860" },
+  yuma: {
+    address: ["2450 S Madison Ave", "Yuma, AZ 85364-8516"],
+    phone: "+1 928-246-4860",
+    tel: "+19282464860",
+  },
 } as const;
 
 /** Energy contact; also the Technology contact. */
