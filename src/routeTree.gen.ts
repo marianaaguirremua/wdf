@@ -17,7 +17,7 @@ import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$loc
 import { Route as Char123LocaleChar125EnergyRouteImport } from './routes/{-$locale}/energy'
 import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}/services'
 import { Route as Char123LocaleChar125TechnologyRouteImport } from './routes/{-$locale}/technology'
-import { Route as Char123LocaleChar125AboutLeadershipRouteImport } from './routes/{-$locale}/about_.leadership'
+import { Route as Char123LocaleChar125AboutTeamRouteImport } from './routes/{-$locale}/about_.team'
 
 const Char123LocaleChar125RouteRoute =
   Char123LocaleChar125RouteRouteImport.update({
@@ -66,10 +66,10 @@ const Char123LocaleChar125TechnologyRoute =
     path: '/technology',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125AboutLeadershipRoute =
-  Char123LocaleChar125AboutLeadershipRouteImport.update({
-    id: '/about_/leadership',
-    path: '/about/leadership',
+const Char123LocaleChar125AboutTeamRoute =
+  Char123LocaleChar125AboutTeamRouteImport.update({
+    id: '/about_/team',
+    path: '/about/team',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 
@@ -82,7 +82,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/technology': typeof Char123LocaleChar125TechnologyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
-  '/{-$locale}/about/leadership': typeof Char123LocaleChar125AboutLeadershipRoute
+  '/{-$locale}/about/team': typeof Char123LocaleChar125AboutTeamRoute
 }
 export interface FileRoutesByTo {
   '/{-$locale}/3pl': typeof Char123LocaleChar1253plRoute
@@ -92,7 +92,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/technology': typeof Char123LocaleChar125TechnologyRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
-  '/{-$locale}/about/leadership': typeof Char123LocaleChar125AboutLeadershipRoute
+  '/{-$locale}/about/team': typeof Char123LocaleChar125AboutTeamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -104,7 +104,7 @@ export interface FileRoutesById {
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
   '/{-$locale}/technology': typeof Char123LocaleChar125TechnologyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
-  '/{-$locale}/about_/leadership': typeof Char123LocaleChar125AboutLeadershipRoute
+  '/{-$locale}/about_/team': typeof Char123LocaleChar125AboutTeamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -117,7 +117,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/services'
     | '/{-$locale}/technology'
     | '/{-$locale}/'
-    | '/{-$locale}/about/leadership'
+    | '/{-$locale}/about/team'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/{-$locale}/3pl'
@@ -127,7 +127,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/services'
     | '/{-$locale}/technology'
     | '/{-$locale}'
-    | '/{-$locale}/about/leadership'
+    | '/{-$locale}/about/team'
   id:
     | '__root__'
     | '/{-$locale}'
@@ -138,7 +138,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/services'
     | '/{-$locale}/technology'
     | '/{-$locale}/'
-    | '/{-$locale}/about_/leadership'
+    | '/{-$locale}/about_/team'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -203,11 +203,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125TechnologyRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/about_/leadership': {
-      id: '/{-$locale}/about_/leadership'
-      path: '/about/leadership'
-      fullPath: '/{-$locale}/about/leadership'
-      preLoaderRoute: typeof Char123LocaleChar125AboutLeadershipRouteImport
+    '/{-$locale}/about_/team': {
+      id: '/{-$locale}/about_/team'
+      path: '/about/team'
+      fullPath: '/{-$locale}/about/team'
+      preLoaderRoute: typeof Char123LocaleChar125AboutTeamRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
   }
@@ -221,7 +221,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125ServicesRoute: typeof Char123LocaleChar125ServicesRoute
   Char123LocaleChar125TechnologyRoute: typeof Char123LocaleChar125TechnologyRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
-  Char123LocaleChar125AboutLeadershipRoute: typeof Char123LocaleChar125AboutLeadershipRoute
+  Char123LocaleChar125AboutTeamRoute: typeof Char123LocaleChar125AboutTeamRoute
 }
 
 const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChildren =
@@ -233,8 +233,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125ServicesRoute: Char123LocaleChar125ServicesRoute,
     Char123LocaleChar125TechnologyRoute: Char123LocaleChar125TechnologyRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
-    Char123LocaleChar125AboutLeadershipRoute:
-      Char123LocaleChar125AboutLeadershipRoute,
+    Char123LocaleChar125AboutTeamRoute: Char123LocaleChar125AboutTeamRoute,
   }
 
 const Char123LocaleChar125RouteRouteWithChildren =

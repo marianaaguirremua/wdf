@@ -6,11 +6,11 @@ import { ContactCta } from "@/components/home/ContactCta";
 
 // The leadership team with direct contact details (src/lib/team.ts), reached from About.
 // `about_` keeps the URL under /about without nesting this page inside the About layout.
-export const Route = createFileRoute("/{-$locale}/about_/leadership")({
+export const Route = createFileRoute("/{-$locale}/about_/team")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const meta = getMessages(locale).meta.leadership;
-    return pageHead({ locale, path: "/about/leadership", ...meta });
+    return pageHead({ locale, path: "/about/team", ...meta });
   },
   component: Page,
 });

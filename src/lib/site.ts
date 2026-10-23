@@ -54,7 +54,7 @@ export const NAV_ITEMS = [
 ] as const;
 
 /** Pages whose hero is light: the header shows its solid bar from the top so it stays legible. */
-export const LIGHT_HERO_PAGES = ["/about", "/about/leadership", "/energy", "/technology"];
+export const LIGHT_HERO_PAGES = ["/about", "/about/team", "/energy", "/technology"];
 
 /**
  * Optional hero background video (e.g. a Higgsfield export). Put the files in public/media/

@@ -540,7 +540,8 @@ const es: Messages = {
       title: "Del objetivo comercial a la definición técnica.",
       body: "Un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
       cta: "Conozca a nuestro equipo de liderazgo",
-      visualLabel: "Monogramas del equipo de liderazgo de WDF",
+      visualLabel:
+        "Ilustración: un equipo sube una viga por una escalera de bloques, cada persona impulsa a la siguiente, hasta que una llega a la cima junto a un sol naciente.",
     },
     ctaEyebrow: "02 · Contacto",
     leadership: {

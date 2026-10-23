@@ -74,15 +74,15 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/about/leadership</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/about/leadership" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros/liderazgo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about/leadership" />
+    <loc>https://wdfgroup.us/about/team</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/about/team" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros/equipo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about/team" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/es/nosotros/liderazgo</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/about/leadership" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros/liderazgo" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about/leadership" />
+    <loc>https://wdfgroup.us/es/nosotros/equipo</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/about/team" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros/equipo" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about/team" />
   </url>
 </urlset>

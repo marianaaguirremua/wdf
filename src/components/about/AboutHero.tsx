@@ -155,7 +155,7 @@ export function AboutHero() {
             style={{ "--d": "800ms" } as CSSProperties}
           >
             <ButtonLink
-              to="/{-$locale}/about/leadership"
+              to="/{-$locale}/about/team"
               params={{ locale: localeParam(locale) }}
               className="accent-cyan"
               variant="accent"

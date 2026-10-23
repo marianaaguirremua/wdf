@@ -86,40 +86,9 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
   );
 }
 
-/** Monogram mosaic standing in for a team photo until one is available. */
-function TeamMosaic({ label }: { label: string }) {
-  return (
-    <div
-      role="img"
-      aria-label={label}
-      className="relative isolate grid aspect-[4/3] grid-cols-4 gap-2 overflow-hidden bg-ink p-4 sm:gap-3 sm:p-6"
-    >
-      <div aria-hidden className="blueprint absolute inset-0 -z-10 opacity-70" />
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(70%_70%_at_40%_45%,color-mix(in_oklab,var(--teal)_24%,transparent),transparent)]"
-      />
-      {LEADERSHIP_TEAM.map((member, i) => (
-        <span
-          key={member.email}
-          aria-hidden
-          className={cn(
-            "display grid place-items-center rounded-sm border text-[clamp(0.9rem,2.2vw,1.6rem)] font-semibold",
-            i % 5 === 0
-              ? "border-teal bg-teal text-ink"
-              : "border-ink-border bg-ink-2/70 text-ink-foreground",
-          )}
-        >
-          {initials(member.name)}
-        </span>
-      ))}
-    </div>
-  );
-}
-
 /**
- * About-page entry to the team: a monogram mosaic overlapping a teal panel with the call to
- * action, the way a team photo would sit beside it. The full team lives on its own page.
+ * About-page entry to the team: the leadership illustration overlapping a teal panel with the
+ * call to action. The full team lives on its own page (/about/team).
  */
 export function LeadershipTeaser() {
   const { locale, t } = useI18n();
@@ -132,7 +101,15 @@ export function LeadershipTeaser() {
     >
       <div className="container-wdf grid lg:grid-cols-12">
         <Reveal className="relative z-10 lg:col-[1/8] lg:row-[1] lg:self-start">
-          <TeamMosaic label={c.visualLabel} />
+          <img
+            src="/media/leadership-climb.webp"
+            alt={c.visualLabel}
+            width={2000}
+            height={1125}
+            loading="lazy"
+            decoding="async"
+            className="block aspect-[16/9] w-full bg-ink object-cover"
+          />
         </Reveal>
         <Reveal
           delay={120}
@@ -145,7 +122,7 @@ export function LeadershipTeaser() {
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-ink/80">{c.body}</p>
             <ButtonLink
-              to="/{-$locale}/about/leadership"
+              to="/{-$locale}/about/team"
               params={{ locale: localeParam(locale) }}
               variant="ink"
               className="mt-10"

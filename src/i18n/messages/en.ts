@@ -546,7 +546,8 @@ const en = {
       title: "From business goal to technical definition.",
       body: "A team connecting strategy, engineering and customer follow-up.",
       cta: "Meet our leadership team",
-      visualLabel: "Monograms of the WDF leadership team",
+      visualLabel:
+        "Illustration: a team passes a beam up a staircase of building blocks, each person lifting the next, until one reaches the top beside a rising sun.",
     },
     ctaEyebrow: "02 · Contact",
     leadership: {

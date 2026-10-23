@@ -24,7 +24,7 @@ describe("routing", () => {
   it.each([
     "/",
     "/about",
-    "/about/leadership",
+    "/about/team",
     "/services",
     "/energy",
     "/technology",
