@@ -13,17 +13,17 @@ import {
   pathOf,
   project,
 } from "./border-region";
-import { AnchorIcon } from "./icons";
+import { AnchorIcon, MxFlag, UsFlag } from "./icons";
 
-type MapCopy = Messages["threepl"]["network"]["map"];
+type MapCopy = Messages["threepl"]["hero"]["map"];
 
 const P = Object.fromEntries(Object.entries(PLACES).map(([k, v]) => [k, project(v)])) as Record<
   keyof typeof PLACES,
   [number, number]
 >;
 
-// Flat 3PL palette: U.S. land on navy-2, Mexico on navy-3, water on navy; the border in sand,
-// routes and WDF pins in terracotta. Small labels use sand or light text (AA on all three navies).
+// 3PL palette: U.S. land on navy-2, Mexico on navy-3, water on navy; the border in sand,
+// routes, pins and anchors in terracotta. Small labels use sand or light text (AA on all navies).
 const US_LAND = "var(--ink-2)";
 const MX_LAND = "var(--ink-3)";
 const WATER = "var(--ink)";
@@ -117,6 +117,7 @@ function Card({
         fill="var(--ink)"
         stroke="var(--ink-3)"
         strokeWidth="1.5"
+        filter="url(#card-shadow)"
       />
       <Label
         x={x + 22}
@@ -195,22 +196,40 @@ function Dot({
   );
 }
 
-/** Region name in tracked monospace. */
+/** Region name in tracked monospace, optionally followed by a flag. */
 function Region({
   at: [x, y],
   text,
   size = 19,
+  flag,
   anchor = "start",
 }: {
   at: [number, number];
   text: string;
   size?: number;
+  flag?: "us" | "mx";
   anchor?: "start" | "middle";
 }) {
+  // Monospace advance (0.6em) plus 0.42em tracking per character.
+  const width = text.length * size * 1.02;
+  const start = anchor === "middle" ? x - width / 2 : x;
+  const fx = start + width + 6;
+  const fy = y - size * 0.82;
   return (
-    <Label x={x} y={y} size={size} anchor={anchor} spacing="0.42em" className="font-mono uppercase">
-      {text}
-    </Label>
+    <g>
+      <Label
+        x={x}
+        y={y}
+        size={size}
+        anchor={anchor}
+        spacing="0.42em"
+        className="font-mono uppercase"
+      >
+        {text}
+      </Label>
+      {flag === "us" && <UsFlag x={fx} y={fy} w={size * 1.9} />}
+      {flag === "mx" && <MxFlag x={fx} y={fy} w={size * 1.75} />}
+    </g>
   );
 }
 
@@ -255,6 +274,9 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
         <pattern id="map-grid" width="120" height="120" patternUnits="userSpaceOnUse">
           <path d="M120 0V120M0 120H120" stroke="#fff" strokeOpacity="0.06" strokeWidth="1.5" />
         </pattern>
+        <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="160%">
+          <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#050b14" floodOpacity="0.45" />
+        </filter>
       </defs>
 
       {/* Land, water, grid */}
@@ -284,7 +306,14 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
           strokeDasharray="4 6"
         />
       ))}
-      <path d={pathOf(BORDER)} fill="none" stroke={SAND} strokeWidth="2.5" strokeDasharray="14 9" />
+      <path
+        d={pathOf(BORDER)}
+        fill="none"
+        stroke={SAND}
+        strokeOpacity="0.75"
+        strokeWidth="2.5"
+        strokeDasharray="14 9"
+      />
       <Label
         x={bx}
         y={by - 12}
@@ -297,12 +326,18 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
       </Label>
 
       {/* Region names */}
-      <Region at={at(-115.25, 33.9)} text={copy.unitedStates} size={22} />
+      <Region at={at(-115.25, 33.9)} text={copy.unitedStates} size={22} flag="us" />
       <Region at={at(-116.75, 33.05)} text={copy.california} />
       <Region at={at(-113.3, 32.45)} text={copy.arizona} />
       <Region at={at(-113.15, 31.35)} text={copy.sonora} />
       <Region at={mexicoAt} text={copy.bajaCalifornia} anchor="middle" />
-      <Region at={[mexicoAt[0], mexicoAt[1] + 38]} text={copy.mexico} size={22} anchor="middle" />
+      <Region
+        at={[mexicoAt[0], mexicoAt[1] + 38]}
+        text={copy.mexico}
+        size={22}
+        anchor="middle"
+        flag="mx"
+      />
       <Label x={at(-117.3, 31.35)[0]} y={at(-117.3, 31.35)[1]} size={21} italic>
         {copy.pacific}
       </Label>

@@ -46,7 +46,7 @@ export function ThreePlCapabilities() {
               <div className="flex flex-wrap items-center justify-between gap-3">
                 <span className="label-mono text-accent-deep">0{i + 1} / WDF 3PL</span>
                 {/* Customs documentation & crossing is the cross-border service. */}
-                {i === 3 && <CrossTag label={t.threepl.hero.tag} />}
+                {i === 3 && <CrossTag label={c.crossTag} />}
               </div>
               <h3 className="mt-6 text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]">
                 {item.title}
