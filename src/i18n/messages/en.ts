@@ -345,6 +345,19 @@ const en = {
       ],
       note: "Pins mark WDF locations. Dashed routes show gateways and trade lanes we connect to; they are not WDF facilities.",
     },
+    expansion: {
+      eyebrow: "U.S. Southwest · Engineering services & integrated solutions",
+      title: [
+        "Establish your business in the United States.",
+        "With local support from the start.",
+      ],
+      body: [
+        "WDF helps international companies plan, establish, and grow industrial operations in the U.S. Southwest.",
+        "With an office in Yuma, Arizona, USA—near California and the Mexican border—we help you connect with regional resources, define your project requirements, and coordinate engineering, manufacturing, logistics, and operational support.",
+        "Our capabilities in Mexicali, Baja California, Mexico, provide additional support when your project calls for operations on both sides of the border.",
+      ],
+      primary: "Discuss your U.S. expansion",
+    },
     capabilities: {
       eyebrow: "01 · Capabilities",
       crossTag: "MX ⇄ US",

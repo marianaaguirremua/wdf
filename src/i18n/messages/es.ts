@@ -342,6 +342,16 @@ const es: Messages = {
       ],
       note: "Los pines marcan ubicaciones de WDF. Las rutas punteadas muestran puertos y rutas comerciales con los que nos conectamos; no son instalaciones de WDF.",
     },
+    expansion: {
+      eyebrow: "Suroeste de EE. UU. · Servicios de ingeniería y soluciones integrales",
+      title: ["Establezca su empresa en Estados Unidos.", "Con apoyo local desde el inicio."],
+      body: [
+        "WDF ayuda a empresas internacionales a planear, establecer y hacer crecer operaciones industriales en el suroeste de Estados Unidos.",
+        "Con una oficina en Yuma, Arizona, EE. UU. —cerca de California y de la frontera con México—, le ayudamos a conectar con recursos regionales, definir los requerimientos de su proyecto y coordinar ingeniería, manufactura, logística y soporte operativo.",
+        "Nuestras capacidades en Mexicali, Baja California, México, brindan apoyo adicional cuando su proyecto requiere operaciones en ambos lados de la frontera.",
+      ],
+      primary: "Hable de su expansión a EE. UU.",
+    },
     capabilities: {
       eyebrow: "01 · Capacidades",
       crossTag: "MX ⇄ US",
