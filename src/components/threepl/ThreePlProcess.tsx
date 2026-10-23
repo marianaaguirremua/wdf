@@ -11,7 +11,10 @@ export function ThreePlProcess() {
       <div className="container-wdf py-24 md:py-36">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono text-petroleum">{p.eyebrow}</p>
+            <p className="label-mono inline-flex items-center gap-3 text-accent-deep">
+              <span aria-hidden className="h-0.5 w-8 bg-accent" />
+              {p.eyebrow}
+            </p>
           </Reveal>
           <div className="lg:col-span-9">
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
@@ -29,8 +32,8 @@ export function ThreePlProcess() {
           {p.steps.map((step, i) => (
             <Reveal as="li" key={step.title} delay={i * 90} className="relative">
               <div className="flex items-center gap-3">
-                <span className="label-mono text-petroleum">0{i + 1}</span>
-                <span aria-hidden className="h-px flex-1 bg-paper-foreground/15" />
+                <span className="label-mono text-accent-deep">0{i + 1}</span>
+                <span aria-hidden className="h-px flex-1 bg-accent/60" />
               </div>
               <h3 className="mt-6 text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]">
                 {step.title}

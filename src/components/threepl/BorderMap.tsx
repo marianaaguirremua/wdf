@@ -3,6 +3,7 @@ import { THREEPL_LOCATIONS } from "@/lib/site";
 import {
   BORDER,
   GULF,
+  MEXICO_SIDE,
   MAP_H,
   MAP_W,
   PACIFIC,
@@ -12,21 +13,23 @@ import {
   pathOf,
   project,
 } from "./border-region";
-import { AnchorIcon, MxFlag, UsFlag } from "./icons";
+import { AnchorIcon } from "./icons";
 
-type MapCopy = Messages["threepl"]["hero"]["map"];
+type MapCopy = Messages["threepl"]["network"]["map"];
 
 const P = Object.fromEntries(Object.entries(PLACES).map(([k, v]) => [k, project(v)])) as Record<
   keyof typeof PLACES,
   [number, number]
 >;
 
-// The map sits on slate-blue land so the navy cards and teal routes stand out against it.
-const LAND = "#2f4c68";
-const WATER = "#1c3047";
-const TEAL = "var(--teal)";
-const TEAL_TEXT = "#5ad3cc"; // lighter teal for labels on the slate land
-const REGION = "#b8c6d2";
+// Flat 3PL palette: U.S. land on navy-2, Mexico on navy-3, water on navy; the border in sand,
+// routes and WDF pins in terracotta. Small labels use sand or light text (AA on all three navies).
+const US_LAND = "var(--ink-2)";
+const MX_LAND = "var(--ink-3)";
+const WATER = "var(--ink)";
+const ACCENT = "var(--accent)";
+const SAND = "var(--sand)";
+const REGION = "var(--ink-muted)";
 const TEXT = "var(--ink-foreground)";
 
 // Quadratic route from a to b, bowed by `bend` px perpendicular to the chord.
@@ -40,7 +43,7 @@ function arc([x1, y1]: [number, number], [x2, y2]: [number, number], bend: numbe
 }
 
 const route = {
-  stroke: TEAL,
+  stroke: ACCENT,
   strokeWidth: 2.5,
   strokeDasharray: "1 9",
   strokeLinecap: "round",
@@ -111,16 +114,15 @@ function Card({
         width={w}
         height={h}
         rx="4"
-        fill="var(--ink-2)"
+        fill="var(--ink)"
         stroke="var(--ink-3)"
         strokeWidth="1.5"
-        filter="url(#card-shadow)"
       />
       <Label
         x={x + 22}
         y={y + 36}
         size={16}
-        fill={TEAL_TEXT}
+        fill={SAND}
         spacing="0.3em"
         className="font-mono uppercase"
       >
@@ -166,8 +168,8 @@ function Card({
 function Pin({ at: [x, y] }: { at: [number, number] }) {
   return (
     <g>
-      <circle cx={x} cy={y} r="22" fill={TEAL} fillOpacity="0.22" className="pin-pulse" />
-      <circle cx={x} cy={y} r="12" fill={TEAL} stroke="var(--ink)" strokeWidth="4" />
+      <circle cx={x} cy={y} r="22" fill={ACCENT} fillOpacity="0.22" className="pin-pulse" />
+      <circle cx={x} cy={y} r="12" fill={ACCENT} stroke="var(--ink)" strokeWidth="4" />
     </g>
   );
 }
@@ -193,40 +195,22 @@ function Dot({
   );
 }
 
-/** Region name in tracked monospace, optionally followed by a flag. */
+/** Region name in tracked monospace. */
 function Region({
   at: [x, y],
   text,
   size = 19,
-  flag,
   anchor = "start",
 }: {
   at: [number, number];
   text: string;
   size?: number;
-  flag?: "us" | "mx";
   anchor?: "start" | "middle";
 }) {
-  // Monospace advance (0.6em) plus 0.42em tracking per character.
-  const width = text.length * size * 1.02;
-  const start = anchor === "middle" ? x - width / 2 : x;
-  const fx = start + width + 6;
-  const fy = y - size * 0.82;
   return (
-    <g>
-      <Label
-        x={x}
-        y={y}
-        size={size}
-        anchor={anchor}
-        spacing="0.42em"
-        className="font-mono uppercase"
-      >
-        {text}
-      </Label>
-      {flag === "us" && <UsFlag x={fx} y={fy} w={size * 1.9} />}
-      {flag === "mx" && <MxFlag x={fx} y={fy} w={size * 1.75} />}
-    </g>
+    <Label x={x} y={y} size={size} anchor={anchor} spacing="0.42em" className="font-mono uppercase">
+      {text}
+    </Label>
   );
 }
 
@@ -242,7 +226,7 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
   const exitUS: [number, number] = [MAP_W - 16, 118];
   const exitMX: [number, number] = [MAP_W - 16, 600];
   const exitLA: [number, number] = [16, 92];
-  const gateway = { size: 22, fill: TEAL_TEXT, className: "font-semibold" } as const;
+  const gateway = { size: 22, fill: SAND, className: "font-semibold" } as const;
   const detail = { size: 20, fill: TEXT, className: "opacity-80" } as const;
   const [yx, yy] = P.yuma;
   const [mx, my] = P.mexicali;
@@ -266,23 +250,16 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
           markerHeight="7"
           orient="auto-start-reverse"
         >
-          <path d="M0 0L10 5L0 10Z" fill={TEAL} />
+          <path d="M0 0L10 5L0 10Z" fill={ACCENT} />
         </marker>
         <pattern id="map-grid" width="120" height="120" patternUnits="userSpaceOnUse">
           <path d="M120 0V120M0 120H120" stroke="#fff" strokeOpacity="0.06" strokeWidth="1.5" />
         </pattern>
-        <linearGradient id="map-land" x1="0" y1="1" x2="1" y2="0">
-          <stop offset="0" stopColor={LAND} stopOpacity="0.85" />
-          <stop offset="1" stopColor={LAND} />
-        </linearGradient>
-        <filter id="card-shadow" x="-20%" y="-20%" width="140%" height="160%">
-          <feDropShadow dx="0" dy="10" stdDeviation="12" floodColor="#050b14" floodOpacity="0.45" />
-        </filter>
       </defs>
 
       {/* Land, water, grid */}
-      <rect width={MAP_W} height={MAP_H} fill="var(--ink)" />
-      <rect width={MAP_W} height={MAP_H} fill="url(#map-land)" />
+      <rect width={MAP_W} height={MAP_H} fill={US_LAND} />
+      <path d={pathOf(MEXICO_SIDE, true)} fill={MX_LAND} />
       <path d={pathOf(PACIFIC, true)} fill={WATER} />
       <path d={pathOf(GULF, true)} fill={WATER} />
       <ellipse
@@ -307,14 +284,7 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
           strokeDasharray="4 6"
         />
       ))}
-      <path
-        d={pathOf(BORDER)}
-        fill="none"
-        stroke="#dfe7ee"
-        strokeOpacity="0.75"
-        strokeWidth="2.5"
-        strokeDasharray="14 9"
-      />
+      <path d={pathOf(BORDER)} fill="none" stroke={SAND} strokeWidth="2.5" strokeDasharray="14 9" />
       <Label
         x={bx}
         y={by - 12}
@@ -327,18 +297,12 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
       </Label>
 
       {/* Region names */}
-      <Region at={at(-115.25, 33.9)} text={copy.unitedStates} size={22} flag="us" />
+      <Region at={at(-115.25, 33.9)} text={copy.unitedStates} size={22} />
       <Region at={at(-116.75, 33.05)} text={copy.california} />
       <Region at={at(-113.3, 32.45)} text={copy.arizona} />
       <Region at={at(-113.15, 31.35)} text={copy.sonora} />
       <Region at={mexicoAt} text={copy.bajaCalifornia} anchor="middle" />
-      <Region
-        at={[mexicoAt[0], mexicoAt[1] + 38]}
-        text={copy.mexico}
-        size={22}
-        anchor="middle"
-        flag="mx"
-      />
+      <Region at={[mexicoAt[0], mexicoAt[1] + 38]} text={copy.mexico} size={22} anchor="middle" />
       <Label x={at(-117.3, 31.35)[0]} y={at(-117.3, 31.35)[1]} size={21} italic>
         {copy.pacific}
       </Label>
@@ -363,21 +327,21 @@ export function BorderMap({ copy }: { copy: MapCopy }) {
       {/* One operation: Mexicali ↔ Yuma */}
       <path
         d={arc(P.mexicali, P.yuma, -46)}
-        stroke={TEAL}
+        stroke={ACCENT}
         strokeWidth="5"
         fill="none"
         className="motif-flow"
       />
 
       {/* Seaport gateways (anchors): not WDF facilities */}
-      <circle cx={ex} cy={ey} r="20" fill={WATER} stroke={TEAL} strokeWidth="2.5" />
-      <g color={TEAL_TEXT}>
+      <circle cx={ex} cy={ey} r="20" fill={WATER} stroke={ACCENT} strokeWidth="2.5" />
+      <g color={ACCENT}>
         <AnchorIcon x={ex - 12} y={ey - 12} size={24} />
       </g>
       <Label x={ex - 10} y={ey + 52} {...gateway}>
         {copy.ensenada}
       </Label>
-      <g color={TEAL_TEXT}>
+      <g color={ACCENT}>
         <AnchorIcon x={40} y={24} size={28} />
       </g>
       <Label x={80} y={44} {...gateway}>

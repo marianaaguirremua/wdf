@@ -41,6 +41,7 @@
   --color-accent: var(--accent);
   --color-accent-deep: var(--accent-deep);
   --color-accent-soft: var(--accent-soft);
+  --color-sand: var(--sand);
   --font-display: "Archivo", system-ui, sans-serif;
   --font-sans: "Archivo", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -163,6 +164,16 @@
   --accent: var(--teal);
   --accent-deep: var(--cyan-deep);
   --accent-soft: var(--cyan-soft);
+}
+
+/* 3PL page: terracotta accent and sand. Scoped to the page; the logo keeps the brand turquoise.
+   Contrast: accent text only on navy (4.76:1) or at 18px+; accent-deep for small text on light
+   (5.6:1+); sand only on navy or as a fill (7.4:1+); navy text on accent buttons (4.76:1). */
+.accent-terracotta {
+  --accent: #d2642a;
+  --accent-deep: #a8441a;
+  --accent-soft: #fbe9df;
+  --sand: #d9c4a0;
 }
 
 /* Architectural column rules behind sections: 4 columns on mobile, 12 on desktop. */
@@ -379,6 +390,17 @@
   transform: scaleX(1);
 }
 
+/* A dotted route that keeps travelling along its path. */
+.route-flow {
+  stroke-dasharray: 2 12;
+  animation: route-flow 1.6s linear infinite;
+}
+@keyframes route-flow {
+  to {
+    stroke-dashoffset: -28;
+  }
+}
+
 /* Map pins: a slow halo around each WDF location. */
 .pin-pulse {
   transform-box: fill-box;
@@ -424,6 +446,7 @@ a:focus-visible .arrow-nudge-diag {
   .motif-tool,
   .motif-route,
   .motif-flow,
+  .route-flow,
   .pin-pulse,
   .spin-slow,
   .scan,

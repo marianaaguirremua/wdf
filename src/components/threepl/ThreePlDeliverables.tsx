@@ -14,7 +14,10 @@ export function ThreePlDeliverables() {
       <div className="container-wdf py-24 md:py-36">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono text-primary">{d.eyebrow}</p>
+            <p className="label-mono inline-flex items-center gap-3 text-accent">
+              <span aria-hidden className="h-0.5 w-8 bg-accent" />
+              {d.eyebrow}
+            </p>
           </Reveal>
           <Reveal
             as="h2"
@@ -34,9 +37,7 @@ export function ThreePlDeliverables() {
                 delay={60}
                 className="group flex items-baseline gap-6 border-b border-ink-border py-7 md:gap-10"
               >
-                <span className="label-mono text-ink-muted transition-colors group-hover:text-primary">
-                  0{i + 1}
-                </span>
+                <span className="label-mono text-sand">0{i + 1}</span>
                 <span className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] md:text-[1.75rem]">
                   {item}
                 </span>

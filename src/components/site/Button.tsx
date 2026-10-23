@@ -13,7 +13,7 @@ const variants: Record<Variant, string> = {
   "outline-light":
     "border border-paper-foreground/20 text-paper-foreground hover:border-paper-foreground",
   /** The light division pages' accent colour (see LightDivisionPage). */
-  accent: "bg-accent text-ink hover:bg-ink hover:text-ink-foreground",
+  accent: "bg-accent text-ink hover:bg-accent-deep hover:text-white",
   ink: "bg-ink text-ink-foreground hover:bg-ink-2",
 };
 

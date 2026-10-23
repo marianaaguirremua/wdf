@@ -89,6 +89,15 @@ export const BORDER: readonly LonLat[] = [
   [-110.5, 31.33],
 ];
 
+/** Mexican territory south of the border (water is drawn on top). */
+export const MEXICO_SIDE: readonly LonLat[] = [
+  [-120, 32.53],
+  ...BORDER,
+  [-110, 31.33],
+  [-110, 29],
+  [-120, 29],
+];
+
 /** California–Arizona line (Colorado River) and the Baja California–Sonora line (delta). */
 export const STATE_LINES: readonly (readonly LonLat[])[] = [
   [

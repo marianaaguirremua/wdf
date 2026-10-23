@@ -291,7 +291,25 @@ const es: Messages = {
   },
   threepl: {
     hero: {
-      eyebrow: "3PL · Logística transfronteriza",
+      eyebrow: "WDF 3PL · Logística transfronteriza",
+      tag: "MX ⇄ US",
+      title: ["Logística transfronteriza", "en la frontera México–EE. UU."],
+      body: "Almacenamiento, inventarios, empaque y coordinación de cruces desde nuestras instalaciones en Mexicali, B.C., en el cruce Mexicali–Calexico, con una oficina en Yuma, Arizona.",
+      primary: "Solicite una cotización logística",
+      graphic: {
+        label:
+          "Diagrama de la frontera México–EE. UU. en el cruce Mexicali–Calexico, con una ruta desde Mexicali, B.C. hacia los mercados de California y Arizona.",
+        us: "Estados Unidos",
+        mx: "México",
+        border: "Frontera México–EE. UU.",
+        calexico: "Calexico, CA",
+        mexicali: "Mexicali, B.C.",
+        crossing: "Cruce Mexicali–Calexico",
+        markets: "Mercados de CA · AZ",
+      },
+    },
+    network: {
+      eyebrow: "01 · Red transfronteriza",
       title: ["Dos países.", "Una operación conectada."],
       body: "Inventarios, empaque y coordinación transfronteriza operan desde nuestras instalaciones en Mexicali, justo en la **frontera entre EE. UU. y México**, con una oficina en Yuma, Arizona. Desde ahí, su carga se conecta con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
       legend: {
@@ -307,7 +325,6 @@ const es: Messages = {
         ],
       },
       places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
-      primary: "Hable con nuestro equipo 3PL",
       map: {
         label:
           "Mapa de la región fronteriza EE. UU.–México con el centro de WDF en Mexicali, la oficina en Yuma y los puertos y rutas comerciales con los que se conectan.",
@@ -343,7 +360,7 @@ const es: Messages = {
       note: "Los pines marcan ubicaciones de WDF. Las rutas punteadas muestran puertos y rutas comerciales con los que nos conectamos; no son instalaciones de WDF.",
     },
     capabilities: {
-      eyebrow: "01 · Capacidades",
+      eyebrow: "02 · Capacidades",
       title: "Un alcance que se configura para su proyecto.",
       body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
       items: [
@@ -374,7 +391,7 @@ const es: Messages = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Entregables y responsabilidades",
+      eyebrow: "03 · Entregables y responsabilidades",
       title: "La capacidad se convierte en un paquete definido.",
       items: [
         "Mapa de flujo y ficha operativa",
@@ -385,7 +402,7 @@ const es: Messages = {
       note: "Instalaciones, disponibilidad, titular IMMEX, régimen aduanero, patrón y servicios de terceros se validan y documentan por proyecto.",
     },
     process: {
-      eyebrow: "03 · Cómo trabajamos",
+      eyebrow: "04 · Cómo trabajamos",
       title: "Una ruta clara. De principio a entrega.",
       body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
       steps: [
@@ -399,11 +416,11 @@ const es: Messages = {
       ],
     },
     connect: {
-      eyebrow: "04 · Conecte capacidades",
+      eyebrow: "05 · Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
     },
     cta: {
-      eyebrow: "05 · Su siguiente proyecto",
+      eyebrow: "06 · Su siguiente proyecto",
       title: "¿Qué necesita mover, guardar o conectar?",
       body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
       primary: "Contactar a WDF",

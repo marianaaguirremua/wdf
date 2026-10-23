@@ -1,16 +1,23 @@
 import { useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
+import { CrossTag } from "./CrossTag";
 
 export function ThreePlCapabilities() {
   const { t } = useI18n();
   const c = t.threepl.capabilities;
 
   return (
-    <section aria-labelledby="threepl-capabilities-title" className="section-light relative">
+    <section
+      aria-labelledby="threepl-capabilities-title"
+      className="relative bg-white text-paper-foreground"
+    >
       <div className="container-wdf py-24 md:py-36">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono text-petroleum">{c.eyebrow}</p>
+            <p className="label-mono inline-flex items-center gap-3 text-accent-deep">
+              <span aria-hidden className="h-0.5 w-8 bg-accent" />
+              {c.eyebrow}
+            </p>
           </Reveal>
           <div className="lg:col-span-9">
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
@@ -30,13 +37,17 @@ export function ThreePlCapabilities() {
               as="article"
               key={item.title}
               delay={(i % 3) * 70}
-              className="group relative flex flex-col bg-paper p-7 md:p-8"
+              className="group relative flex flex-col bg-white p-7 md:p-8"
             >
               <span
                 aria-hidden
-                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-petroleum transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-x-100"
+                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-x-100"
               />
-              <span className="label-mono text-petroleum">0{i + 1} / WDF 3PL</span>
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <span className="label-mono text-accent-deep">0{i + 1} / WDF 3PL</span>
+                {/* Customs documentation & crossing is the cross-border service. */}
+                {i === 3 && <CrossTag label={t.threepl.hero.tag} />}
+              </div>
               <h3 className="mt-6 text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]">
                 {item.title}
               </h3>

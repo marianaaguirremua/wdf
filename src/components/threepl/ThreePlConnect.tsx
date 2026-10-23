@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { MANUFACTURING_URL } from "@/lib/site";
 
 const cardClass =
-  "group flex items-center justify-between gap-6 rounded-sm border border-ink-border p-7 transition-colors hover:border-primary md:p-8";
+  "group flex items-center justify-between gap-6 rounded-sm border border-paper-foreground/15 p-7 transition-colors hover:border-accent md:p-8";
 
 // Links 3PL to the other WDF divisions: Manufacturing to its own site, Energy to its page here.
 export function ThreePlConnect() {
@@ -15,13 +15,15 @@ export function ThreePlConnect() {
   return (
     <section
       aria-labelledby="threepl-connect-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative bg-white text-paper-foreground"
     >
-      <div aria-hidden className="column-rules -z-10 opacity-60" />
       <div className="container-wdf py-24 md:py-36">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono text-primary">{c.eyebrow}</p>
+            <p className="label-mono inline-flex items-center gap-3 text-accent-deep">
+              <span aria-hidden className="h-0.5 w-8 bg-accent" />
+              {c.eyebrow}
+            </p>
           </Reveal>
           <div className="lg:col-span-9">
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
@@ -34,11 +36,11 @@ export function ThreePlConnect() {
                   <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">
                     {d.manufacturing.name}
                   </span>
-                  <span className="mt-2 block text-sm text-ink-muted">
+                  <span className="mt-2 block text-sm text-paper-muted">
                     {t.divisionLines.manufacturing}
                   </span>
                 </span>
-                <span aria-hidden className="arrow-nudge arrow-nudge-diag text-xl">
+                <span aria-hidden className="arrow-nudge arrow-nudge-diag text-xl text-accent-deep">
                   ↗
                 </span>
                 <span className="sr-only">({t.footer.external})</span>
@@ -52,11 +54,11 @@ export function ThreePlConnect() {
                   <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">
                     {d.energy.name}
                   </span>
-                  <span className="mt-2 block text-sm text-ink-muted">
+                  <span className="mt-2 block text-sm text-paper-muted">
                     {t.divisionLines.energy}
                   </span>
                 </span>
-                <span aria-hidden className="arrow-nudge text-xl">
+                <span aria-hidden className="arrow-nudge text-xl text-accent-deep">
                   →
                 </span>
               </Link>

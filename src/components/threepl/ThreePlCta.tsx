@@ -14,13 +14,12 @@ export function ThreePlCta() {
       aria-labelledby="threepl-cta-title"
       className="relative isolate scroll-mt-[var(--header-h)] overflow-hidden bg-ink-2 text-ink-foreground"
     >
-      <div
-        aria-hidden
-        className="blueprint absolute inset-0 -z-10 [mask-image:radial-gradient(70%_90%_at_85%_100%,#000,transparent)]"
-      />
       <div className="container-wdf grid gap-12 py-24 md:py-36 lg:grid-cols-12 lg:gap-8">
         <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-          <p className="label-mono text-primary">{c.eyebrow}</p>
+          <p className="label-mono inline-flex items-center gap-3 text-sand">
+            <span aria-hidden className="h-0.5 w-8 bg-accent" />
+            {c.eyebrow}
+          </p>
         </Reveal>
         <div className="lg:col-span-9">
           <Reveal
@@ -36,10 +35,19 @@ export function ThreePlCta() {
           >
             <div className="md:col-span-5">
               <p className="text-lg leading-relaxed text-ink-muted">{c.body}</p>
-              <DirectContact label={c.contact} contact={THREEPL_CONTACT} className="mt-8" />
+              <DirectContact
+                label={c.contact}
+                contact={THREEPL_CONTACT}
+                tone="sand"
+                className="mt-8"
+              />
             </div>
             <div className="flex flex-col gap-3 md:col-span-4">
-              <ButtonLink to="/{-$locale}/contact" params={{ locale: localeParam(locale) }}>
+              <ButtonLink
+                to="/{-$locale}/contact"
+                params={{ locale: localeParam(locale) }}
+                variant="accent"
+              >
                 {c.primary}
               </ButtonLink>
             </div>

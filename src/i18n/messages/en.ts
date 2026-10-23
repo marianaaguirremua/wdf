@@ -296,7 +296,25 @@ const en = {
   },
   threepl: {
     hero: {
-      eyebrow: "3PL · Cross-border logistics",
+      eyebrow: "WDF 3PL · Cross-border logistics",
+      tag: "MX ⇄ US",
+      title: ["Cross-border logistics", "at the U.S.–Mexico border."],
+      body: "Warehousing, inventory, packaging and crossing coordination from our facility in Mexicali, B.C., at the Mexicali–Calexico crossing, with a U.S. office in Yuma, Arizona.",
+      primary: "Request a logistics quote",
+      graphic: {
+        label:
+          "Diagram of the U.S.–Mexico border at the Mexicali–Calexico crossing, with a route from Mexicali, B.C. to California and Arizona markets.",
+        us: "United States",
+        mx: "México",
+        border: "U.S.–Mexico border",
+        calexico: "Calexico, CA",
+        mexicali: "Mexicali, B.C.",
+        crossing: "Mexicali–Calexico crossing",
+        markets: "CA · AZ markets",
+      },
+    },
+    network: {
+      eyebrow: "01 · Cross-border network",
       title: ["Two countries.", "One connected operation."],
       // **…** marks emphasis.
       body: "Inventory, packaging and cross-border coordination run from our Mexicali facility, right on the **U.S.–Mexico border**, with a U.S. office in Yuma, Arizona. From there, your freight connects to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
@@ -313,7 +331,6 @@ const en = {
         ],
       },
       places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
-      primary: "Talk to our 3PL team",
       map: {
         label:
           "Map of the U.S.–Mexico border region showing WDF's Mexicali hub and Yuma office, and the ports and trade lanes they connect to.",
@@ -346,7 +363,7 @@ const en = {
       note: "Pins mark WDF locations. Dashed routes show gateways and trade lanes we connect to; they are not WDF facilities.",
     },
     capabilities: {
-      eyebrow: "01 · Capabilities",
+      eyebrow: "02 · Capabilities",
       title: "A scope configured for your project.",
       body: "We select services and deliverables around the technical need, timeline and required resources.",
       items: [
@@ -377,7 +394,7 @@ const en = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Deliverables & responsibilities",
+      eyebrow: "03 · Deliverables & responsibilities",
       title: "Capability becomes a defined package.",
       items: [
         "Flow map & operating profile",
@@ -388,7 +405,7 @@ const en = {
       note: "Facilities, availability, IMMEX holder, customs regime, employer and third-party services are verified and documented per project.",
     },
     process: {
-      eyebrow: "03 · How we work",
+      eyebrow: "04 · How we work",
       title: "A clear path. From scope to delivery.",
       body: "Every project is built around deliverables, owners and verification points.",
       steps: [
@@ -402,11 +419,11 @@ const en = {
       ],
     },
     connect: {
-      eyebrow: "04 · Connect capabilities",
+      eyebrow: "05 · Connect capabilities",
       title: "This pillar works with the others.",
     },
     cta: {
-      eyebrow: "05 · Your next project",
+      eyebrow: "06 · Your next project",
       title: "What do you need to move, store or connect?",
       body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
       primary: "Contact WDF",

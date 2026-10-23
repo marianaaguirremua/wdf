@@ -7,6 +7,11 @@ const tones = {
     link: "border-ink-border hover:border-primary hover:text-primary",
   },
   accent: { label: "text-ink/70", link: "border-ink/30 hover:border-ink" },
+  /** On navy pages with the sand detail colour (3PL). */
+  sand: {
+    label: "text-ink-muted",
+    link: "border-ink-border hover:border-sand hover:text-sand",
+  },
 } as const;
 
 /** A division's approved direct contact: name, phone (tap to call) and optional email. */
