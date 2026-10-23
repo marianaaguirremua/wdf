@@ -69,7 +69,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-ink-border">
-        <div className="container-wdf flex flex-col gap-6 py-10 sm:flex-row sm:items-center sm:gap-12">
+        <div className="container-wdf flex flex-col gap-5 py-8 sm:flex-row sm:items-center sm:gap-12">
           <h2 className="label-mono text-ink-muted">{t.footer.partners}</h2>
           <ul className="flex flex-wrap items-center gap-10">
             {PARTNERS.map((partner) => (
@@ -86,7 +86,7 @@ export function Footer() {
                     width={654}
                     height={589}
                     loading="lazy"
-                    className="h-16 w-auto"
+                    className="h-12 w-auto"
                   />
                   <span className="sr-only">({t.footer.external})</span>
                 </a>
