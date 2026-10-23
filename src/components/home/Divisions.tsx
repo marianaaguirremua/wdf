@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 // Each division keeps the shared grid, type and motion language but owns an accent drawn
 // from the approved palette and a line motif: toolpath (Manufacturing), single-line
-// diagram (Energy) and routed flow (3PL). Motifs animate on hover/focus.
+// diagram (Energy), control network (Technology) and routed flow (3PL). Motifs animate on hover/focus.
 
 function ToolpathMotif() {
   return (
@@ -51,6 +51,23 @@ function SingleLineMotif() {
         />
       ))}
       <path d="M40 130 h20 M44 138 h12 M48 146 h4" stroke="currentColor" strokeOpacity="0.25" />
+    </svg>
+  );
+}
+
+function NetworkMotif() {
+  const devices = [40, 93, 147, 200];
+  const links = devices.map((x) => `M120 64 V96 H${x} V128`).join(" ");
+  return (
+    <svg viewBox="0 0 240 180" fill="none" aria-hidden className="h-full w-full">
+      <path d={links} stroke="currentColor" strokeOpacity="0.14" />
+      <path className="motif-flow" d={links} stroke="var(--accent)" />
+      <rect x="96" y="28" width="48" height="36" fill="var(--ink-2)" stroke="var(--accent)" />
+      <path d="M106 40 h28 M106 48 h20" stroke="var(--accent)" strokeOpacity="0.6" />
+      {devices.map((x) => (
+        <circle key={x} cx={x} cy={140} r="12" fill="var(--ink-2)" stroke="var(--accent)" />
+      ))}
+      <path d="M20 164 H220" stroke="currentColor" strokeOpacity="0.12" />
     </svg>
   );
 }
@@ -113,7 +130,7 @@ function Division({
     <Reveal
       as="article"
       delay={index * 110}
-      className="division relative flex flex-col border-t border-ink-border pt-8 lg:border-l lg:border-t-0 lg:px-8 lg:pt-0 lg:first:border-l-0 lg:first:pl-0 lg:last:pr-0"
+      className="division relative flex flex-col border-t border-ink-border pt-8 xl:border-l xl:border-t-0 xl:px-7 xl:pt-0 xl:first:border-l-0 xl:first:pl-0 xl:last:pr-0"
     >
       <div style={{ "--accent": accent } as CSSProperties} className="flex h-full flex-col">
         <span
@@ -136,7 +153,9 @@ function Division({
         <div className="my-8 aspect-[4/3] w-full max-w-[17rem] text-ink-foreground lg:max-w-none">
           {motif}
         </div>
-        <h3 className="display text-[2.5rem] font-semibold lg:text-[2.75rem]">{name}</h3>
+        <h3 className="display text-[2.5rem] font-semibold xl:text-[2.25rem] 2xl:text-[2.5rem]">
+          {name}
+        </h3>
         <p className="label-mono mt-4 text-[var(--accent)]">{kicker}</p>
         <p className="mt-5 max-w-sm leading-relaxed text-ink-muted">{body}</p>
         {tags && (
@@ -186,7 +205,7 @@ export function Divisions() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-14 md:mt-24 lg:grid-cols-3 lg:gap-0">
+        <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-2 md:gap-x-10 xl:grid-cols-4 xl:gap-0">
           <Division
             index={0}
             accent="var(--teal)"
@@ -228,6 +247,25 @@ export function Divisions() {
           />
           <Division
             index={2}
+            accent="var(--teal)"
+            live
+            status={d.online}
+            name={d.technology.name}
+            kicker={d.technology.kicker}
+            body={d.technology.body}
+            tags={d.technology.tags}
+            motif={<NetworkMotif />}
+            action={
+              <Link to="/{-$locale}/technology" params={params} className={actionClass}>
+                {d.technology.cta}
+                <span aria-hidden className="arrow-nudge">
+                  →
+                </span>
+              </Link>
+            }
+          />
+          <Division
+            index={3}
             accent="var(--slate)"
             live
             status={d.online}

@@ -21,8 +21,8 @@ const es: Messages = {
       description:
         "El equipo de liderazgo de WDF, con teléfono y correo directo de cada persona: un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
     },
-    services: {
-      title: "Servicios | WDF",
+    manufacturing: {
+      title: "Manufactura | WDF",
       description:
         "WDF integra ingeniería, cadena de suministro, manufactura de precisión, acabados, ensamble, pruebas y logística desde la frontera entre EE. UU. y México.",
     },
@@ -49,7 +49,7 @@ const es: Messages = {
   },
   nav: {
     about: "Nosotros",
-    services: "Servicios",
+    manufacturing: "Manufactura",
     energy: "Energía",
     technology: "Tecnología",
     threepl: "3PL",
@@ -79,8 +79,8 @@ const es: Messages = {
   },
   intro: {
     eyebrow: "01 · WDF",
-    title: "Una empresa. Tres divisiones industriales.",
-    body: "WDF reúne manufactura, energía y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
+    title: "Una empresa. Cuatro divisiones industriales.",
+    body: "WDF reúne manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
   },
   divisions: {
     eyebrow: "02 · Divisiones",
@@ -103,6 +103,13 @@ const es: Messages = {
       kicker: "Infraestructura para lo que viene.",
       body: "Ingeniería, equipos e integración para subestaciones, almacenamiento de energía, salas de control e infraestructura eléctrica industrial.",
       tags: ["Subestaciones y red", "Infraestructura BESS", "Control shelters y E-houses"],
+      cta: "Más información",
+    },
+    technology: {
+      name: "Tecnología",
+      kicker: "Sistemas que entienden su operación.",
+      body: "Automatización, controles y comunicaciones para conectar equipos, procesos y datos con una ejecución industrial disciplinada.",
+      tags: ["Automation", "SCADA / PLC / DCS", "Robotics"],
       cta: "Más información",
     },
     threepl: {
@@ -139,7 +146,7 @@ const es: Messages = {
   },
   services: {
     hero: {
-      eyebrow: "Servicios · WDF Manufactura",
+      eyebrow: "Manufactura · WDF",
       pre: "La manufactura es nuestra base.",
       accent: "La integración es nuestro valor.",
       sub: "Manufactura de precisión. Experiencia integrada.",

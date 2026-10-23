@@ -15,7 +15,7 @@ import { Route as Char123LocaleChar1253plRouteImport } from './routes/{-$locale}
 import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
 import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
 import { Route as Char123LocaleChar125EnergyRouteImport } from './routes/{-$locale}/energy'
-import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}/services'
+import { Route as Char123LocaleChar125ManufacturingRouteImport } from './routes/{-$locale}/manufacturing'
 import { Route as Char123LocaleChar125TechnologyRouteImport } from './routes/{-$locale}/technology'
 import { Route as Char123LocaleChar125AboutTeamRouteImport } from './routes/{-$locale}/about_.team'
 
@@ -54,10 +54,10 @@ const Char123LocaleChar125EnergyRoute =
     path: '/energy',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
-const Char123LocaleChar125ServicesRoute =
-  Char123LocaleChar125ServicesRouteImport.update({
-    id: '/services',
-    path: '/services',
+const Char123LocaleChar125ManufacturingRoute =
+  Char123LocaleChar125ManufacturingRouteImport.update({
+    id: '/manufacturing',
+    path: '/manufacturing',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125TechnologyRoute =
@@ -79,7 +79,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/energy': typeof Char123LocaleChar125EnergyRoute
-  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/manufacturing': typeof Char123LocaleChar125ManufacturingRoute
   '/{-$locale}/technology': typeof Char123LocaleChar125TechnologyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/{-$locale}/about/team': typeof Char123LocaleChar125AboutTeamRoute
@@ -89,7 +89,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/energy': typeof Char123LocaleChar125EnergyRoute
-  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/manufacturing': typeof Char123LocaleChar125ManufacturingRoute
   '/{-$locale}/technology': typeof Char123LocaleChar125TechnologyRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/{-$locale}/about/team': typeof Char123LocaleChar125AboutTeamRoute
@@ -101,7 +101,7 @@ export interface FileRoutesById {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/energy': typeof Char123LocaleChar125EnergyRoute
-  '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/manufacturing': typeof Char123LocaleChar125ManufacturingRoute
   '/{-$locale}/technology': typeof Char123LocaleChar125TechnologyRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/{-$locale}/about_/team': typeof Char123LocaleChar125AboutTeamRoute
@@ -114,7 +114,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
     | '/{-$locale}/energy'
-    | '/{-$locale}/services'
+    | '/{-$locale}/manufacturing'
     | '/{-$locale}/technology'
     | '/{-$locale}/'
     | '/{-$locale}/about/team'
@@ -124,7 +124,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
     | '/{-$locale}/energy'
-    | '/{-$locale}/services'
+    | '/{-$locale}/manufacturing'
     | '/{-$locale}/technology'
     | '/{-$locale}'
     | '/{-$locale}/about/team'
@@ -135,7 +135,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
     | '/{-$locale}/energy'
-    | '/{-$locale}/services'
+    | '/{-$locale}/manufacturing'
     | '/{-$locale}/technology'
     | '/{-$locale}/'
     | '/{-$locale}/about_/team'
@@ -189,11 +189,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125EnergyRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
-    '/{-$locale}/services': {
-      id: '/{-$locale}/services'
-      path: '/services'
-      fullPath: '/{-$locale}/services'
-      preLoaderRoute: typeof Char123LocaleChar125ServicesRouteImport
+    '/{-$locale}/manufacturing': {
+      id: '/{-$locale}/manufacturing'
+      path: '/manufacturing'
+      fullPath: '/{-$locale}/manufacturing'
+      preLoaderRoute: typeof Char123LocaleChar125ManufacturingRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
     '/{-$locale}/technology': {
@@ -218,7 +218,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
   Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
   Char123LocaleChar125EnergyRoute: typeof Char123LocaleChar125EnergyRoute
-  Char123LocaleChar125ServicesRoute: typeof Char123LocaleChar125ServicesRoute
+  Char123LocaleChar125ManufacturingRoute: typeof Char123LocaleChar125ManufacturingRoute
   Char123LocaleChar125TechnologyRoute: typeof Char123LocaleChar125TechnologyRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   Char123LocaleChar125AboutTeamRoute: typeof Char123LocaleChar125AboutTeamRoute
@@ -230,7 +230,8 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
     Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
     Char123LocaleChar125EnergyRoute: Char123LocaleChar125EnergyRoute,
-    Char123LocaleChar125ServicesRoute: Char123LocaleChar125ServicesRoute,
+    Char123LocaleChar125ManufacturingRoute:
+      Char123LocaleChar125ManufacturingRoute,
     Char123LocaleChar125TechnologyRoute: Char123LocaleChar125TechnologyRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
     Char123LocaleChar125AboutTeamRoute: Char123LocaleChar125AboutTeamRoute,

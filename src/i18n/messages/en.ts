@@ -29,8 +29,8 @@ const en = {
       description:
         "The WDF leadership team, with direct phone and email for each person: a team connecting strategy, engineering and customer follow-up.",
     },
-    services: {
-      title: "Services | WDF",
+    manufacturing: {
+      title: "Manufacturing | WDF",
       description:
         "WDF integrates engineering, supply chain, precision manufacturing, finishing, assembly, testing and logistics from the U.S.–Mexico border.",
     },
@@ -54,7 +54,7 @@ const en = {
   },
   nav: {
     about: "About",
-    services: "Services",
+    manufacturing: "Manufacturing",
     energy: "Energy",
     technology: "Technology",
     threepl: "3PL",
@@ -84,8 +84,8 @@ const en = {
   },
   intro: {
     eyebrow: "01 · WDF",
-    title: "One company. Three industrial divisions.",
-    body: "WDF brings manufacturing, energy, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
+    title: "One company. Four industrial divisions.",
+    body: "WDF brings manufacturing, energy, technology, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
   },
   divisions: {
     eyebrow: "02 · Divisions",
@@ -108,6 +108,13 @@ const en = {
       kicker: "Infrastructure for what comes next.",
       body: "Engineering, equipment and integration for substations, energy storage, control rooms and industrial electrical infrastructure.",
       tags: ["Substations & grid", "BESS infrastructure", "Control shelters & E-houses"],
+      cta: "Learn more",
+    },
+    technology: {
+      name: "Technology",
+      kicker: "Systems that understand your operation.",
+      body: "Automation, controls and communications connecting equipment, processes and data through disciplined industrial execution.",
+      tags: ["Automation", "SCADA / PLC / DCS", "Robotics"],
       cta: "Learn more",
     },
     threepl: {
@@ -144,7 +151,7 @@ const en = {
   },
   services: {
     hero: {
-      eyebrow: "Services · WDF Manufacturing",
+      eyebrow: "Manufacturing · WDF",
       pre: "Manufacturing is our foundation.",
       accent: "Integration is our value.",
       sub: "Precision Manufacturing. Integrated Expertise.",

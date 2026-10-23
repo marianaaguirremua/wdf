@@ -29,12 +29,22 @@ export const PAGE_SLUGS: Partial<Record<Locale, Record<string, string>>> = {
   es: {
     "/about": "/nosotros",
     "/about/team": "/nosotros/equipo",
-    "/services": "/servicios",
+    "/manufacturing": "/manufactura",
     "/energy": "/energia",
     "/technology": "/tecnologia",
     "/3pl": "/trespl",
     "/contact": "/contacto",
   },
+};
+
+/**
+ * Former public URLs of renamed pages, mapped to the page's internal path. src/server.ts
+ * permanently redirects them to the current URL ("/es/servicios" -> "/es/manufactura").
+ */
+const RENAMED_PAGES: Record<string, string> = {
+  "/services": "/manufacturing",
+  "/es/services": "/es/manufacturing",
+  "/es/servicios": "/es/manufacturing",
 };
 
 /** Lowercases and strips accents so "/es/Energía" and "/es/tresPL" still resolve. */
@@ -57,6 +67,8 @@ export function localizedPath(locale: Locale, path: string): string {
  * Pathnames without a translated slug are returned unchanged.
  */
 export function internalPath(pathname: string): string {
+  const renamed = RENAMED_PAGES[pathname];
+  if (renamed) return renamed;
   const { locale, path } = splitLocalePath(pathname);
   const slugs = PAGE_SLUGS[locale];
   if (!slugs) return pathname;

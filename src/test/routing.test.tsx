@@ -13,7 +13,7 @@ describe("routing", () => {
   it("keeps the approved navigation order and labels", () => {
     expect(NAV_ITEMS.map((i) => en.nav[i.key])).toEqual([
       "About",
-      "Services",
+      "Manufacturing",
       "Energy",
       "Technology",
       "3PL",
@@ -25,7 +25,7 @@ describe("routing", () => {
     "/",
     "/about",
     "/about/team",
-    "/services",
+    "/manufacturing",
     "/energy",
     "/technology",
     "/3pl",

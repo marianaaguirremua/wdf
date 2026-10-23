@@ -27,7 +27,7 @@ describe("localization", () => {
     const slugs = {
       "/about": "/es/nosotros",
       "/about/team": "/es/nosotros/equipo",
-      "/services": "/es/servicios",
+      "/manufacturing": "/es/manufactura",
       "/energy": "/es/energia",
       "/technology": "/es/tecnologia",
       "/3pl": "/es/trespl",
@@ -40,6 +40,12 @@ describe("localization", () => {
     }
   });
 
+  it("sends the former Services URLs to the Manufacturing page", () => {
+    expect(publicPath(internalPath("/services"))).toBe("/manufacturing");
+    expect(publicPath(internalPath("/es/servicios"))).toBe("/es/manufactura");
+    expect(publicPath(internalPath("/es/services"))).toBe("/es/manufactura");
+  });
+
   it("resolves accented, capitalized and English Spanish slugs to the same page", () => {
     expect(internalPath("/es/Energ%C3%ADa")).toBe("/es/energy");
     expect(internalPath("/es/tresPL")).toBe("/es/3pl");
@@ -47,7 +53,7 @@ describe("localization", () => {
   });
 
   it("leaves English and unknown paths untouched", () => {
-    for (const path of ["/", "/about", "/services", "/es", "/es/unknown", "/es/%E0%A4%A"]) {
+    for (const path of ["/", "/about", "/manufacturing", "/es", "/es/unknown", "/es/%E0%A4%A"]) {
       expect(internalPath(path)).toBe(path);
       expect(publicPath(path)).toBe(path);
     }

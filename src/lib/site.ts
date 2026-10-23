@@ -65,7 +65,7 @@ export const DRAFT_MARKERS = import.meta.env["VITE_DRAFT_MARKERS"] !== "off";
 /** Primary navigation, in the approved order. Labels come from messages.nav[key]. */
 export const NAV_ITEMS = [
   { key: "about", to: "/{-$locale}/about" },
-  { key: "services", to: "/{-$locale}/services" },
+  { key: "manufacturing", to: "/{-$locale}/manufacturing" },
   { key: "energy", to: "/{-$locale}/energy" },
   { key: "technology", to: "/{-$locale}/technology" },
   { key: "threepl", to: "/{-$locale}/3pl" },
