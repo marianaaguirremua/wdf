@@ -296,12 +296,46 @@ const en = {
   },
   threepl: {
     hero: {
-      eyebrow: "3PL · WDF",
+      eyebrow: "3PL · Cross-border logistics",
       title: ["Two countries.", "One connected operation."],
-      body: "Storage, handling, inventory and cross-border coordination, with defined ownership and conditions for each operation.",
-      tags: ["US ↔ MX", "Warehousing", "Cross-border"],
-      primary: "Contact WDF",
-      drawingLabel: "U.S.–Mexico cross-border flow — decorative",
+      // **…** marks emphasis.
+      body: "Inventory, packaging and cross-border coordination run from our Mexicali facility, right on the **U.S.–Mexico border**, with a U.S. office in Yuma, Arizona. From there, your freight connects to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
+      legend: [
+        { term: "WDF location", text: "Mexicali, B.C. and Yuma, AZ" },
+        { term: "One operation", text: "linked across the border" },
+        { term: "Gateways & trade lanes", text: "routes we connect to" },
+      ],
+      primary: "Talk to our 3PL team",
+      map: {
+        label:
+          "Map of the U.S.–Mexico border region showing WDF's Mexicali hub and Yuma office, and the ports and trade lanes they connect to.",
+        unitedStates: "United States",
+        mexico: "México",
+        california: "California",
+        arizona: "Arizona",
+        bajaCalifornia: "Baja California",
+        sonora: "Sonora",
+        pacific: "Pacific Ocean",
+        gulf: "Gulf of California",
+        border: "US / MX border",
+        yuma: { region: "US · Arizona", name: "Yuma", role: "U.S. office" },
+        mexicali: {
+          region: "MX · Baja California",
+          name: "Mexicali",
+          role: "3PL & manufacturing hub",
+        },
+        ports: { name: "Ports of L.A. & Long Beach", detail: "Trans-Pacific supply chains" },
+        interiorUS: { name: "U.S. interior markets", detail: "I-8 / I-10 corridors" },
+        interiorMX: { name: "Mexico interior", detail: "Federal Hwy 2" },
+        ensenada: "Port of Ensenada",
+      },
+      flow: [
+        "Global suppliers & ports",
+        "Mexicali 3PL hub",
+        "US ↔ MX border",
+        "Yuma & U.S. customers",
+      ],
+      note: "Pins mark WDF locations. Dashed routes show gateways and trade lanes we connect to; they are not WDF facilities.",
     },
     capabilities: {
       eyebrow: "01 · Capabilities",

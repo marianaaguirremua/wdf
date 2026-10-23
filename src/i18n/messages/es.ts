@@ -291,12 +291,48 @@ const es: Messages = {
   },
   threepl: {
     hero: {
-      eyebrow: "3PL · WDF",
+      eyebrow: "3PL · Logística transfronteriza",
       title: ["Dos países.", "Una operación conectada."],
-      body: "Almacenamiento, maniobras, inventarios y coordinación transfronteriza, con responsables y condiciones definidos para cada operación.",
-      tags: ["US ↔ MX", "Warehousing", "Cross-border"],
-      primary: "Contactar a WDF",
-      drawingLabel: "Flujo transfronterizo entre EE. UU. y México — decorativo",
+      body: "Inventarios, empaque y coordinación transfronteriza operan desde nuestras instalaciones en Mexicali, justo en la **frontera entre EE. UU. y México**, con una oficina en Yuma, Arizona. Desde ahí, su carga se conecta con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
+      legend: [
+        { term: "Ubicación WDF", text: "Mexicali, B.C. y Yuma, AZ" },
+        { term: "Una operación", text: "enlazada a través de la frontera" },
+        { term: "Puertos y rutas comerciales", text: "rutas con las que nos conectamos" },
+      ],
+      primary: "Hable con nuestro equipo 3PL",
+      map: {
+        label:
+          "Mapa de la región fronteriza EE. UU.–México con el centro de WDF en Mexicali, la oficina en Yuma y los puertos y rutas comerciales con los que se conectan.",
+        unitedStates: "Estados Unidos",
+        mexico: "México",
+        california: "California",
+        arizona: "Arizona",
+        bajaCalifornia: "Baja California",
+        sonora: "Sonora",
+        pacific: "Océano Pacífico",
+        gulf: "Golfo de California",
+        border: "Frontera EE. UU. / MX",
+        yuma: { region: "EE. UU. · Arizona", name: "Yuma", role: "Oficina en EE. UU." },
+        mexicali: {
+          region: "MX · Baja California",
+          name: "Mexicali",
+          role: "Centro de 3PL y manufactura",
+        },
+        ports: {
+          name: "Puertos de L.A. y Long Beach",
+          detail: "Cadenas de suministro transpacíficas",
+        },
+        interiorUS: { name: "Mercados del interior de EE. UU.", detail: "Corredores I-8 / I-10" },
+        interiorMX: { name: "Interior de México", detail: "Carretera Federal 2" },
+        ensenada: "Puerto de Ensenada",
+      },
+      flow: [
+        "Proveedores y puertos globales",
+        "Centro 3PL Mexicali",
+        "Frontera EE. UU. ↔ MX",
+        "Yuma y clientes en EE. UU.",
+      ],
+      note: "Los pines marcan ubicaciones de WDF. Las rutas punteadas muestran puertos y rutas comerciales con los que nos conectamos; no son instalaciones de WDF.",
     },
     capabilities: {
       eyebrow: "01 · Capacidades",

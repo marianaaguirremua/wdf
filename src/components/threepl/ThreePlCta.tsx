@@ -10,8 +10,9 @@ export function ThreePlCta() {
 
   return (
     <section
+      id="threepl-contact"
       aria-labelledby="threepl-cta-title"
-      className="relative isolate overflow-hidden bg-ink-2 text-ink-foreground"
+      className="relative isolate scroll-mt-[var(--header-h)] overflow-hidden bg-ink-2 text-ink-foreground"
     >
       <div
         aria-hidden
