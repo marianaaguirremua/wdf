@@ -9,11 +9,6 @@ export function Hero() {
   const { locale, t } = useI18n();
   const params = { locale: localeParam(locale) };
   const words = t.hero.title.split(" ");
-  const divisions = [
-    t.divisions.manufacturing.name,
-    t.divisions.energy.name,
-    t.divisions.threepl.name,
-  ];
 
   return (
     <section
@@ -82,29 +77,6 @@ export function Hero() {
               {t.hero.secondary}
             </ButtonLink>
           </div>
-        </div>
-      </div>
-
-      {/* Division index strip */}
-      <div
-        className="fade-up border-t border-ink-border"
-        style={{ "--d": "1000ms" } as CSSProperties}
-      >
-        <div className="container-wdf grid grid-cols-3">
-          {divisions.map((name, i) => (
-            <a
-              key={name}
-              href="#divisions"
-              className="group flex flex-col gap-1.5 border-l border-ink-border py-5 pl-3 first:border-l-0 first:pl-0 sm:flex-row sm:items-baseline sm:gap-4 sm:pl-6"
-            >
-              <span className="label-mono text-ink-muted transition-colors group-hover:text-primary">
-                0{i + 1}
-              </span>
-              <span className="text-sm font-medium text-ink-foreground/85 transition-colors group-hover:text-ink-foreground sm:text-[0.95rem]">
-                {name}
-              </span>
-            </a>
-          ))}
         </div>
       </div>
     </section>
