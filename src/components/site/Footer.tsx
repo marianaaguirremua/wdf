@@ -4,6 +4,9 @@ import { NAV_ITEMS, PARTNERS } from "@/lib/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
+// Company links only; the division pages are listed under Divisions.
+const COMPANY_ITEMS = NAV_ITEMS.filter((item) => item.key === "about" || item.key === "contact");
+
 export function Footer() {
   const { locale, t } = useI18n();
   const params = { locale: localeParam(locale) };
@@ -22,7 +25,7 @@ export function Footer() {
         <nav aria-label={t.footer.company} className="md:col-span-3 md:col-start-7">
           <h2 className="label-mono text-ink-muted">{t.footer.company}</h2>
           <ul className="mt-5 space-y-3">
-            {NAV_ITEMS.map((item) => (
+            {COMPANY_ITEMS.map((item) => (
               <li key={item.key}>
                 <Link to={item.to} params={params} className="nav-link text-[0.95rem]">
                   {t.nav[item.key]}
