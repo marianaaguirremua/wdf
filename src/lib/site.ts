@@ -18,6 +18,7 @@ export const PARTNERS = [
     name: "WDF Integrators",
     href: "https://wdfintegrators.com/",
     logo: "/partners/wdf-integrators-white.webp",
+    logoColor: "/partners/wdf-integrators.webp",
     width: 480,
     height: 200,
     // Wide wordmark: a shorter box keeps it visually balanced with the stacked NESIS mark.
@@ -25,8 +26,11 @@ export const PARTNERS = [
   },
 ] as const;
 
-/** Partner behind the Energy and Technology divisions, credited in their page heroes. */
-export const NESIS = PARTNERS[0];
+/** Partners credited in the Energy and Technology heroes, with their full-colour logos. */
+export const DIVISION_PARTNERS = [
+  { ...PARTNERS[0], heroHeight: 240, heroWidth: 266, heroSize: "h-14" },
+  { ...PARTNERS[1], heroHeight: 200, heroWidth: 480, heroSize: "h-10" },
+] as const;
 export const MANUFACTURING_CONTACT_URL = `${MANUFACTURING_URL}/contact`;
 
 /** General inquiries, as published on manufacturing.wdfgroup.us/contact. */

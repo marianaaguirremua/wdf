@@ -4,7 +4,7 @@ import { localeParam, useI18n, type Messages } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { DirectContact } from "@/components/site/DirectContact";
 import { Reveal } from "@/components/site/Reveal";
-import { NESIS, type DivisionContact } from "@/lib/site";
+import { DIVISION_PARTNERS, type DivisionContact } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Light division page (Energy, Technology): white and paper sections with one accent colour,
@@ -134,24 +134,27 @@ function Hero({
             >
               {c.primary}
             </ButtonLink>
-            <a
-              href={NESIS.href}
-              target="_blank"
-              rel="noopener"
-              className="group inline-flex items-center gap-4 sm:border-l sm:border-paper-foreground/15 sm:pl-8"
-            >
-              <span className="label-mono text-paper-muted transition-colors group-hover:text-paper-foreground">
-                {t.footer.partneredWith}
-              </span>
-              <img
-                src={NESIS.logoColor}
-                alt={NESIS.name}
-                width={266}
-                height={240}
-                className="h-14 w-auto"
-              />
-              <span className="sr-only">({t.footer.external})</span>
-            </a>
+            <div className="inline-flex flex-wrap items-center gap-x-6 gap-y-3 sm:border-l sm:border-paper-foreground/15 sm:pl-8">
+              <span className="label-mono text-paper-muted">{t.footer.partneredWith}</span>
+              {DIVISION_PARTNERS.map((partner) => (
+                <a
+                  key={partner.name}
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener"
+                  className="opacity-90 transition-opacity hover:opacity-100"
+                >
+                  <img
+                    src={partner.logoColor}
+                    alt={partner.name}
+                    width={partner.heroWidth}
+                    height={partner.heroHeight}
+                    className={`${partner.heroSize} w-auto`}
+                  />
+                  <span className="sr-only">({t.footer.external})</span>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
