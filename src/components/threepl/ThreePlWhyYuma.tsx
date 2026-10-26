@@ -58,7 +58,7 @@ export function ThreePlWhyYuma() {
       className="relative isolate overflow-hidden bg-ink text-ink-foreground"
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
-      <div className="container-wdf grid items-center gap-14 py-24 md:py-32 lg:grid-cols-12 lg:gap-8">
+      <div className="container-wdf grid items-center gap-14 pb-12 pt-24 md:pb-16 md:pt-32 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-6">
           <Reveal>
             <p className="label-mono inline-flex items-center gap-3 text-accent">

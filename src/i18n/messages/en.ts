@@ -389,7 +389,7 @@ const en = {
       },
     },
     plant: {
-      title: "Engineering, manufacturing and energy, working together.",
+      title: ["Engineering, manufacturing and energy,", "working together."],
       alt: "Isometric illustration of a WDF plant: engineers at a machining centre, a CNC lathe and an inspection station produce parts that move along a conveyor into an integration area with switchgear, a substation transformer and battery energy storage containers, linked by an amber network of energy and teamwork.",
     },
     establish: {

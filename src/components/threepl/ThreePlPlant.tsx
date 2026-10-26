@@ -15,12 +15,14 @@ export function ThreePlPlant() {
       className="relative isolate overflow-hidden border-t border-ink-border bg-ink text-ink-foreground"
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
-      <div className="container-wdf py-24 md:py-32">
+      <div className="container-wdf pb-24 pt-12 md:pb-32 md:pt-16">
         <Reveal
           as="h2"
-          className="display mx-auto max-w-4xl text-balance text-center text-[clamp(2.25rem,4.4vw,4rem)] text-accent"
+          className="display mx-auto max-w-4xl text-balance text-center text-[clamp(1.875rem,3.2vw,2.875rem)]"
         >
-          <span id="threepl-plant-title">{p.title}</span>
+          <span id="threepl-plant-title">
+            <span className="text-accent">{p.title[0]}</span> {p.title[1]}
+          </span>
         </Reveal>
 
         <Reveal delay={200} className="mx-auto mt-12 max-w-6xl md:mt-16">
