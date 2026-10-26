@@ -1,11 +1,14 @@
 import { localeParam, useI18n } from "@/i18n";
 import { Link } from "@tanstack/react-router";
+import { OnDemandVideo } from "@/components/site/OnDemandVideo";
 import { Reveal } from "@/components/site/Reveal";
+import { SERVICES_VIDEO } from "@/lib/site";
 
 const cardClass =
   "group flex items-center justify-between gap-6 rounded-sm border border-paper-foreground/15 p-7 transition-colors hover:border-accent md:p-8";
 
-// Links 3PL to the other WDF divisions: Manufacturing and Energy to their pages.
+// Links 3PL to the other WDF divisions: a general WDF services video (loaded only when
+// played), then Manufacturing and Energy to their pages.
 export function ThreePlConnect() {
   const { locale, t } = useI18n();
   const c = t.threepl.connect;
@@ -28,8 +31,20 @@ export function ThreePlConnect() {
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
               <span id="threepl-connect-title">{c.title}</span>
             </Reveal>
+            <Reveal delay={120}>
+              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper-muted">{c.body}</p>
+            </Reveal>
 
-            <Reveal delay={160} className="mt-14 grid gap-4 md:grid-cols-2">
+            <Reveal delay={160} className="mt-12">
+              <OnDemandVideo
+                {...SERVICES_VIDEO}
+                title={c.video.title}
+                description={c.video.description}
+                playLabel={c.video.play}
+              />
+            </Reveal>
+
+            <Reveal delay={160} className="mt-10 grid gap-4 md:grid-cols-2">
               <Link
                 to="/{-$locale}/manufacturing"
                 params={{ locale: localeParam(locale) }}

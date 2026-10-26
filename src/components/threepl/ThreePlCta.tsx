@@ -35,6 +35,7 @@ export function ThreePlCta() {
           >
             <div className="md:col-span-5">
               <p className="text-lg leading-relaxed text-ink-muted">{c.body}</p>
+              <p className="mt-4 text-sm leading-relaxed text-ink-muted/80">{c.note}</p>
               <DirectContact
                 label={c.contact}
                 contact={THREEPL_CONTACT}

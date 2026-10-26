@@ -304,7 +304,7 @@ const es: Messages = {
     hero: {
       eyebrow: "3PL · Logística transfronteriza",
       title: ["Establezca su empresa en Estados Unidos,", "con apoyo local desde el inicio."],
-      body: "Inventarios, empaque y coordinación transfronteriza operan desde nuestras instalaciones en Mexicali, justo en la **frontera entre EE. UU. y México**, con una oficina en Yuma, Arizona. Desde ahí, su carga se conecta con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
+      body: "Los servicios 3PL (logística de terceros) de WDF parten de **Yuma, Arizona**, en el suroeste de Estados Unidos, cerca de California. Desde ahí coordinamos almacenamiento, inventarios, preparación de pedidos y flujos transfronterizos con nuestro equipo en **Mexicali, Baja California, México**, y conectamos su carga con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
       legend: {
         flow: [
           { term: "Proveedores y puertos globales", text: "donde se origina la carga" },
@@ -357,9 +357,10 @@ const es: Messages = {
       eyebrow: "Suroeste de EE. UU. · Servicios de ingeniería y soluciones integrales",
       title: ["Dos países.", "Una operación conectada."],
       body: [
-        "WDF ayuda a empresas internacionales a planear, establecer y hacer crecer operaciones industriales en el suroeste de Estados Unidos.",
-        "Con una oficina en Yuma, Arizona, EE. UU. —cerca de California y de la frontera con México—, le ayudamos a conectar con recursos regionales, definir los requerimientos de su proyecto y coordinar ingeniería, manufactura, logística y soporte operativo.",
-        "Nuestras capacidades en Mexicali, Baja California, México, brindan apoyo adicional cuando su proyecto requiere operaciones en ambos lados de la frontera.",
+        "WDF ayuda a empresas internacionales a planear, establecer y hacer crecer operaciones en el suroeste de Estados Unidos, a partir de nuestra oficina en Yuma, Arizona. Las empresas del grupo en ambos lados de la frontera trabajan con una estructura contractual definida para cada operación.",
+        "En Estados Unidos, WDF Services LLC atiende la relación comercial y la coordinación: definición del alcance, proveedores, transporte y entrega en EE. UU. conforme al contrato acordado.",
+        "En México, Integrators WDF México, S. de R.L. de C.V. coordina la ejecución local, el soporte industrial y los servicios específicos de cada proyecto.",
+        "Antes del primer movimiento identificamos, en cada país, a la entidad contratante, al propietario de la mercancía, al importador/exportador, al patrón y al representante aduanal.",
       ],
       primary: "Hable de su expansión a EE. UU.",
     },
@@ -367,7 +368,7 @@ const es: Messages = {
       eyebrow: "¿Por qué Yuma, Arizona?",
       title: "Una ubicación en EE. UU. cerca de California y México.",
       body: [
-        "Explore una ubicación que acerca su negocio a clientes en EE. UU. y a recursos de manufactura transfronterizos.",
+        "Yuma está en el suroeste de Arizona, junto a California en Estados Unidos y cerca de Baja California y Sonora en México. Acerca su negocio a clientes en EE. UU. y a recursos de manufactura transfronterizos.",
         "Desde Yuma, WDF le ayuda a evaluar cómo los proveedores regionales, la logística, los servicios técnicos y los requisitos de operación se ajustan a sus planes de expansión, para que tome decisiones informadas antes de comprometer recursos.",
       ],
       diagram: {
@@ -406,34 +407,34 @@ const es: Messages = {
       primary: "Cuéntenos qué quiere construir",
     },
     capabilities: {
-      eyebrow: "01 · Capacidades",
+      eyebrow: "01 · Servicios logísticos",
       crossTag: "MX ⇄ US",
       title: "Un alcance que se configura para su proyecto.",
-      body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
+      body: "Servicios de logística de terceros diseñados en torno a su producto, volumen y compromiso de entrega, para una operación recurrente, capacidad por temporada o un proyecto específico. Los recursos y niveles de servicio se acuerdan por escrito.",
       items: [
         {
           title: "Almacenamiento e inventario",
-          body: "Espacio, ubicaciones, identificación, conteos y reportes acordados según producto y volumen.",
+          body: "Recepción, acomodo y almacenaje por ubicación, segregación y límites de estiba; trazabilidad por SKU, lote o número de serie, con conteos cíclicos y conciliación.",
         },
         {
           title: "Carga, descarga y maniobras",
-          body: "Recepción, inspección aparente y maniobras con equipo dimensionado para la mercancía.",
+          body: "Citas con aviso previo, descarga con equipo adecuado a la carga, y conteo e inspección con registro de diferencias. Grúas, izajes, cargas sobredimensionadas y materiales regulados se evalúan y cotizan por separado.",
         },
         {
           title: "Preparación y distribución",
-          body: "Surtido, empaque, consolidación, cross-dock y coordinación de entrega o retorno.",
+          body: "Liberación de pedidos, surtido, verificación, empaque y etiquetado; cross-dock, consolidación de carga, prueba de entrega y devoluciones autorizadas.",
         },
         {
           title: "Pedimentos y cruce",
-          body: "Coordinación del expediente con el importador/exportador y representantes aduanales autorizados.",
+          body: "Expediente del embarque y seguimiento de hitos con el importador/exportador y los representantes aduanales autorizados de cada país, quienes conservan la responsabilidad del despacho y sus obligaciones.",
         },
         {
           title: "IMMEX y shelter",
-          body: "Evaluación del modelo autorizado que corresponda al producto, la empresa y la actividad.",
+          body: "Evaluación del programa IMMEX o de un modelo shelter con el titular del programa y sus asesores, según la empresa, la actividad, la mercancía y el domicilio autorizado.",
         },
         {
           title: "Personal y continuidad",
-          body: "Diseño de la organización operativa y evaluación de transiciones laborales con especialistas.",
+          body: "Personal, turnos, supervisión y capacitación de acuerdo con el nivel de servicio contratado; las sustituciones patronales se evalúan con asesores laborales.",
         },
       ],
     },
@@ -442,35 +443,49 @@ const es: Messages = {
       title: "La capacidad se convierte en un paquete definido.",
       items: [
         "Mapa de flujo y ficha operativa",
-        "Recursos, ubicaciones y responsables",
-        "Procedimientos y niveles de servicio",
-        "Reportes de inventario y movimientos",
+        "Matriz de responsabilidades",
+        "Procedimientos y niveles de servicio (SLA)",
+        "Indicadores y reportes",
       ],
-      note: "Instalaciones, disponibilidad, titular IMMEX, régimen aduanero, patrón y servicios de terceros se validan y documentan por proyecto.",
+      note: "Los indicadores se definen con usted en el SLA, como exactitud de inventario, entregas a tiempo, tiempo de recepción y excepciones. Instalaciones, espacio, seguros, titular IMMEX, régimen aduanero, patrón y servicios de terceros se validan y documentan por proyecto.",
     },
     process: {
       eyebrow: "03 · Cómo trabajamos",
       title: "Una ruta clara. De principio a entrega.",
-      body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
+      body: "El calendario depende de las instalaciones, autorizaciones, recursos y sus aprobaciones.",
       steps: [
-        { title: "Entender", body: "Requerimientos, flujo, producto, sitio y restricciones." },
-        { title: "Definir", body: "Ingeniería, recursos, alcance, costo y responsabilidades." },
-        { title: "Ejecutar", body: "Abastecimiento, fabricación, integración y seguimiento." },
         {
-          title: "Verificar y entregar",
-          body: "Pruebas, evidencia, documentación y aceptación acordada.",
+          title: "Diagnóstico",
+          body: "Perfil operativo, producto, flujos, volúmenes y restricciones.",
         },
+        {
+          title: "Diseño",
+          body: "Distribución del espacio, recursos, responsabilidades y modelo de contrato.",
+        },
+        {
+          title: "Validación",
+          body: "Revisión técnica, aduanera, fiscal, laboral y de seguros con especialistas.",
+        },
+        { title: "Preparación", body: "Sitio, equipo, sistemas, personal y procedimientos." },
       ],
     },
     connect: {
       eyebrow: "04 · Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
+      body: "La logística es una de las áreas de servicio de WDF. Cuando su proyecto también requiere ingeniería, infraestructura eléctrica, automatización o manufactura, coordinamos esas divisiones en torno a un mismo plan, cada una con su propio alcance.",
+      video: {
+        title: "Panorama de los servicios de WDF",
+        description:
+          "Presentación general de los servicios industriales de WDF. 2\u00a0min 56\u00a0s; textos en pantalla en inglés.",
+        play: "Reproducir el video de los servicios de WDF (2\u00a0min 56\u00a0s)",
+      },
     },
     cta: {
       eyebrow: "05 · Su siguiente proyecto",
       title: "¿Qué necesita mover, guardar o conectar?",
-      body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
-      primary: "Contactar a WDF",
+      body: "Cuéntenos qué necesita mover, a dónde debe llegar y cuándo: producto y flujo, volumen y frecuencia, y el modelo operativo a evaluar, ya sea 3PL, cruce fronterizo, personal, IMMEX o shelter.",
+      note: "Soluciones por proyecto. Disponibilidad, autorizaciones, responsabilidades, términos y alcance sujetos a validación y contrato.",
+      primary: "Solicite una evaluación",
       contact: "Contacto directo",
     },
   },

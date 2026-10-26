@@ -316,7 +316,7 @@ const en = {
         "with local support from the start.",
       ],
       // **…** marks emphasis.
-      body: "Inventory, packaging and cross-border coordination run from our Mexicali facility, right on the **U.S.–Mexico border**, with a U.S. office in Yuma, Arizona. From there, your freight connects to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
+      body: "WDF's 3PL (third-party logistics) services start in **Yuma, Arizona**, in the U.S. Southwest, close to California. From there, we coordinate warehousing, inventory, order preparation and cross-border flows with our team in **Mexicali, Baja California, Mexico**, and connect your freight to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
       legend: {
         flow: [
           { term: "Global suppliers & ports", text: "where freight originates" },
@@ -366,9 +366,10 @@ const en = {
       eyebrow: "U.S. Southwest · Engineering services & integrated solutions",
       title: ["Two countries.", "One connected operation."],
       body: [
-        "WDF helps international companies plan, establish, and grow industrial operations in the U.S. Southwest.",
-        "With an office in Yuma, Arizona, USA—near California and the Mexican border—we help you connect with regional resources, define your project requirements, and coordinate engineering, manufacturing, logistics, and operational support.",
-        "Our capabilities in Mexicali, Baja California, Mexico, provide additional support when your project calls for operations on both sides of the border.",
+        "WDF helps international companies plan, establish and grow operations in the U.S. Southwest, starting from our office in Yuma, Arizona. Group companies on both sides of the border work under a contractual structure defined for each operation.",
+        "In the United States, WDF Services LLC manages the commercial relationship and coordination: scope definition, suppliers, transportation and U.S. delivery under the agreed contract.",
+        "In Mexico, Integrators WDF México, S. de R.L. de C.V. coordinates local execution, industrial support and project-specific services.",
+        "Before the first movement, we identify the contracting entity, goods owner, importer/exporter, employer and customs representative in each country.",
       ],
       primary: "Discuss your U.S. expansion",
     },
@@ -376,7 +377,7 @@ const en = {
       eyebrow: "Why Yuma, Arizona?",
       title: "A U.S. location close to California and Mexico.",
       body: [
-        "Explore a location that brings your business closer to U.S. customers and cross-border manufacturing resources.",
+        "Yuma is in southwestern Arizona, next to California in the United States and close to Baja California and Sonora in Mexico. It brings your business closer to U.S. customers and to cross-border manufacturing resources.",
         "From Yuma, WDF helps you evaluate how regional suppliers, logistics, technical services, and operating requirements fit your expansion plans—so you can make informed decisions before committing resources.",
       ],
       diagram: {
@@ -411,34 +412,34 @@ const en = {
       primary: "Tell us what you want to build",
     },
     capabilities: {
-      eyebrow: "01 · Capabilities",
+      eyebrow: "01 · Logistics services",
       crossTag: "MX ⇄ US",
       title: "A scope configured for your project.",
-      body: "We select services and deliverables around the technical need, timeline and required resources.",
+      body: "Third-party logistics services built around your product, volume and delivery commitment, for recurring operations, seasonal capacity or a specific project. Resources and service levels are agreed in writing.",
       items: [
         {
           title: "Warehousing & inventory",
-          body: "Space, locations, identification, counts and reporting matched to product and volume.",
+          body: "Receiving, putaway and storage by location, segregation and stacking limits; traceability by SKU, lot or serial number, with cycle counts and reconciliation.",
         },
         {
           title: "Loading, unloading & handling",
-          body: "Receiving, visual condition checks and handling with equipment sized for the goods.",
+          body: "Scheduled arrivals with pre-alert, unloading with equipment matched to the load, and count and inspection with discrepancy records. Cranes, rigging, oversized loads and regulated materials are assessed and quoted separately.",
         },
         {
           title: "Fulfillment & distribution",
-          body: "Picking, packing, consolidation, cross-docking and delivery or returns coordination.",
+          body: "Order release, picking, verification, packing and labeling; cross-dock, load consolidation, proof of delivery and authorized returns.",
         },
         {
           title: "Customs documentation & crossing",
-          body: "Shipment-file coordination with the importer/exporter and authorized customs representatives.",
+          body: "Shipment file and milestone tracking with the importer/exporter and authorized customs representatives in each country, who remain responsible for clearance and its obligations.",
         },
         {
           title: "IMMEX & shelter",
-          body: "Assessment of the authorized model applicable to the goods, company and activity.",
+          body: "Assessment of the IMMEX program or a shelter model with the program holder and advisers, based on company, activity, goods and authorized location.",
         },
         {
           title: "People & continuity",
-          body: "Operating-team design and assessment of employment transitions with specialists.",
+          body: "Staffing, shifts, supervision and training sized to the contracted service level; employer-substitution transitions assessed with employment advisers.",
         },
       ],
     },
@@ -447,35 +448,42 @@ const en = {
       title: "Capability becomes a defined package.",
       items: [
         "Flow map & operating profile",
-        "Resources, locations & owners",
-        "Procedures & service levels",
-        "Inventory & movement reporting",
+        "Responsibility matrix & owners",
+        "Procedures & service levels (SLA)",
+        "Indicators & reporting",
       ],
-      note: "Facilities, availability, IMMEX holder, customs regime, employer and third-party services are verified and documented per project.",
+      note: "Indicators are defined with you in the SLA, such as inventory accuracy, on-time delivery, receiving time and exceptions. Facilities, space, insurance, IMMEX holder, customs regime, employer and third-party services are verified and documented per project.",
     },
     process: {
       eyebrow: "03 · How we work",
       title: "A clear path. From scope to delivery.",
-      body: "Every project is built around deliverables, owners and verification points.",
+      body: "The schedule depends on facilities, authorizations, resources and your approvals.",
       steps: [
-        { title: "Understand", body: "Requirements, flow, product, site and constraints." },
-        { title: "Define", body: "Engineering, resources, scope, cost and responsibilities." },
-        { title: "Execute", body: "Sourcing, fabrication, integration and follow-up." },
+        { title: "Discovery", body: "Operating profile, product, flows, volumes and constraints." },
+        { title: "Design", body: "Layout, resources, responsibilities and contract model." },
         {
-          title: "Verify & deliver",
-          body: "Testing, evidence, documentation and agreed acceptance.",
+          title: "Validation",
+          body: "Technical, customs, tax, employment and insurance review with specialists.",
         },
+        { title: "Preparation", body: "Site, equipment, systems, team and procedures." },
       ],
     },
     connect: {
       eyebrow: "04 · Connect capabilities",
       title: "This pillar works with the others.",
+      body: "Logistics is one of WDF's service areas. When your project also needs engineering, electrical infrastructure, automation or manufacturing, we coordinate those divisions around the same plan, each with its own scope.",
+      video: {
+        title: "WDF services overview",
+        description: "A general presentation of WDF's industrial services. 2\u00a0min 56\u00a0s.",
+        play: "Play the WDF services overview video (2\u00a0min 56\u00a0s)",
+      },
     },
     cta: {
       eyebrow: "05 · Your next project",
       title: "What do you need to move, store or connect?",
-      body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
-      primary: "Contact WDF",
+      body: "Tell us what needs to move, where it needs to be and when it needs to arrive: product and flow, volume and frequency, and the operating model to assess, whether 3PL, border crossing, staffing, IMMEX or shelter.",
+      note: "Project-based solutions. Availability, authorizations, responsibilities, terms and scope are subject to validation and contract.",
+      primary: "Request an assessment",
       contact: "Direct contact",
     },
   },

@@ -96,4 +96,16 @@ export type HeroVideo = {
   mobileMp4?: string;
   poster: string;
 };
+/** General WDF services presentation (WDFServices2026.mp4, re-encoded for the web), on the 3PL page. */
+export const SERVICES_VIDEO = {
+  sources: [
+    // H.264/AAC (9.1 MB) for most browsers; VP9/Opus (12.2 MB) where H.264 is unavailable.
+    { src: "/media/3pl/wdf-services-2026.mp4", type: 'video/mp4; codecs="avc1.64001f, mp4a.40.2"' },
+    { src: "/media/3pl/wdf-services-2026.webm", type: 'video/webm; codecs="vp9, opus"' },
+  ],
+  poster: "/media/3pl/wdf-services-2026-poster.webp",
+  width: 848,
+  height: 478,
+} as const;
+
 export const HERO_VIDEO: HeroVideo | null = null;
