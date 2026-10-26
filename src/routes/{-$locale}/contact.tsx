@@ -1,6 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, useRouter } from "@tanstack/react-router";
 import type { CSSProperties } from "react";
-import { getMessages, resolveLocale, useI18n } from "@/i18n";
+import { getMessages, localeParam, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { CONTACT_EMAIL, THREEPL_LOCATIONS } from "@/lib/site";
 import { ContactForm } from "@/components/contact/ContactForm";
@@ -13,6 +13,29 @@ export const Route = createFileRoute("/{-$locale}/contact")({
   },
   component: Page,
 });
+
+/** Returns to the previous page on the site, or to the home page when the visitor landed here. */
+function BackButton() {
+  const { locale, t } = useI18n();
+  const router = useRouter();
+  const navigate = useNavigate();
+  const onClick = () => {
+    if (router.history.canGoBack()) router.history.back();
+    else void navigate({ to: "/{-$locale}", params: { locale: localeParam(locale) } });
+  };
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      className="label-mono fade-up group mb-10 inline-flex items-center gap-2 text-ink-muted transition-colors hover:text-primary"
+    >
+      <span aria-hidden className="transition-transform group-hover:-translate-x-1">
+        ←
+      </span>
+      {t.contact.back}
+    </button>
+  );
+}
 
 function Page() {
   const { t } = useI18n();
@@ -40,6 +63,7 @@ function Page() {
       <div aria-hidden className="column-rules -z-10" />
       <div className="container-wdf grid gap-14 pb-24 pt-[calc(var(--header-h)+3.5rem)] md:pb-32 lg:grid-cols-12 lg:gap-10 lg:pt-[calc(var(--header-h)+5rem)]">
         <div className="lg:col-span-5">
+          <BackButton />
           <p className="label-mono fade-up text-primary">{c.eyebrow}</p>
           <h1 id="contact-title" className="display mt-6 text-[clamp(2.6rem,5.6vw,4.75rem)]">
             <span className="rise-line">

@@ -663,6 +663,7 @@ const es: Messages = {
   },
   contact: {
     eyebrow: "Contacto",
+    back: "Regresar",
     title: "Hablemos de su proyecto.",
     body: "Cuéntenos lo que necesita. Seleccione todas las divisiones que involucra su proyecto y el equipo de WDF revisará sus requerimientos y le dará seguimiento.",
     info: {

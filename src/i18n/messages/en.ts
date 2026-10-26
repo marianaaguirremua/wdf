@@ -669,6 +669,7 @@ const en = {
   },
   contact: {
     eyebrow: "Contact",
+    back: "Back",
     title: "Let's talk about your project.",
     body: "Tell us what you need. Select every division your project involves and the WDF team will review your requirements and follow up.",
     info: {
