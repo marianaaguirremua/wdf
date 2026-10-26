@@ -16,19 +16,12 @@ export function ThreePlPlant() {
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
       <div className="container-wdf py-24 md:py-32">
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="lg:col-span-3">
-            <p className="label-mono inline-flex items-center gap-3 text-accent">
-              <span aria-hidden className="h-0.5 w-8 shrink-0 bg-accent" />
-              {p.eyebrow}
-            </p>
-          </Reveal>
-          <div className="lg:col-span-9">
-            <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,4.4vw,4rem)]">
-              <span id="threepl-plant-title">{p.title}</span>
-            </Reveal>
-          </div>
-        </div>
+        <Reveal
+          as="h2"
+          className="display mx-auto max-w-4xl text-balance text-center text-[clamp(2.25rem,4.4vw,4rem)] text-accent"
+        >
+          <span id="threepl-plant-title">{p.title}</span>
+        </Reveal>
 
         <Reveal delay={200} className="mx-auto mt-12 max-w-6xl md:mt-16">
           <img
