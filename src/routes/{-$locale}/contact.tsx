@@ -65,7 +65,10 @@ function Page() {
         <div className="lg:col-span-5">
           <BackButton />
           <p className="label-mono fade-up text-primary">{c.eyebrow}</p>
-          <h1 id="contact-title" className="display mt-6 text-[clamp(2.6rem,5.6vw,4.75rem)]">
+          <h1
+            id="contact-title"
+            className="display mt-6 text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold"
+          >
             <span className="rise-line">
               <span>{c.title}</span>
             </span>
