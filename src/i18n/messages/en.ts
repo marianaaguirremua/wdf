@@ -201,6 +201,8 @@ const en = {
             "3-, 4- and 5-axis milling",
             "forming",
             "welding",
+            "plastic injection molding",
+            "metal stamping",
             "tooling and fixtures",
           ],
         },

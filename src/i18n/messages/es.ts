@@ -193,6 +193,8 @@ const es: Messages = {
             "fresado de 3, 4 y 5 ejes",
             "conformado",
             "soldadura",
+            "moldeo por inyección de plástico",
+            "estampado de metales",
             "herramentales y fixtures",
           ],
         },
