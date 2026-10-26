@@ -96,7 +96,7 @@ const es: Messages = {
         "Ensamble e integración de producto",
         "Pruebas y validación",
       ],
-      cta: "Visitar WDF Manufactura",
+      cta: "Más información",
     },
     energy: {
       name: "Energía",

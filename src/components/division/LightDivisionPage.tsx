@@ -4,7 +4,7 @@ import { localeParam, useI18n, type Messages } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { DirectContact } from "@/components/site/DirectContact";
 import { Reveal } from "@/components/site/Reveal";
-import { MANUFACTURING_URL, NESIS, type DivisionContact } from "@/lib/site";
+import { NESIS, type DivisionContact } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Light division page (Energy, Technology): white and paper sections with one accent colour,
@@ -16,6 +16,7 @@ type Content = Messages["energy"];
 type LinkedDivision = "manufacturing" | "energy" | "technology" | "threepl";
 
 const DIVISION_ROUTES = {
+  manufacturing: "/{-$locale}/manufacturing",
   energy: "/{-$locale}/energy",
   technology: "/{-$locale}/technology",
   threepl: "/{-$locale}/3pl",
@@ -292,38 +293,19 @@ function Connect({
       <div className="container-wdf py-24 md:py-36">
         <SectionHeader id={`${id}-connect`} label={c.eyebrow} title={c.title} />
         <Reveal delay={160} className="mt-14 grid gap-4 md:grid-cols-2 lg:ml-[25%]">
-          {linked.map((key) =>
-            key === "manufacturing" ? (
-              <a
-                key={key}
-                href={MANUFACTURING_URL}
-                target="_blank"
-                rel="noopener"
-                className={cardClass}
-              >
-                <CardText
-                  name={t.divisions.manufacturing.name}
-                  line={t.divisionLines.manufacturing}
-                />
-                <span aria-hidden className="arrow-nudge arrow-nudge-diag text-xl text-accent-deep">
-                  ↗
-                </span>
-                <span className="sr-only">({t.footer.external})</span>
-              </a>
-            ) : (
-              <Link
-                key={key}
-                to={DIVISION_ROUTES[key]}
-                params={{ locale: localeParam(locale) }}
-                className={cardClass}
-              >
-                <CardText name={t.nav[key]} line={t.divisionLines[key]} />
-                <span aria-hidden className="arrow-nudge text-xl text-accent-deep">
-                  →
-                </span>
-              </Link>
-            ),
-          )}
+          {linked.map((key) => (
+            <Link
+              key={key}
+              to={DIVISION_ROUTES[key]}
+              params={{ locale: localeParam(locale) }}
+              className={cardClass}
+            >
+              <CardText name={t.nav[key]} line={t.divisionLines[key]} />
+              <span aria-hidden className="arrow-nudge text-xl text-accent-deep">
+                →
+              </span>
+            </Link>
+          ))}
         </Reveal>
       </div>
     </section>

@@ -101,7 +101,7 @@ const en = {
         "Assembly & Product Integration",
         "Testing & Validation",
       ],
-      cta: "Visit WDF Manufacturing",
+      cta: "Learn more",
     },
     energy: {
       name: "Energy",

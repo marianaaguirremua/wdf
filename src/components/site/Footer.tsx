@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { localeParam, useI18n } from "@/i18n";
-import { MANUFACTURING_URL, NAV_ITEMS, PARTNERS } from "@/lib/site";
+import { NAV_ITEMS, PARTNERS } from "@/lib/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
@@ -36,18 +36,13 @@ export function Footer() {
           <h2 className="label-mono text-ink-muted">{t.footer.divisions}</h2>
           <ul className="mt-5 space-y-3">
             <li>
-              <a
-                href={MANUFACTURING_URL}
-                target="_blank"
-                rel="noopener"
-                className="nav-link inline-flex items-center gap-1.5 text-[0.95rem]"
+              <Link
+                to="/{-$locale}/manufacturing"
+                params={params}
+                className="nav-link text-[0.95rem]"
               >
                 {t.footer.manufacturing}
-                <span aria-hidden className="arrow-nudge arrow-nudge-diag text-primary">
-                  ↗
-                </span>
-                <span className="sr-only">({t.footer.external})</span>
-              </a>
+              </Link>
             </li>
             <li>
               <Link to="/{-$locale}/energy" params={params} className="nav-link text-[0.95rem]">

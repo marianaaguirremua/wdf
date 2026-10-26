@@ -4,7 +4,6 @@ import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { Bolt } from "@/components/energy/Bolt";
 import { Chip } from "@/components/technology/Chip";
-import { MANUFACTURING_URL } from "@/lib/site";
 
 function ToolMark({ className }: { className?: string }) {
   return (
@@ -61,10 +60,9 @@ function DivisionMosaic() {
 
   return (
     <nav aria-label={t.about.hero.divisions} className="grid grid-cols-2 gap-3 md:gap-4">
-      <a
-        href={MANUFACTURING_URL}
-        target="_blank"
-        rel="noopener"
+      <Link
+        to="/{-$locale}/manufacturing"
+        params={params}
         className={tileClass}
         style={tone("var(--teal)", "var(--petroleum)")}
       >
@@ -73,8 +71,7 @@ function DivisionMosaic() {
           name={t.divisions.manufacturing.name}
           line={l.manufacturing}
         />
-        <span className="sr-only">({t.footer.external})</span>
-      </a>
+      </Link>
       <Link
         to="/{-$locale}/energy"
         params={params}

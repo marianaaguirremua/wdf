@@ -2,7 +2,6 @@ import { Link } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
-import { MANUFACTURING_URL } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Each division keeps the shared grid, type and motion language but owns an accent drawn
@@ -217,13 +216,12 @@ export function Divisions() {
             tags={d.manufacturing.tags}
             motif={<ToolpathMotif />}
             action={
-              <a href={MANUFACTURING_URL} target="_blank" rel="noopener" className={actionClass}>
+              <Link to="/{-$locale}/manufacturing" params={params} className={actionClass}>
                 {d.manufacturing.cta}
-                <span aria-hidden className="arrow-nudge arrow-nudge-diag">
-                  ↗
+                <span aria-hidden className="arrow-nudge">
+                  →
                 </span>
-                <span className="sr-only">({t.footer.external})</span>
-              </a>
+              </Link>
             }
           />
           <Division
