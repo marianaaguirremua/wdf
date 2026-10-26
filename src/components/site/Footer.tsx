@@ -81,10 +81,10 @@ export function Footer() {
                   <img
                     src={partner.logo}
                     alt={partner.name}
-                    width={654}
-                    height={589}
+                    width={partner.width}
+                    height={partner.height}
                     loading="lazy"
-                    className="h-12 w-auto"
+                    className={`${partner.size} w-auto`}
                   />
                   <span className="sr-only">({t.footer.external})</span>
                 </a>

@@ -10,6 +10,18 @@ export const PARTNERS = [
     href: "https://www.nesisautomation.com/inicio.html?lang=es",
     logo: "/partners/nesis-white.png",
     logoColor: "/partners/nesis.png",
+    width: 654,
+    height: 589,
+    size: "h-12",
+  },
+  {
+    name: "WDF Integrators",
+    href: "https://wdfintegrators.com/",
+    logo: "/partners/wdf-integrators-white.webp",
+    width: 480,
+    height: 200,
+    // Wide wordmark: a shorter box keeps it visually balanced with the stacked NESIS mark.
+    size: "h-9",
   },
 ] as const;
 
