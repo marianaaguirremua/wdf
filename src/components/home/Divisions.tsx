@@ -129,7 +129,7 @@ function Division({
     <Reveal
       as="article"
       delay={index * 110}
-      className="division relative flex flex-col border-t border-ink-border pt-8 xl:border-l xl:border-t-0 xl:px-7 xl:pt-0 xl:first:border-l-0 xl:first:pl-0 xl:last:pr-0"
+      className="division group/card relative flex cursor-pointer flex-col border-t border-ink-border pt-8 xl:border-l xl:border-t-0 xl:px-7 xl:pt-0 xl:first:border-l-0 xl:first:pl-0 xl:last:pr-0"
     >
       <div style={{ "--accent": accent } as CSSProperties} className="flex h-full flex-col">
         <span
@@ -175,8 +175,10 @@ function Division({
   );
 }
 
+// The link's ::after stretches over the whole card (the <article> is relative), so the entire
+// card opens the division page while staying a single link for keyboard and screen readers.
 const actionClass =
-  "inline-flex items-center gap-2 border-b border-ink-border pb-1.5 text-[0.9rem] font-semibold text-ink-foreground transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]";
+  "inline-flex items-center gap-2 border-b border-ink-border pb-1.5 text-[0.9rem] font-semibold text-ink-foreground transition-colors after:absolute after:inset-0 after:content-[''] hover:border-[var(--accent)] hover:text-[var(--accent)] group-hover/card:border-[var(--accent)] group-hover/card:text-[var(--accent)]";
 
 export function Divisions() {
   const { locale, t } = useI18n();
