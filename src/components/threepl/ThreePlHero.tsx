@@ -1,6 +1,7 @@
 import { Fragment, type CSSProperties, type ReactNode } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
+import { Reveal } from "@/components/site/Reveal";
 import { THREEPL_LOCATIONS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { BorderMap } from "./BorderMap";
@@ -64,41 +65,55 @@ export function ThreePlHero() {
   const { locale, t } = useI18n();
   const h = t.threepl.hero;
 
+  // Two sections: a full-screen intro (eyebrow, title, subtitle) and, revealed on scroll,
+  // the legend, locations and border map.
   return (
-    <section
-      aria-labelledby="threepl-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
-    >
-      <div aria-hidden className="column-rules -z-10" />
-
-      <div className="container-wdf pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-24 lg:pt-[calc(var(--header-h)+3.5rem)]">
-        <p
-          className="label-mono fade-up text-accent md:text-right"
-          style={{ "--d": "50ms" } as CSSProperties}
-        >
-          {h.eyebrow}
-        </p>
-        <h1
-          id="threepl-title"
-          className="display mt-6 text-balance text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold md:text-center"
-        >
-          {h.title.map((line, i) => (
-            <span key={line} className="rise-line">
-              <span style={{ "--i": i } as CSSProperties} className={i ? "text-accent" : ""}>
-                {line}
+    <>
+      <section
+        aria-labelledby="threepl-title"
+        className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-ink-foreground"
+      >
+        <div aria-hidden className="column-rules -z-10" />
+        <div className="container-wdf flex flex-1 flex-col justify-center pb-28 pt-[calc(var(--header-h)+3rem)]">
+          <p
+            className="label-mono fade-up text-accent md:text-right"
+            style={{ "--d": "50ms" } as CSSProperties}
+          >
+            {h.eyebrow}
+          </p>
+          <h1
+            id="threepl-title"
+            className="display mt-6 text-balance text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold md:text-center"
+          >
+            {h.title.map((line, i) => (
+              <span key={line} className="rise-line">
+                <span style={{ "--i": i } as CSSProperties} className={i ? "text-accent" : ""}>
+                  {line}
+                </span>
               </span>
-            </span>
-          ))}
-        </h1>
-        <p
-          className="fade-up mt-10 text-[1.0625rem] leading-relaxed text-ink-muted md:text-xl"
-          style={{ "--d": "600ms" } as CSSProperties}
+            ))}
+          </h1>
+          <p
+            className="fade-up mx-auto mt-10 max-w-4xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-center md:text-xl"
+            style={{ "--d": "600ms" } as CSSProperties}
+          >
+            {emphasize(h.body)}
+          </p>
+        </div>
+        <span
+          aria-hidden
+          className="fade-up absolute inset-x-0 bottom-8 mx-auto flex w-max flex-col items-center gap-2 text-ink-muted"
+          style={{ "--d": "1100ms" } as CSSProperties}
         >
-          {emphasize(h.body)}
-        </p>
+          <span className="block h-10 w-px bg-gradient-to-b from-transparent to-accent" />
+          <span className="text-accent">↓</span>
+        </span>
+      </section>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-12 lg:gap-10">
-          <div className="fade-up lg:col-span-4" style={{ "--d": "700ms" } as CSSProperties}>
+      <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+        <div aria-hidden className="column-rules -z-10" />
+        <div className="container-wdf grid gap-10 pb-20 pt-4 md:pb-24 lg:grid-cols-12 lg:gap-10">
+          <Reveal className="lg:col-span-4">
             <div className="rounded-sm border border-ink-border bg-ink-2/60 p-6">
               <ul className="flex flex-col gap-5">
                 {h.legend.flow.map((item, i) => (
@@ -152,12 +167,9 @@ export function ThreePlHero() {
                 {h.primary}
               </ButtonLink>
             </div>
-          </div>
+          </Reveal>
 
-          <div
-            className="fade-up min-w-0 lg:col-span-8"
-            style={{ "--d": "300ms" } as CSSProperties}
-          >
+          <Reveal delay={150} className="min-w-0 lg:col-span-8">
             {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
             <div className="overflow-x-auto rounded-md border border-ink-border">
               <div className="min-w-[640px]">
@@ -186,9 +198,9 @@ export function ThreePlHero() {
               ))}
             </ol>
             <p className="mt-5 text-sm leading-relaxed text-ink-muted">{h.note}</p>
-          </div>
+          </Reveal>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
