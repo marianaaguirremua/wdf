@@ -149,13 +149,13 @@ function Division({
             {status}
           </span>
         </div>
-        <div className="my-8 aspect-[4/3] w-full max-w-[17rem] text-ink-foreground lg:max-w-none">
+        <div className="my-8 aspect-[4/3] w-full max-w-[17rem] text-ink-foreground lg:max-w-none xl:aspect-auto xl:h-52">
           {motif}
         </div>
         <h3 className="display text-[2.5rem] font-semibold xl:text-[2.25rem] 2xl:text-[2.5rem]">
           {name}
         </h3>
-        <p className="label-mono mt-4 text-[var(--accent)]">{kicker}</p>
+        <p className="label-mono mt-4 text-[var(--accent)] xl:min-h-[2lh]">{kicker}</p>
         <p className="mt-5 max-w-sm leading-relaxed text-ink-muted">{body}</p>
         {tags && (
           <ul className="mt-6 flex flex-wrap gap-2">
