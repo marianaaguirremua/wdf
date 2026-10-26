@@ -43,7 +43,8 @@ const es: Messages = {
     },
     contact: {
       title: "Contacto | WDF",
-      description: "Contacto de WDF. Esta página está en preparación.",
+      description:
+        "Contacte a WDF sobre su proyecto: manufactura, energía, tecnología o 3PL. Seleccione las divisiones que necesita y envíe sus requerimientos.",
     },
     notFound: { title: "Página no encontrada | WDF" },
   },
@@ -659,17 +660,39 @@ const es: Messages = {
       email: "Correo",
     },
   },
-  placeholder: {
-    status: "En preparación",
-    body: "Esta página está en preparación. El contenido se publicará una vez aprobado.",
-    back: "Volver al inicio",
-    pages: {
-      contact: {
-        eyebrow: "Contacto",
-        title: "Contacto WDF",
-        note: "¿Tiene un requerimiento de manufactura?",
-        link: "Solicitar una cotización a WDF Manufactura",
-      },
+  contact: {
+    eyebrow: "Contacto",
+    title: "Hablemos de su proyecto.",
+    body: "Cuéntenos lo que necesita. Seleccione todas las divisiones que involucra su proyecto y el equipo de WDF revisará sus requerimientos y le dará seguimiento.",
+    info: {
+      headquarters: "Oficinas centrales y operaciones",
+      usOffice: "Oficina en EE. UU.",
+      email: "Consultas directas",
+      phone: "Teléfono",
+    },
+    form: {
+      title: "Recepción de proyectos y RFQ",
+      sub: "Datos de contacto y requerimientos del proyecto",
+      name: "Nombre",
+      company: "Empresa",
+      email: "Correo electrónico",
+      phone: "Teléfono",
+      divisions: "Divisiones requeridas",
+      divisionsHint: "Seleccione todas las que apliquen.",
+      divisionsRequired: "Seleccione al menos una división.",
+      description: "Descripción del proyecto / pieza",
+      placeholder: "Alcance, ubicación, pieza, proceso o material si lo conoce…",
+      quantity: "Cantidad estimada",
+      date: "Fecha objetivo",
+      submit: "Enviar solicitud",
+      sending: "Enviando…",
+      error: "No pudimos enviar su solicitud. Revise sus datos e inténtelo de nuevo.",
+      received: "Solicitud recibida",
+      thanks: "Gracias.",
+      follow: "El equipo de WDF revisará sus requerimientos y le dará seguimiento en breve.",
+      cadTitle: "¿Tiene planos o archivos CAD?",
+      cadBody:
+        "Envíe el formulario y el equipo de WDF le responderá con instrucciones para compartir sus planos y especificaciones.",
     },
   },
   notFound: {

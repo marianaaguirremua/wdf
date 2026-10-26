@@ -17,6 +17,9 @@ export const PARTNERS = [
 export const NESIS = PARTNERS[0];
 export const MANUFACTURING_CONTACT_URL = `${MANUFACTURING_URL}/contact`;
 
+/** General inquiries, as published on manufacturing.wdfgroup.us/contact. */
+export const CONTACT_EMAIL = "sales@wdfservices.com";
+
 /** Direct contacts approved by the WDF team, shown at the end of each division page. */
 export type DivisionContact = { name: string; phone: string; tel: string; email?: string };
 

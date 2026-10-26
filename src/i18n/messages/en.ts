@@ -49,7 +49,11 @@ const en = {
       description:
         "WDF 3PL: storage, handling, inventory and U.S.–Mexico cross-border coordination, with defined ownership and conditions for each operation.",
     },
-    contact: { title: "Contact | WDF", description: "Contact WDF. This page is being prepared." },
+    contact: {
+      title: "Contact | WDF",
+      description:
+        "Contact WDF about your project: manufacturing, energy, technology or 3PL. Select the divisions you need and send your requirements.",
+    },
     notFound: { title: "Page not found | WDF" },
   },
   nav: {
@@ -662,17 +666,39 @@ const en = {
       email: "Email",
     },
   },
-  placeholder: {
-    status: "In preparation",
-    body: "This page is being prepared. Content will be published once it has been approved.",
-    back: "Back to home",
-    pages: {
-      contact: {
-        eyebrow: "Contact",
-        title: "Contact WDF",
-        note: "Have a manufacturing requirement?",
-        link: "Request a quote from WDF Manufacturing",
-      },
+  contact: {
+    eyebrow: "Contact",
+    title: "Let's talk about your project.",
+    body: "Tell us what you need. Select every division your project involves and the WDF team will review your requirements and follow up.",
+    info: {
+      headquarters: "Headquarters & operations",
+      usOffice: "U.S. office",
+      email: "Direct inquiries",
+      phone: "Phone",
+    },
+    form: {
+      title: "Project & RFQ intake",
+      sub: "Contact details and project requirements",
+      name: "Name",
+      company: "Company",
+      email: "Email",
+      phone: "Phone",
+      divisions: "Divisions involved",
+      divisionsHint: "Select all that apply.",
+      divisionsRequired: "Select at least one division.",
+      description: "Project / Part Description",
+      placeholder: "Scope, location, part, process or material if known…",
+      quantity: "Estimated Quantity",
+      date: "Target Date",
+      submit: "Submit request",
+      sending: "Sending…",
+      error: "We couldn't send your request. Please check your details and try again.",
+      received: "Request received",
+      thanks: "Thank you.",
+      follow: "The WDF team will review your requirements and follow up shortly.",
+      cadTitle: "Have drawings or CAD files?",
+      cadBody:
+        "Submit the form and the WDF team will reply with instructions for sharing your drawings and specifications.",
     },
   },
   notFound: {
