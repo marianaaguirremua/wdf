@@ -1,6 +1,5 @@
 import type { CSSProperties } from "react";
 import { useI18n } from "@/i18n";
-import { DraftMark } from "@/components/site/Draft";
 import { Reveal } from "@/components/site/Reveal";
 import { NA_LAND, NA_US_MX_BORDER, NA_VIEWBOX, naProject } from "./north-america";
 
@@ -21,7 +20,6 @@ export function NorthAmerica() {
         <div className="lg:col-span-5">
           <Reveal className="flex flex-wrap items-center gap-4">
             <p className="label-mono text-petroleum">{t.reach.eyebrow}</p>
-            <DraftMark className="text-paper-muted" />
           </Reveal>
           <Reveal as="h2" delay={80} className="display mt-6 text-[clamp(2.25rem,4.6vw,3.9rem)]">
             <span id="reach-title">{t.reach.title}</span>

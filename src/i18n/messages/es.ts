@@ -63,10 +63,6 @@ const es: Messages = {
     language: "Idioma",
     skip: "Ir al contenido",
   },
-  draft: {
-    label: "Borrador",
-    title: "Texto en borrador — pendiente de aprobación",
-  },
   hero: {
     eyebrow: "WDF · Norteamérica",
     title: "Ingeniería de posibilidades industriales.",

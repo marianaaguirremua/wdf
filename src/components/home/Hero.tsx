@@ -1,7 +1,6 @@
 import type { CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
-import { DraftMark } from "@/components/site/Draft";
 import { HERO_VIDEO } from "@/lib/site";
 import { HeroDrawing } from "./HeroDrawing";
 import { HeroVideo } from "./HeroVideo";
@@ -51,7 +50,6 @@ export function Hero() {
             style={{ "--d": "50ms" } as CSSProperties}
           >
             <p className="label-mono text-primary">{t.hero.eyebrow}</p>
-            <DraftMark className="text-ink-muted" />
           </div>
 
           <h1

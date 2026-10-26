@@ -5,8 +5,6 @@
 //   approved manufacturing.wdfgroup.us site.
 // - Energy and 3PL copy is quoted from the approved WDF Energy and WDF 3PL pages
 //   (wdfintegrators.com/home/energy and /home/3pl).
-// - Copy listed under `draft` sections is a creative proposal pending approval and renders
-//   with a visible "Draft" marker until DRAFT_MARKERS is turned off (see src/lib/site.ts).
 // - No statistics, clients, certifications, history or contact details (approved contacts
 //   live in src/lib/site.ts), and no capabilities
 //   beyond those approved on the Manufacturing site.
@@ -70,10 +68,6 @@ const en = {
     close: "Close menu",
     language: "Language",
     skip: "Skip to content",
-  },
-  draft: {
-    label: "Draft",
-    title: "Draft copy — pending approval",
   },
   hero: {
     eyebrow: "WDF · North America",
