@@ -301,7 +301,7 @@ const es: Messages = {
   threepl: {
     hero: {
       eyebrow: "3PL · Logística transfronteriza",
-      title: ["Dos países.", "Una operación conectada."],
+      title: ["Establezca su empresa en Estados Unidos,", "con apoyo local desde el inicio."],
       body: "Inventarios, empaque y coordinación transfronteriza operan desde nuestras instalaciones en Mexicali, justo en la **frontera entre EE. UU. y México**, con una oficina en Yuma, Arizona. Desde ahí, su carga se conecta con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
       legend: {
         flow: [
@@ -353,7 +353,7 @@ const es: Messages = {
     },
     expansion: {
       eyebrow: "Suroeste de EE. UU. · Servicios de ingeniería y soluciones integrales",
-      title: ["Establezca su empresa en Estados Unidos,", "con apoyo local desde el inicio."],
+      title: ["Dos países.", "Una operación conectada."],
       body: [
         "WDF ayuda a empresas internacionales a planear, establecer y hacer crecer operaciones industriales en el suroeste de Estados Unidos.",
         "Con una oficina en Yuma, Arizona, EE. UU. —cerca de California y de la frontera con México—, le ayudamos a conectar con recursos regionales, definir los requerimientos de su proyecto y coordinar ingeniería, manufactura, logística y soporte operativo.",

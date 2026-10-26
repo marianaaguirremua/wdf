@@ -80,7 +80,7 @@ export function ThreePlHero() {
         </p>
         <h1
           id="threepl-title"
-          className="display mt-6 text-[clamp(2.6rem,6.6vw,6.25rem)] font-semibold md:text-center"
+          className="display mt-6 text-balance text-[clamp(2.4rem,4.6vw,4.5rem)] font-semibold md:text-center"
         >
           {h.title.map((line, i) => (
             <span key={line} className="rise-line">

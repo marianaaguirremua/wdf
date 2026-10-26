@@ -306,7 +306,10 @@ const en = {
   threepl: {
     hero: {
       eyebrow: "3PL · Cross-border logistics",
-      title: ["Two countries.", "One connected operation."],
+      title: [
+        "Establish your business in the United States,",
+        "with local support from the start.",
+      ],
       // **…** marks emphasis.
       body: "Inventory, packaging and cross-border coordination run from our Mexicali facility, right on the **U.S.–Mexico border**, with a U.S. office in Yuma, Arizona. From there, your freight connects to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
       legend: {
@@ -356,10 +359,7 @@ const en = {
     },
     expansion: {
       eyebrow: "U.S. Southwest · Engineering services & integrated solutions",
-      title: [
-        "Establish your business in the United States,",
-        "with local support from the start.",
-      ],
+      title: ["Two countries.", "One connected operation."],
       body: [
         "WDF helps international companies plan, establish, and grow industrial operations in the U.S. Southwest.",
         "With an office in Yuma, Arizona, USA—near California and the Mexican border—we help you connect with regional resources, define your project requirements, and coordinate engineering, manufacturing, logistics, and operational support.",
