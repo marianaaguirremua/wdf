@@ -162,7 +162,6 @@ const en = {
       sub: "Precision Manufacturing. Integrated Expertise.",
       body: "WDF combines precision manufacturing, engineering, and industrial integration to help businesses scale smarter. Strategically positioned along the U.S.–Mexico border.",
       primary: "Request a Quote",
-      secondary: "Visit WDF Manufacturing",
       index: "What we integrate",
     },
     capabilities: {

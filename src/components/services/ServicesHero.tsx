@@ -1,7 +1,7 @@
 import type { CSSProperties } from "react";
 import { useI18n } from "@/i18n";
 import { ExternalButton } from "@/components/site/Button";
-import { MANUFACTURING_CONTACT_URL, MANUFACTURING_URL } from "@/lib/site";
+import { MANUFACTURING_CONTACT_URL } from "@/lib/site";
 
 // The approved brand statement leads; the right column indexes the seven integrated
 // disciplines in their real order (engineering through logistics) and links to each card.
@@ -51,7 +51,6 @@ export function ServicesHero() {
             <ExternalButton href={MANUFACTURING_CONTACT_URL} variant="primary">
               {h.primary}
             </ExternalButton>
-            <ExternalButton href={MANUFACTURING_URL}>{h.secondary}</ExternalButton>
           </div>
         </div>
 

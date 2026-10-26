@@ -154,7 +154,6 @@ const es: Messages = {
       sub: "Manufactura de precisión. Experiencia integrada.",
       body: "WDF combina manufactura de precisión, ingeniería e integración industrial para ayudar a las empresas a crecer de forma más inteligente. Estratégicamente ubicados en la frontera entre EE. UU. y México.",
       primary: "Solicite una cotización",
-      secondary: "Visitar WDF Manufactura",
       index: "Lo que integramos",
     },
     capabilities: {
