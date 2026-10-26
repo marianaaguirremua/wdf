@@ -388,6 +388,12 @@ const en = {
         mexico: "Mexicali, B.C., Mexico",
       },
     },
+    plant: {
+      eyebrow: "WDF in operation",
+      title: "Engineering, manufacturing and energy, working together.",
+      body: "An illustration of how WDF teams connect machining, inspection and integration with electrical infrastructure and energy storage, in one coordinated flow from part to power.",
+      alt: "Isometric illustration of a WDF plant: engineers at a machining centre, a CNC lathe and an inspection station produce parts that move along a conveyor into an integration area with switchgear, a substation transformer and battery energy storage containers, linked by an amber network of energy and teamwork.",
+    },
     establish: {
       eyebrow: "How we help you get established",
       title: ["Understand the requirements.", "Meet the right people.", "Plan your operation."],

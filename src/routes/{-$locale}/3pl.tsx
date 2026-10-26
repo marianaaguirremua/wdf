@@ -8,6 +8,7 @@ import { ThreePlDeliverables } from "@/components/threepl/ThreePlDeliverables";
 import { ThreePlEstablish } from "@/components/threepl/ThreePlEstablish";
 import { ThreePlExpansion } from "@/components/threepl/ThreePlExpansion";
 import { ThreePlHero } from "@/components/threepl/ThreePlHero";
+import { ThreePlPlant } from "@/components/threepl/ThreePlPlant";
 import { ThreePlWhyYuma } from "@/components/threepl/ThreePlWhyYuma";
 import { ThreePlProcess } from "@/components/threepl/ThreePlProcess";
 
@@ -23,12 +24,13 @@ export const Route = createFileRoute("/{-$locale}/3pl")({
 
 function Page() {
   // 3PL-only palette: terracotta accent and sand (see .accent-terracotta in styles.css).
-  // Rhythm: navy, paper, navy, white, paper, navy, white, paper, navy-2 contact.
+  // Rhythm: navy, paper, navy, navy (plant), white, paper, navy, white, paper, navy-2 contact.
   return (
     <div className="accent-terracotta">
       <ThreePlHero />
       <ThreePlExpansion />
       <ThreePlWhyYuma />
+      <ThreePlPlant />
       <ThreePlEstablish />
       <ThreePlCapabilities />
       <ThreePlDeliverables />
