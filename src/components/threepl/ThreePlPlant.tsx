@@ -27,9 +27,6 @@ export function ThreePlPlant() {
             <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,4.4vw,4rem)]">
               <span id="threepl-plant-title">{p.title}</span>
             </Reveal>
-            <Reveal delay={140}>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink-muted">{p.body}</p>
-            </Reveal>
           </div>
         </div>
 

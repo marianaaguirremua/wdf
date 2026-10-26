@@ -382,7 +382,6 @@ const es: Messages = {
     plant: {
       eyebrow: "WDF en operación",
       title: "Ingeniería, manufactura y energía, trabajando en conjunto.",
-      body: "Una ilustración de cómo los equipos de WDF conectan el maquinado, la inspección y la integración con la infraestructura eléctrica y el almacenamiento de energía, en un solo flujo coordinado de la pieza a la energía.",
       alt: "Ilustración isométrica de una planta de WDF: ingenieros en un centro de maquinado, un torno CNC y una estación de inspección producen piezas que avanzan por una banda transportadora hacia un área de integración con tableros eléctricos, un transformador de subestación y contenedores de almacenamiento de energía en baterías, unidos por una red ámbar de energía y trabajo en equipo.",
     },
     establish: {
