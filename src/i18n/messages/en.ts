@@ -688,7 +688,7 @@ const en = {
       headquarters: "Headquarters & operations",
       usOffice: "U.S. office",
       email: "Direct inquiries",
-      phone: "Phone",
+      phone: "Phone · Yuma, AZ",
     },
     form: {
       title: "Project & RFQ intake",

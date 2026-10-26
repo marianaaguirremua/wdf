@@ -6,6 +6,8 @@ export type TeamMember = {
   name: string;
   title: string;
   phone: string;
+  /** A second number, e.g. the Yuma office line. */
+  altPhone?: string;
   email: string;
 };
 
@@ -68,13 +70,8 @@ export const LEADERSHIP_TEAM: readonly TeamMember[] = [
     name: "Mildred Orozco",
     title: "Customer Support",
     phone: "+52 686 357 1003",
+    altPhone: "+1 (928) 246-4860",
     email: "mildred.orozco@wdfservices.com",
-  },
-  {
-    name: "Miguel Bustos",
-    title: "Accounting & Administrative Support — WDF Services",
-    phone: "+52 686 415 0105",
-    email: "miguel.bustos@wdf.services",
   },
   {
     name: "Mariana Aguirre",

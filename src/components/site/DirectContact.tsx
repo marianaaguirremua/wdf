@@ -36,6 +36,11 @@ export function DirectContact({
         <a href={`tel:${contact.tel}`} className={link}>
           {contact.phone}
         </a>
+        {contact.altPhone && contact.altTel && (
+          <a href={`tel:${contact.altTel}`} className={link}>
+            {contact.altPhone}
+          </a>
+        )}
         {contact.email && (
           <a href={`mailto:${contact.email}`} className={cn("break-all", link)}>
             {contact.email}

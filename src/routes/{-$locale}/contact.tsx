@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate, useRouter } from "@tanstack/react-router"
 import type { CSSProperties } from "react";
 import { getMessages, localeParam, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { CONTACT_EMAIL, THREEPL_LOCATIONS } from "@/lib/site";
+import { CONTACT_EMAIL, THREEPL_LOCATIONS, YUMA_PHONE } from "@/lib/site";
 import { ContactForm } from "@/components/contact/ContactForm";
 
 export const Route = createFileRoute("/{-$locale}/contact")({
@@ -46,8 +46,8 @@ function Page() {
     { label: c.info.email, lines: [CONTACT_EMAIL], href: `mailto:${CONTACT_EMAIL}` },
     {
       label: c.info.phone,
-      lines: [THREEPL_LOCATIONS.yuma.phone],
-      href: `tel:${THREEPL_LOCATIONS.yuma.tel}`,
+      lines: [YUMA_PHONE.phone],
+      href: `tel:${YUMA_PHONE.tel}`,
     },
   ];
 

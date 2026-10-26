@@ -689,7 +689,7 @@ const es: Messages = {
       headquarters: "Oficinas centrales y operaciones",
       usOffice: "Oficina en EE. UU.",
       email: "Consultas directas",
-      phone: "Teléfono",
+      phone: "Teléfono · Yuma, AZ",
     },
     form: {
       title: "Recepción de proyectos y RFQ",

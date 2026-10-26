@@ -68,6 +68,16 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
             <PhoneIcon />
             <span className="tabular-nums">{member.phone}</span>
           </a>
+          {member.altPhone && (
+            <a
+              href={telHref(member.altPhone)}
+              className={contactLink}
+              aria-label={`${t.about.leadership.call} ${member.name}: ${member.altPhone}`}
+            >
+              <PhoneIcon />
+              <span className="tabular-nums">{member.altPhone}</span>
+            </a>
+          )}
           <a
             href={`mailto:${member.email}`}
             className={contactLink}

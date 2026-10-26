@@ -21,7 +21,18 @@ export const MANUFACTURING_CONTACT_URL = `${MANUFACTURING_URL}/contact`;
 export const CONTACT_EMAIL = "sales@wdfservices.com";
 
 /** Direct contacts approved by the WDF team, shown at the end of each division page. */
-export type DivisionContact = { name: string; phone: string; tel: string; email?: string };
+export type DivisionContact = {
+  name: string;
+  phone: string;
+  tel: string;
+  /** A second number, e.g. the Yuma office line. */
+  altPhone?: string;
+  altTel?: string;
+  email?: string;
+};
+
+/** Yuma, Arizona office line, as shown on the Contact page and as an extra contact number. */
+export const YUMA_PHONE = { phone: "+1 (928) 246-4860", tel: "+19282464860" } as const;
 
 /** Manufacturing contact, shown on the Services page. */
 export const MANUFACTURING_CONTACT: DivisionContact = {
@@ -29,6 +40,8 @@ export const MANUFACTURING_CONTACT: DivisionContact = {
   phone: "+52 686 357 1003",
   tel: "+526863571003",
   email: "mildred.orozco@wdfservices.com",
+  altPhone: YUMA_PHONE.phone,
+  altTel: YUMA_PHONE.tel,
 };
 
 /** 3PL contact. */
