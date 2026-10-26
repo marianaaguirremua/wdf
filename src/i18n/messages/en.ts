@@ -357,8 +357,8 @@ const en = {
     expansion: {
       eyebrow: "U.S. Southwest · Engineering services & integrated solutions",
       title: [
-        "Establish your business in the United States.",
-        "With local support from the start.",
+        "Establish your business in the United States,",
+        "with local support from the start.",
       ],
       body: [
         "WDF helps international companies plan, establish, and grow industrial operations in the U.S. Southwest.",

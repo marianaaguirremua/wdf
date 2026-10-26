@@ -353,7 +353,7 @@ const es: Messages = {
     },
     expansion: {
       eyebrow: "Suroeste de EE. UU. · Servicios de ingeniería y soluciones integrales",
-      title: ["Establezca su empresa en Estados Unidos.", "Con apoyo local desde el inicio."],
+      title: ["Establezca su empresa en Estados Unidos,", "con apoyo local desde el inicio."],
       body: [
         "WDF ayuda a empresas internacionales a planear, establecer y hacer crecer operaciones industriales en el suroeste de Estados Unidos.",
         "Con una oficina en Yuma, Arizona, EE. UU. —cerca de California y de la frontera con México—, le ayudamos a conectar con recursos regionales, definir los requerimientos de su proyecto y coordinar ingeniería, manufactura, logística y soporte operativo.",
