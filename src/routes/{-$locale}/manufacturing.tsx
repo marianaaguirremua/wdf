@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { Capabilities } from "@/components/services/Capabilities";
-import { Industries } from "@/components/services/Industries";
 import { ServicesCta } from "@/components/services/ServicesCta";
 import { ServicesHero } from "@/components/services/ServicesHero";
 import { Support } from "@/components/services/Support";
@@ -23,7 +22,6 @@ function Page() {
       <ServicesHero />
       <Capabilities />
       <Support />
-      <Industries />
       <ServicesCta />
     </>
   );

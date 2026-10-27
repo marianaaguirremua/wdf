@@ -132,3 +132,11 @@ export const SERVICES_VIDEO = {
 } as const;
 
 export const HERO_VIDEO: HeroVideo | null = null;
+
+/**
+ * Photos for the home page Industries carousel, keyed like `industries.items[].key`. Tiles
+ * without an entry show their line illustration. Add files under /public/media/industries/.
+ */
+export const INDUSTRY_PHOTOS: Partial<
+  Record<string, { src: string; width: number; height: number }>
+> = {};

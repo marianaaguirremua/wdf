@@ -5,6 +5,7 @@ import { LOGO_ON_LIGHT, SITE_URL } from "@/lib/site";
 import { ContactCta } from "@/components/home/ContactCta";
 import { Divisions } from "@/components/home/Divisions";
 import { Hero } from "@/components/home/Hero";
+import { Industries } from "@/components/home/Industries";
 import { Intro } from "@/components/home/Intro";
 import { NorthAmerica } from "@/components/home/NorthAmerica";
 
@@ -37,6 +38,7 @@ function Home() {
       <Intro />
       <Divisions />
       <NorthAmerica />
+      <Industries />
       <ContactCta />
     </>
   );
