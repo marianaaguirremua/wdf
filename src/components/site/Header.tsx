@@ -181,7 +181,7 @@ export function Header() {
                     </span>
                   </Link>
                   {item.key === "services" && (
-                    <ul className="-mt-1 grid grid-cols-2 gap-x-6 gap-y-1 pb-5 pl-11">
+                    <ul className="-mt-1 flex flex-col pb-5 pl-11">
                       {SERVICE_ITEMS.map((sub) => (
                         <li key={sub.key}>
                           <Link
