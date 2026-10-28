@@ -27,6 +27,11 @@ const en = {
       description:
         "The WDF leadership team, with direct phone and email for each person: a team connecting strategy, engineering and customer follow-up.",
     },
+    services: {
+      title: "Services | WDF",
+      description:
+        "WDF services: manufacturing, energy, technology and third-party logistics, four industrial divisions under one corporate identity.",
+    },
     manufacturing: {
       title: "Manufacturing | WDF",
       description:
@@ -56,6 +61,8 @@ const en = {
   },
   nav: {
     about: "About",
+    services: "Services",
+    servicesOverview: "All services",
     manufacturing: "Manufacturing",
     energy: "Energy",
     technology: "Technology",
@@ -84,6 +91,10 @@ const en = {
     eyebrow: "01 · WDF",
     title: "One company. Four industrial divisions.",
     body: "WDF brings manufacturing, energy, technology, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
+  },
+  servicesIndex: {
+    eyebrow: "Services",
+    title: "Our services.",
   },
   divisions: {
     eyebrow: "02 · Divisions",
@@ -156,7 +167,6 @@ const en = {
   footer: {
     tagline: "Manufacturing · Energy · Technology · 3PL",
     company: "Company",
-    divisions: "Divisions",
     manufacturing: "Manufacturing",
     rights: "All rights reserved.",
     external: "opens in a new tab",

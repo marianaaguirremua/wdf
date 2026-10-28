@@ -8,11 +8,11 @@ import { SingleLineDiagram } from "@/components/energy/SingleLineDiagram";
 
 // Content quoted from the approved English and Spanish WDF Energy page
 // (wdfintegrators.com/home/energy). A light page with mustard accents and a lightning-bolt mark.
-export const Route = createFileRoute("/{-$locale}/energy")({
+export const Route = createFileRoute("/{-$locale}/services_/energy")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const meta = getMessages(locale).meta.energy;
-    return pageHead({ locale, path: "/energy", ...meta });
+    return pageHead({ locale, path: "/services/energy", ...meta });
   },
   component: Page,
 });

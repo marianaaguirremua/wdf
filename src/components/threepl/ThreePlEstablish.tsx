@@ -56,7 +56,7 @@ export function ThreePlEstablish() {
 
         <Reveal delay={200} className="mt-14">
           <ButtonLink
-            to="/{-$locale}/3pl"
+            to="/{-$locale}/services/3pl"
             params={{ locale: localeParam(locale) }}
             hash="threepl-contact"
             variant="accent"

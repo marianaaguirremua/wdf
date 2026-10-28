@@ -40,7 +40,7 @@ export function ThreePlExpansion() {
           </div>
           <div className="mt-10">
             <ButtonLink
-              to="/{-$locale}/3pl"
+              to="/{-$locale}/services/3pl"
               params={{ locale: localeParam(locale) }}
               hash="threepl-contact"
               variant="accent"

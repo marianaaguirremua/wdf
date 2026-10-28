@@ -95,15 +95,25 @@ export const LOGO_SIZE = { width: 1431, height: 363 } as const;
 /** Primary navigation, in the approved order. Labels come from messages.nav[key]. */
 export const NAV_ITEMS = [
   { key: "about", to: "/{-$locale}/about" },
-  { key: "manufacturing", to: "/{-$locale}/manufacturing" },
-  { key: "energy", to: "/{-$locale}/energy" },
-  { key: "technology", to: "/{-$locale}/technology" },
-  { key: "threepl", to: "/{-$locale}/3pl" },
+  { key: "services", to: "/{-$locale}/services" },
   { key: "contact", to: "/{-$locale}/contact" },
 ] as const;
 
+/** The division pages under Services, in menu order. */
+export const SERVICE_ITEMS = [
+  { key: "manufacturing", to: "/{-$locale}/services/manufacturing" },
+  { key: "energy", to: "/{-$locale}/services/energy" },
+  { key: "technology", to: "/{-$locale}/services/technology" },
+  { key: "threepl", to: "/{-$locale}/services/3pl" },
+] as const;
+
 /** Pages whose hero is light: the header shows its solid bar from the top so it stays legible. */
-export const LIGHT_HERO_PAGES = ["/about", "/about/team", "/energy", "/technology"];
+export const LIGHT_HERO_PAGES = [
+  "/about",
+  "/about/team",
+  "/services/energy",
+  "/services/technology",
+];
 
 /**
  * Optional hero background video (e.g. a Higgsfield export). Put the files in public/media/

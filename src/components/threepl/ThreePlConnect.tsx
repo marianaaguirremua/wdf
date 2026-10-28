@@ -46,7 +46,7 @@ export function ThreePlConnect() {
 
             <Reveal delay={160} className="mt-10 grid gap-4 md:grid-cols-2">
               <Link
-                to="/{-$locale}/manufacturing"
+                to="/{-$locale}/services/manufacturing"
                 params={{ locale: localeParam(locale) }}
                 className={cardClass}
               >
@@ -63,7 +63,7 @@ export function ThreePlConnect() {
                 </span>
               </Link>
               <Link
-                to="/{-$locale}/energy"
+                to="/{-$locale}/services/energy"
                 params={{ locale: localeParam(locale) }}
                 className={cardClass}
               >

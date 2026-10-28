@@ -29,22 +29,33 @@ export const PAGE_SLUGS: Partial<Record<Locale, Record<string, string>>> = {
   es: {
     "/about": "/nosotros",
     "/about/team": "/nosotros/equipo",
-    "/manufacturing": "/manufactura",
-    "/energy": "/energia",
-    "/technology": "/tecnologia",
-    "/3pl": "/trespl",
+    "/services": "/servicios",
+    "/services/manufacturing": "/servicios/manufactura",
+    "/services/energy": "/servicios/energia",
+    "/services/technology": "/servicios/tecnologia",
+    "/services/3pl": "/servicios/trespl",
     "/contact": "/contacto",
   },
 };
 
 /**
- * Former public URLs of renamed pages, mapped to the page's internal path. src/server.ts
- * permanently redirects them to the current URL ("/es/servicios" -> "/es/manufactura").
+ * Former public URLs of moved pages, mapped to the page's internal path. src/server.ts
+ * permanently redirects them to the current URL ("/es/energia" -> "/es/servicios/energia").
+ * Matched after normalizeSlug, so accented or capitalized spellings redirect too.
  */
 const RENAMED_PAGES: Record<string, string> = {
-  "/services": "/manufacturing",
-  "/es/services": "/es/manufacturing",
-  "/es/servicios": "/es/manufacturing",
+  "/manufacturing": "/services/manufacturing",
+  "/energy": "/services/energy",
+  "/technology": "/services/technology",
+  "/3pl": "/services/3pl",
+  "/es/manufacturing": "/es/services/manufacturing",
+  "/es/manufactura": "/es/services/manufacturing",
+  "/es/energy": "/es/services/energy",
+  "/es/energia": "/es/services/energy",
+  "/es/technology": "/es/services/technology",
+  "/es/tecnologia": "/es/services/technology",
+  "/es/3pl": "/es/services/3pl",
+  "/es/trespl": "/es/services/3pl",
 };
 
 /** Lowercases and strips accents so "/es/Energía" and "/es/tresPL" still resolve. */
@@ -67,17 +78,17 @@ export function localizedPath(locale: Locale, path: string): string {
  * Pathnames without a translated slug are returned unchanged.
  */
 export function internalPath(pathname: string): string {
-  const renamed = RENAMED_PAGES[pathname];
-  if (renamed) return renamed;
   const { locale, path } = splitLocalePath(pathname);
-  const slugs = PAGE_SLUGS[locale];
-  if (!slugs) return pathname;
   let wanted: string;
   try {
     wanted = normalizeSlug(decodeURIComponent(path));
   } catch {
     return pathname;
   }
+  const renamed = RENAMED_PAGES[locale === DEFAULT_LOCALE ? wanted : `/${locale}${wanted}`];
+  if (renamed) return renamed;
+  const slugs = PAGE_SLUGS[locale];
+  if (!slugs) return pathname;
   const page = Object.keys(slugs).find((key) => slugs[key] === wanted || key === wanted);
   return page ? `/${locale}${page}` : pathname;
 }

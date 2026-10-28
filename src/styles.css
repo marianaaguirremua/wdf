@@ -212,14 +212,16 @@
   transition: transform 0.45s var(--ease-out-expo);
 }
 .nav-link:hover,
-.nav-link[aria-current="page"] {
+.nav-link[aria-current="page"],
+.nav-link[data-active] {
   color: var(--ink-foreground);
 }
 .nav-link:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
-.nav-link[aria-current="page"]::after {
+.nav-link[aria-current="page"]::after,
+.nav-link[data-active]::after {
   transform: scaleX(1);
 }
 

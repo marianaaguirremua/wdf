@@ -180,7 +180,16 @@ function Division({
 const actionClass =
   "inline-flex items-center gap-2 border-b border-ink-border pb-1.5 text-[0.9rem] font-semibold text-ink-foreground transition-colors after:absolute after:inset-0 after:content-[''] hover:border-[var(--accent)] hover:text-[var(--accent)] group-hover/card:border-[var(--accent)] group-hover/card:text-[var(--accent)]";
 
-export function Divisions() {
+/** On the Services page the block is the page itself: its own eyebrow and title, as the h1. */
+export function Divisions({
+  eyebrow,
+  title,
+  as = "h2",
+}: {
+  eyebrow?: string;
+  title?: string;
+  as?: "h1" | "h2";
+}) {
   const { locale, t } = useI18n();
   const params = { locale: localeParam(locale) };
   const d = t.divisions;
@@ -192,17 +201,22 @@ export function Divisions() {
       className="relative isolate overflow-hidden bg-ink text-ink-foreground"
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
-      <div className="container-wdf py-24 md:py-36">
+      <div
+        className={cn(
+          "container-wdf py-24 md:py-36",
+          as === "h1" && "pt-[calc(var(--header-h)+4rem)] md:pt-[calc(var(--header-h)+6rem)]",
+        )}
+      >
         <div className="grid gap-6 lg:grid-cols-12">
           <Reveal className="lg:col-span-3">
-            <p className="label-mono text-primary">{d.eyebrow}</p>
+            <p className="label-mono text-primary">{eyebrow ?? d.eyebrow}</p>
           </Reveal>
           <Reveal
-            as="h2"
+            as={as}
             delay={80}
             className="display text-[clamp(2.25rem,5vw,4.25rem)] lg:col-span-9"
           >
-            <span id="divisions-title">{d.title}</span>
+            <span id="divisions-title">{title ?? d.title}</span>
           </Reveal>
         </div>
 
@@ -218,7 +232,7 @@ export function Divisions() {
             tags={d.manufacturing.tags}
             motif={<ToolpathMotif />}
             action={
-              <Link to="/{-$locale}/manufacturing" params={params} className={actionClass}>
+              <Link to="/{-$locale}/services/manufacturing" params={params} className={actionClass}>
                 {d.manufacturing.cta}
                 <span aria-hidden className="arrow-nudge">
                   →
@@ -237,7 +251,7 @@ export function Divisions() {
             tags={d.energy.tags}
             motif={<SingleLineMotif />}
             action={
-              <Link to="/{-$locale}/energy" params={params} className={actionClass}>
+              <Link to="/{-$locale}/services/energy" params={params} className={actionClass}>
                 {d.energy.cta}
                 <span aria-hidden className="arrow-nudge">
                   →
@@ -256,7 +270,7 @@ export function Divisions() {
             tags={d.technology.tags}
             motif={<NetworkMotif />}
             action={
-              <Link to="/{-$locale}/technology" params={params} className={actionClass}>
+              <Link to="/{-$locale}/services/technology" params={params} className={actionClass}>
                 {d.technology.cta}
                 <span aria-hidden className="arrow-nudge">
                   →
@@ -275,7 +289,7 @@ export function Divisions() {
             tags={d.threepl.tags}
             motif={<RouteMotif />}
             action={
-              <Link to="/{-$locale}/3pl" params={params} className={actionClass}>
+              <Link to="/{-$locale}/services/3pl" params={params} className={actionClass}>
                 {d.threepl.cta}
                 <span aria-hidden className="arrow-nudge">
                   →

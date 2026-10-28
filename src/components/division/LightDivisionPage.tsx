@@ -16,10 +16,10 @@ type Content = Messages["energy"];
 type LinkedDivision = "manufacturing" | "energy" | "technology" | "threepl";
 
 const DIVISION_ROUTES = {
-  manufacturing: "/{-$locale}/manufacturing",
-  energy: "/{-$locale}/energy",
-  technology: "/{-$locale}/technology",
-  threepl: "/{-$locale}/3pl",
+  manufacturing: "/{-$locale}/services/manufacturing",
+  energy: "/{-$locale}/services/energy",
+  technology: "/{-$locale}/services/technology",
+  threepl: "/{-$locale}/services/3pl",
 } as const;
 
 const eyebrow = "label-mono inline-flex items-center gap-2 text-accent-deep";

@@ -61,7 +61,7 @@ function DivisionMosaic() {
   return (
     <nav aria-label={t.about.hero.divisions} className="grid grid-cols-2 gap-3 md:gap-4">
       <Link
-        to="/{-$locale}/manufacturing"
+        to="/{-$locale}/services/manufacturing"
         params={params}
         className={tileClass}
         style={tone("var(--teal)", "var(--petroleum)")}
@@ -73,7 +73,7 @@ function DivisionMosaic() {
         />
       </Link>
       <Link
-        to="/{-$locale}/energy"
+        to="/{-$locale}/services/energy"
         params={params}
         className={tileClass}
         style={tone("var(--mustard)", "var(--mustard-deep)")}
@@ -81,7 +81,7 @@ function DivisionMosaic() {
         <TileBody mark={<Bolt className="size-5" />} name={t.nav.energy} line={l.energy} />
       </Link>
       <Link
-        to="/{-$locale}/technology"
+        to="/{-$locale}/services/technology"
         params={params}
         className={tileClass}
         style={tone("var(--teal)", "var(--cyan-deep)")}
@@ -89,7 +89,7 @@ function DivisionMosaic() {
         <TileBody mark={<Chip className="size-5" />} name={t.nav.technology} line={l.technology} />
       </Link>
       <Link
-        to="/{-$locale}/3pl"
+        to="/{-$locale}/services/3pl"
         params={params}
         className={tileClass}
         style={tone("var(--slate)", "var(--paper-muted)")}

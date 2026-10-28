@@ -26,40 +26,52 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/3pl</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/3pl" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/trespl" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/3pl" />
+    <loc>https://wdfgroup.us/services/manufacturing</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/manufacturing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/manufactura" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/manufacturing" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/es/trespl</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/3pl" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/trespl" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/3pl" />
+    <loc>https://wdfgroup.us/es/servicios/manufactura</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/manufacturing" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/manufactura" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/manufacturing" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/energy</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/energy" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/energia" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/energy" />
+    <loc>https://wdfgroup.us/services/3pl</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/3pl" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/trespl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/3pl" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/es/energia</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/energy" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/energia" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/energy" />
+    <loc>https://wdfgroup.us/es/servicios/trespl</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/3pl" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/trespl" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/3pl" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/technology</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/technology" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/tecnologia" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/technology" />
+    <loc>https://wdfgroup.us/services/energy</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/energy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/energia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/energy" />
   </url>
   <url>
-    <loc>https://wdfgroup.us/es/tecnologia</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/technology" />
-    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/tecnologia" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/technology" />
+    <loc>https://wdfgroup.us/es/servicios/energia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/energy" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/energia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/energy" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/services/technology</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/technology" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/technology" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/es/servicios/tecnologia</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/services/technology" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/servicios/tecnologia" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/services/technology" />
   </url>
   <url>
     <loc>https://wdfgroup.us/about</loc>

@@ -20,17 +20,18 @@ describe("localization", () => {
     expect(localizedPath("en", "/")).toBe("/");
     expect(localizedPath("en", "/about")).toBe("/about");
     expect(localizedPath("es", "/")).toBe("/es");
-    expect(localizedPath("es", "/3pl")).toBe("/es/trespl");
+    expect(localizedPath("es", "/services/3pl")).toBe("/es/servicios/trespl");
   });
 
   it("serves Spanish pages under translated slugs", () => {
     const slugs = {
       "/about": "/es/nosotros",
       "/about/team": "/es/nosotros/equipo",
-      "/manufacturing": "/es/manufactura",
-      "/energy": "/es/energia",
-      "/technology": "/es/tecnologia",
-      "/3pl": "/es/trespl",
+      "/services": "/es/servicios",
+      "/services/manufacturing": "/es/servicios/manufactura",
+      "/services/energy": "/es/servicios/energia",
+      "/services/technology": "/es/servicios/tecnologia",
+      "/services/3pl": "/es/servicios/trespl",
       "/contact": "/es/contacto",
     };
     for (const [page, url] of Object.entries(slugs)) {
@@ -40,20 +41,42 @@ describe("localization", () => {
     }
   });
 
-  it("sends the former Services URLs to the Manufacturing page", () => {
-    expect(publicPath(internalPath("/services"))).toBe("/manufacturing");
-    expect(publicPath(internalPath("/es/servicios"))).toBe("/es/manufactura");
-    expect(publicPath(internalPath("/es/services"))).toBe("/es/manufactura");
+  it("sends the former division URLs to their pages under Services", () => {
+    const moved = {
+      "/manufacturing": "/services/manufacturing",
+      "/energy": "/services/energy",
+      "/technology": "/services/technology",
+      "/3pl": "/services/3pl",
+      "/es/manufactura": "/es/servicios/manufactura",
+      "/es/energia": "/es/servicios/energia",
+      "/es/Energ%C3%ADa": "/es/servicios/energia",
+      "/es/tecnologia": "/es/servicios/tecnologia",
+      "/es/trespl": "/es/servicios/trespl",
+      "/es/tresPL": "/es/servicios/trespl",
+      "/es/3pl": "/es/servicios/trespl",
+    };
+    for (const [from, to] of Object.entries(moved)) {
+      expect(publicPath(internalPath(from))).toBe(to);
+    }
+    expect(publicPath(internalPath("/services"))).toBe("/services");
+    expect(publicPath(internalPath("/es/services"))).toBe("/es/servicios");
   });
 
   it("resolves accented, capitalized and English Spanish slugs to the same page", () => {
-    expect(internalPath("/es/Energ%C3%ADa")).toBe("/es/energy");
-    expect(internalPath("/es/tresPL")).toBe("/es/3pl");
+    expect(internalPath("/es/Servicios/Energ%C3%ADa")).toBe("/es/services/energy");
+    expect(internalPath("/es/servicios/tresPL")).toBe("/es/services/3pl");
     expect(internalPath("/es/about")).toBe("/es/about");
   });
 
   it("leaves English and unknown paths untouched", () => {
-    for (const path of ["/", "/about", "/manufacturing", "/es", "/es/unknown", "/es/%E0%A4%A"]) {
+    for (const path of [
+      "/",
+      "/about",
+      "/services/manufacturing",
+      "/es",
+      "/es/unknown",
+      "/es/%E0%A4%A",
+    ]) {
       expect(internalPath(path)).toBe(path);
       expect(publicPath(path)).toBe(path);
     }

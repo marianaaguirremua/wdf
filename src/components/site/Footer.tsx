@@ -4,7 +4,7 @@ import { NAV_ITEMS, PARTNERS } from "@/lib/site";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
 
-// Company links only; the division pages are listed under Divisions.
+// Company links only; the division pages are listed under Services.
 const COMPANY_ITEMS = NAV_ITEMS.filter((item) => item.key === "about" || item.key === "contact");
 
 export function Footer() {
@@ -35,12 +35,16 @@ export function Footer() {
           </ul>
         </nav>
 
-        <nav aria-label={t.footer.divisions} className="md:col-span-3">
-          <h2 className="label-mono text-ink-muted">{t.footer.divisions}</h2>
+        <nav aria-label={t.nav.services} className="md:col-span-3">
+          <h2 className="label-mono text-ink-muted">
+            <Link to="/{-$locale}/services" params={params} className="hover:text-ink-foreground">
+              {t.nav.services}
+            </Link>
+          </h2>
           <ul className="mt-5 space-y-3">
             <li>
               <Link
-                to="/{-$locale}/manufacturing"
+                to="/{-$locale}/services/manufacturing"
                 params={params}
                 className="nav-link text-[0.95rem]"
               >
@@ -48,17 +52,29 @@ export function Footer() {
               </Link>
             </li>
             <li>
-              <Link to="/{-$locale}/energy" params={params} className="nav-link text-[0.95rem]">
+              <Link
+                to="/{-$locale}/services/energy"
+                params={params}
+                className="nav-link text-[0.95rem]"
+              >
                 {t.nav.energy}
               </Link>
             </li>
             <li>
-              <Link to="/{-$locale}/technology" params={params} className="nav-link text-[0.95rem]">
+              <Link
+                to="/{-$locale}/services/technology"
+                params={params}
+                className="nav-link text-[0.95rem]"
+              >
                 {t.nav.technology}
               </Link>
             </li>
             <li>
-              <Link to="/{-$locale}/3pl" params={params} className="nav-link text-[0.95rem]">
+              <Link
+                to="/{-$locale}/services/3pl"
+                params={params}
+                className="nav-link text-[0.95rem]"
+              >
                 {t.nav.threepl}
               </Link>
             </li>

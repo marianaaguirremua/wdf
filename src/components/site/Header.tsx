@@ -1,10 +1,11 @@
 import { Link, useLocation } from "@tanstack/react-router";
 import { useEffect, useId, useRef, useState, type CSSProperties, type KeyboardEvent } from "react";
 import { localeParam, splitLocalePath, useI18n } from "@/i18n";
-import { LIGHT_HERO_PAGES, NAV_ITEMS } from "@/lib/site";
+import { LIGHT_HERO_PAGES, NAV_ITEMS, SERVICE_ITEMS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { Logo } from "./Logo";
+import { ServicesMenu } from "./ServicesMenu";
 
 const FOCUSABLE = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
@@ -108,13 +109,17 @@ export function Header() {
             <ul className="flex items-center gap-7 xl:gap-9">
               {NAV_ITEMS.map((item) => (
                 <li key={item.key}>
-                  <Link
-                    to={item.to}
-                    params={params}
-                    className="nav-link text-[0.9rem] font-medium tracking-[-0.005em]"
-                  >
-                    {t.nav[item.key]}
-                  </Link>
+                  {item.key === "services" ? (
+                    <ServicesMenu />
+                  ) : (
+                    <Link
+                      to={item.to}
+                      params={params}
+                      className="nav-link text-[0.9rem] font-medium tracking-[-0.005em]"
+                    >
+                      {t.nav[item.key]}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -175,6 +180,22 @@ export function Header() {
                       {t.nav[item.key]}
                     </span>
                   </Link>
+                  {item.key === "services" && (
+                    <ul className="-mt-1 grid grid-cols-2 gap-x-6 gap-y-1 pb-5 pl-11">
+                      {SERVICE_ITEMS.map((sub) => (
+                        <li key={sub.key}>
+                          <Link
+                            to={sub.to}
+                            params={params}
+                            onClick={() => close(false)}
+                            className="block py-2 text-lg text-ink-foreground/75 transition-colors hover:text-ink-foreground aria-[current=page]:text-primary"
+                          >
+                            {t.nav[sub.key]}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               ))}
             </ul>

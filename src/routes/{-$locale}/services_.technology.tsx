@@ -8,11 +8,11 @@ import { ControlNetworkDiagram } from "@/components/technology/ControlNetworkDia
 
 // Content quoted from the approved English and Spanish WDF Technology page
 // (wdfintegrators.com/home/technology). A light page with the logo's cyan and a chip mark.
-export const Route = createFileRoute("/{-$locale}/technology")({
+export const Route = createFileRoute("/{-$locale}/services_/technology")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const meta = getMessages(locale).meta.technology;
-    return pageHead({ locale, path: "/technology", ...meta });
+    return pageHead({ locale, path: "/services/technology", ...meta });
   },
   component: Page,
 });

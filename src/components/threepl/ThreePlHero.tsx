@@ -159,7 +159,7 @@ export function ThreePlHero() {
 
             <div className="mt-8">
               <ButtonLink
-                to="/{-$locale}/3pl"
+                to="/{-$locale}/services/3pl"
                 params={{ locale: localeParam(locale) }}
                 hash="threepl-contact"
                 variant="accent"

@@ -7,11 +7,11 @@ import { ServicesHero } from "@/components/services/ServicesHero";
 import { Support } from "@/components/services/Support";
 
 // Content quoted from the approved Manufacturing site (manufacturing.wdfgroup.us).
-export const Route = createFileRoute("/{-$locale}/manufacturing")({
+export const Route = createFileRoute("/{-$locale}/services_/manufacturing")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
     const meta = getMessages(locale).meta.manufacturing;
-    return pageHead({ locale, path: "/manufacturing", ...meta });
+    return pageHead({ locale, path: "/services/manufacturing", ...meta });
   },
   component: Page,
 });

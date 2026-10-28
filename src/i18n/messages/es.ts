@@ -21,6 +21,11 @@ const es: Messages = {
       description:
         "El equipo de liderazgo de WDF, con teléfono y correo directo de cada persona: un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
     },
+    services: {
+      title: "Servicios | WDF",
+      description:
+        "Servicios de WDF: manufactura, energía, tecnología y logística de terceros (3PL), cuatro divisiones industriales bajo una misma identidad corporativa.",
+    },
     manufacturing: {
       title: "Manufactura | WDF",
       description:
@@ -50,6 +55,8 @@ const es: Messages = {
   },
   nav: {
     about: "Nosotros",
+    services: "Servicios",
+    servicesOverview: "Todos los servicios",
     manufacturing: "Manufactura",
     energy: "Energía",
     technology: "Tecnología",
@@ -78,6 +85,10 @@ const es: Messages = {
     eyebrow: "01 · WDF",
     title: "Una empresa. Cuatro divisiones industriales.",
     body: "WDF reúne manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
+  },
+  servicesIndex: {
+    eyebrow: "Servicios",
+    title: "Nuestros servicios.",
   },
   divisions: {
     eyebrow: "02 · Divisiones",
@@ -150,7 +161,6 @@ const es: Messages = {
   footer: {
     tagline: "Manufactura · Energía · Tecnología · 3PL",
     company: "Empresa",
-    divisions: "Divisiones",
     manufacturing: "Manufactura",
     rights: "Todos los derechos reservados.",
     external: "se abre en una pestaña nueva",
