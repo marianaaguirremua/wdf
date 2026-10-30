@@ -140,8 +140,6 @@ const es: Messages = {
     region: "Industrias — desplácese horizontalmente",
     previous: "Industrias anteriores",
     next: "Industrias siguientes",
-    pause: "Pausar el desplazamiento automático",
-    play: "Reanudar el desplazamiento automático",
     items: [
       { key: "automotive", name: "Automotriz" },
       { key: "aerospace", name: "Aeroespacial" },

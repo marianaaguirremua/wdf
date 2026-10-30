@@ -8,45 +8,69 @@ import { cn } from "@/lib/utils";
 const AUTOPLAY_MS = 3500;
 
 /**
- * Industries served, as a horizontal carousel: native scroll-snap (swipe, trackpad, keyboard
- * arrows once the track has focus), previous/next buttons at its sides, mouse drag on desktop
- * and a slider bar underneath. It advances one tile at a time on its own and loops; it holds
- * still while the visitor points at it, focuses it, drags it, or is scrolled away, never moves
- * under prefers-reduced-motion, and has a pause button. Each tile shows its photo from
- * INDUSTRY_PHOTOS when one is set, otherwise a line illustration.
+ * Industries served, as an endless horizontal carousel. The tiles are rendered twice; when the
+ * view reaches the second copy it is moved back by exactly one set, so after the last industry
+ * the first one simply follows. It slides one tile every few seconds on its own, holds still
+ * while the visitor points at it, focuses it with the keyboard or touches it, and never moves
+ * under prefers-reduced-motion. Swipe, trackpad, mouse drag, the side arrows and the slider bar
+ * underneath move it by hand. Each tile shows its photo from INDUSTRY_PHOTOS when one is set,
+ * otherwise a line illustration.
  */
 export function Industries() {
   const { t } = useI18n();
   const ind = t.industries;
+  const count = ind.items.length;
   const root = useRef<HTMLDivElement>(null);
   const track = useRef<HTMLUListElement>(null);
-  const [bar, setBar] = useState({ size: 1, offset: 0 });
-  const [paused, setPaused] = useState(false);
+  const [progress, setProgress] = useState(0);
   const [held, setHeld] = useState(false);
   const [inView, setInView] = useState(false);
   const [reduced, setReduced] = useState(true);
   // Bumped by any manual move so the autoplay timer starts over.
   const [nudge, setNudge] = useState(0);
 
-  const update = useCallback(() => {
+  // Width of one full set of tiles (first tile of the copy minus first tile of the original).
+  const setWidth = useCallback(() => {
+    const items = track.current?.children;
+    const first = items?.[0] as HTMLElement | undefined;
+    const copy = items?.[count] as HTMLElement | undefined;
+    return first && copy ? copy.offsetLeft - first.offsetLeft : 0;
+  }, [count]);
+
+  // Instant jump that keeps the same picture on screen (snap and smooth scrolling off for it).
+  const jump = useCallback((left: number) => {
     const el = track.current;
     if (!el) return;
-    const max = el.scrollWidth - el.clientWidth;
-    const size = el.clientWidth / el.scrollWidth;
-    setBar({ size, offset: max > 0 ? (el.scrollLeft / max) * (1 - size) : 0 });
+    el.style.scrollBehavior = "auto";
+    el.style.scrollSnapType = "none";
+    el.scrollLeft = left;
+    void el.offsetWidth;
+    el.style.scrollBehavior = "";
+    el.style.scrollSnapType = "";
   }, []);
 
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    update();
-    el.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
-    return () => {
-      el.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+    let settle = 0;
+    const onScroll = () => {
+      const w = setWidth();
+      if (w) setProgress((el.scrollLeft % w) / w);
+      // Once the movement settles inside the copy, step back into the original set.
+      window.clearTimeout(settle);
+      settle = window.setTimeout(() => {
+        const w2 = setWidth();
+        if (w2 && el.scrollLeft >= w2 - 2 && !el.hasAttribute("data-dragging")) {
+          jump(el.scrollLeft - w2);
+        }
+      }, 140);
     };
-  }, [update]);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      window.clearTimeout(settle);
+    };
+  }, [setWidth, jump]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -71,28 +95,25 @@ export function Industries() {
     return tile.getBoundingClientRect().width + (parseFloat(getComputedStyle(el).columnGap) || 0);
   };
 
-  // Moves by `tiles` and wraps around at either end, so the loop never stops at a wall.
-  const go = useCallback((tiles: number) => {
-    const el = track.current;
-    const per = tileStep();
-    if (!el || !per) return;
-    const max = el.scrollWidth - el.clientWidth;
-    let left = el.scrollLeft + tiles * per;
-    if (tiles > 0 && el.scrollLeft >= max - 4) left = 0;
-    else if (tiles < 0 && el.scrollLeft <= 4) left = max;
-    el.scrollTo({ left: Math.max(0, Math.min(left, max)), behavior: "smooth" });
-  }, []);
+  // Moves by `tiles`. Going back from the first set starts from the copy, so it loops too.
+  const go = useCallback(
+    (tiles: number) => {
+      const el = track.current;
+      const per = tileStep();
+      const w = setWidth();
+      if (!el || !per || !w) return;
+      if (tiles < 0 && el.scrollLeft < -tiles * per - 2) jump(el.scrollLeft + w);
+      el.scrollTo({ left: el.scrollLeft + tiles * per, behavior: "smooth" });
+    },
+    [setWidth, jump],
+  );
 
-  // The arrows move by the visible tiles, so a full "page" scrolls past.
   const step = (dir: 1 | -1) => {
-    const el = track.current;
-    const per = tileStep();
-    if (!el || !per) return;
-    go(dir * Math.max(1, Math.floor((el.clientWidth + 1) / per)));
+    go(dir);
     setNudge((n) => n + 1);
   };
 
-  const running = !paused && !held && inView && !reduced;
+  const running = !held && inView && !reduced;
   useEffect(() => {
     if (!running) return;
     const id = window.setInterval(() => {
@@ -126,34 +147,64 @@ export function Industries() {
     setNudge((n) => n + 1);
   };
 
-  // Slider bar: click the rail to jump there, or drag the thumb.
+  // Slider bar: the thumb is one tile wide and travels across the set; click or drag to seek.
   const rail = useRef<HTMLDivElement>(null);
-  const seek = (clientX: number, grab: number) => {
+  const thumb = 1 / count;
+  const seek = (clientX: number) => {
     const el = track.current;
     const r = rail.current?.getBoundingClientRect();
-    if (!el || !r) return;
-    const span = r.width * (1 - bar.size);
-    const ratio = span > 0 ? (clientX - r.left - grab) / span : 0;
-    el.scrollTo({ left: Math.max(0, Math.min(1, ratio)) * (el.scrollWidth - el.clientWidth) });
+    const w = setWidth();
+    if (!el || !r || !w) return;
+    const ratio = Math.max(0, Math.min(1, (clientX - r.left) / r.width));
+    el.scrollTo({ left: Math.min(ratio, 1 - thumb / 2) * w });
   };
-  const railDrag = useRef<number | null>(null);
+  const railDown = useRef(false);
   const onRailDown = (e: PointerEvent<HTMLDivElement>) => {
-    const r = e.currentTarget.getBoundingClientRect();
-    const thumbLeft = r.left + bar.offset * r.width;
-    const thumbW = bar.size * r.width;
-    const onThumb = e.clientX >= thumbLeft && e.clientX <= thumbLeft + thumbW;
-    railDrag.current = onThumb ? e.clientX - thumbLeft : thumbW / 2;
+    railDown.current = true;
     e.currentTarget.setPointerCapture(e.pointerId);
     track.current?.setAttribute("data-dragging", "");
-    seek(e.clientX, railDrag.current);
+    seek(e.clientX);
   };
   const onRailMove = (e: PointerEvent<HTMLDivElement>) => {
-    if (railDrag.current !== null) seek(e.clientX, railDrag.current);
+    if (railDown.current) seek(e.clientX);
   };
   const onRailUp = () => {
-    railDrag.current = null;
+    railDown.current = false;
     track.current?.removeAttribute("data-dragging");
     setNudge((n) => n + 1);
+  };
+
+  const tile = (item: (typeof ind.items)[number], copy: boolean) => {
+    const photo = INDUSTRY_PHOTOS[item.key];
+    return (
+      <li
+        key={(copy ? "copy-" : "") + item.key}
+        aria-hidden={copy || undefined}
+        className="group w-[78%] shrink-0 snap-start sm:w-[45%] lg:w-[calc((100%-3rem)/3)] xl:w-[calc((100%-4.5rem)/4)]"
+      >
+        <figure>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-iron text-cyan-deep">
+            {photo ? (
+              <img
+                src={photo.src}
+                alt=""
+                width={photo.width}
+                height={photo.height}
+                loading="lazy"
+                decoding="async"
+                draggable={false}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+              />
+            ) : (
+              <IndustryArt kind={item.key} />
+            )}
+          </div>
+          <figcaption className="mt-3 text-[0.9375rem] font-semibold md:text-base">
+            {item.name}
+          </figcaption>
+        </figure>
+      </li>
+    );
   };
 
   return (
@@ -196,37 +247,9 @@ export function Industries() {
                 "cursor-grab data-[dragging]:cursor-grabbing data-[dragging]:snap-none data-[dragging]:scroll-auto data-[dragging]:select-none",
               )}
             >
-              {ind.items.map((item) => {
-                const photo = INDUSTRY_PHOTOS[item.key];
-                return (
-                  <li
-                    key={item.key}
-                    className="group w-[78%] shrink-0 snap-start sm:w-[45%] lg:w-[calc((100%-3rem)/3)] xl:w-[calc((100%-4.5rem)/4)]"
-                  >
-                    <figure>
-                      <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-iron text-cyan-deep">
-                        {photo ? (
-                          <img
-                            src={photo.src}
-                            alt=""
-                            width={photo.width}
-                            height={photo.height}
-                            loading="lazy"
-                            decoding="async"
-                            draggable={false}
-                            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                          />
-                        ) : (
-                          <IndustryArt kind={item.key} />
-                        )}
-                      </div>
-                      <figcaption className="mt-3 text-[0.9375rem] font-semibold md:text-base">
-                        {item.name}
-                      </figcaption>
-                    </figure>
-                  </li>
-                );
-              })}
+              {ind.items.map((item) => tile(item, false))}
+              {/* The copy that makes the loop seamless; hidden from assistive technology. */}
+              {ind.items.map((item) => tile(item, true))}
             </ul>
 
             {/* Arrows at the sides, centred on the photos (the caption sits below them). */}
@@ -242,42 +265,22 @@ export function Industries() {
             </ArrowButton>
           </div>
 
-          <div className="mt-8 flex items-center gap-4">
-            <button
-              type="button"
-              aria-pressed={paused}
-              aria-label={paused || reduced ? ind.play : ind.pause}
-              onClick={() => setPaused((p) => !p)}
-              className={cn(
-                "grid size-9 shrink-0 cursor-pointer place-items-center rounded-full border border-paper-foreground/20 text-paper-foreground transition-colors hover:border-petroleum hover:bg-petroleum hover:text-white",
-                reduced && "hidden",
-              )}
-            >
-              <svg viewBox="0 0 24 24" className="size-3.5" fill="currentColor" aria-hidden>
-                {paused ? (
-                  <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z" />
-                ) : (
-                  <path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
-                )}
-              </svg>
-            </button>
-            {/* The slider mirrors the track's own scroll position; keyboard users scroll the
-                track itself (arrow keys) or use the buttons, so it stays out of the tab order. */}
-            <div
-              ref={rail}
-              aria-hidden
-              onPointerDown={onRailDown}
-              onPointerMove={onRailMove}
-              onPointerUp={onRailUp}
-              onPointerCancel={onRailUp}
-              className="relative h-6 flex-1 cursor-pointer touch-none"
-            >
-              <span className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-paper-foreground/10" />
-              <span
-                className="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-petroleum transition-[left] duration-150"
-                style={{ width: `${bar.size * 100}%`, left: `${bar.offset * 100}%` }}
-              />
-            </div>
+          {/* The slider mirrors the track's position; keyboard users scroll the track itself
+              (arrow keys) or use the buttons, so it stays out of the tab order. */}
+          <div
+            ref={rail}
+            aria-hidden
+            onPointerDown={onRailDown}
+            onPointerMove={onRailMove}
+            onPointerUp={onRailUp}
+            onPointerCancel={onRailUp}
+            className="relative mt-8 h-6 cursor-pointer touch-none"
+          >
+            <span className="absolute inset-x-0 top-1/2 h-1 -translate-y-1/2 rounded-full bg-paper-foreground/10" />
+            <span
+              className="absolute top-1/2 h-1.5 -translate-y-1/2 rounded-full bg-petroleum"
+              style={{ width: `${thumb * 100}%`, left: `${Math.min(progress, 1 - thumb) * 100}%` }}
+            />
           </div>
         </Reveal>
       </div>
