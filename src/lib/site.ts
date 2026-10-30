@@ -160,6 +160,7 @@ export const INDUSTRY_PHOTOS: Partial<
   Record<string, { src: string; width: number; height: number }>
 > = {
   // Photos supplied by the WDF team (Oct 2026), cut to the tiles' 4:5 frame.
+  automotive: { src: "/media/industries/automotive.webp", width: 800, height: 1000 },
   aerospace: { src: "/media/industries/aerospace.webp", width: 800, height: 1000 },
   electronics: { src: "/media/industries/electronics.webp", width: 800, height: 1000 },
   medical: { src: "/media/industries/medical.webp", width: 800, height: 1000 },
