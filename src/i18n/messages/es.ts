@@ -72,8 +72,8 @@ const es: Messages = {
   },
   hero: {
     eyebrow: "WDF · Norteamérica",
-    title: "Ingeniería de posibilidades industriales.",
-    sub: "Conectamos manufactura, ingeniería y soluciones industriales en Norteamérica.",
+    title: "Hecho para la industria de Norteamérica.",
+    sub: "Estratégicamente ubicados en la frontera entre EE. UU. y México.",
     primary: "Conozca nuestras divisiones",
     secondary: "Contactar a WDF",
     index: "Divisiones",

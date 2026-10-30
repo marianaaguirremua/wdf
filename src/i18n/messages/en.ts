@@ -78,8 +78,8 @@ const en = {
   },
   hero: {
     eyebrow: "WDF · North America",
-    title: "Engineering Industrial Possibilities.",
-    sub: "Connecting manufacturing, engineering, and industrial solutions across North America.",
+    title: "Built for North American industry.",
+    sub: "Strategically positioned along the U.S.–Mexico border.",
     primary: "Explore our divisions",
     secondary: "Contact WDF",
     index: "Divisions",
