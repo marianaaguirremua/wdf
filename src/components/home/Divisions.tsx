@@ -4,112 +4,20 @@ import { localeParam, useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
 
-// Each division keeps the shared grid, type and motion language but owns an accent drawn
-// from the approved palette and a line motif: toolpath (Manufacturing), single-line
-// diagram (Energy), control network (Technology) and routed flow (3PL). Motifs animate on hover/focus.
-
-function ToolpathMotif() {
-  return (
-    <svg viewBox="0 0 240 180" fill="none" aria-hidden className="h-full w-full">
-      <path
-        d="M30 150 L30 40 L210 40 L210 150 L160 150 L160 90 L80 90 L80 150 Z"
-        stroke="var(--accent)"
-        strokeOpacity="0.35"
-        strokeDasharray="3 5"
-      />
-      <path d="M20 160 H220 M20 30 H220" stroke="currentColor" strokeOpacity="0.12" />
-      <g className="motif-tool">
-        <circle r="9" stroke="var(--accent)" />
-        <circle r="2.5" fill="var(--accent)" />
-      </g>
-    </svg>
-  );
-}
-
-function SingleLineMotif() {
-  const nodes = [
-    [40, 50],
-    [120, 50],
-    [200, 50],
-    [120, 130],
-    [200, 130],
-  ] as const;
-  return (
-    <svg viewBox="0 0 240 180" fill="none" aria-hidden className="h-full w-full">
-      <path d="M20 50 H220 M120 50 V130 H200" stroke="currentColor" strokeOpacity="0.14" />
-      <path className="motif-flow" d="M20 50 H220 M120 50 V130 H200" stroke="var(--accent)" />
-      {nodes.map(([x, y]) => (
-        <rect
-          key={`${x}-${y}`}
-          x={x - 7}
-          y={y - 7}
-          width="14"
-          height="14"
-          fill="var(--ink-2)"
-          stroke="var(--accent)"
-        />
-      ))}
-      <path d="M40 130 h20 M44 138 h12 M48 146 h4" stroke="currentColor" strokeOpacity="0.25" />
-    </svg>
-  );
-}
-
-function NetworkMotif() {
-  const devices = [40, 93, 147, 200];
-  const links = devices.map((x) => `M120 64 V96 H${x} V128`).join(" ");
-  return (
-    <svg viewBox="0 0 240 180" fill="none" aria-hidden className="h-full w-full">
-      <path d={links} stroke="currentColor" strokeOpacity="0.14" />
-      <path className="motif-flow" d={links} stroke="var(--accent)" />
-      <rect x="96" y="28" width="48" height="36" fill="var(--ink-2)" stroke="var(--accent)" />
-      <path d="M106 40 h28 M106 48 h20" stroke="var(--accent)" strokeOpacity="0.6" />
-      {devices.map((x) => (
-        <circle key={x} cx={x} cy={140} r="12" fill="var(--ink-2)" stroke="var(--accent)" />
-      ))}
-      <path d="M20 164 H220" stroke="currentColor" strokeOpacity="0.12" />
-    </svg>
-  );
-}
-
-function RouteMotif() {
-  return (
-    <svg viewBox="0 0 240 180" fill="none" aria-hidden className="h-full w-full">
-      {Array.from({ length: 4 }, (_, r) =>
-        Array.from({ length: 6 }, (_, c) => (
-          <rect
-            key={`${r}-${c}`}
-            x={22 + c * 34}
-            y={24 + r * 36}
-            width="26"
-            height="26"
-            stroke="currentColor"
-            strokeOpacity="0.1"
-          />
-        )),
-      )}
-      <path
-        d="M20 140 H90 V70 H160 V30 H220"
-        stroke="var(--accent)"
-        strokeOpacity="0.5"
-        strokeDasharray="2 4"
-      />
-      <g className="motif-route">
-        <rect x="-8" y="-8" width="16" height="16" fill="var(--accent)" />
-      </g>
-    </svg>
-  );
-}
+// Each division card leads with a photo (public/media/divisions, all cut to 4:3 at 960 × 720)
+// and keeps its accent colour in the top rule and the kicker text.
 
 type DivisionProps = {
   index: number;
-  /** Line colour for the motif and the card's top rule. */
+  /** Colour of the card's top rule. */
   accent: string;
   /** Darker shade of the accent for text on white (AA contrast). */
   accentText: string;
   name: string;
   kicker: string;
   body: string;
-  motif: ReactNode;
+  /** Photo for the card, 4:3. Decorative: the division name follows it. */
+  image: string;
   tags?: readonly string[];
   action: ReactNode;
 };
@@ -121,7 +29,7 @@ function Division({
   name,
   kicker,
   body,
-  motif,
+  image,
   tags,
   action,
 }: DivisionProps) {
@@ -136,11 +44,19 @@ function Division({
         className="flex h-full flex-col"
       >
         <span aria-hidden className="block h-1 w-full bg-[var(--accent)]" />
+        <div className="aspect-[4/3] shrink-0 overflow-hidden bg-iron">
+          <img
+            src={image}
+            alt=""
+            width={960}
+            height={720}
+            loading="lazy"
+            decoding="async"
+            className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover/card:scale-[1.03]"
+          />
+        </div>
         <div className="flex h-full flex-col p-6 md:p-7">
-          <div className="aspect-[4/3] w-full max-w-[15rem] text-paper-foreground/70 xl:aspect-auto xl:h-40 xl:max-w-none">
-            {motif}
-          </div>
-          <h3 className="heading mt-6 text-2xl">{name}</h3>
+          <h3 className="heading text-2xl">{name}</h3>
           <p className="mt-2 text-[0.9375rem] font-medium text-[var(--accent-text)] xl:min-h-[2lh]">
             {kicker}
           </p>
@@ -222,7 +138,7 @@ export function Divisions({
             kicker={d.manufacturing.kicker}
             body={d.manufacturing.body}
             tags={d.manufacturing.tags}
-            motif={<ToolpathMotif />}
+            image="/media/divisions/manufacturing.webp"
             action={
               <Link to="/{-$locale}/services/manufacturing" params={params} className={actionClass}>
                 {d.manufacturing.cta}
@@ -240,7 +156,7 @@ export function Divisions({
             kicker={d.energy.kicker}
             body={d.energy.body}
             tags={d.energy.tags}
-            motif={<SingleLineMotif />}
+            image="/media/divisions/energy.webp"
             action={
               <Link to="/{-$locale}/services/energy" params={params} className={actionClass}>
                 {d.energy.cta}
@@ -258,7 +174,7 @@ export function Divisions({
             kicker={d.technology.kicker}
             body={d.technology.body}
             tags={d.technology.tags}
-            motif={<NetworkMotif />}
+            image="/media/divisions/technology.webp"
             action={
               <Link to="/{-$locale}/services/technology" params={params} className={actionClass}>
                 {d.technology.cta}
@@ -276,7 +192,7 @@ export function Divisions({
             kicker={d.threepl.kicker}
             body={d.threepl.body}
             tags={d.threepl.tags}
-            motif={<RouteMotif />}
+            image="/media/divisions/threepl.webp"
             action={
               <Link to="/{-$locale}/services/3pl" params={params} className={actionClass}>
                 {d.threepl.cta}
