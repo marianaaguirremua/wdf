@@ -6,6 +6,37 @@ import { SERVICE_PHOTOS } from "@/lib/site";
 
 /** Cards shown at first and added by each "View more". */
 const PAGE = 6;
+/** Cards per row on desktop; no row repeats a pillar. */
+const COLUMNS = 3;
+
+/**
+ * Mixes the pillars' lists in rotation (Manufacturing, Energy, Technology, 3PL, …) so that no
+ * row of `columns` cards shows the same pillar twice. When the rotation alone would end with
+ * two cards of the longer list side by side, a short look-ahead reorders the last rows.
+ */
+function interleave<T>(lists: T[][], columns: number): T[] {
+  const left = lists.map((l) => [...l]);
+  const order: number[] = [];
+  const total = left.reduce((n, l) => n + l.length, 0);
+  const place = (last: number): boolean => {
+    if (order.length === total) return true;
+    const row = order.slice(order.length - (order.length % columns));
+    for (let k = 1; k <= lists.length; k++) {
+      const p = (last + k) % lists.length;
+      if (!left[p]!.length || row.includes(p)) continue;
+      order.push(p);
+      left[p]!.shift();
+      if (place(p)) return true;
+      order.pop();
+      left[p]!.unshift(lists[p]![lists[p]!.length - left[p]!.length - 1]!);
+    }
+    return false;
+  };
+  // No valid order (e.g. one pillar has most of the cards): fall back to plain pillar order.
+  if (!place(lists.length - 1)) return lists.flat();
+  const next = lists.map(() => 0);
+  return order.map((p) => lists[p]![next[p]!++]!);
+}
 
 type Route =
   | "/{-$locale}/services/manufacturing"
@@ -66,34 +97,38 @@ export function ServicesCatalog() {
   // The Manufacturing page lists processes rather than a sentence: "CNC machining, turning, …".
   const sentence = (parts: readonly string[]) => parts.join(", ") + ".";
 
-  const services: Service[] = [
-    { ...manufacturing, ...t.servicesIndex.printing3d, key: "manufacturing-3d-printing" },
-    ...t.services.capabilities.items.map((item, i) => ({
-      ...manufacturing,
-      key: `manufacturing-${i + 1}`,
-      title: item.title,
-      body: sentence(item.processes),
-      hash: `capability-${i + 1}`,
-    })),
-    ...t.energy.capabilities.items.map((item, i) => ({
+  // One list per pillar, in pillar order; mixed below.
+  const byPillar: Service[][] = [
+    [
+      { ...manufacturing, ...t.servicesIndex.printing3d, key: "manufacturing-3d-printing" },
+      ...t.services.capabilities.items.map((item, i) => ({
+        ...manufacturing,
+        key: `manufacturing-${i + 1}`,
+        title: item.title,
+        body: sentence(item.processes),
+        hash: `capability-${i + 1}`,
+      })),
+    ],
+    t.energy.capabilities.items.map((item, i) => ({
       ...energy,
       ...item,
       key: `energy-${i + 1}`,
       hash: `energy-capability-${i + 1}`,
     })),
-    ...t.technology.capabilities.items.map((item, i) => ({
+    t.technology.capabilities.items.map((item, i) => ({
       ...technology,
       ...item,
       key: `technology-${i + 1}`,
       hash: `technology-capability-${i + 1}`,
     })),
-    ...t.threepl.capabilities.items.map((item, i) => ({
+    t.threepl.capabilities.items.map((item, i) => ({
       ...threepl,
       ...item,
       key: `threepl-${i + 1}`,
       hash: `threepl-capability-${i + 1}`,
     })),
   ];
+  const services = interleave(byPillar, COLUMNS);
 
   const [shown, setShown] = useState(PAGE);
   const list = useRef<HTMLUListElement>(null);
