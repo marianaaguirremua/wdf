@@ -2,9 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { ContactCta } from "@/components/home/ContactCta";
-import { Divisions } from "@/components/home/Divisions";
+import { ServicesCatalog } from "@/components/services/ServicesCatalog";
 
-// Services overview: the four divisions, each linking to its page under /services.
+// Services overview: each pillar with the services it offers, linking to its page.
 export const Route = createFileRoute("/{-$locale}/services")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
@@ -18,7 +18,7 @@ function Page() {
   const { t } = useI18n();
   return (
     <>
-      <Divisions as="h1" eyebrow={t.servicesIndex.eyebrow} title={t.servicesIndex.title} />
+      <ServicesCatalog />
       <ContactCta eyebrow={t.nav.contact} />
     </>
   );
