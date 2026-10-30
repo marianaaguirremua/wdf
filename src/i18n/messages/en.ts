@@ -145,6 +145,8 @@ const en = {
     region: "Industries — scroll horizontally",
     previous: "Previous industries",
     next: "Next industries",
+    pause: "Pause automatic scrolling",
+    play: "Resume automatic scrolling",
     items: [
       { key: "automotive", name: "Automotive" },
       { key: "aerospace", name: "Aerospace" },
