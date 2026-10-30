@@ -94,6 +94,7 @@ const en = {
   servicesIndex: {
     eyebrow: "Services",
     title: "Our services.",
+    more: "View more",
     // Listed first under Manufacturing on the Services page (WDF request, Oct 2026).
     printing3d: { title: "3D Printing", body: "3D-printed prototypes and parts." },
   },

@@ -1,7 +1,11 @@
 import { Link } from "@tanstack/react-router";
-import type { CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
+import { SERVICE_PHOTOS } from "@/lib/site";
+
+/** Cards shown at first and added by each "View more". */
+const PAGE = 6;
 
 type Route =
   | "/{-$locale}/services/manufacturing"
@@ -10,6 +14,8 @@ type Route =
   | "/{-$locale}/services/3pl";
 
 type Service = {
+  /** Key in SERVICE_PHOTOS. */
+  key: string;
   title: string;
   body: string;
   pillar: string;
@@ -61,9 +67,10 @@ export function ServicesCatalog() {
   const sentence = (parts: readonly string[]) => parts.join(", ") + ".";
 
   const services: Service[] = [
-    { ...manufacturing, ...t.servicesIndex.printing3d },
+    { ...manufacturing, ...t.servicesIndex.printing3d, key: "manufacturing-3d-printing" },
     ...t.services.capabilities.items.map((item, i) => ({
       ...manufacturing,
+      key: `manufacturing-${i + 1}`,
       title: item.title,
       body: sentence(item.processes),
       hash: `capability-${i + 1}`,
@@ -71,19 +78,32 @@ export function ServicesCatalog() {
     ...t.energy.capabilities.items.map((item, i) => ({
       ...energy,
       ...item,
+      key: `energy-${i + 1}`,
       hash: `energy-capability-${i + 1}`,
     })),
     ...t.technology.capabilities.items.map((item, i) => ({
       ...technology,
       ...item,
+      key: `technology-${i + 1}`,
       hash: `technology-capability-${i + 1}`,
     })),
     ...t.threepl.capabilities.items.map((item, i) => ({
       ...threepl,
       ...item,
+      key: `threepl-${i + 1}`,
       hash: `threepl-capability-${i + 1}`,
     })),
   ];
+
+  const [shown, setShown] = useState(PAGE);
+  const list = useRef<HTMLUListElement>(null);
+  // After "View more", focus moves to the first new card so keyboard users continue from there.
+  const focusFrom = useRef<number | null>(null);
+  useEffect(() => {
+    if (focusFrom.current === null) return;
+    list.current?.querySelectorAll("a")[focusFrom.current]?.focus();
+    focusFrom.current = null;
+  }, [shown]);
 
   return (
     <section aria-labelledby="services-title" className="relative bg-paper text-paper-foreground">
@@ -97,35 +117,92 @@ export function ServicesCatalog() {
           </Reveal>
         </div>
 
-        <ul className="mt-12 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
-          {services.map((s, i) => (
+        <ul ref={list} className="mt-12 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          {services.slice(0, shown).map((s, i) => (
             <Reveal as="li" key={`${s.pillar}-${s.title}`} delay={(i % 3) * 70}>
               <Link
                 to={s.to}
                 params={params}
                 {...(s.hash ? { hash: s.hash } : {})}
                 style={{ "--dot": s.dot, "--ink": s.ink } as CSSProperties}
-                className="group flex h-full flex-col rounded-md border border-paper-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-paper-foreground/20 hover:shadow-[0_10px_30px_-12px_rgb(12_24_40/0.18)] md:p-7"
+                className="group flex h-full flex-col overflow-hidden rounded-md border border-paper-border bg-white transition-[border-color,box-shadow] duration-300 hover:border-paper-foreground/20 hover:shadow-[0_10px_30px_-12px_rgb(12_24_40/0.18)]"
               >
-                <h2 className="heading text-xl group-hover:text-[var(--ink)]">{s.title}</h2>
-                <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">{s.body}</p>
-                <span className="mt-auto flex items-center justify-between gap-3 pt-6">
-                  <span className="flex items-center gap-2 text-sm text-paper-foreground/80">
-                    <span aria-hidden className="size-2.5 rounded-full bg-[var(--dot)]" />
-                    {s.pillar}
+                <ServicePhoto photo={SERVICE_PHOTOS[s.key]} />
+                <div className="flex flex-1 flex-col p-6 md:p-7">
+                  <h2 className="heading text-xl group-hover:text-[var(--ink)]">{s.title}</h2>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">{s.body}</p>
+                  <span className="mt-auto flex items-center justify-between gap-3 pt-6">
+                    <span className="flex items-center gap-2 text-sm text-paper-foreground/80">
+                      <span aria-hidden className="size-2.5 rounded-full bg-[var(--dot)]" />
+                      {s.pillar}
+                    </span>
+                    <span
+                      aria-hidden
+                      className="text-paper-muted transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--ink)]"
+                    >
+                      →
+                    </span>
                   </span>
-                  <span
-                    aria-hidden
-                    className="text-paper-muted transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--ink)]"
-                  >
-                    →
-                  </span>
-                </span>
+                </div>
               </Link>
             </Reveal>
           ))}
         </ul>
+
+        {shown < services.length && (
+          <div className="mt-10 flex justify-center">
+            <button
+              type="button"
+              onClick={() => {
+                focusFrom.current = shown;
+                setShown((n) => Math.min(n + PAGE, services.length));
+              }}
+              className="inline-flex min-h-12 cursor-pointer items-center gap-2 rounded-sm border border-paper-foreground/20 bg-white px-6 text-[0.9375rem] font-semibold text-paper-foreground transition-colors hover:border-petroleum hover:bg-petroleum hover:text-white"
+            >
+              {t.servicesIndex.more}
+              <span className="font-normal opacity-70" aria-hidden>
+                ({shown}/{services.length})
+              </span>
+            </button>
+          </div>
+        )}
       </div>
     </section>
+  );
+}
+
+/** 4:3 photo frame; an empty frame until the service's photo is added to SERVICE_PHOTOS. */
+function ServicePhoto({
+  photo,
+}: {
+  photo: { src: string; width: number; height: number } | undefined;
+}) {
+  return (
+    <div className="relative aspect-[4/3] overflow-hidden bg-iron">
+      {photo ? (
+        <img
+          src={photo.src}
+          alt=""
+          width={photo.width}
+          height={photo.height}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+        />
+      ) : (
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          className="absolute left-1/2 top-1/2 size-8 -translate-x-1/2 -translate-y-1/2 text-paper-foreground/20"
+        >
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <circle cx="9" cy="10" r="1.8" />
+          <path d="M21 16l-5-5-7 7" />
+        </svg>
+      )}
+    </div>
   );
 }

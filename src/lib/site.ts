@@ -167,3 +167,13 @@ export const INDUSTRY_PHOTOS: Partial<
   oilGas: { src: "/media/industries/oilGas.webp", width: 800, height: 1000 },
   metalmechanic: { src: "/media/industries/metalmechanic.webp", width: 564, height: 705 },
 };
+
+/**
+ * Photos for the service cards on the Services page, keyed by service: "manufacturing-3d-printing",
+ * "manufacturing-1" … "manufacturing-7", "energy-1" … "energy-6", "technology-1" … "technology-6",
+ * "threepl-1" … "threepl-6" (numbers follow the order on each division page). Cards without an
+ * entry show an empty 4:3 frame. Add files under /public/media/services/.
+ */
+export const SERVICE_PHOTOS: Partial<
+  Record<string, { src: string; width: number; height: number }>
+> = {};
