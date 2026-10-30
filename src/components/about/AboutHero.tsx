@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import type { CSSProperties, ReactNode } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
+import { TEAM_PAGE_PUBLIC } from "@/lib/site";
 import { Bolt } from "@/components/energy/Bolt";
 import { Chip } from "@/components/technology/Chip";
 
@@ -151,18 +152,22 @@ export function AboutHero() {
             className="fade-up mt-10 flex flex-col gap-3 sm:flex-row"
             style={{ "--d": "800ms" } as CSSProperties}
           >
-            <ButtonLink
-              to="/{-$locale}/about/team"
-              params={{ locale: localeParam(locale) }}
-              className="accent-cyan"
-              variant="accent"
-            >
-              {h.primary}
-            </ButtonLink>
+            {TEAM_PAGE_PUBLIC && (
+              <ButtonLink
+                to="/{-$locale}/about/team"
+                params={{ locale: localeParam(locale) }}
+                className="accent-cyan"
+                variant="accent"
+              >
+                {h.primary}
+              </ButtonLink>
+            )}
+            {/* With the team page hidden, Contact is the hero's main action. */}
             <ButtonLink
               to="/{-$locale}/contact"
               params={{ locale: localeParam(locale) }}
-              variant="outline-light"
+              className={TEAM_PAGE_PUBLIC ? "" : "accent-cyan"}
+              variant={TEAM_PAGE_PUBLIC ? "outline-light" : "accent"}
             >
               {h.secondary}
             </ButtonLink>

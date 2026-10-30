@@ -92,6 +92,13 @@ export const LOGO_ON_LIGHT = "/brand/wdf-logo-black.svg";
 /** Intrinsic size of the official logo SVGs (viewBox 1431 × 363). */
 export const LOGO_SIZE = { width: 1431, height: 363 } as const;
 
+/**
+ * The team page (/about/team) and its entry points on About. Hidden for now (Oct 2026): visitors
+ * are routed to the contact form instead. Set to true to bring the page and its links back
+ * (and re-add it to public/sitemap.xml).
+ */
+export const TEAM_PAGE_PUBLIC = false;
+
 /** Primary navigation, in the approved order. Labels come from messages.nav[key]. */
 export const NAV_ITEMS = [
   { key: "about", to: "/{-$locale}/about" },
