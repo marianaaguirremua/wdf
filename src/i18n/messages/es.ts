@@ -83,7 +83,6 @@ const es: Messages = {
     playVideo: "Reproducir video de fondo",
   },
   intro: {
-    eyebrow: "Acerca de WDF",
     title: "Una empresa. Cuatro divisiones industriales.",
     body: "WDF reúne manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
   },

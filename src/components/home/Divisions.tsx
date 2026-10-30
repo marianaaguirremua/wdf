@@ -89,10 +89,13 @@ const actionClass =
 export function Divisions({
   eyebrow,
   title,
+  body,
   as = "h2",
 }: {
   eyebrow?: string;
   title?: string;
+  /** Optional paragraph under the title (Home uses the company introduction here). */
+  body?: string;
   as?: "h1" | "h2";
 }) {
   const { locale, t } = useI18n();
@@ -111,7 +114,7 @@ export function Divisions({
           as === "h1" && "pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+4.5rem)]",
         )}
       >
-        <div className="max-w-2xl">
+        <div className="max-w-3xl">
           <Reveal as="p" className="text-sm font-semibold text-cyan-deep">
             {eyebrow ?? d.eyebrow}
           </Reveal>
@@ -127,6 +130,13 @@ export function Divisions({
           >
             <span id="divisions-title">{title ?? d.title}</span>
           </Reveal>
+          {body && (
+            <Reveal delay={160}>
+              <p className="mt-5 text-[1.0625rem] leading-relaxed text-paper-muted md:text-lg">
+                {body}
+              </p>
+            </Reveal>
+          )}
         </div>
 
         <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2 xl:grid-cols-4">

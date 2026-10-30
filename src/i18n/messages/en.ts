@@ -88,7 +88,6 @@ const en = {
     playVideo: "Play background video",
   },
   intro: {
-    eyebrow: "About WDF",
     title: "One company. Four industrial divisions.",
     body: "WDF brings manufacturing, energy, technology, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
   },

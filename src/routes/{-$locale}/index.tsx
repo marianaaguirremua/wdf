@@ -1,12 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { getMessages, resolveLocale } from "@/i18n";
+import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
 import { LOGO_ON_LIGHT, SITE_URL } from "@/lib/site";
 import { ContactCta } from "@/components/home/ContactCta";
 import { Divisions } from "@/components/home/Divisions";
 import { Hero } from "@/components/home/Hero";
 import { Industries } from "@/components/home/Industries";
-import { Intro } from "@/components/home/Intro";
 import { NorthAmerica } from "@/components/home/NorthAmerica";
 
 export const Route = createFileRoute("/{-$locale}/")({
@@ -32,11 +31,11 @@ export const Route = createFileRoute("/{-$locale}/")({
 });
 
 function Home() {
+  const { t } = useI18n();
   return (
     <>
       <Hero />
-      <Intro />
-      <Divisions />
+      <Divisions title={t.intro.title} body={t.intro.body} />
       <NorthAmerica />
       <Industries />
       <ContactCta />
