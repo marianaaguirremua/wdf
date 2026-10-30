@@ -72,7 +72,8 @@ const es: Messages = {
   },
   hero: {
     eyebrow: "WDF · Norteamérica",
-    title: "Hecho para la industria de Norteamérica.",
+    // "\n" starts the second line; the no-break space keeps "de Norteamérica" together.
+    title: "Hecho para la industria\nde\u00a0Norteamérica.",
     sub: "Estratégicamente ubicados en la frontera entre EE. UU. y México.",
     primary: "Conozca nuestras divisiones",
     secondary: "Contactar a WDF",

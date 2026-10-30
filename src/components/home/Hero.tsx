@@ -50,7 +50,7 @@ export function Hero() {
           </p>
           <h1
             id="hero-title"
-            className="heading fade-up mt-4 text-[clamp(2.25rem,4.2vw,3.5rem)]"
+            className="heading fade-up mt-4 whitespace-pre-line text-[clamp(2.25rem,4.2vw,3.5rem)]"
             style={{ "--d": "120ms" } as CSSProperties}
           >
             {t.hero.title}
