@@ -76,10 +76,7 @@ export function Industries() {
       <div className="container-wdf py-20 md:py-24">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-2xl">
-            <Reveal as="p" className="text-sm font-semibold text-cyan-deep">
-              {ind.eyebrow}
-            </Reveal>
-            <Reveal as="h2" delay={80} className="heading mt-3 text-[clamp(1.75rem,3vw,2.5rem)]">
+            <Reveal as="h2" className="heading text-[clamp(1.75rem,3vw,2.5rem)]">
               <span id="industries-title">{ind.title}</span>
             </Reveal>
           </div>

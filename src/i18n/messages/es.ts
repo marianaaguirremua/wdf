@@ -135,8 +135,7 @@ const es: Messages = {
     countries: ["Canadá", "Estados Unidos", "México"],
   },
   industries: {
-    eyebrow: "Industrias",
-    title: "Hecho para entornos industriales.",
+    title: "Nuestros entornos industriales.",
     region: "Industrias — desplácese horizontalmente",
     previous: "Industrias anteriores",
     next: "Industrias siguientes",

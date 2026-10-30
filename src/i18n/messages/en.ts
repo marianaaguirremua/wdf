@@ -141,8 +141,7 @@ const en = {
     countries: ["Canada", "United States", "Mexico"],
   },
   industries: {
-    eyebrow: "Industries",
-    title: "Built for Industrial Environments.",
+    title: "Our Industrial Environments.",
     region: "Industries — scroll horizontally",
     previous: "Previous industries",
     next: "Next industries",
