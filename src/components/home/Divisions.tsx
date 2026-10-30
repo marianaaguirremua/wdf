@@ -90,12 +90,15 @@ export function Divisions({
   eyebrow,
   title,
   body,
+  centered = false,
   as = "h2",
 }: {
   eyebrow?: string;
   title?: string;
   /** Optional paragraph under the title (Home uses the company introduction here). */
   body?: string;
+  /** Centred heading and paragraph with no label above them (Home). */
+  centered?: boolean;
   as?: "h1" | "h2";
 }) {
   const { locale, t } = useI18n();
@@ -114,15 +117,17 @@ export function Divisions({
           as === "h1" && "pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+4.5rem)]",
         )}
       >
-        <div className="max-w-3xl">
-          <Reveal as="p" className="text-sm font-semibold text-cyan-deep">
-            {eyebrow ?? d.eyebrow}
-          </Reveal>
+        <div className={cn("max-w-3xl", centered && "mx-auto text-center")}>
+          {!centered && (
+            <Reveal as="p" className="mb-3 text-sm font-semibold text-cyan-deep">
+              {eyebrow ?? d.eyebrow}
+            </Reveal>
+          )}
           <Reveal
             as={as}
             delay={80}
             className={cn(
-              "heading mt-3",
+              "heading",
               as === "h1"
                 ? "text-[clamp(2.25rem,4.2vw,3.5rem)]"
                 : "text-[clamp(1.75rem,3vw,2.5rem)]",

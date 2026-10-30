@@ -35,7 +35,7 @@ function Home() {
   return (
     <>
       <Hero />
-      <Divisions title={t.intro.title} body={t.intro.body} />
+      <Divisions title={t.intro.title} body={t.intro.body} centered />
       <NorthAmerica />
       <Industries />
       <ContactCta />
