@@ -68,11 +68,13 @@ export function ServicesCatalog() {
   const params = { locale: localeParam(locale) };
   const d = t.divisions;
 
-  // Dot colours match the rest of the site (contact form, division cards).
+  // Dot colours follow the division accents; Manufacturing uses the brand navy here.
   const manufacturing = {
     pillar: d.manufacturing.name,
     to: "/{-$locale}/services/manufacturing",
-    dot: "var(--teal)",
+    // Brand navy, so Manufacturing and Technology (turquoise) are told apart (WDF request).
+    // Literal value: inside the cards "--ink" is redefined as the pillar's text colour.
+    dot: "#0c1828",
     ink: "var(--cyan-deep)",
   } as const;
   const energy = {
