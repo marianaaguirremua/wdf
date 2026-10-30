@@ -158,4 +158,11 @@ export const HERO_VIDEO: HeroVideo | null = null;
  */
 export const INDUSTRY_PHOTOS: Partial<
   Record<string, { src: string; width: number; height: number }>
-> = {};
+> = {
+  // Photos supplied by the WDF team (Oct 2026), cut to the tiles' 4:5 frame.
+  aerospace: { src: "/media/industries/aerospace.webp", width: 800, height: 1000 },
+  electronics: { src: "/media/industries/electronics.webp", width: 800, height: 1000 },
+  medical: { src: "/media/industries/medical.webp", width: 800, height: 1000 },
+  oilGas: { src: "/media/industries/oilGas.webp", width: 800, height: 1000 },
+  metalmechanic: { src: "/media/industries/metalmechanic.webp", width: 564, height: 705 },
+};
