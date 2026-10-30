@@ -134,7 +134,7 @@ const en = {
   },
   reach: {
     eyebrow: "North America",
-    title: "Built for North American industry.",
+    title: "Two countries. One connected operation.",
     body: "Strategically positioned along the U.S.–Mexico border.",
     mapLabel: "Map of North America highlighting the U.S.–Mexico border",
     legend: "U.S.–Mexico border",

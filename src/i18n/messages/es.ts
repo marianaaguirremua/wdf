@@ -128,7 +128,7 @@ const es: Messages = {
   },
   reach: {
     eyebrow: "Norteamérica",
-    title: "Hecho para la industria de Norteamérica.",
+    title: "Dos países. Una operación conectada.",
     body: "Estratégicamente ubicados en la frontera entre EE. UU. y México.",
     mapLabel: "Mapa de Norteamérica que resalta la frontera entre EE. UU. y México",
     legend: "Frontera EE. UU.–México",
