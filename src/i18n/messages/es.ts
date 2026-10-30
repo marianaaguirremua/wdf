@@ -89,6 +89,8 @@ const es: Messages = {
   servicesIndex: {
     eyebrow: "Servicios",
     title: "Nuestros servicios.",
+    // Listed first under Manufacturing on the Services page (WDF request, Oct 2026).
+    printing3d: { title: "Impresión 3D", body: "Prototipos y piezas impresos en 3D." },
   },
   divisions: {
     eyebrow: "Lo que hacemos",

@@ -3,10 +3,28 @@ import type { CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
 
+type Route =
+  | "/{-$locale}/services/manufacturing"
+  | "/{-$locale}/services/energy"
+  | "/{-$locale}/services/technology"
+  | "/{-$locale}/services/3pl";
+
+type Service = {
+  title: string;
+  body: string;
+  pillar: string;
+  to: Route;
+  /** Anchor of this service on its division page; none opens the page at the top. */
+  hash?: string;
+  dot: string;
+  ink: string;
+};
+
 /**
- * Services overview: one column per pillar (division) with its photo, summary and the services
- * it offers, each tagged with its pillar's name and dot. Service names are the approved
- * capability titles of each division page, so EN/ES stay in step with those pages.
+ * Services overview: one card per service, three to a row. Each card names the service,
+ * describes it and carries a label with its pillar and the pillar's dot, and opens that service
+ * on its division page. Titles and descriptions are the approved capability copy of each
+ * division page (EN/ES), so the two stay in step; 3D Printing is listed first under Manufacturing.
  */
 export function ServicesCatalog() {
   const { locale, t } = useI18n();
@@ -14,44 +32,58 @@ export function ServicesCatalog() {
   const d = t.divisions;
 
   // Dot colours match the rest of the site (contact form, division cards).
-  const pillars = [
-    {
-      key: "manufacturing",
-      to: "/{-$locale}/services/manufacturing",
-      dot: "var(--teal)",
-      ink: "var(--cyan-deep)",
-      image: "/media/divisions/manufacturing.webp",
-      copy: d.manufacturing,
-      services: t.services.capabilities.items.map((i) => i.title),
-    },
-    {
-      key: "energy",
-      to: "/{-$locale}/services/energy",
-      dot: "var(--mustard)",
-      ink: "var(--mustard-deep)",
-      image: "/media/divisions/energy.webp",
-      copy: d.energy,
-      services: t.energy.capabilities.items.map((i) => i.title),
-    },
-    {
-      key: "technology",
-      to: "/{-$locale}/services/technology",
-      dot: "var(--teal)",
-      ink: "var(--cyan-deep)",
-      image: "/media/divisions/technology.webp",
-      copy: d.technology,
-      services: t.technology.capabilities.items.map((i) => i.title),
-    },
-    {
-      key: "threepl",
-      to: "/{-$locale}/services/3pl",
-      dot: "#d2642a",
-      ink: "#a8441a",
-      image: "/media/divisions/threepl.webp",
-      copy: d.threepl,
-      services: t.threepl.capabilities.items.map((i) => i.title),
-    },
-  ] as const;
+  const manufacturing = {
+    pillar: d.manufacturing.name,
+    to: "/{-$locale}/services/manufacturing",
+    dot: "var(--teal)",
+    ink: "var(--cyan-deep)",
+  } as const;
+  const energy = {
+    pillar: d.energy.name,
+    to: "/{-$locale}/services/energy",
+    dot: "var(--mustard)",
+    ink: "var(--mustard-deep)",
+  } as const;
+  const technology = {
+    pillar: d.technology.name,
+    to: "/{-$locale}/services/technology",
+    dot: "var(--teal)",
+    ink: "var(--cyan-deep)",
+  } as const;
+  const threepl = {
+    pillar: d.threepl.name,
+    to: "/{-$locale}/services/3pl",
+    dot: "#d2642a",
+    ink: "#a8441a",
+  } as const;
+
+  // The Manufacturing page lists processes rather than a sentence: "CNC machining, turning, …".
+  const sentence = (parts: readonly string[]) => parts.join(", ") + ".";
+
+  const services: Service[] = [
+    { ...manufacturing, ...t.servicesIndex.printing3d },
+    ...t.services.capabilities.items.map((item, i) => ({
+      ...manufacturing,
+      title: item.title,
+      body: sentence(item.processes),
+      hash: `capability-${i + 1}`,
+    })),
+    ...t.energy.capabilities.items.map((item, i) => ({
+      ...energy,
+      ...item,
+      hash: `energy-capability-${i + 1}`,
+    })),
+    ...t.technology.capabilities.items.map((item, i) => ({
+      ...technology,
+      ...item,
+      hash: `technology-capability-${i + 1}`,
+    })),
+    ...t.threepl.capabilities.items.map((item, i) => ({
+      ...threepl,
+      ...item,
+      hash: `threepl-capability-${i + 1}`,
+    })),
+  ];
 
   return (
     <section aria-labelledby="services-title" className="relative bg-paper text-paper-foreground">
@@ -65,81 +97,34 @@ export function ServicesCatalog() {
           </Reveal>
         </div>
 
-        <div className="mt-12 grid gap-x-8 gap-y-14 md:mt-14 md:grid-cols-2 xl:grid-cols-4">
-          {pillars.map((p, i) => (
-            <Reveal as="article" key={p.key} delay={i * 90} className="flex flex-col">
-              <div
-                style={{ "--dot": p.dot, "--ink": p.ink } as CSSProperties}
-                className="flex h-full flex-col"
+        <ul className="mt-12 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+          {services.map((s, i) => (
+            <Reveal as="li" key={`${s.pillar}-${s.title}`} delay={(i % 3) * 70}>
+              <Link
+                to={s.to}
+                params={params}
+                {...(s.hash ? { hash: s.hash } : {})}
+                style={{ "--dot": s.dot, "--ink": s.ink } as CSSProperties}
+                className="group flex h-full flex-col rounded-md border border-paper-border bg-white p-6 transition-[border-color,box-shadow] duration-300 hover:border-paper-foreground/20 hover:shadow-[0_10px_30px_-12px_rgb(12_24_40/0.18)] md:p-7"
               >
-                <h2
-                  id={`pillar-${p.key}`}
-                  className="heading border-b-2 border-[var(--dot)] pb-3 text-2xl"
-                >
-                  <Link to={p.to} params={params} className="hover:text-[var(--ink)]">
-                    {p.copy.name}
-                  </Link>
-                </h2>
-                <Link to={p.to} params={params} tabIndex={-1} aria-hidden className="mt-5 block">
-                  <span className="block aspect-[4/3] overflow-hidden rounded-md bg-iron">
-                    <img
-                      src={p.image}
-                      alt=""
-                      width={960}
-                      height={720}
-                      loading="lazy"
-                      decoding="async"
-                      className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.03]"
-                    />
+                <h2 className="heading text-xl group-hover:text-[var(--ink)]">{s.title}</h2>
+                <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">{s.body}</p>
+                <span className="mt-auto flex items-center justify-between gap-3 pt-6">
+                  <span className="flex items-center gap-2 text-sm text-paper-foreground/80">
+                    <span aria-hidden className="size-2.5 rounded-full bg-[var(--dot)]" />
+                    {s.pillar}
                   </span>
-                </Link>
-                <p className="mt-5 text-[0.9375rem] leading-relaxed text-paper-muted xl:min-h-[4lh]">
-                  {p.copy.body}
-                </p>
-
-                <ul className="mt-6 divide-y divide-paper-border border-y border-paper-border">
-                  {p.services.map((service) => (
-                    <li key={service}>
-                      <Link
-                        to={p.to}
-                        params={params}
-                        className="group/svc flex items-start justify-between gap-3 py-3"
-                      >
-                        <span>
-                          <span className="block text-[0.9375rem] font-medium leading-snug group-hover/svc:text-[var(--ink)]">
-                            {service}
-                          </span>
-                          <span className="mt-1 flex items-center gap-1.5 text-xs text-paper-muted">
-                            <span aria-hidden className="size-2 rounded-full bg-[var(--dot)]" />
-                            {p.copy.name}
-                          </span>
-                        </span>
-                        <span
-                          aria-hidden
-                          className="mt-0.5 text-paper-muted transition-transform group-hover/svc:translate-x-0.5 group-hover/svc:text-[var(--ink)]"
-                        >
-                          →
-                        </span>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-
-                <Link
-                  to={p.to}
-                  params={params}
-                  className="mt-6 inline-flex items-center gap-2 self-start text-[0.9375rem] font-semibold text-[var(--ink)] underline-offset-4 hover:underline"
-                >
-                  {p.copy.cta}
-                  <span aria-hidden className="arrow-nudge">
+                  <span
+                    aria-hidden
+                    className="text-paper-muted transition-transform group-hover:translate-x-0.5 group-hover:text-[var(--ink)]"
+                  >
                     →
                   </span>
-                  <span className="sr-only">: {p.copy.name}</span>
-                </Link>
-              </div>
+                </span>
+              </Link>
             </Reveal>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );

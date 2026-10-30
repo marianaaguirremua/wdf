@@ -199,7 +199,11 @@ function Capabilities({
               <span className={eyebrow}>
                 <Mark className="size-3.5 text-accent" />0{i + 1} / {cardLabel}
               </span>
-              <h3 className="mt-6 text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]">
+              {/* Anchor for links from the Services page (#energy-capability-1, …). */}
+              <h3
+                id={`${id}-capability-${i + 1}`}
+                className="mt-6 scroll-mt-[calc(var(--header-h)+6rem)] text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]"
+              >
                 {item.title}
               </h3>
               <p className="mt-4 leading-relaxed text-paper-muted">{item.body}</p>
