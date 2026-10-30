@@ -101,7 +101,7 @@ export function Header() {
           className="-m-2 flex shrink-0 items-center p-2"
           onClick={() => setOpen(false)}
         >
-          <Logo className="w-[5.5rem] sm:w-24" />
+          <Logo className="w-[6.5rem] sm:w-28" />
         </Link>
 
         <div className="flex items-center gap-6 xl:gap-8">

@@ -60,22 +60,14 @@ function MemberCard({ member, index }: { member: TeamMember; index: number }) {
         <h3 className="text-xl font-semibold leading-tight tracking-[-0.02em]">{member.name}</h3>
         <p className="mb-5 mt-2 text-sm leading-snug text-cyan-deep">{member.title}</p>
         <div className="mt-auto flex flex-col gap-2.5 border-t border-paper-foreground/10 pt-5">
-          <a
-            href={telHref(member.phone)}
-            className={contactLink}
-            aria-label={`${t.about.leadership.call} ${member.name}: ${member.phone}`}
-          >
-            <PhoneIcon />
-            <span className="tabular-nums">{member.phone}</span>
-          </a>
-          {member.altPhone && (
+          {member.phone && (
             <a
-              href={telHref(member.altPhone)}
+              href={telHref(member.phone)}
               className={contactLink}
-              aria-label={`${t.about.leadership.call} ${member.name}: ${member.altPhone}`}
+              aria-label={`${t.about.leadership.call} ${member.name}: ${member.phone}`}
             >
               <PhoneIcon />
-              <span className="tabular-nums">{member.altPhone}</span>
+              <span className="tabular-nums">{member.phone}</span>
             </a>
           )}
           <a
@@ -146,7 +138,7 @@ export function LeadershipTeaser() {
   );
 }
 
-/** The leadership team page: header, then one card per person with direct phone and email. */
+/** The leadership team page: header, then one card per person with direct email (and phone where published). */
 export function LeadershipDirectory() {
   const { locale, t } = useI18n();
   const c = t.about.leadership;

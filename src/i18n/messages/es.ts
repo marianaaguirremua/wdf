@@ -19,7 +19,7 @@ const es: Messages = {
     leadership: {
       title: "Equipo de liderazgo | WDF",
       description:
-        "El equipo de liderazgo de WDF, con teléfono y correo directo de cada persona: un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
+        "El equipo de liderazgo de WDF, con el correo directo de cada persona: un equipo para conectar estrategia, ingeniería y seguimiento al cliente.",
     },
     services: {
       title: "Servicios | WDF",
@@ -159,7 +159,7 @@ const es: Messages = {
     secondary: "Solicitar una cotización de manufactura",
   },
   footer: {
-    tagline: "Manufactura · Energía · Tecnología · 3PL",
+    tagline: "Services Beyond Quality",
     company: "Empresa",
     manufacturing: "Manufactura",
     rights: "Todos los derechos reservados.",

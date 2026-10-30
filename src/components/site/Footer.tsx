@@ -115,7 +115,7 @@ export function Footer() {
           <p className="label-mono text-ink-muted">
             © {year} WDF. {t.footer.rights}
           </p>
-          <LanguageSwitcher />
+          <LanguageSwitcher up />
         </div>
       </div>
     </footer>

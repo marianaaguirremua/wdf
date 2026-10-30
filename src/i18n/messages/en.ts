@@ -25,7 +25,7 @@ const en = {
     leadership: {
       title: "Leadership team | WDF",
       description:
-        "The WDF leadership team, with direct phone and email for each person: a team connecting strategy, engineering and customer follow-up.",
+        "The WDF leadership team, with direct email for each person: a team connecting strategy, engineering and customer follow-up.",
     },
     services: {
       title: "Services | WDF",
@@ -165,7 +165,7 @@ const en = {
     secondary: "Request a manufacturing quote",
   },
   footer: {
-    tagline: "Manufacturing · Energy · Technology · 3PL",
+    tagline: "Services Beyond Quality",
     company: "Company",
     manufacturing: "Manufacturing",
     rights: "All rights reserved.",
