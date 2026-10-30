@@ -82,7 +82,7 @@ const es: Messages = {
     playVideo: "Reproducir video de fondo",
   },
   intro: {
-    eyebrow: "01 · WDF",
+    eyebrow: "Acerca de WDF",
     title: "Una empresa. Cuatro divisiones industriales.",
     body: "WDF reúne manufactura, energía, tecnología y logística de terceros bajo una sola identidad corporativa. Cada división atiende su propia disciplina; juntas forman un solo punto de contacto para sus socios industriales.",
   },
@@ -91,10 +91,8 @@ const es: Messages = {
     title: "Nuestros servicios.",
   },
   divisions: {
-    eyebrow: "02 · Divisiones",
+    eyebrow: "Lo que hacemos",
     title: "Nuestras divisiones.",
-    comingSoon: "Próximamente",
-    online: "En línea",
     manufacturing: {
       name: "Manufactura",
       kicker: "Manufactura de precisión. Experiencia integrada.",
@@ -129,7 +127,7 @@ const es: Messages = {
     },
   },
   reach: {
-    eyebrow: "03 · Norteamérica",
+    eyebrow: "Norteamérica",
     title: "Hecho para la industria de Norteamérica.",
     body: "Estratégicamente ubicados en la frontera entre EE. UU. y México.",
     mapLabel: "Mapa de Norteamérica que resalta la frontera entre EE. UU. y México",
@@ -137,7 +135,7 @@ const es: Messages = {
     countries: ["Canadá", "Estados Unidos", "México"],
   },
   industries: {
-    eyebrow: "04 · Industrias",
+    eyebrow: "Industrias",
     title: "Hecho para entornos industriales.",
     region: "Industrias — desplácese horizontalmente",
     previous: "Industrias anteriores",
@@ -152,7 +150,7 @@ const es: Messages = {
     ],
   },
   cta: {
-    eyebrow: "05 · Contacto",
+    eyebrow: "Contacto",
     title: "Hablemos de su próximo proyecto industrial.",
     body: "Los canales de contacto corporativo se están definiendo. Los requerimientos de manufactura pueden enviarse hoy a través de WDF Manufactura.",
     primary: "Contactar a WDF",

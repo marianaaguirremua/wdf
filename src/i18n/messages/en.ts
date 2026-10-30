@@ -88,7 +88,7 @@ const en = {
     playVideo: "Play background video",
   },
   intro: {
-    eyebrow: "01 · WDF",
+    eyebrow: "About WDF",
     title: "One company. Four industrial divisions.",
     body: "WDF brings manufacturing, energy, technology, and third-party logistics together under one corporate identity. Each division serves its own discipline; together they form a single point of contact for industrial partners.",
   },
@@ -97,10 +97,8 @@ const en = {
     title: "Our services.",
   },
   divisions: {
-    eyebrow: "02 · Divisions",
+    eyebrow: "What we do",
     title: "Our divisions.",
-    comingSoon: "Coming soon",
-    online: "Online",
     manufacturing: {
       name: "Manufacturing",
       kicker: "Precision Manufacturing. Integrated Expertise.",
@@ -135,7 +133,7 @@ const en = {
     },
   },
   reach: {
-    eyebrow: "03 · North America",
+    eyebrow: "North America",
     title: "Built for North American industry.",
     body: "Strategically positioned along the U.S.–Mexico border.",
     mapLabel: "Map of North America highlighting the U.S.–Mexico border",
@@ -143,7 +141,7 @@ const en = {
     countries: ["Canada", "United States", "Mexico"],
   },
   industries: {
-    eyebrow: "04 · Industries",
+    eyebrow: "Industries",
     title: "Built for Industrial Environments.",
     region: "Industries — scroll horizontally",
     previous: "Previous industries",
@@ -158,7 +156,7 @@ const en = {
     ],
   },
   cta: {
-    eyebrow: "05 · Contact",
+    eyebrow: "Contact",
     title: "Let's talk about your next industrial project.",
     body: "Corporate contact channels are being finalized. Manufacturing requirements can be submitted today through WDF Manufacturing.",
     primary: "Contact WDF",

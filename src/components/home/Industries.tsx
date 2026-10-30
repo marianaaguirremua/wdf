@@ -73,31 +73,27 @@ export function Industries() {
 
   return (
     <section aria-labelledby="industries-title" className="section-light relative">
-      <div className="container-wdf py-24 md:py-32">
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="lg:col-span-3">
-            <p className="label-mono text-petroleum">{ind.eyebrow}</p>
-          </Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-8 lg:col-span-9">
-            <Reveal
-              as="h2"
-              delay={80}
-              className="display max-w-3xl text-[clamp(2.25rem,5vw,4.25rem)]"
-            >
+      <div className="container-wdf py-20 md:py-24">
+        <div className="flex flex-wrap items-end justify-between gap-6">
+          <div className="max-w-2xl">
+            <Reveal as="p" className="text-sm font-semibold text-cyan-deep">
+              {ind.eyebrow}
+            </Reveal>
+            <Reveal as="h2" delay={80} className="heading mt-3 text-[clamp(1.75rem,3vw,2.5rem)]">
               <span id="industries-title">{ind.title}</span>
             </Reveal>
-            <div className="flex gap-3">
-              <ArrowButton label={ind.previous} disabled={edges.start} onClick={() => step(-1)}>
-                <path d="M15 5l-7 7 7 7" />
-              </ArrowButton>
-              <ArrowButton label={ind.next} disabled={edges.end} onClick={() => step(1)}>
-                <path d="M9 5l7 7-7 7" />
-              </ArrowButton>
-            </div>
+          </div>
+          <div className="flex gap-3">
+            <ArrowButton label={ind.previous} disabled={edges.start} onClick={() => step(-1)}>
+              <path d="M15 5l-7 7 7 7" />
+            </ArrowButton>
+            <ArrowButton label={ind.next} disabled={edges.end} onClick={() => step(1)}>
+              <path d="M9 5l7 7-7 7" />
+            </ArrowButton>
           </div>
         </div>
 
-        <Reveal delay={120} className="mt-14 md:mt-20">
+        <Reveal delay={120} className="mt-10 md:mt-12">
           <ul
             id="industries-track"
             ref={track}
@@ -114,7 +110,7 @@ export function Industries() {
               "cursor-grab data-[dragging]:cursor-grabbing data-[dragging]:snap-none data-[dragging]:scroll-auto data-[dragging]:select-none",
             )}
           >
-            {ind.items.map((item, i) => {
+            {ind.items.map((item) => {
               const photo = INDUSTRY_PHOTOS[item.key];
               return (
                 <li
@@ -122,7 +118,7 @@ export function Industries() {
                   className="group w-[78%] shrink-0 snap-start sm:w-[45%] lg:w-[calc((100%-3rem)/3)] xl:w-[calc((100%-4.5rem)/4)]"
                 >
                   <figure>
-                    <div className="relative aspect-[4/5] overflow-hidden rounded-sm bg-ink text-teal">
+                    <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-iron text-cyan-deep">
                       {photo ? (
                         <img
                           src={photo.src}
@@ -136,15 +132,11 @@ export function Industries() {
                         />
                       ) : (
                         <>
-                          <div aria-hidden className="blueprint absolute inset-0 opacity-70" />
                           <IndustryArt kind={item.key} />
                         </>
                       )}
-                      <span className="label-mono absolute left-4 top-4 text-ink-foreground/70">
-                        IND-0{i + 1}
-                      </span>
                     </div>
-                    <figcaption className="mt-4 text-sm font-semibold uppercase tracking-[0.12em] md:text-base">
+                    <figcaption className="mt-3 text-[0.9375rem] font-semibold md:text-base">
                       {item.name}
                     </figcaption>
                   </figure>

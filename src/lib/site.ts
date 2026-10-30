@@ -116,6 +116,8 @@ export const SERVICE_ITEMS = [
 
 /** Pages whose hero is light: the header shows its solid bar from the top so it stays legible. */
 export const LIGHT_HERO_PAGES = [
+  "/",
+  "/services",
   "/about",
   "/about/team",
   "/services/energy",

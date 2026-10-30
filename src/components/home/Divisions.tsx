@@ -102,9 +102,10 @@ function RouteMotif() {
 
 type DivisionProps = {
   index: number;
+  /** Line colour for the motif and the card's top rule. */
   accent: string;
-  status: string;
-  live?: boolean;
+  /** Darker shade of the accent for text on white (AA contrast). */
+  accentText: string;
   name: string;
   kicker: string;
   body: string;
@@ -116,8 +117,7 @@ type DivisionProps = {
 function Division({
   index,
   accent,
-  status,
-  live,
+  accentText,
   name,
   kicker,
   body,
@@ -128,48 +128,37 @@ function Division({
   return (
     <Reveal
       as="article"
-      delay={index * 110}
-      className="division group/card relative flex cursor-pointer flex-col border-t border-ink-border pt-8 xl:border-l xl:border-t-0 xl:px-7 xl:pt-0 xl:first:border-l-0 xl:first:pl-0 xl:last:pr-0"
+      delay={index * 90}
+      className="division group/card relative flex cursor-pointer flex-col overflow-hidden rounded-md border border-paper-border bg-white transition-[border-color,box-shadow] duration-300 hover:border-paper-foreground/20 hover:shadow-[0_10px_30px_-12px_rgb(12_24_40/0.18)]"
     >
-      <div style={{ "--accent": accent } as CSSProperties} className="flex h-full flex-col">
-        <span
-          aria-hidden
-          className="division-rule mb-8 block h-0.5 w-full bg-[var(--accent)] lg:mb-10"
-        />
-        <div className="flex items-center justify-between">
-          <span className="label-mono text-ink-muted">0{index + 1}</span>
-          <span className="label-mono inline-flex items-center gap-2 text-ink-muted">
-            <span
-              aria-hidden
-              className={cn(
-                "size-1.5 rounded-full",
-                live ? "bg-[var(--accent)]" : "border border-ink-muted",
-              )}
-            />
-            {status}
-          </span>
+      <div
+        style={{ "--accent": accent, "--accent-text": accentText } as CSSProperties}
+        className="flex h-full flex-col"
+      >
+        <span aria-hidden className="block h-1 w-full bg-[var(--accent)]" />
+        <div className="flex h-full flex-col p-6 md:p-7">
+          <div className="aspect-[4/3] w-full max-w-[15rem] text-paper-foreground/70 xl:aspect-auto xl:h-40 xl:max-w-none">
+            {motif}
+          </div>
+          <h3 className="heading mt-6 text-2xl">{name}</h3>
+          <p className="mt-2 text-[0.9375rem] font-medium text-[var(--accent-text)] xl:min-h-[2lh]">
+            {kicker}
+          </p>
+          <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">{body}</p>
+          {tags && (
+            <ul className="mt-5 flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="rounded-sm bg-paper px-2.5 py-1 text-xs text-paper-foreground/80"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
+          <div className="mt-auto pt-7">{action}</div>
         </div>
-        <div className="my-8 aspect-[4/3] w-full max-w-[17rem] text-ink-foreground lg:max-w-none xl:aspect-auto xl:h-52">
-          {motif}
-        </div>
-        <h3 className="display text-[2.5rem] font-semibold xl:text-[2.25rem] 2xl:text-[2.5rem]">
-          {name}
-        </h3>
-        <p className="label-mono mt-4 text-[var(--accent)] xl:min-h-[2lh]">{kicker}</p>
-        <p className="mt-5 max-w-sm leading-relaxed text-ink-muted">{body}</p>
-        {tags && (
-          <ul className="mt-6 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-sm border border-ink-border px-2.5 py-1.5 text-xs text-ink-foreground/80"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
-        )}
-        <div className="mt-auto pt-10">{action}</div>
       </div>
     </Reveal>
   );
@@ -178,7 +167,7 @@ function Division({
 // The link's ::after stretches over the whole card (the <article> is relative), so the entire
 // card opens the division page while staying a single link for keyboard and screen readers.
 const actionClass =
-  "inline-flex items-center gap-2 border-b border-ink-border pb-1.5 text-[0.9rem] font-semibold text-ink-foreground transition-colors after:absolute after:inset-0 after:content-[''] hover:border-[var(--accent)] hover:text-[var(--accent)] group-hover/card:border-[var(--accent)] group-hover/card:text-[var(--accent)]";
+  "inline-flex items-center gap-2 text-[0.9375rem] font-semibold text-[var(--accent-text)] after:absolute after:inset-0 after:content-[''] hover:underline group-hover/card:underline underline-offset-4";
 
 /** On the Services page the block is the page itself: its own eyebrow and title, as the h1. */
 export function Divisions({
@@ -198,34 +187,37 @@ export function Divisions({
     <section
       id="divisions"
       aria-labelledby="divisions-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative bg-paper text-paper-foreground"
     >
-      <div aria-hidden className="column-rules -z-10 opacity-60" />
       <div
         className={cn(
-          "container-wdf py-24 md:py-36",
-          as === "h1" && "pt-[calc(var(--header-h)+4rem)] md:pt-[calc(var(--header-h)+6rem)]",
+          "container-wdf py-20 md:py-24",
+          as === "h1" && "pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+4.5rem)]",
         )}
       >
-        <div className="grid gap-6 lg:grid-cols-12">
-          <Reveal className="lg:col-span-3">
-            <p className="label-mono text-primary">{eyebrow ?? d.eyebrow}</p>
+        <div className="max-w-2xl">
+          <Reveal as="p" className="text-sm font-semibold text-cyan-deep">
+            {eyebrow ?? d.eyebrow}
           </Reveal>
           <Reveal
             as={as}
             delay={80}
-            className="display text-[clamp(2.25rem,5vw,4.25rem)] lg:col-span-9"
+            className={cn(
+              "heading mt-3",
+              as === "h1"
+                ? "text-[clamp(2.25rem,4.2vw,3.5rem)]"
+                : "text-[clamp(1.75rem,3vw,2.5rem)]",
+            )}
           >
             <span id="divisions-title">{title ?? d.title}</span>
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-14 md:mt-24 md:grid-cols-2 md:gap-x-10 xl:grid-cols-4 xl:gap-0">
+        <div className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2 xl:grid-cols-4">
           <Division
             index={0}
             accent="var(--teal)"
-            live
-            status={d.online}
+            accentText="var(--cyan-deep)"
             name={d.manufacturing.name}
             kicker={d.manufacturing.kicker}
             body={d.manufacturing.body}
@@ -243,8 +235,7 @@ export function Divisions({
           <Division
             index={1}
             accent="var(--mustard)"
-            live
-            status={d.online}
+            accentText="var(--mustard-deep)"
             name={d.energy.name}
             kicker={d.energy.kicker}
             body={d.energy.body}
@@ -262,8 +253,7 @@ export function Divisions({
           <Division
             index={2}
             accent="var(--teal)"
-            live
-            status={d.online}
+            accentText="var(--cyan-deep)"
             name={d.technology.name}
             kicker={d.technology.kicker}
             body={d.technology.body}
@@ -280,9 +270,8 @@ export function Divisions({
           />
           <Division
             index={3}
-            accent="var(--slate)"
-            live
-            status={d.online}
+            accent="var(--industrial)"
+            accentText="var(--steel)"
             name={d.threepl.name}
             kicker={d.threepl.kicker}
             body={d.threepl.body}

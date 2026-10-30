@@ -15,20 +15,23 @@ export function NorthAmerica() {
   const { t } = useI18n();
 
   return (
-    <section aria-labelledby="reach-title" className="section-light relative overflow-hidden">
-      <div className="container-wdf grid items-center gap-14 py-24 md:py-32 lg:grid-cols-12 lg:gap-8">
+    <section
+      aria-labelledby="reach-title"
+      className="relative overflow-hidden bg-white text-paper-foreground"
+    >
+      <div className="container-wdf grid items-center gap-14 py-20 md:py-24 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
-          <Reveal className="flex flex-wrap items-center gap-4">
-            <p className="label-mono text-petroleum">{t.reach.eyebrow}</p>
+          <Reveal as="p" className="text-sm font-semibold text-cyan-deep">
+            {t.reach.eyebrow}
           </Reveal>
-          <Reveal as="h2" delay={80} className="display mt-6 text-[clamp(2.25rem,4.6vw,3.9rem)]">
+          <Reveal as="h2" delay={80} className="heading mt-3 text-[clamp(1.75rem,3vw,2.5rem)]">
             <span id="reach-title">{t.reach.title}</span>
           </Reveal>
           <Reveal delay={160}>
-            <p className="mt-8 max-w-md text-lg leading-relaxed text-paper-muted md:text-xl">
+            <p className="mt-5 max-w-md text-[1.0625rem] leading-relaxed text-paper-muted md:text-lg">
               {t.reach.body}
             </p>
-            <p className="label-mono mt-10 flex items-center gap-3 text-paper-muted">
+            <p className="mt-8 flex items-center gap-3 text-sm text-paper-muted">
               <span aria-hidden className="h-0.5 w-8 bg-teal" />
               {t.reach.legend}
             </p>

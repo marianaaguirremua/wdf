@@ -1,82 +1,70 @@
 import type { CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
-import { HERO_VIDEO } from "@/lib/site";
 import { HeroDrawing } from "./HeroDrawing";
-import { HeroVideo } from "./HeroVideo";
+
+// The drawing is the same technical illustration as before, redrawn in the light hero's
+// colours: its line, label and highlight colours come from these variables.
+const DRAWING_ON_LIGHT = {
+  "--ink-muted": "var(--paper-muted)",
+  "--ink-foreground": "var(--paper-foreground)",
+  "--teal": "var(--cyan-deep)",
+} as CSSProperties;
 
 export function Hero() {
   const { locale, t } = useI18n();
   const params = { locale: localeParam(locale) };
-  const words = t.hero.title.split(" ");
 
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-ink-foreground"
+      className="section-light relative overflow-hidden border-b border-paper-border"
     >
-      {HERO_VIDEO ? (
-        <>
-          <HeroVideo video={HERO_VIDEO} />
-          <div aria-hidden className="column-rules -z-20 opacity-60" />
-        </>
-      ) : (
-        <>
-          <div
-            aria-hidden
-            className="blueprint absolute inset-0 -z-20 opacity-50 [mask-image:radial-gradient(90%_80%_at_75%_45%,#000_20%,transparent_75%)]"
-          />
-          <div aria-hidden className="column-rules -z-20" />
-
-          {/* Drawing: right half on desktop, a quiet backdrop on small screens */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -z-10 inset-x-0 top-[calc(var(--header-h)+1rem)] mx-auto aspect-square w-[min(118vw,560px)] opacity-[0.16] sm:opacity-30 lg:inset-x-auto lg:right-[2%] lg:top-1/2 lg:w-[min(46vw,700px)] lg:-translate-y-[46%] lg:opacity-100"
-          >
-            <HeroDrawing className="h-full w-full" />
-          </div>
-        </>
-      )}
-
-      <div className="container-wdf flex flex-1 flex-col justify-end pb-14 pt-[calc(var(--header-h)+4rem)] lg:justify-center lg:pb-10">
-        <div className="max-w-[46rem] lg:max-w-[52%]">
-          <div
-            className="fade-up flex flex-wrap items-center gap-4"
+      <div className="container-wdf grid items-center gap-12 pb-16 pt-[calc(var(--header-h)+3.5rem)] md:pb-24 md:pt-[calc(var(--header-h)+5rem)] lg:grid-cols-12 lg:gap-8">
+        <div className="lg:col-span-7">
+          <p
+            className="fade-up text-sm font-semibold text-cyan-deep"
             style={{ "--d": "50ms" } as CSSProperties}
           >
-            <p className="label-mono text-primary">{t.hero.eyebrow}</p>
-          </div>
-
+            {t.hero.eyebrow}
+          </p>
           <h1
             id="hero-title"
-            className="display mt-7 text-[clamp(2.9rem,7.4vw,6.6rem)] font-semibold"
+            className="heading fade-up mt-4 max-w-[38rem] text-[clamp(2.25rem,4.2vw,3.5rem)]"
+            style={{ "--d": "120ms" } as CSSProperties}
           >
-            {words.map((w, i) => (
-              <span key={`${w}-${i}`} className="rise-line inline-block align-top">
-                <span style={{ "--i": i } as CSSProperties}>{w}</span>
-                {i < words.length - 1 && " "}
-              </span>
-            ))}
+            {t.hero.title}
           </h1>
-
           <p
-            className="fade-up mt-8 max-w-[34rem] text-[1.125rem] leading-relaxed text-ink-muted md:text-xl"
-            style={{ "--d": "650ms" } as CSSProperties}
+            className="fade-up mt-6 max-w-[34rem] text-[1.0625rem] leading-relaxed text-paper-muted md:text-lg"
+            style={{ "--d": "220ms" } as CSSProperties}
           >
             {t.hero.sub}
           </p>
-
           <div
-            className="fade-up mt-10 flex flex-col gap-3 sm:flex-row"
-            style={{ "--d": "800ms" } as CSSProperties}
+            className="fade-up mt-9 flex flex-col gap-3 sm:flex-row"
+            style={{ "--d": "320ms" } as CSSProperties}
           >
-            <ButtonLink to="/{-$locale}" params={params} hash="divisions">
+            <ButtonLink
+              to="/{-$locale}/services"
+              params={params}
+              variant="accent"
+              className="accent-cyan"
+            >
               {t.hero.primary}
             </ButtonLink>
-            <ButtonLink to="/{-$locale}/contact" params={params} variant="outline">
+            <ButtonLink to="/{-$locale}/contact" params={params} variant="outline-light">
               {t.hero.secondary}
             </ButtonLink>
           </div>
+        </div>
+
+        <div
+          aria-hidden
+          className="pointer-events-none mx-auto w-full max-w-[26rem] lg:col-span-5 lg:max-w-none"
+          style={DRAWING_ON_LIGHT}
+        >
+          <HeroDrawing className="h-auto w-full" />
         </div>
       </div>
     </section>
