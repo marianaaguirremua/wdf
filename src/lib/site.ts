@@ -236,4 +236,24 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 1500,
     position: "60% 50%",
   },
+  "technology-hero": {
+    src: "/media/technology/hero.webp",
+    width: 1600,
+    height: 1067,
+    position: "46% 60%",
+  },
+  "technology-capability-1": {
+    src: "/media/technology/automation.webp",
+    width: 1400,
+    height: 933,
+    position: "40% 55%",
+  },
+  "technology-capability-2": { src: "/media/technology/plc.webp", width: 1400, height: 933 },
+  "technology-capability-3": {
+    src: "/media/technology/scada.webp",
+    width: 1400,
+    height: 933,
+    position: "75% 40%",
+  },
+  "technology-capability-4": { src: "/media/technology/networks.webp", width: 1400, height: 933 },
 };
