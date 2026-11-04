@@ -168,21 +168,6 @@ export const INDUSTRY_PHOTOS: Partial<
   metalmechanic: { src: "/media/industries/metalmechanic.webp", width: 564, height: 705 },
 };
 
-/**
- * Photos for the service cards on the Services page, keyed by service: "manufacturing-3d-printing",
- * "manufacturing-1" … "manufacturing-7", "energy-1" … "energy-6", "technology-1" … "technology-6",
- * "threepl-1" … "threepl-6" (numbers follow the order on each division page). Cards without an
- * entry show an empty 4:3 frame. Add files under /public/media/services/.
- */
-export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
-  "manufacturing-3d-printing": {
-    src: "/media/services/3d-printing.webp",
-    width: 1000,
-    height: 667,
-    position: "40% 55%",
-  },
-};
-
 /** A photo file for a frame on the site; `position` is an optional CSS object-position. */
 export type Photo = { src: string; width: number; height: number; position?: string };
 
@@ -313,3 +298,32 @@ export const CLIENT_LOGOS: readonly ClientLogo[] = [
   },
   { name: "ABB", src: "/clients/abb.png", width: 316, height: 120, size: "1.5rem" },
 ];
+
+/**
+ * Photos for the service cards on the Services page, keyed by service: "manufacturing-3d-printing",
+ * "manufacturing-1" … "manufacturing-7", "energy-1" … "energy-6", "technology-1" … "technology-6",
+ * "threepl-1" … "threepl-6" (numbers follow the order on each division page). Each reuses the
+ * photo of that service on its division page where there is one; cards without an entry show an
+ * empty 4:3 frame. Declared after PAGE_PHOTOS and INDUSTRY_PHOTOS, which it reads.
+ */
+export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
+  "manufacturing-3d-printing": {
+    src: "/media/services/3d-printing.webp",
+    width: 1000,
+    height: 667,
+    position: "40% 55%",
+  },
+  "manufacturing-1": PAGE_PHOTOS["manufacturing-hero"], // engineer at the test bench
+  "manufacturing-2": PAGE_PHOTOS["manufacturing-support"], // plant floor and materials
+  "manufacturing-3": INDUSTRY_PHOTOS["metalmechanic"], // welding
+  "manufacturing-5": PAGE_PHOTOS["manufacturing-integrate"], // assembly line
+  ...Object.fromEntries(
+    [1, 2, 3, 4, 5, 6].flatMap((i) => [
+      [`energy-${i}`, PAGE_PHOTOS[`energy-capability-${i}`]],
+      [`technology-${i}`, PAGE_PHOTOS[`technology-capability-${i}`]],
+    ]),
+  ),
+  // Its division-page photo is the 3D printer, already on the 3D Printing card beside it.
+  "technology-1": PAGE_PHOTOS["technology-hero"],
+  "threepl-1": { src: "/media/divisions/threepl.webp", width: 960, height: 720 }, // warehouse racks
+};
