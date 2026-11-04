@@ -208,4 +208,19 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 1280,
     position: "50% 55%",
   },
+  "energy-hero": { src: "/media/energy/hero.webp", width: 1600, height: 1066, position: "74% 50%" },
+  "energy-capability-1": { src: "/media/energy/substations.webp", width: 1400, height: 933 },
+  "energy-capability-3": {
+    src: "/media/energy/control-shelters.webp",
+    width: 653,
+    height: 500,
+    position: "50% 60%",
+  },
+  "energy-capability-4": { src: "/media/energy/equipment.webp", width: 1400, height: 1050 },
+  "energy-capability-6": {
+    src: "/media/energy/field-support.webp",
+    width: 1200,
+    height: 800,
+    position: "50% 70%",
+  },
 };
