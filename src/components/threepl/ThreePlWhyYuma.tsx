@@ -65,8 +65,7 @@ export function ThreePlWhyYuma() {
             <span id="threepl-yuma-title">{w.eyebrow}</span>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-5 inline-flex items-center gap-3 text-xl font-semibold text-accent md:text-2xl">
-              <span aria-hidden className="h-0.5 w-8 shrink-0 bg-accent" />
+            <p className="mt-5 max-w-xl text-balance text-xl font-semibold text-accent md:text-2xl">
               {w.title}
             </p>
           </Reveal>
