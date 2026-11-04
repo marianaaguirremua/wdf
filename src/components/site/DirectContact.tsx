@@ -14,7 +14,7 @@ const tones = {
   },
 } as const;
 
-/** A division's approved direct contact: name, phone (tap to call) and optional email. */
+/** A division's approved direct contact: name, optional phone (tap to call) and optional email. */
 export function DirectContact({
   label,
   contact,
@@ -33,9 +33,11 @@ export function DirectContact({
       <p className={cn("label-mono", t.label)}>{label}</p>
       <p className="mt-3 text-lg font-semibold">{contact.name}</p>
       <div className="mt-1 flex flex-col items-start gap-1.5">
-        <a href={`tel:${contact.tel}`} className={link}>
-          {contact.phone}
-        </a>
+        {contact.phone && contact.tel && (
+          <a href={`tel:${contact.tel}`} className={link}>
+            {contact.phone}
+          </a>
+        )}
         {contact.altPhone && contact.altTel && (
           <a href={`tel:${contact.altTel}`} className={link}>
             {contact.altPhone}

@@ -39,8 +39,9 @@ export const CONTACT_EMAIL = "sales@wdfservices.com";
 /** Direct contacts approved by the WDF team, shown at the end of each division page. */
 export type DivisionContact = {
   name: string;
-  phone: string;
-  tel: string;
+  /** Optional: some contacts are published with email only. */
+  phone?: string;
+  tel?: string;
   /** A second number, e.g. the Yuma office line. */
   altPhone?: string;
   altTel?: string;
@@ -62,8 +63,8 @@ export const MANUFACTURING_CONTACT: DivisionContact = {
 /** 3PL contact. */
 export const THREEPL_CONTACT: DivisionContact = {
   name: "Martha Echagaray",
-  phone: "+52 (686) 160 0797",
-  tel: "+526861600797",
+  // Email only; no phone is published for Martha (WDF request, Nov 2026).
+  email: "martha.echagaray@wdfservices.com",
 };
 
 /** 3PL locations shown on the 3PL page map and below its legend. */
@@ -79,8 +80,7 @@ export const THREEPL_LOCATIONS = {
 /** Energy contact; also the Technology contact. */
 export const ENERGY_CONTACT: DivisionContact = {
   name: "Jose Luis Rios",
-  phone: "+52 686 186 6996",
-  tel: "+526861866996",
+  // Email only; no phone is published for Jose Luis (WDF request, Nov 2026).
   email: "joseluis.rios@wdfservices.com",
 };
 
