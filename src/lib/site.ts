@@ -188,4 +188,24 @@ export type Photo = { src: string; width: number; height: number; position?: str
  * - Technology: "technology-hero", "technology-capability-1" … "technology-capability-6",
  *   "technology-deliverables"
  */
-export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {};
+export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
+  // Supplied by the WDF team (Nov 2026). `position` keeps the subject in frame at every size.
+  "manufacturing-hero": {
+    src: "/media/manufacturing/hero.webp",
+    width: 1600,
+    height: 1067,
+    position: "58% 55%",
+  },
+  "manufacturing-integrate": {
+    src: "/media/manufacturing/integrate.webp",
+    width: 1000,
+    height: 1499,
+    position: "72% 62%",
+  },
+  "manufacturing-support": {
+    src: "/media/manufacturing/support.webp",
+    width: 1920,
+    height: 1280,
+    position: "50% 55%",
+  },
+};
