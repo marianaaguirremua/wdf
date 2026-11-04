@@ -60,14 +60,15 @@ export function ThreePlWhyYuma() {
       <div aria-hidden className="column-rules -z-10 opacity-60" />
       <div className="container-wdf grid items-center gap-14 pb-20 pt-20 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-6">
-          <Reveal>
-            <p className="label-mono inline-flex items-center gap-3 text-accent">
-              <span aria-hidden className="h-0.5 w-8 shrink-0 bg-accent" />
-              {w.eyebrow}
-            </p>
+          {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. */}
+          <Reveal as="h2" className="display text-[clamp(2.25rem,4.4vw,4rem)]">
+            <span id="threepl-yuma-title">{w.eyebrow}</span>
           </Reveal>
-          <Reveal as="h2" delay={80} className="display mt-8 text-[clamp(2.25rem,4.4vw,4rem)]">
-            <span id="threepl-yuma-title">{w.title}</span>
+          <Reveal delay={80}>
+            <p className="mt-5 inline-flex items-center gap-3 text-xl font-semibold text-accent md:text-2xl">
+              <span aria-hidden className="h-0.5 w-8 shrink-0 bg-accent" />
+              {w.title}
+            </p>
           </Reveal>
           <Reveal delay={160} className="mt-8 flex flex-col gap-5">
             {w.body.map((paragraph, i) => (
