@@ -297,4 +297,20 @@ export const TECHNOLOGY_CLIENTS: readonly ClientLogo[] = [
   },
   { name: "Keyence", src: "/clients/keyence.png", width: 491, height: 84, size: "1.15rem" },
   { name: "SICK", src: "/clients/sick.png", width: 206, height: 66, size: "1.5rem" },
+  { name: "Rittal", src: "/clients/rittal.png", width: 85, height: 120, size: "2.5rem" },
+  {
+    name: "Schweitzer Engineering Laboratories",
+    src: "/clients/sel.png",
+    width: 514,
+    height: 120,
+    size: "1.9rem",
+  },
+  {
+    name: "Phoenix Contact",
+    src: "/clients/phoenix-contact.png",
+    width: 452,
+    height: 120,
+    size: "1.8rem",
+  },
+  { name: "ABB", src: "/clients/abb.png", width: 316, height: 120, size: "1.5rem" },
 ];
