@@ -1,21 +1,26 @@
 import { useI18n } from "@/i18n";
+import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/site/Reveal";
 
 // Animated isometric illustration of a WDF plant (machining, inspection, integration, energy).
 // Loaded as an <img>: its CSS animation runs inside the file, stays isolated from the site's
 // styles, and stops on its own under prefers-reduced-motion. Its edges are masked so the
 // artwork's darker vignette fades into its navy panel on the light section.
-export function ThreePlPlant() {
+/** `merged`: continues the section above (Home) — no divider, no top padding. */
+export function ThreePlPlant({ merged = false }: { merged?: boolean }) {
   const { t } = useI18n();
   const p = t.threepl.plant;
 
   return (
     <section
       aria-labelledby="threepl-plant-title"
-      className="relative isolate overflow-hidden border-t border-paper-border bg-paper text-paper-foreground"
+      className={cn(
+        "relative isolate overflow-hidden bg-paper text-paper-foreground",
+        !merged && "border-t border-paper-border",
+      )}
     >
-      <div aria-hidden className="column-rules -z-10 opacity-60" />
-      <div className="container-wdf pb-24 pt-12 md:pb-32 md:pt-16">
+      {!merged && <div aria-hidden className="column-rules -z-10 opacity-60" />}
+      <div className={cn("container-wdf pb-24 md:pb-32", merged ? "pt-8" : "pt-12 md:pt-16")}>
         <Reveal
           as="h2"
           className="display mx-auto max-w-4xl text-balance text-center text-[clamp(1.875rem,3.2vw,2.875rem)]"

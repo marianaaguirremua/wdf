@@ -40,7 +40,7 @@ function Home() {
       {/* Cross-border operation, from the 3PL page; terracotta accent as there. */}
       <div className="accent-terracotta">
         <ThreePlHero embedded />
-        <ThreePlPlant />
+        <ThreePlPlant merged />
       </div>
       <Industries />
       <ContactCta />
