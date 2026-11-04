@@ -71,7 +71,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
   const Title = embedded ? "h2" : "h1";
 
   // Two sections: a full-screen intro (eyebrow, title, subtitle) and, revealed on scroll,
-  // the legend, locations and border map.
+  // the legend, locations and border map (ThreePlMap).
   return (
     <>
       <section
@@ -125,54 +125,87 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
         )}
       </section>
 
-      <section className="relative isolate overflow-hidden bg-paper text-paper-foreground">
-        <div aria-hidden className="column-rules -z-10" />
-        <div className="container-wdf grid gap-10 pb-20 pt-4 md:pb-24 lg:grid-cols-12 lg:gap-10">
-          <Reveal className="lg:col-span-4">
-            <div className="rounded-sm border border-paper-border bg-white p-6">
-              <ul className="flex flex-col gap-5">
-                {h.legend.flow.map((item, i) => (
-                  <LegendItem key={item.term} icon={FLOW_KEYS[i]} {...item} />
+      <ThreePlMap />
+    </>
+  );
+}
+
+/**
+ * The legend, the two locations and the border map. On Home its button opens the Yuma page;
+ * on the Yuma page itself (`onYumaPage`) it goes to the 3PL contact instead.
+ */
+export function ThreePlMap({ onYumaPage = false }: { onYumaPage?: boolean }) {
+  const { locale, t } = useI18n();
+  const h = t.threepl.hero;
+  return (
+    <section
+      className={cn(
+        "relative isolate overflow-hidden bg-paper text-paper-foreground",
+        onYumaPage && "border-t border-paper-border",
+      )}
+    >
+      <div aria-hidden className="column-rules -z-10" />
+      <div
+        className={cn(
+          "container-wdf grid gap-10 pb-20 md:pb-24 lg:grid-cols-12 lg:gap-10",
+          onYumaPage ? "pt-20 md:pt-24" : "pt-4",
+        )}
+      >
+        <Reveal className="lg:col-span-4">
+          <div className="rounded-sm border border-paper-border bg-white p-6">
+            <ul className="flex flex-col gap-5">
+              {h.legend.flow.map((item, i) => (
+                <LegendItem key={item.term} icon={FLOW_KEYS[i]} {...item} />
+              ))}
+            </ul>
+            <div className="my-6 h-px bg-paper-border" />
+            <ul className="flex flex-col gap-5">
+              {h.legend.lines.map((item, i) => (
+                <LegendItem key={item.term} icon={LINE_KEYS[i]} {...item} />
+              ))}
+            </ul>
+          </div>
+
+          <dl className="mt-8 grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-4 px-1 text-[0.95rem]">
+            <div>
+              <dt className="label-mono text-accent-deep">{h.places.mexicali}</dt>
+              <dd className="mt-3 leading-relaxed text-paper-foreground/90">
+                {THREEPL_LOCATIONS.mexicali.address.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
                 ))}
-              </ul>
-              <div className="my-6 h-px bg-paper-border" />
-              <ul className="flex flex-col gap-5">
-                {h.legend.lines.map((item, i) => (
-                  <LegendItem key={item.term} icon={LINE_KEYS[i]} {...item} />
-                ))}
-              </ul>
+              </dd>
             </div>
+            <div>
+              <dt className="label-mono text-accent-deep">{h.places.yuma}</dt>
+              <dd className="mt-3 leading-relaxed text-paper-foreground/90">
+                {THREEPL_LOCATIONS.yuma.address.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+                <a
+                  href={`tel:${THREEPL_LOCATIONS.yuma.tel}`}
+                  className="mt-1 block tabular-nums transition-colors hover:text-accent"
+                >
+                  {THREEPL_LOCATIONS.yuma.phone}
+                </a>
+              </dd>
+            </div>
+          </dl>
 
-            <dl className="mt-8 grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-4 px-1 text-[0.95rem]">
-              <div>
-                <dt className="label-mono text-accent-deep">{h.places.mexicali}</dt>
-                <dd className="mt-3 leading-relaxed text-paper-foreground/90">
-                  {THREEPL_LOCATIONS.mexicali.address.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </dd>
-              </div>
-              <div>
-                <dt className="label-mono text-accent-deep">{h.places.yuma}</dt>
-                <dd className="mt-3 leading-relaxed text-paper-foreground/90">
-                  {THREEPL_LOCATIONS.yuma.address.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                  <a
-                    href={`tel:${THREEPL_LOCATIONS.yuma.tel}`}
-                    className="mt-1 block tabular-nums transition-colors hover:text-accent"
-                  >
-                    {THREEPL_LOCATIONS.yuma.phone}
-                  </a>
-                </dd>
-              </div>
-            </dl>
-
-            <div className="mt-8">
+          <div className="mt-8">
+            {onYumaPage ? (
+              <ButtonLink
+                to="/{-$locale}/services/3pl"
+                params={{ locale: localeParam(locale) }}
+                hash="threepl-contact"
+                variant="accent"
+              >
+                {h.contact}
+              </ButtonLink>
+            ) : (
               <ButtonLink
                 to="/{-$locale}/yuma"
                 params={{ locale: localeParam(locale) }}
@@ -181,43 +214,43 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
               >
                 {h.primary}
               </ButtonLink>
-            </div>
-          </Reveal>
+            )}
+          </div>
+        </Reveal>
 
-          <Reveal delay={150} className="min-w-0 lg:col-span-8">
-            {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
-            <div className="overflow-x-auto rounded-md border border-ink-3 bg-ink">
-              <div className="min-w-[640px]">
-                <BorderMap copy={h.map} />
-              </div>
+        <Reveal delay={150} className="min-w-0 lg:col-span-8">
+          {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
+          <div className="overflow-x-auto rounded-md border border-ink-3 bg-ink">
+            <div className="min-w-[640px]">
+              <BorderMap copy={h.map} />
             </div>
+          </div>
 
-            <ol className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
-              {h.flow.map((step, i) => (
-                <li key={step} className="flex items-center gap-2">
-                  <span
-                    className={cn(
-                      "label-mono inline-flex items-center gap-2 rounded-sm border px-3 py-2.5 text-[0.62rem] tracking-[0.14em]",
-                      i % 2
-                        ? "border-accent text-accent-deep"
-                        : "border-paper-border bg-white text-paper-foreground",
-                    )}
-                  >
-                    {i === 0 && <GlobeIcon className="size-4" />}
-                    {step}
-                  </span>
-                  {i < h.flow.length - 1 && (
-                    <span aria-hidden className="text-paper-muted">
-                      →
-                    </span>
+          <ol className="mt-6 flex flex-wrap items-center gap-x-2 gap-y-3">
+            {h.flow.map((step, i) => (
+              <li key={step} className="flex items-center gap-2">
+                <span
+                  className={cn(
+                    "label-mono inline-flex items-center gap-2 rounded-sm border px-3 py-2.5 text-[0.62rem] tracking-[0.14em]",
+                    i % 2
+                      ? "border-accent text-accent-deep"
+                      : "border-paper-border bg-white text-paper-foreground",
                   )}
-                </li>
-              ))}
-            </ol>
-            <p className="mt-5 text-sm leading-relaxed text-paper-muted">{h.note}</p>
-          </Reveal>
-        </div>
-      </section>
-    </>
+                >
+                  {i === 0 && <GlobeIcon className="size-4" />}
+                  {step}
+                </span>
+                {i < h.flow.length - 1 && (
+                  <span aria-hidden className="text-paper-muted">
+                    →
+                  </span>
+                )}
+              </li>
+            ))}
+          </ol>
+          <p className="mt-5 text-sm leading-relaxed text-paper-muted">{h.note}</p>
+        </Reveal>
+      </div>
+    </section>
   );
 }

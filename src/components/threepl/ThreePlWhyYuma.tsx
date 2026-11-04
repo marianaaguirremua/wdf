@@ -1,5 +1,7 @@
 import { useI18n } from "@/i18n";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
+import { YUMA_PHOTOS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /** California — Yuma — Mexicali, west to east across the region, with Yuma highlighted. */
@@ -94,6 +96,15 @@ export function ThreePlWhyYuma({ page = false }: { page?: boolean }) {
         <Reveal delay={200} className="lg:col-span-5 lg:col-start-8">
           <RegionStrip />
         </Reveal>
+        {page && (
+          <ul className="grid grid-cols-2 gap-3 md:gap-4 lg:col-span-12 lg:grid-cols-4">
+            {YUMA_PHOTOS.map((photo, i) => (
+              <Reveal as="li" key={photo.src} delay={240 + i * 70}>
+                <PhotoSlot photo={photo} eager className="aspect-[4/3] rounded-md" />
+              </Reveal>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );

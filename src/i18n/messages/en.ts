@@ -336,6 +336,7 @@ const en = {
       },
       places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
       primary: "Why Yuma, Arizona?",
+      contact: "Talk to our 3PL team",
       map: {
         label:
           "Map of the U.S.–Mexico border region showing WDF's Mexicali hub and Yuma office, and the ports and trade lanes they connect to.",

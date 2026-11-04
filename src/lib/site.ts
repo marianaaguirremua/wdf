@@ -329,3 +329,11 @@ export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
   "technology-1": PAGE_PHOTOS["technology-hero"],
   "threepl-1": { src: "/media/divisions/threepl.webp", width: 960, height: 720 }, // warehouse racks
 };
+
+/** The Yuma page's photo row, in order (under "Why Yuma, Arizona?"). */
+export const YUMA_PHOTOS: Photo[] = [
+  { src: "/media/yuma/office.webp", width: 1400, height: 1050 },
+  { src: "/media/yuma/aerial.webp", width: 1400, height: 932 },
+  { src: "/media/yuma/warehouse.webp", width: 1400, height: 934 },
+  { src: "/media/yuma/racks.webp", width: 1400, height: 933 },
+];

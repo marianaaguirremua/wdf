@@ -330,6 +330,7 @@ const es: Messages = {
       },
       places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
       primary: "¿Por qué Yuma, Arizona?",
+      contact: "Hable con nuestro equipo 3PL",
       map: {
         label:
           "Mapa de la región fronteriza EE. UU.–México con el centro de WDF en Mexicali, la oficina en Yuma y los puertos y rutas comerciales con los que se conectan.",
