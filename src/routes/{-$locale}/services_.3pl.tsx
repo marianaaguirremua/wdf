@@ -5,11 +5,6 @@ import { ThreePlCapabilities } from "@/components/threepl/ThreePlCapabilities";
 import { ThreePlConnect } from "@/components/threepl/ThreePlConnect";
 import { ThreePlCta } from "@/components/threepl/ThreePlCta";
 import { ThreePlDeliverables } from "@/components/threepl/ThreePlDeliverables";
-import { ThreePlEstablish } from "@/components/threepl/ThreePlEstablish";
-import { ThreePlExpansion } from "@/components/threepl/ThreePlExpansion";
-import { ThreePlHero } from "@/components/threepl/ThreePlHero";
-import { ThreePlPlant } from "@/components/threepl/ThreePlPlant";
-import { ThreePlWhyYuma } from "@/components/threepl/ThreePlWhyYuma";
 import { ThreePlProcess } from "@/components/threepl/ThreePlProcess";
 
 // Content quoted from the approved English and Spanish 3PL page (wdfintegrators.com/home/3pl).
@@ -24,14 +19,10 @@ export const Route = createFileRoute("/{-$locale}/services_/3pl")({
 
 function Page() {
   // 3PL-only palette: terracotta accent and sand (see .accent-terracotta in styles.css).
-  // Rhythm: navy, paper, navy, navy (plant), white, paper, navy, white, paper, navy-2 contact.
+  // The page opens on "01 · Logistics services"; the cross-border intro, map, Why Yuma, plant
+  // animation and "How we help you get established" are on the Home page.
   return (
     <div className="accent-terracotta">
-      <ThreePlHero />
-      <ThreePlExpansion />
-      <ThreePlWhyYuma />
-      <ThreePlPlant />
-      <ThreePlEstablish />
       <ThreePlCapabilities />
       <ThreePlDeliverables />
       <ThreePlProcess />

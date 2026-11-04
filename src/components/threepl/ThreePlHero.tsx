@@ -61,9 +61,14 @@ function LegendItem({ icon, term, text }: { icon: ReactNode; term: string; text:
   );
 }
 
-export function ThreePlHero() {
+/**
+ * `embedded`: shown inside another page (Home) instead of opening the 3PL page — the title is an
+ * h2 and the intro is a normal section rather than full screen. The map is the same either way.
+ */
+export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
   const { locale, t } = useI18n();
   const h = t.threepl.hero;
+  const Title = embedded ? "h2" : "h1";
 
   // Two sections: a full-screen intro (eyebrow, title, subtitle) and, revealed on scroll,
   // the legend, locations and border map.
@@ -71,17 +76,25 @@ export function ThreePlHero() {
     <>
       <section
         aria-labelledby="threepl-title"
-        className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink text-ink-foreground"
+        className={cn(
+          "relative isolate flex flex-col overflow-hidden bg-ink text-ink-foreground",
+          !embedded && "min-h-[100svh]",
+        )}
       >
         <div aria-hidden className="column-rules -z-10" />
-        <div className="container-wdf flex flex-1 flex-col justify-center pb-28 pt-[calc(var(--header-h)+3rem)]">
+        <div
+          className={cn(
+            "container-wdf flex flex-1 flex-col justify-center",
+            embedded ? "pb-16 pt-24 md:pt-32" : "pb-28 pt-[calc(var(--header-h)+3rem)]",
+          )}
+        >
           <p
             className="label-mono fade-up text-accent md:text-right"
             style={{ "--d": "50ms" } as CSSProperties}
           >
             {h.eyebrow}
           </p>
-          <h1
+          <Title
             id="threepl-title"
             className="display mt-6 text-balance text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold md:text-center"
           >
@@ -92,7 +105,7 @@ export function ThreePlHero() {
                 </span>
               </span>
             ))}
-          </h1>
+          </Title>
           <p
             className="fade-up mx-auto mt-10 max-w-4xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-center md:text-xl"
             style={{ "--d": "600ms" } as CSSProperties}
@@ -100,14 +113,16 @@ export function ThreePlHero() {
             {emphasize(h.body)}
           </p>
         </div>
-        <span
-          aria-hidden
-          className="fade-up absolute inset-x-0 bottom-8 mx-auto flex w-max flex-col items-center gap-2 text-ink-muted"
-          style={{ "--d": "1100ms" } as CSSProperties}
-        >
-          <span className="block h-10 w-px bg-gradient-to-b from-transparent to-accent" />
-          <span className="text-accent">↓</span>
-        </span>
+        {!embedded && (
+          <span
+            aria-hidden
+            className="fade-up absolute inset-x-0 bottom-8 mx-auto flex w-max flex-col items-center gap-2 text-ink-muted"
+            style={{ "--d": "1100ms" } as CSSProperties}
+          >
+            <span className="block h-10 w-px bg-gradient-to-b from-transparent to-accent" />
+            <span className="text-accent">↓</span>
+          </span>
+        )}
       </section>
 
       <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">

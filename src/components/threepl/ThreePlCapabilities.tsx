@@ -2,6 +2,7 @@ import { useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
 import { CrossTag } from "./CrossTag";
 
+/** Opens the 3PL page: its title is the page's h1, below the fixed header. */
 export function ThreePlCapabilities() {
   const { t } = useI18n();
   const c = t.threepl.capabilities;
@@ -11,7 +12,7 @@ export function ThreePlCapabilities() {
       aria-labelledby="threepl-capabilities-title"
       className="relative bg-paper text-paper-foreground"
     >
-      <div className="container-wdf py-24 md:py-36">
+      <div className="container-wdf pb-24 pt-[calc(var(--header-h)+4rem)] md:pb-36 md:pt-[calc(var(--header-h)+6rem)]">
         <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
           <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
             <p className="label-mono inline-flex items-center gap-3 text-accent-deep">
@@ -20,7 +21,7 @@ export function ThreePlCapabilities() {
             </p>
           </Reveal>
           <div className="lg:col-span-9">
-            <Reveal as="h2" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
+            <Reveal as="h1" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
               <span id="threepl-capabilities-title">{c.title}</span>
             </Reveal>
             <Reveal delay={160}>

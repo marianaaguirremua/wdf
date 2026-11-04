@@ -6,7 +6,11 @@ import { ContactCta } from "@/components/home/ContactCta";
 import { Divisions } from "@/components/home/Divisions";
 import { Hero } from "@/components/home/Hero";
 import { Industries } from "@/components/home/Industries";
-import { NorthAmerica } from "@/components/home/NorthAmerica";
+import { ThreePlEstablish } from "@/components/threepl/ThreePlEstablish";
+import { ThreePlExpansion } from "@/components/threepl/ThreePlExpansion";
+import { ThreePlHero } from "@/components/threepl/ThreePlHero";
+import { ThreePlPlant } from "@/components/threepl/ThreePlPlant";
+import { ThreePlWhyYuma } from "@/components/threepl/ThreePlWhyYuma";
 
 export const Route = createFileRoute("/{-$locale}/")({
   head: ({ params }) => {
@@ -36,7 +40,14 @@ function Home() {
     <>
       <Hero />
       <Divisions title={t.intro.title} body={t.intro.body} centered />
-      <NorthAmerica />
+      {/* Cross-border operation, from the 3PL page; terracotta accent as there. */}
+      <div className="accent-terracotta">
+        <ThreePlHero embedded />
+        <ThreePlExpansion />
+        <ThreePlWhyYuma />
+        <ThreePlPlant />
+        <ThreePlEstablish />
+      </div>
       <Industries />
       <ContactCta />
     </>
