@@ -52,6 +52,11 @@ const en = {
       description:
         "WDF 3PL: storage, handling, inventory and U.S.–Mexico cross-border coordination, with defined ownership and conditions for each operation.",
     },
+    yuma: {
+      title: "Why Yuma, Arizona? | WDF",
+      description:
+        "Why Yuma, Arizona: a U.S. location close to California and Mexico, and how WDF connects operations on both sides of the border.",
+    },
     contact: {
       title: "Contact | WDF",
       description:
@@ -330,7 +335,7 @@ const en = {
         ],
       },
       places: { mexicali: "Mexicali, B.C.", yuma: "Yuma, AZ" },
-      primary: "Talk to our 3PL team",
+      primary: "Why Yuma, Arizona?",
       map: {
         label:
           "Map of the U.S.–Mexico border region showing WDF's Mexicali hub and Yuma office, and the ports and trade lanes they connect to.",

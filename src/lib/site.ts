@@ -119,6 +119,7 @@ export const LIGHT_HERO_PAGES = [
   "/services",
   "/services/manufacturing",
   "/services/3pl",
+  "/yuma",
   "/about",
   "/about/team",
   "/services/energy",

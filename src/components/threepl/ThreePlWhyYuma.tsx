@@ -48,7 +48,8 @@ function RegionStrip() {
   );
 }
 
-export function ThreePlWhyYuma() {
+/** `page`: opens the Yuma page — the title is its h1 and the section clears the fixed header. */
+export function ThreePlWhyYuma({ page = false }: { page?: boolean }) {
   const { t } = useI18n();
   const w = t.threepl.whyYuma;
 
@@ -58,10 +59,17 @@ export function ThreePlWhyYuma() {
       className="relative isolate overflow-hidden bg-white text-paper-foreground border-t border-paper-border"
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
-      <div className="container-wdf grid items-center gap-14 pb-20 pt-20 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-8">
+      <div
+        className={cn(
+          "container-wdf grid items-center gap-14 pb-20 md:pb-24 lg:grid-cols-12 lg:gap-8",
+          page
+            ? "pt-[calc(var(--header-h)+4rem)] md:pt-[calc(var(--header-h)+5rem)]"
+            : "pt-20 md:pt-24",
+        )}
+      >
         <div className="lg:col-span-6">
           {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. */}
-          <Reveal as="h2" className="display text-[clamp(2.25rem,4.4vw,4rem)]">
+          <Reveal as={page ? "h1" : "h2"} className="display text-[clamp(2.25rem,4.4vw,4rem)]">
             <span id="threepl-yuma-title">{w.eyebrow}</span>
           </Reveal>
           <Reveal delay={80}>

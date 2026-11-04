@@ -14,6 +14,7 @@ import { Route as Char123LocaleChar125IndexRouteImport } from './routes/{-$local
 import { Route as Char123LocaleChar125AboutRouteImport } from './routes/{-$locale}/about'
 import { Route as Char123LocaleChar125ContactRouteImport } from './routes/{-$locale}/contact'
 import { Route as Char123LocaleChar125ServicesRouteImport } from './routes/{-$locale}/services'
+import { Route as Char123LocaleChar125YumaRouteImport } from './routes/{-$locale}/yuma'
 import { Route as Char123LocaleChar125AboutTeamRouteImport } from './routes/{-$locale}/about_.team'
 import { Route as Char123LocaleChar125Services3plRouteImport } from './routes/{-$locale}/services_.3pl'
 import { Route as Char123LocaleChar125ServicesEnergyRouteImport } from './routes/{-$locale}/services_.energy'
@@ -48,6 +49,12 @@ const Char123LocaleChar125ServicesRoute =
   Char123LocaleChar125ServicesRouteImport.update({
     id: '/services',
     path: '/services',
+    getParentRoute: () => Char123LocaleChar125RouteRoute,
+  } as any)
+const Char123LocaleChar125YumaRoute =
+  Char123LocaleChar125YumaRouteImport.update({
+    id: '/yuma',
+    path: '/yuma',
     getParentRoute: () => Char123LocaleChar125RouteRoute,
   } as any)
 const Char123LocaleChar125AboutTeamRoute =
@@ -86,6 +93,7 @@ export interface FileRoutesByFullPath {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/yuma': typeof Char123LocaleChar125YumaRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/{-$locale}/about/team': typeof Char123LocaleChar125AboutTeamRoute
   '/{-$locale}/services/3pl': typeof Char123LocaleChar125Services3plRoute
@@ -97,6 +105,7 @@ export interface FileRoutesByTo {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/yuma': typeof Char123LocaleChar125YumaRoute
   '/{-$locale}': typeof Char123LocaleChar125IndexRoute
   '/{-$locale}/about/team': typeof Char123LocaleChar125AboutTeamRoute
   '/{-$locale}/services/3pl': typeof Char123LocaleChar125Services3plRoute
@@ -110,6 +119,7 @@ export interface FileRoutesById {
   '/{-$locale}/about': typeof Char123LocaleChar125AboutRoute
   '/{-$locale}/contact': typeof Char123LocaleChar125ContactRoute
   '/{-$locale}/services': typeof Char123LocaleChar125ServicesRoute
+  '/{-$locale}/yuma': typeof Char123LocaleChar125YumaRoute
   '/{-$locale}/': typeof Char123LocaleChar125IndexRoute
   '/{-$locale}/about_/team': typeof Char123LocaleChar125AboutTeamRoute
   '/{-$locale}/services_/3pl': typeof Char123LocaleChar125Services3plRoute
@@ -124,6 +134,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
     | '/{-$locale}/services'
+    | '/{-$locale}/yuma'
     | '/{-$locale}/'
     | '/{-$locale}/about/team'
     | '/{-$locale}/services/3pl'
@@ -135,6 +146,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
     | '/{-$locale}/services'
+    | '/{-$locale}/yuma'
     | '/{-$locale}'
     | '/{-$locale}/about/team'
     | '/{-$locale}/services/3pl'
@@ -147,6 +159,7 @@ export interface FileRouteTypes {
     | '/{-$locale}/about'
     | '/{-$locale}/contact'
     | '/{-$locale}/services'
+    | '/{-$locale}/yuma'
     | '/{-$locale}/'
     | '/{-$locale}/about_/team'
     | '/{-$locale}/services_/3pl'
@@ -196,6 +209,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char123LocaleChar125ServicesRouteImport
       parentRoute: typeof Char123LocaleChar125RouteRoute
     }
+    '/{-$locale}/yuma': {
+      id: '/{-$locale}/yuma'
+      path: '/yuma'
+      fullPath: '/{-$locale}/yuma'
+      preLoaderRoute: typeof Char123LocaleChar125YumaRouteImport
+      parentRoute: typeof Char123LocaleChar125RouteRoute
+    }
     '/{-$locale}/about_/team': {
       id: '/{-$locale}/about_/team'
       path: '/about/team'
@@ -238,6 +258,7 @@ interface Char123LocaleChar125RouteRouteChildren {
   Char123LocaleChar125AboutRoute: typeof Char123LocaleChar125AboutRoute
   Char123LocaleChar125ContactRoute: typeof Char123LocaleChar125ContactRoute
   Char123LocaleChar125ServicesRoute: typeof Char123LocaleChar125ServicesRoute
+  Char123LocaleChar125YumaRoute: typeof Char123LocaleChar125YumaRoute
   Char123LocaleChar125IndexRoute: typeof Char123LocaleChar125IndexRoute
   Char123LocaleChar125AboutTeamRoute: typeof Char123LocaleChar125AboutTeamRoute
   Char123LocaleChar125Services3plRoute: typeof Char123LocaleChar125Services3plRoute
@@ -251,6 +272,7 @@ const Char123LocaleChar125RouteRouteChildren: Char123LocaleChar125RouteRouteChil
     Char123LocaleChar125AboutRoute: Char123LocaleChar125AboutRoute,
     Char123LocaleChar125ContactRoute: Char123LocaleChar125ContactRoute,
     Char123LocaleChar125ServicesRoute: Char123LocaleChar125ServicesRoute,
+    Char123LocaleChar125YumaRoute: Char123LocaleChar125YumaRoute,
     Char123LocaleChar125IndexRoute: Char123LocaleChar125IndexRoute,
     Char123LocaleChar125AboutTeamRoute: Char123LocaleChar125AboutTeamRoute,
     Char123LocaleChar125Services3plRoute: Char123LocaleChar125Services3plRoute,

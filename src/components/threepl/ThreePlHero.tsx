@@ -174,9 +174,8 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
 
             <div className="mt-8">
               <ButtonLink
-                to="/{-$locale}/services/3pl"
+                to="/{-$locale}/yuma"
                 params={{ locale: localeParam(locale) }}
-                hash="threepl-contact"
                 variant="accent"
               >
                 {h.primary}

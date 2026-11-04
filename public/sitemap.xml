@@ -85,4 +85,16 @@
     <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/nosotros" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/about" />
   </url>
+  <url>
+    <loc>https://wdfgroup.us/yuma</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/yuma" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/yuma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/yuma" />
+  </url>
+  <url>
+    <loc>https://wdfgroup.us/es/yuma</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://wdfgroup.us/yuma" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://wdfgroup.us/es/yuma" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wdfgroup.us/yuma" />
+  </url>
 </urlset>
