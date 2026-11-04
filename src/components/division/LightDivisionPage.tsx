@@ -3,12 +3,15 @@ import type { ComponentType, CSSProperties, ReactNode } from "react";
 import { localeParam, useI18n, type Messages } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { DirectContact } from "@/components/site/DirectContact";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
-import { DIVISION_PARTNERS, type DivisionContact } from "@/lib/site";
+import { DIVISION_PARTNERS, PAGE_PHOTOS, type DivisionContact } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Light division page (Energy, Technology): white and paper sections with one accent colour,
 // set by an `.accent-*` class (see styles.css) and used through bg-accent / text-accent-deep.
+// `layout` gives each page its own arrangement of the same content, with photo frames that
+// read from PAGE_PHOTOS (src/lib/site.ts) and stay empty until a photo is added.
 
 export type Accent = "mustard" | "cyan";
 type Mark = ComponentType<{ className?: string | undefined }>;
@@ -22,9 +25,9 @@ const DIVISION_ROUTES = {
   threepl: "/{-$locale}/services/3pl",
 } as const;
 
-const eyebrow = "label-mono inline-flex items-center gap-2 text-accent-deep";
-const sectionTitle = "display text-[clamp(2.25rem,5vw,4.25rem)]";
-const lead = "mt-8 max-w-2xl text-lg leading-relaxed text-paper-muted md:text-[1.25rem]";
+const eyebrow = "inline-flex items-center gap-2 text-sm font-semibold text-accent-deep";
+const sectionTitle = "heading text-[clamp(1.75rem,3vw,2.5rem)]";
+const lead = "mt-5 max-w-2xl text-[1.0625rem] leading-relaxed text-paper-muted md:text-lg";
 
 function SectionHeader({
   id,
@@ -38,20 +41,18 @@ function SectionHeader({
   body?: string;
 }) {
   return (
-    <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-      <Reveal className="lg:col-span-3">
-        <p className={eyebrow}>{label}</p>
+    <div className="max-w-3xl">
+      <Reveal as="p" className={eyebrow}>
+        {label}
       </Reveal>
-      <div className="lg:col-span-9">
-        <Reveal as="h2" delay={80} className={cn(sectionTitle, "max-w-4xl")}>
-          <span id={id}>{title}</span>
+      <Reveal as="h2" delay={80} className={cn(sectionTitle, "mt-3")}>
+        <span id={id}>{title}</span>
+      </Reveal>
+      {body && (
+        <Reveal delay={160}>
+          <p className={lead}>{body}</p>
         </Reveal>
-        {body && (
-          <Reveal delay={160}>
-            <p className={lead}>{body}</p>
-          </Reveal>
-        )}
-      </div>
+      )}
     </div>
   );
 }
@@ -60,63 +61,58 @@ function Hero({
   id,
   c,
   mark: Mark,
-  drawing,
+  layout,
 }: {
   id: string;
   c: Content["hero"];
   mark: Mark;
-  drawing: ReactNode;
+  layout: Layout;
 }) {
   const { locale, t } = useI18n();
+  const photo = PAGE_PHOTOS[`${id}-hero`];
   return (
-    <section aria-labelledby={`${id}-title`} className="relative isolate overflow-hidden bg-white">
+    <section
+      aria-labelledby={`${id}-title`}
+      className={cn(
+        "relative isolate border-b border-paper-border",
+        layout === "energy" ? "overflow-hidden bg-white" : "z-10 bg-paper",
+      )}
+    >
       <div
-        aria-hidden
-        className="absolute inset-0 -z-10 [background-image:linear-gradient(color-mix(in_oklab,var(--petroleum)_7%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--petroleum)_7%,transparent)_1px,transparent_1px)] [background-size:48px_48px] [mask-image:radial-gradient(90%_80%_at_75%_40%,#000_25%,transparent_75%)]"
-      />
-      <div
-        aria-hidden
-        className="absolute -right-40 -top-40 -z-10 size-[44rem] rounded-full bg-[radial-gradient(closest-side,var(--accent-soft),transparent)]"
-      />
-
-      <div className="container-wdf grid items-center gap-14 pb-20 pt-[calc(var(--header-h)+4.5rem)] md:pb-28 lg:grid-cols-12 lg:gap-8 lg:pt-[calc(var(--header-h)+6rem)]">
-        <div className="lg:col-span-7">
-          <p className={cn(eyebrow, "fade-up gap-2.5")} style={{ "--d": "50ms" } as CSSProperties}>
+        className={cn(
+          "container-wdf grid items-center gap-12 pt-[calc(var(--header-h)+3rem)] lg:grid-cols-12 lg:gap-12 lg:pt-[calc(var(--header-h)+4.5rem)]",
+          layout === "energy" ? "pb-16 md:pb-20" : "pb-16 md:pb-20 lg:pb-0",
+        )}
+      >
+        <div className={cn("lg:col-span-7", layout === "technology" && "lg:pb-24")}>
+          <p className={cn(eyebrow, "fade-up")} style={{ "--d": "50ms" } as CSSProperties}>
             <Mark className="size-4 text-accent" />
             {c.eyebrow}
           </p>
           <h1
             id={`${id}-title`}
-            className="display mt-7 text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold"
+            className="heading fade-up mt-4 text-[clamp(2.25rem,4.2vw,3.5rem)]"
+            style={{ "--d": "120ms" } as CSSProperties}
           >
-            {c.title.map((line, i) => (
-              <span key={line} className="rise-line">
-                <span style={{ "--i": i } as CSSProperties}>
-                  {i ? (
-                    <span className="box-decoration-clone bg-[linear-gradient(transparent_62%,color-mix(in_oklab,var(--accent)_45%,transparent)_62%)]">
-                      {line}
-                    </span>
-                  ) : (
-                    line
-                  )}
-                </span>
-              </span>
-            ))}
+            {c.title[0]}{" "}
+            <span className="box-decoration-clone bg-[linear-gradient(transparent_62%,color-mix(in_oklab,var(--accent)_45%,transparent)_62%)]">
+              {c.title[1]}
+            </span>
           </h1>
           <p
-            className="fade-up mt-10 max-w-[36rem] text-[1.0625rem] leading-relaxed text-paper-muted md:text-xl"
-            style={{ "--d": "600ms" } as CSSProperties}
+            className="fade-up mt-6 max-w-[36rem] text-[1.0625rem] leading-relaxed text-paper-muted md:text-lg"
+            style={{ "--d": "220ms" } as CSSProperties}
           >
             {c.body}
           </p>
           <ul
-            className="fade-up mt-8 flex flex-wrap gap-2"
-            style={{ "--d": "700ms" } as CSSProperties}
+            className="fade-up mt-6 flex flex-wrap gap-2"
+            style={{ "--d": "280ms" } as CSSProperties}
           >
             {c.tags.map((tag) => (
               <li
                 key={tag}
-                className="label-mono inline-flex items-center gap-2 rounded-sm border border-paper-foreground/15 bg-white px-3 py-2 text-[0.65rem] text-paper-foreground/80"
+                className="inline-flex items-center gap-2 rounded-full bg-accent-soft px-3 py-1.5 text-[0.8125rem] font-medium text-paper-foreground/85"
               >
                 <span aria-hidden className="size-1.5 rounded-full bg-accent" />
                 {tag}
@@ -124,8 +120,8 @@ function Hero({
             ))}
           </ul>
           <div
-            className="fade-up mt-10 flex flex-wrap items-center gap-x-8 gap-y-6"
-            style={{ "--d": "800ms" } as CSSProperties}
+            className="fade-up mt-9 flex flex-wrap items-center gap-x-8 gap-y-6"
+            style={{ "--d": "340ms" } as CSSProperties}
           >
             <ButtonLink
               to="/{-$locale}/contact"
@@ -135,7 +131,7 @@ function Hero({
               {c.primary}
             </ButtonLink>
             <div className="inline-flex flex-wrap items-center gap-x-6 gap-y-3 sm:border-l sm:border-paper-foreground/15 sm:pl-8">
-              <span className="label-mono text-paper-muted">{t.footer.partneredWith}</span>
+              <span className="text-sm text-paper-muted">{t.footer.partneredWith}</span>
               {DIVISION_PARTNERS.map((partner) => (
                 <a
                   key={partner.name}
@@ -158,12 +154,32 @@ function Hero({
           </div>
         </div>
 
-        <div
-          className="fade-up mx-auto aspect-[46/44] w-full max-w-[26rem] lg:col-span-5 lg:max-w-none"
-          style={{ "--d": "400ms" } as CSSProperties}
-        >
-          {drawing}
-        </div>
+        {layout === "energy" ? (
+          // Framed photo with an accent block offset behind it.
+          <div
+            className="fade-up relative mx-auto w-full max-w-[30rem] pb-4 pr-4 lg:col-span-5 lg:max-w-none"
+            style={{ "--d": "200ms" } as CSSProperties}
+          >
+            <span aria-hidden className="absolute inset-0 left-4 top-4 rounded-md bg-accent" />
+            <PhotoSlot photo={photo} eager className="relative aspect-[4/5] rounded-md" />
+          </div>
+        ) : (
+          // Tall photo that runs past the bottom of the hero into the next section.
+          <div
+            className="fade-up relative mx-auto w-full max-w-[30rem] lg:col-span-5 lg:-mb-40 lg:max-w-none lg:self-end"
+            style={{ "--d": "200ms" } as CSSProperties}
+          >
+            <PhotoSlot
+              photo={photo}
+              eager
+              className="aspect-[4/5] rounded-md shadow-[0_24px_60px_-24px_rgb(12_24_40/0.35)] ring-1 ring-paper-border"
+            />
+            <span
+              aria-hidden
+              className="absolute -left-3 top-10 h-24 w-1.5 rounded-full bg-accent"
+            />
+          </div>
+        )}
       </div>
     </section>
   );
@@ -172,74 +188,150 @@ function Hero({
 function Capabilities({
   id,
   c,
-  mark: Mark,
-  cardLabel,
+  layout,
 }: {
   id: string;
   c: Content["capabilities"];
-  mark: Mark;
-  cardLabel: string;
+  layout: Layout;
 }) {
   return (
-    <section aria-labelledby={`${id}-capabilities`} className="bg-paper">
-      <div className="container-wdf py-24 md:py-36">
+    <section
+      aria-labelledby={`${id}-capabilities`}
+      className={cn(
+        "bg-white",
+        layout === "technology" ? "pb-20 pt-20 md:pb-24 lg:pt-56" : "py-20 md:py-24",
+      )}
+    >
+      <div className="container-wdf">
         <SectionHeader id={`${id}-capabilities`} label={c.eyebrow} title={c.title} body={c.body} />
-        <div className="mt-16 grid gap-px overflow-hidden rounded-sm border border-paper-foreground/10 bg-paper-foreground/10 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
-          {c.items.map((item, i) => (
-            <Reveal
-              as="article"
-              key={item.title}
-              delay={(i % 3) * 70}
-              className="group relative flex flex-col bg-white p-7 md:p-8"
-            >
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-x-100"
-              />
-              <span className={eyebrow}>
-                <Mark className="size-3.5 text-accent" />0{i + 1} / {cardLabel}
-              </span>
-              {/* Anchor for links from the Services page (#energy-capability-1, …). */}
-              <h3
-                id={`${id}-capability-${i + 1}`}
-                className="mt-6 scroll-mt-[calc(var(--header-h)+6rem)] text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]"
+
+        {layout === "energy" ? (
+          // Zigzag: photo and text swap sides on every row.
+          <ol className="mt-12 space-y-12 md:mt-16 md:space-y-16">
+            {c.items.map((item, i) => (
+              <Reveal
+                as="li"
+                key={item.title}
+                className="grid items-center gap-6 md:grid-cols-2 md:gap-12 lg:gap-16"
               >
-                {item.title}
-              </h3>
-              <p className="mt-4 leading-relaxed text-paper-muted">{item.body}</p>
-            </Reveal>
-          ))}
-        </div>
+                <PhotoSlot
+                  photo={PAGE_PHOTOS[`${id}-capability-${i + 1}`]}
+                  className={cn("aspect-[16/10] rounded-md", i % 2 === 1 && "md:order-2")}
+                />
+                <div className={cn(i % 2 === 1 && "md:order-1")}>
+                  <span className="grid size-10 place-items-center rounded-full bg-accent-soft text-sm font-semibold text-accent-deep">
+                    {i + 1}
+                  </span>
+                  {/* Anchor for links from the Services page (#energy-capability-1, …). */}
+                  <h3
+                    id={`${id}-capability-${i + 1}`}
+                    className="heading mt-5 scroll-mt-[calc(var(--header-h)+6rem)] text-2xl md:text-[1.75rem]"
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-md text-[1.0625rem] leading-relaxed text-paper-muted">
+                    {item.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        ) : (
+          // Cards with a photo on top, three to a row.
+          <ul className="mt-12 grid gap-5 md:mt-14 md:grid-cols-2 lg:grid-cols-3">
+            {c.items.map((item, i) => (
+              <Reveal
+                as="li"
+                key={item.title}
+                delay={(i % 3) * 70}
+                className="group flex flex-col overflow-hidden rounded-md border border-paper-border bg-white"
+              >
+                <PhotoSlot
+                  photo={PAGE_PHOTOS[`${id}-capability-${i + 1}`]}
+                  className="aspect-[16/10]"
+                  imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
+                />
+                <div className="relative flex-1 p-6 md:p-7">
+                  <span
+                    aria-hidden
+                    className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-x-100"
+                  />
+                  {/* Anchor for links from the Services page (#technology-capability-1, …). */}
+                  <h3
+                    id={`${id}-capability-${i + 1}`}
+                    className="heading scroll-mt-[calc(var(--header-h)+6rem)] text-xl"
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">
+                    {item.body}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </ul>
+        )}
       </div>
     </section>
   );
 }
 
-function Deliverables({ id, c }: { id: string; c: Content["deliverables"] }) {
-  return (
-    <section aria-labelledby={`${id}-deliverables`} className="bg-white">
-      <div className="container-wdf py-24 md:py-36">
-        <SectionHeader id={`${id}-deliverables`} label={c.eyebrow} title={c.title} />
-        <div className="lg:ml-[25%]">
-          <ol className="mt-16 border-t border-paper-foreground/15 md:mt-20">
-            {c.items.map((item, i) => (
-              <Reveal
-                as="li"
-                key={item}
-                delay={60}
-                className="group flex items-baseline gap-6 border-b border-paper-foreground/15 py-7 md:gap-10"
-              >
-                <span className="label-mono text-accent-deep">0{i + 1}</span>
-                <span className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] transition-colors group-hover:text-accent-deep md:text-[1.75rem]">
-                  {item}
-                </span>
-              </Reveal>
-            ))}
-          </ol>
-          <Reveal delay={120}>
-            <p className="mt-8 max-w-3xl text-sm leading-relaxed text-paper-muted">{c.note}</p>
+function Deliverables({
+  id,
+  c,
+  layout,
+}: {
+  id: string;
+  c: Content["deliverables"];
+  layout: Layout;
+}) {
+  const photo = PAGE_PHOTOS[`${id}-deliverables`];
+  const list = (
+    <>
+      <ol className="border-t border-paper-border">
+        {c.items.map((item, i) => (
+          <Reveal
+            as="li"
+            key={item}
+            delay={60}
+            className="group flex items-baseline gap-5 border-b border-paper-border py-5 md:py-6"
+          >
+            <span className="text-sm font-semibold text-accent-deep">{i + 1}</span>
+            <span className="text-lg font-semibold leading-snug transition-colors group-hover:text-accent-deep md:text-xl">
+              {item}
+            </span>
           </Reveal>
-        </div>
+        ))}
+      </ol>
+      <Reveal delay={120}>
+        <p className="mt-6 max-w-3xl text-sm leading-relaxed text-paper-muted">{c.note}</p>
+      </Reveal>
+    </>
+  );
+  return (
+    <section aria-labelledby={`${id}-deliverables`} className="bg-paper">
+      <div className="container-wdf py-20 md:py-24">
+        {layout === "energy" ? (
+          // Photo beside the list.
+          <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+            <Reveal className="lg:col-span-5">
+              <PhotoSlot photo={photo} className="aspect-[4/3] rounded-md lg:aspect-[4/5]" />
+            </Reveal>
+            <div className="lg:col-span-7">
+              <SectionHeader id={`${id}-deliverables`} label={c.eyebrow} title={c.title} />
+              <div className="mt-8">{list}</div>
+            </div>
+          </div>
+        ) : (
+          // Wide banner photo, then the list in two columns.
+          <>
+            <SectionHeader id={`${id}-deliverables`} label={c.eyebrow} title={c.title} />
+            <Reveal delay={120} className="mt-10">
+              <PhotoSlot photo={photo} className="aspect-[16/9] rounded-md sm:aspect-[21/8]" />
+            </Reveal>
+            <div className="mt-8 [&_ol]:grid [&_ol]:gap-x-10 md:[&_ol]:grid-cols-2">{list}</div>
+          </>
+        )}
       </div>
     </section>
   );
@@ -249,9 +341,9 @@ function Deliverables({ id, c }: { id: string; c: Content["deliverables"] }) {
 function Process({ id, c }: { id: string; c: Content["process"] }) {
   return (
     <section aria-labelledby={`${id}-process`} className="bg-accent-soft">
-      <div className="container-wdf py-24 md:py-36">
+      <div className="container-wdf py-20 md:py-24">
         <SectionHeader id={`${id}-process`} label={c.eyebrow} title={c.title} body={c.body} />
-        <ol className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 md:mt-20 lg:grid-cols-4">
+        <ol className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 md:mt-14 lg:grid-cols-4">
           {c.steps.map((step, i) => (
             <Reveal as="li" key={step.title} delay={i * 90}>
               <div className="flex items-center gap-3">
@@ -260,9 +352,7 @@ function Process({ id, c }: { id: string; c: Content["process"] }) {
                 </span>
                 <span aria-hidden className="h-px flex-1 bg-accent/60" />
               </div>
-              <h3 className="mt-6 text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]">
-                {step.title}
-              </h3>
+              <h3 className="heading mt-5 text-xl">{step.title}</h3>
               <p className="mt-3 leading-relaxed text-paper-muted">{step.body}</p>
             </Reveal>
           ))}
@@ -273,12 +363,12 @@ function Process({ id, c }: { id: string; c: Content["process"] }) {
 }
 
 const cardClass =
-  "group flex items-center justify-between gap-6 rounded-sm border border-paper-foreground/15 bg-white p-7 transition-colors hover:border-accent md:p-8";
+  "group flex items-center justify-between gap-6 rounded-md border border-paper-border bg-white p-7 transition-colors hover:border-accent md:p-8";
 
 function CardText({ name, line }: { name: string; line: string }) {
   return (
     <span>
-      <span className="block text-[1.75rem] font-semibold tracking-[-0.02em]">{name}</span>
+      <span className="heading block text-2xl">{name}</span>
       <span className="mt-2 block text-sm text-paper-muted">{line}</span>
     </span>
   );
@@ -297,9 +387,9 @@ function Connect({
   const { locale, t } = useI18n();
   return (
     <section aria-labelledby={`${id}-connect`} className="bg-paper">
-      <div className="container-wdf py-24 md:py-36">
+      <div className="container-wdf py-20 md:py-24">
         <SectionHeader id={`${id}-connect`} label={c.eyebrow} title={c.title} />
-        <Reveal delay={160} className="mt-14 grid gap-4 md:grid-cols-2 lg:ml-[25%]">
+        <Reveal delay={160} className="mt-10 grid gap-4 md:grid-cols-2">
           {linked.map((key) => (
             <Link
               key={key}
@@ -337,21 +427,21 @@ function Cta({
       className="relative isolate overflow-hidden bg-accent text-ink"
     >
       <Mark className="absolute -right-16 -top-10 -z-10 h-[130%] w-auto text-white/25" />
-      <div className="container-wdf grid gap-12 py-24 md:py-36 lg:grid-cols-12 lg:gap-8">
-        <Reveal className="lg:col-span-3">
-          <p className="label-mono text-ink">{c.eyebrow}</p>
+      <div className="container-wdf py-20 md:py-24">
+        <Reveal as="p" className="text-sm font-semibold text-ink/80">
+          {c.eyebrow}
         </Reveal>
-        <div className="lg:col-span-9">
+        <div>
           <Reveal
             as="h2"
             delay={80}
-            className="display max-w-4xl text-[clamp(2.25rem,5.4vw,4.75rem)]"
+            className="heading mt-3 max-w-3xl text-[clamp(1.75rem,3vw,2.5rem)]"
           >
             <span id={`${id}-cta`}>{c.title}</span>
           </Reveal>
           <Reveal
             delay={160}
-            className="mt-10 grid gap-10 border-t border-ink/20 pt-10 md:grid-cols-9"
+            className="mt-8 grid gap-10 border-t border-ink/20 pt-8 md:grid-cols-9"
           >
             <div className="md:col-span-5">
               <p className="text-lg leading-relaxed text-ink/80">{c.body}</p>
@@ -375,33 +465,33 @@ function Cta({
   );
 }
 
+/** Which page arrangement to use: Energy (framed hero, zigzag) or Technology (overlap, cards). */
+export type Layout = "energy" | "technology";
+
 export function LightDivisionPage({
   id,
   content,
   accent,
   mark,
-  cardLabel,
-  drawing,
+  layout,
   linked,
   contact,
 }: {
-  /** Prefix for section ids, e.g. "energy". */
+  /** Prefix for section ids and PAGE_PHOTOS keys, e.g. "energy". */
   id: string;
   content: Content;
   accent: Accent;
   mark: Mark;
-  /** Shown on each capability card, e.g. "WDF Energy". */
-  cardLabel: string;
-  drawing: ReactNode;
+  layout: Layout;
   /** Other divisions for the "works with the others" cards, in order. */
   linked: readonly LinkedDivision[];
   contact?: DivisionContact;
 }) {
   return (
     <div className={cn(`accent-${accent}`, "text-paper-foreground")}>
-      <Hero id={id} c={content.hero} mark={mark} drawing={drawing} />
-      <Capabilities id={id} c={content.capabilities} mark={mark} cardLabel={cardLabel} />
-      <Deliverables id={id} c={content.deliverables} />
+      <Hero id={id} c={content.hero} mark={mark} layout={layout} />
+      <Capabilities id={id} c={content.capabilities} layout={layout} />
+      <Deliverables id={id} c={content.deliverables} layout={layout} />
       <Process id={id} c={content.process} />
       <Connect id={id} c={content.connect} linked={linked} />
       <Cta id={id} c={content.cta} mark={mark} contact={contact} />

@@ -118,6 +118,7 @@ export const SERVICE_ITEMS = [
 export const LIGHT_HERO_PAGES = [
   "/",
   "/services",
+  "/services/manufacturing",
   "/about",
   "/about/team",
   "/services/energy",
@@ -174,6 +175,17 @@ export const INDUSTRY_PHOTOS: Partial<
  * "threepl-1" … "threepl-6" (numbers follow the order on each division page). Cards without an
  * entry show an empty 4:3 frame. Add files under /public/media/services/.
  */
-export const SERVICE_PHOTOS: Partial<
-  Record<string, { src: string; width: number; height: number }>
-> = {};
+export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {};
+
+/** A photo file for a frame on the site; `position` is an optional CSS object-position. */
+export type Photo = { src: string; width: number; height: number; position?: string };
+
+/**
+ * Photos for the division pages, keyed by frame. Frames without an entry stay empty (gray).
+ * Add files under /public/media/<division>/.
+ * - Manufacturing: "manufacturing-hero", "manufacturing-integrate", "manufacturing-support"
+ * - Energy: "energy-hero", "energy-capability-1" … "energy-capability-6", "energy-deliverables"
+ * - Technology: "technology-hero", "technology-capability-1" … "technology-capability-6",
+ *   "technology-deliverables"
+ */
+export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {};

@@ -82,8 +82,6 @@ const en = {
     sub: "Strategically positioned along the U.S.–Mexico border.",
     primary: "Explore our divisions",
     secondary: "Contact WDF",
-    index: "Divisions",
-    drawingLabel: "Technical drawing — decorative",
     pauseVideo: "Pause background video",
     playVideo: "Play background video",
   },
@@ -180,10 +178,9 @@ const en = {
       sub: "Precision Manufacturing. Integrated Expertise.",
       body: "WDF combines precision manufacturing, engineering, and industrial integration to help businesses scale smarter. Strategically positioned along the U.S.–Mexico border.",
       primary: "Request a Quote",
-      index: "What we integrate",
     },
     capabilities: {
-      eyebrow: "01 · What We Integrate",
+      eyebrow: "What We Integrate",
       title: "What We Integrate",
       hub: "One partner coordinating engineering, supply chain, manufacturing, finishing, assembly, testing and logistics — in-house and through coordinated external processes.",
       items: [
@@ -272,7 +269,7 @@ const en = {
       ],
     },
     support: {
-      eyebrow: "02 · Manufacturing Support",
+      eyebrow: "Manufacturing Support",
       title: "Manufacturing Capacity When You Need It.",
       items: [
         {
@@ -306,7 +303,7 @@ const en = {
       ],
     },
     cta: {
-      eyebrow: "03 · Request for Quote",
+      eyebrow: "Request for Quote",
       title: "Need Manufacturing Support?",
       body: "Let's talk about your next part, project or production requirement.",
       primary: "Request a Quote",
@@ -504,10 +501,9 @@ const en = {
       body: "Engineering, equipment and integration for substations, energy storage, control rooms and industrial electrical infrastructure.",
       tags: ["Substations", "BESS", "Control shelters"],
       primary: "Contact WDF",
-      drawingLabel: "Single-line diagram of a substation — decorative",
     },
     capabilities: {
-      eyebrow: "01 · Capabilities",
+      eyebrow: "Capabilities",
       title: "A scope configured for your project.",
       body: "We select services and deliverables around the technical need, timeline and required resources.",
       items: [
@@ -538,7 +534,7 @@ const en = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Deliverables & responsibilities",
+      eyebrow: "Deliverables & responsibilities",
       title: "Capability becomes a defined package.",
       items: [
         "Engineering, calculations, drawings & BOM",
@@ -549,7 +545,7 @@ const en = {
       note: "Manufacturer, ratings, standards, warranty, installation and testing are defined in the specific proposal.",
     },
     process: {
-      eyebrow: "03 · How we work",
+      eyebrow: "How we work",
       title: "A clear path. From scope to delivery.",
       body: "Every project is built around deliverables, owners and verification points.",
       steps: [
@@ -563,11 +559,11 @@ const en = {
       ],
     },
     connect: {
-      eyebrow: "04 · Connect capabilities",
+      eyebrow: "Connect capabilities",
       title: "This pillar works with the others.",
     },
     cta: {
-      eyebrow: "05 · Your next project",
+      eyebrow: "Your next project",
       title: "What infrastructure does your project need?",
       body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
       primary: "Contact WDF",
@@ -581,10 +577,9 @@ const en = {
       body: "Automation, controls and communications connecting equipment, processes and data through disciplined industrial execution.",
       tags: ["Automation", "SCADA / PLC / DCS", "Robotics"],
       primary: "Contact WDF",
-      drawingLabel: "Control network linking a PLC to its field devices — decorative",
     },
     capabilities: {
-      eyebrow: "01 · Capabilities",
+      eyebrow: "Capabilities",
       title: "A scope configured for your project.",
       body: "We select services and deliverables around the technical need, timeline and required resources.",
       items: [
@@ -615,7 +610,7 @@ const en = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Deliverables & responsibilities",
+      eyebrow: "Deliverables & responsibilities",
       title: "Capability becomes a defined package.",
       items: [
         "Architecture & functional description",
@@ -626,7 +621,7 @@ const en = {
       note: "Platforms, licenses, interfaces and acceptance criteria are defined with the customer. Cybersecurity and remote access require a specific scope.",
     },
     process: {
-      eyebrow: "03 · How we work",
+      eyebrow: "How we work",
       title: "A clear path. From scope to delivery.",
       body: "Every project is built around deliverables, owners and verification points.",
       steps: [
@@ -640,11 +635,11 @@ const en = {
       ],
     },
     connect: {
-      eyebrow: "04 · Connect capabilities",
+      eyebrow: "Connect capabilities",
       title: "This pillar works with the others.",
     },
     cta: {
-      eyebrow: "05 · Your next project",
+      eyebrow: "Your next project",
       title: "What process do you need to automate or modernize?",
       body: "Tell us the goal, location and timeline. We will define the right combination of capabilities and scope together.",
       primary: "Contact WDF",

@@ -4,7 +4,6 @@ import { pageHead } from "@/lib/seo";
 import { TECHNOLOGY_CONTACT } from "@/lib/site";
 import { LightDivisionPage } from "@/components/division/LightDivisionPage";
 import { Chip } from "@/components/technology/Chip";
-import { ControlNetworkDiagram } from "@/components/technology/ControlNetworkDiagram";
 
 // Content quoted from the approved English and Spanish WDF Technology page
 // (wdfintegrators.com/home/technology). A light page with the logo's cyan and a chip mark.
@@ -25,8 +24,7 @@ function Page() {
       content={t.technology}
       accent="cyan"
       mark={Chip}
-      cardLabel="WDF Technology"
-      drawing={<ControlNetworkDiagram label={t.technology.hero.drawingLabel} />}
+      layout="technology"
       linked={["manufacturing", "energy"]}
       contact={TECHNOLOGY_CONTACT}
     />

@@ -1,82 +1,65 @@
 import type { CSSProperties } from "react";
 import { useI18n } from "@/i18n";
 import { ExternalButton } from "@/components/site/Button";
-import { MANUFACTURING_CONTACT_URL } from "@/lib/site";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
+import { MANUFACTURING_CONTACT_URL, PAGE_PHOTOS } from "@/lib/site";
 
-// The approved brand statement leads; the right column indexes the seven integrated
-// disciplines in their real order (engineering through logistics) and links to each card.
+// The approved brand statement on a light band, with the hero photo filling the right half of
+// the section up to the screen edge (below the text on narrow screens).
 export function ServicesHero() {
   const { t } = useI18n();
   const h = t.services.hero;
-  const lines = [h.pre, h.accent];
 
   return (
     <section
       aria-labelledby="services-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative isolate overflow-hidden border-b border-paper-border bg-paper text-paper-foreground"
     >
-      <div
-        aria-hidden
-        className="blueprint absolute inset-0 -z-10 opacity-50 [mask-image:radial-gradient(90%_80%_at_80%_40%,#000_20%,transparent_75%)]"
-      />
-      <div aria-hidden className="column-rules -z-10" />
-
-      <div className="container-wdf grid gap-14 pb-20 pt-[calc(var(--header-h)+4.5rem)] md:pb-28 lg:grid-cols-12 lg:gap-8 lg:pt-[calc(var(--header-h)+6rem)]">
-        <div className="lg:col-span-8">
-          <p className="label-mono fade-up text-primary" style={{ "--d": "50ms" } as CSSProperties}>
+      <div className="container-wdf pb-12 pt-[calc(var(--header-h)+3rem)] md:pb-14 lg:flex lg:min-h-[min(40rem,80svh)] lg:items-center lg:pb-20 lg:pt-[calc(var(--header-h)+4rem)]">
+        <div className="lg:w-1/2 lg:pr-14 xl:pr-20">
+          <p
+            className="fade-up text-sm font-semibold text-cyan-deep"
+            style={{ "--d": "50ms" } as CSSProperties}
+          >
             {h.eyebrow}
           </p>
           <h1
             id="services-title"
-            className="display mt-7 text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold"
+            className="heading fade-up mt-4 text-[clamp(2.25rem,4.2vw,3.5rem)]"
+            style={{ "--d": "120ms" } as CSSProperties}
           >
-            {lines.map((line, i) => (
-              <span key={line} className="rise-line">
-                <span style={{ "--i": i } as CSSProperties} className={i ? "text-primary" : ""}>
-                  {line}
-                </span>
-              </span>
-            ))}
+            {h.pre} <span className="text-cyan-deep">{h.accent}</span>
           </h1>
-          <div className="fade-up mt-10 max-w-[38rem]" style={{ "--d": "600ms" } as CSSProperties}>
-            <p className="text-xl font-semibold tracking-[-0.01em] md:text-2xl">{h.sub}</p>
-            <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-muted md:text-lg">
-              {h.body}
-            </p>
-          </div>
-          <div
-            className="fade-up mt-10 flex flex-col gap-3 sm:flex-row"
-            style={{ "--d": "750ms" } as CSSProperties}
+          <p
+            className="fade-up mt-6 text-lg font-semibold"
+            style={{ "--d": "220ms" } as CSSProperties}
           >
-            <ExternalButton href={MANUFACTURING_CONTACT_URL} variant="primary">
+            {h.sub}
+          </p>
+          <p
+            className="fade-up mt-3 text-[1.0625rem] leading-relaxed text-paper-muted"
+            style={{ "--d": "260ms" } as CSSProperties}
+          >
+            {h.body}
+          </p>
+          <div className="fade-up mt-9" style={{ "--d": "320ms" } as CSSProperties}>
+            <ExternalButton
+              href={MANUFACTURING_CONTACT_URL}
+              variant="accent"
+              className="accent-cyan"
+            >
               {h.primary}
             </ExternalButton>
           </div>
         </div>
-
-        <nav
-          aria-label={h.index}
-          className="fade-up self-end lg:col-span-4"
-          style={{ "--d": "900ms" } as CSSProperties}
-        >
-          <p className="label-mono text-ink-muted">{h.index}</p>
-          <ol className="mt-4 border-t border-ink-border">
-            {t.services.capabilities.items.map((item, i) => (
-              <li key={item.title} className="border-b border-ink-border">
-                <a
-                  href={`#capability-${i + 1}`}
-                  className="group flex items-baseline gap-4 py-3 text-[0.95rem] text-ink-foreground/80 transition-colors hover:text-ink-foreground"
-                >
-                  <span className="label-mono text-ink-muted transition-colors group-hover:text-primary">
-                    0{i + 1}
-                  </span>
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ol>
-        </nav>
       </div>
+
+      {/* Below the text on narrow screens; the right half of the band from 1024px. */}
+      <PhotoSlot
+        photo={PAGE_PHOTOS["manufacturing-hero"]}
+        eager
+        className="aspect-[16/10] w-full lg:absolute lg:bottom-0 lg:left-1/2 lg:right-0 lg:top-[var(--header-h)] lg:aspect-auto lg:w-auto"
+      />
     </section>
   );
 }

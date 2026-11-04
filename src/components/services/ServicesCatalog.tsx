@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import { localeParam, useI18n } from "@/i18n";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
 import { SERVICE_PHOTOS } from "@/lib/site";
 
@@ -164,7 +165,11 @@ export function ServicesCatalog() {
                 style={{ "--dot": s.dot, "--ink": s.ink } as CSSProperties}
                 className="group flex h-full flex-col overflow-hidden rounded-md border border-paper-border bg-white transition-[border-color,box-shadow] duration-300 hover:border-paper-foreground/20 hover:shadow-[0_10px_30px_-12px_rgb(12_24_40/0.18)]"
               >
-                <ServicePhoto photo={SERVICE_PHOTOS[s.key]} />
+                <PhotoSlot
+                  photo={SERVICE_PHOTOS[s.key]}
+                  className="aspect-[4/3]"
+                  imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
+                />
                 <div className="flex flex-1 flex-col p-6 md:p-7">
                   <h2 className="heading text-xl group-hover:text-[var(--ink)]">{s.title}</h2>
                   <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">{s.body}</p>
@@ -205,41 +210,5 @@ export function ServicesCatalog() {
         )}
       </div>
     </section>
-  );
-}
-
-/** 4:3 photo frame; an empty frame until the service's photo is added to SERVICE_PHOTOS. */
-function ServicePhoto({
-  photo,
-}: {
-  photo: { src: string; width: number; height: number } | undefined;
-}) {
-  return (
-    <div className="relative aspect-[4/3] overflow-hidden bg-iron">
-      {photo ? (
-        <img
-          src={photo.src}
-          alt=""
-          width={photo.width}
-          height={photo.height}
-          loading="lazy"
-          decoding="async"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-        />
-      ) : (
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.5"
-          className="absolute left-1/2 top-1/2 size-8 -translate-x-1/2 -translate-y-1/2 text-paper-foreground/20"
-        >
-          <rect x="3" y="5" width="18" height="14" rx="2" />
-          <circle cx="9" cy="10" r="1.8" />
-          <path d="M21 16l-5-5-7 7" />
-        </svg>
-      )}
-    </div>
   );
 }

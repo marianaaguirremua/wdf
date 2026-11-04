@@ -77,8 +77,6 @@ const es: Messages = {
     sub: "Estratégicamente ubicados en la frontera entre EE. UU. y México.",
     primary: "Conozca nuestras divisiones",
     secondary: "Contactar a WDF",
-    index: "Divisiones",
-    drawingLabel: "Dibujo técnico — decorativo",
     pauseVideo: "Pausar video de fondo",
     playVideo: "Reproducir video de fondo",
   },
@@ -175,10 +173,9 @@ const es: Messages = {
       sub: "Manufactura de precisión. Experiencia integrada.",
       body: "WDF combina manufactura de precisión, ingeniería e integración industrial para ayudar a las empresas a crecer de forma más inteligente. Estratégicamente ubicados en la frontera entre EE. UU. y México.",
       primary: "Solicite una cotización",
-      index: "Lo que integramos",
     },
     capabilities: {
-      eyebrow: "01 · Lo que integramos",
+      eyebrow: "Lo que integramos",
       title: "Lo que integramos",
       hub: "Un solo socio que coordina ingeniería, cadena de suministro, manufactura, acabados, ensamble, pruebas y logística — internamente y mediante procesos externos coordinados.",
       items: [
@@ -267,7 +264,7 @@ const es: Messages = {
       ],
     },
     support: {
-      eyebrow: "02 · Soporte de manufactura",
+      eyebrow: "Soporte de manufactura",
       title: "Capacidad de manufactura cuando la necesita.",
       items: [
         {
@@ -301,7 +298,7 @@ const es: Messages = {
       ],
     },
     cta: {
-      eyebrow: "03 · Solicitud de cotización",
+      eyebrow: "Solicitud de cotización",
       title: "¿Necesita soporte de manufactura?",
       body: "Hablemos de su próxima pieza, proyecto o requerimiento de producción.",
       primary: "Solicitar cotización",
@@ -509,10 +506,9 @@ const es: Messages = {
       body: "Ingeniería, equipos e integración para subestaciones, almacenamiento de energía, salas de control e infraestructura eléctrica industrial.",
       tags: ["Substations", "BESS", "Control shelters"],
       primary: "Contactar a WDF",
-      drawingLabel: "Diagrama unifilar de una subestación — decorativo",
     },
     capabilities: {
-      eyebrow: "01 · Capacidades",
+      eyebrow: "Capacidades",
       title: "Un alcance que se configura para su proyecto.",
       body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
       items: [
@@ -543,7 +539,7 @@ const es: Messages = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Entregables y responsabilidades",
+      eyebrow: "Entregables y responsabilidades",
       title: "La capacidad se convierte en un paquete definido.",
       items: [
         "Ingeniería, cálculos, planos y BOM",
@@ -554,7 +550,7 @@ const es: Messages = {
       note: "Fabricante, ratings, normas, garantías, instalación y pruebas se definen en la propuesta específica.",
     },
     process: {
-      eyebrow: "03 · Cómo trabajamos",
+      eyebrow: "Cómo trabajamos",
       title: "Una ruta clara. De principio a entrega.",
       body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
       steps: [
@@ -568,11 +564,11 @@ const es: Messages = {
       ],
     },
     connect: {
-      eyebrow: "04 · Conecte capacidades",
+      eyebrow: "Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
     },
     cta: {
-      eyebrow: "05 · Su siguiente proyecto",
+      eyebrow: "Su siguiente proyecto",
       title: "¿Qué infraestructura necesita su proyecto?",
       body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
       primary: "Contactar a WDF",
@@ -586,10 +582,9 @@ const es: Messages = {
       body: "Automatización, controles y comunicaciones para conectar equipos, procesos y datos con una ejecución industrial disciplinada.",
       tags: ["Automation", "SCADA / PLC / DCS", "Robotics"],
       primary: "Contactar a WDF",
-      drawingLabel: "Red de control que conecta un PLC con sus dispositivos de campo — decorativo",
     },
     capabilities: {
-      eyebrow: "01 · Capacidades",
+      eyebrow: "Capacidades",
       title: "Un alcance que se configura para su proyecto.",
       body: "Seleccionamos los servicios y entregables a partir de la necesidad técnica, el calendario y los recursos requeridos.",
       items: [
@@ -620,7 +615,7 @@ const es: Messages = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Entregables y responsabilidades",
+      eyebrow: "Entregables y responsabilidades",
       title: "La capacidad se convierte en un paquete definido.",
       items: [
         "Arquitectura y descripción funcional",
@@ -631,7 +626,7 @@ const es: Messages = {
       note: "Las plataformas, licencias, interfaces y criterios de aceptación se definen con el cliente. La ciberseguridad y los accesos remotos requieren un alcance específico.",
     },
     process: {
-      eyebrow: "03 · Cómo trabajamos",
+      eyebrow: "Cómo trabajamos",
       title: "Una ruta clara. De principio a entrega.",
       body: "Cada proyecto se construye sobre entregables, responsables y puntos de verificación.",
       steps: [
@@ -645,11 +640,11 @@ const es: Messages = {
       ],
     },
     connect: {
-      eyebrow: "04 · Conecte capacidades",
+      eyebrow: "Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
     },
     cta: {
-      eyebrow: "05 · Su siguiente proyecto",
+      eyebrow: "Su siguiente proyecto",
       title: "¿Qué proceso necesita automatizar o modernizar?",
       body: "Cuéntenos el objetivo, el lugar y el calendario. Definimos con usted la combinación de capacidades y el alcance de trabajo.",
       primary: "Contactar a WDF",
