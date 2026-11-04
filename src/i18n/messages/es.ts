@@ -576,6 +576,7 @@ const es: Messages = {
     },
   },
   technology: {
+    clients: "Empresas con las que hemos trabajado",
     hero: {
       eyebrow: "Tecnología · WDF",
       title: ["Sistemas que entienden", "su operación."],

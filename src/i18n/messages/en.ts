@@ -571,6 +571,7 @@ const en = {
     },
   },
   technology: {
+    clients: "Companies we have worked with",
     hero: {
       eyebrow: "Technology · WDF",
       title: ["Systems that understand", "your operation."],

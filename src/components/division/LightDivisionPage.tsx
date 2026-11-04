@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/site/Button";
 import { DirectContact } from "@/components/site/DirectContact";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
-import { DIVISION_PARTNERS, PAGE_PHOTOS, type DivisionContact } from "@/lib/site";
+import { DIVISION_PARTNERS, PAGE_PHOTOS, type ClientLogo, type DivisionContact } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 // Light division page (Energy, Technology): white and paper sections with one accent colour,
@@ -75,16 +75,16 @@ function Hero({
       aria-labelledby={`${id}-title`}
       className={cn(
         "relative isolate border-b border-paper-border",
-        layout === "energy" ? "overflow-hidden bg-white" : "z-10 bg-paper",
+        layout === "energy" ? "overflow-hidden bg-white" : "bg-paper",
       )}
     >
       <div
         className={cn(
           "container-wdf grid items-center gap-12 pt-[calc(var(--header-h)+3rem)] lg:grid-cols-12 lg:gap-12 lg:pt-[calc(var(--header-h)+4.5rem)]",
-          layout === "energy" ? "pb-16 md:pb-20" : "pb-16 md:pb-20 lg:pb-0",
+          "pb-16 md:pb-20",
         )}
       >
-        <div className={cn("lg:col-span-7", layout === "technology" && "lg:pb-24")}>
+        <div className="lg:col-span-7">
           <p className={cn(eyebrow, "fade-up")} style={{ "--d": "50ms" } as CSSProperties}>
             <Mark className="size-4 text-accent" />
             {c.eyebrow}
@@ -164,15 +164,15 @@ function Hero({
             <PhotoSlot photo={photo} eager className="relative aspect-[4/5] rounded-md" />
           </div>
         ) : (
-          // Tall photo that runs past the bottom of the hero into the next section.
+          // Compact photo with an accent bar, sized so the client logos below sit in one row.
           <div
-            className="fade-up relative mx-auto w-full max-w-[30rem] lg:col-span-5 lg:-mb-40 lg:max-w-none lg:self-end"
+            className="fade-up relative mx-auto w-full max-w-[26rem] lg:col-span-5 lg:mr-0 lg:max-w-[24rem]"
             style={{ "--d": "200ms" } as CSSProperties}
           >
             <PhotoSlot
               photo={photo}
               eager
-              className="aspect-[4/5] rounded-md shadow-[0_24px_60px_-24px_rgb(12_24_40/0.35)] ring-1 ring-paper-border"
+              className="aspect-[4/3] rounded-md shadow-[0_24px_60px_-24px_rgb(12_24_40/0.35)] ring-1 ring-paper-border"
             />
             <span
               aria-hidden
@@ -180,6 +180,46 @@ function Hero({
             />
           </div>
         )}
+      </div>
+    </section>
+  );
+}
+
+/** Logos of companies WDF has worked with: one row of up to eight from 1280px, a 4-column grid below. */
+function Clients({
+  id,
+  label,
+  logos,
+}: {
+  id: string;
+  label: string;
+  logos: readonly ClientLogo[];
+}) {
+  return (
+    <section aria-labelledby={`${id}-clients`} className="border-b border-paper-border bg-white">
+      <div className="container-wdf flex flex-col gap-6 py-8 lg:flex-row lg:items-center lg:gap-10">
+        <h2 id={`${id}-clients`} className="shrink-0 text-sm text-paper-muted lg:w-40">
+          {label}
+        </h2>
+        <ul className="grid flex-1 grid-cols-2 items-center gap-x-8 gap-y-6 sm:grid-cols-4 xl:flex xl:justify-between xl:gap-4">
+          {logos.map((logo) => (
+            <li
+              key={logo.name}
+              className="flex h-10 min-w-0 items-center justify-center xl:max-w-28 xl:flex-1"
+            >
+              <img
+                src={logo.src}
+                alt={logo.name}
+                width={logo.width}
+                height={logo.height}
+                loading="lazy"
+                decoding="async"
+                className="max-h-full w-auto max-w-full object-contain opacity-60 grayscale transition-[filter,opacity] duration-300 hover:opacity-100 hover:grayscale-0"
+                style={{ height: logo.size }}
+              />
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );
@@ -195,13 +235,7 @@ function Capabilities({
   layout: Layout;
 }) {
   return (
-    <section
-      aria-labelledby={`${id}-capabilities`}
-      className={cn(
-        "bg-white",
-        layout === "technology" ? "pb-20 pt-20 md:pb-24 lg:pt-56" : "py-20 md:py-24",
-      )}
-    >
+    <section aria-labelledby={`${id}-capabilities`} className={cn("bg-white", "py-20 md:py-24")}>
       <div className="container-wdf">
         <SectionHeader id={`${id}-capabilities`} label={c.eyebrow} title={c.title} body={c.body} />
 
@@ -476,6 +510,7 @@ export function LightDivisionPage({
   layout,
   linked,
   contact,
+  clients,
 }: {
   /** Prefix for section ids and PAGE_PHOTOS keys, e.g. "energy". */
   id: string;
@@ -486,10 +521,13 @@ export function LightDivisionPage({
   /** Other divisions for the "works with the others" cards, in order. */
   linked: readonly LinkedDivision[];
   contact?: DivisionContact;
+  /** Optional logo strip under the hero, with its label. */
+  clients?: { label: string; logos: readonly ClientLogo[] };
 }) {
   return (
     <div className={cn(`accent-${accent}`, "text-paper-foreground")}>
       <Hero id={id} c={content.hero} mark={mark} layout={layout} />
+      {clients && <Clients id={id} label={clients.label} logos={clients.logos} />}
       <Capabilities id={id} c={content.capabilities} layout={layout} />
       <Deliverables id={id} c={content.deliverables} layout={layout} />
       <Process id={id} c={content.process} />

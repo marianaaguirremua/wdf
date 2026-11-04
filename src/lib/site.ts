@@ -277,3 +277,24 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     position: "50% 45%",
   },
 };
+
+/** A logo for the "companies we have worked with" strip; `size` is its rendered height. */
+export type ClientLogo = { name: string; src: string; width: number; height: number; size: string };
+
+/**
+ * Companies the Technology division has worked with, as WDF provided them (Nov 2026). Logos are
+ * the companies' own marks (backgrounds made transparent), shown at one optical height. Up to
+ * eight fit on one row on desktop; add new files under /public/clients/.
+ */
+export const TECHNOLOGY_CLIENTS: readonly ClientLogo[] = [
+  { name: "Siemens", src: "/clients/siemens.png", width: 468, height: 76, size: "1.15rem" },
+  {
+    name: "Allen-Bradley",
+    src: "/clients/allen-bradley.png",
+    width: 293,
+    height: 65,
+    size: "1.9rem",
+  },
+  { name: "Keyence", src: "/clients/keyence.png", width: 491, height: 84, size: "1.15rem" },
+  { name: "SICK", src: "/clients/sick.png", width: 206, height: 66, size: "1.5rem" },
+];
