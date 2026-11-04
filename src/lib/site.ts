@@ -255,5 +255,11 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 933,
     position: "75% 40%",
   },
-  "technology-capability-4": { src: "/media/technology/networks.webp", width: 1400, height: 933 },
+  "technology-capability-4": { src: "/media/technology/networks.webp", width: 1400, height: 937 },
+  "technology-deliverables": {
+    src: "/media/technology/deliverables.webp",
+    width: 1920,
+    height: 1273,
+    position: "50% 45%",
+  },
 };
