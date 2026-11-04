@@ -53,11 +53,10 @@ export const YUMA_PHONE = { phone: "+1 (928) 246-4860", tel: "+19282464860" } as
 /** Manufacturing contact, shown on the Services page. */
 export const MANUFACTURING_CONTACT: DivisionContact = {
   name: "Mildred Orozco",
-  phone: "+52 686 357 1003",
-  tel: "+526863571003",
+  // Only the Yuma line is published for Mildred (WDF request, Nov 2026).
+  phone: YUMA_PHONE.phone,
+  tel: YUMA_PHONE.tel,
   email: "mildred.orozco@wdfservices.com",
-  altPhone: YUMA_PHONE.phone,
-  altTel: YUMA_PHONE.tel,
 };
 
 /** 3PL contact. */
