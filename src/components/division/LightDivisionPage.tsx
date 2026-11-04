@@ -164,15 +164,15 @@ function Hero({
             <PhotoSlot photo={photo} eager className="relative aspect-[4/5] rounded-md" />
           </div>
         ) : (
-          // Compact photo with an accent bar, sized so the client logos below sit in one row.
+          // Photo filling the right column, with an accent bar; the client logos follow below.
           <div
-            className="fade-up relative mx-auto w-full max-w-[26rem] lg:col-span-5 lg:mr-0 lg:max-w-[24rem]"
+            className="fade-up relative mx-auto w-full max-w-[34rem] lg:col-span-5 lg:max-w-none"
             style={{ "--d": "200ms" } as CSSProperties}
           >
             <PhotoSlot
               photo={photo}
               eager
-              className="aspect-[4/3] rounded-md shadow-[0_24px_60px_-24px_rgb(12_24_40/0.35)] ring-1 ring-paper-border"
+              className="aspect-[5/4] rounded-md shadow-[0_24px_60px_-24px_rgb(12_24_40/0.35)] ring-1 ring-paper-border"
             />
             <span
               aria-hidden
