@@ -175,7 +175,14 @@ export const INDUSTRY_PHOTOS: Partial<
  * "threepl-1" … "threepl-6" (numbers follow the order on each division page). Cards without an
  * entry show an empty 4:3 frame. Add files under /public/media/services/.
  */
-export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {};
+export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
+  "manufacturing-3d-printing": {
+    src: "/media/services/3d-printing.webp",
+    width: 1000,
+    height: 667,
+    position: "40% 55%",
+  },
+};
 
 /** A photo file for a frame on the site; `position` is an optional CSS object-position. */
 export type Photo = { src: string; width: number; height: number; position?: string };
@@ -256,6 +263,13 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     position: "75% 40%",
   },
   "technology-capability-4": { src: "/media/technology/networks.webp", width: 1400, height: 937 },
+  "technology-capability-5": {
+    src: "/media/technology/robotics.webp",
+    width: 1400,
+    height: 878,
+    position: "40% 50%",
+  },
+  "technology-capability-6": { src: "/media/technology/testing.webp", width: 1400, height: 906 },
   "technology-deliverables": {
     src: "/media/technology/deliverables.webp",
     width: 1920,
