@@ -2,6 +2,7 @@ import { useI18n } from "@/i18n";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/site/Reveal";
 
+// The title stays on one line from 1024px up; it wraps on smaller screens.
 // Animated isometric illustration of a WDF plant (machining, inspection, integration, energy).
 // Loaded as an <img>: its CSS animation runs inside the file, stays isolated from the site's
 // styles, and stops on its own under prefers-reduced-motion. Its edges are masked so the
@@ -23,7 +24,7 @@ export function ThreePlPlant({ merged = false }: { merged?: boolean }) {
       <div className={cn("container-wdf pb-24 md:pb-32", merged ? "pt-8" : "pt-12 md:pt-16")}>
         <Reveal
           as="h2"
-          className="display mx-auto max-w-4xl text-balance text-center text-[clamp(1.875rem,3.2vw,2.875rem)]"
+          className="display mx-auto max-w-4xl text-balance text-center text-[clamp(1.875rem,3.2vw,2.875rem)] lg:max-w-none lg:whitespace-nowrap"
         >
           <span id="threepl-plant-title">
             <span className="text-accent-deep">{p.title[0]}</span> {p.title[1]}
