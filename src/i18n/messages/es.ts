@@ -309,7 +309,7 @@ const es: Messages = {
   threepl: {
     hero: {
       eyebrow: "3PL · Logística transfronteriza",
-      title: ["Establezca su empresa en Estados Unidos,", "con apoyo local desde el inicio."],
+      title: ["Establezca su empresa", "en Yuma con WDF."],
       body: "Los servicios 3PL (logística de terceros) de WDF parten de **Yuma, Arizona**, en el suroeste de Estados Unidos, cerca de California. Desde ahí coordinamos almacenamiento, inventarios, preparación de pedidos y flujos transfronterizos con nuestro equipo en **Mexicali, Baja California, México**, y conectamos su carga con los puertos, transportistas y cruces que unen Norteamérica con cadenas de suministro de **todo el mundo**.",
       legend: {
         flow: [

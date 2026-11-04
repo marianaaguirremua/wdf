@@ -314,10 +314,7 @@ const en = {
   threepl: {
     hero: {
       eyebrow: "3PL · Cross-border logistics",
-      title: [
-        "Establish your business in the United States,",
-        "with local support from the start.",
-      ],
+      title: ["Establish your business", "in Yuma with WDF."],
       // **…** marks emphasis.
       body: "WDF's 3PL (third-party logistics) services start in **Yuma, Arizona**, in the U.S. Southwest, close to California. From there, we coordinate warehousing, inventory, order preparation and cross-border flows with our team in **Mexicali, Baja California, Mexico**, and connect your freight to the ports, carriers and crossings that link North America with supply chains **worldwide**.",
       legend: {
