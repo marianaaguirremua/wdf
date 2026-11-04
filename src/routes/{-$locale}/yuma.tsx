@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale } from "@/i18n";
 import { pageHead } from "@/lib/seo";
+import { ThreePlEstablish } from "@/components/threepl/ThreePlEstablish";
 import { ThreePlExpansion } from "@/components/threepl/ThreePlExpansion";
 import { ThreePlMap } from "@/components/threepl/ThreePlHero";
 import { ThreePlWhyYuma } from "@/components/threepl/ThreePlWhyYuma";
 
-// Why Yuma, Arizona (with photos), the border map, and the cross-border operation; linked from
+// Why Yuma, Arizona (with photos), the border map, the cross-border operation and how WDF helps you get established; linked from
 // Home's map section.
 export const Route = createFileRoute("/{-$locale}/yuma")({
   head: ({ params }) => {
@@ -22,6 +23,7 @@ function Page() {
       <ThreePlWhyYuma page />
       <ThreePlMap onYumaPage />
       <ThreePlExpansion />
+      <ThreePlEstablish />
     </div>
   );
 }

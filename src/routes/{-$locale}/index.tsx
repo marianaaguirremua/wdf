@@ -6,7 +6,6 @@ import { ContactCta } from "@/components/home/ContactCta";
 import { Divisions } from "@/components/home/Divisions";
 import { Hero } from "@/components/home/Hero";
 import { Industries } from "@/components/home/Industries";
-import { ThreePlEstablish } from "@/components/threepl/ThreePlEstablish";
 import { ThreePlExpansion } from "@/components/threepl/ThreePlExpansion";
 import { ThreePlHero } from "@/components/threepl/ThreePlHero";
 import { ThreePlPlant } from "@/components/threepl/ThreePlPlant";
@@ -46,7 +45,6 @@ function Home() {
         <ThreePlWhyYuma />
         <ThreePlExpansion />
         <ThreePlPlant />
-        <ThreePlEstablish />
       </div>
       <Industries />
       <ContactCta />
