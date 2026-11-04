@@ -216,7 +216,14 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 500,
     position: "50% 60%",
   },
-  "energy-capability-4": { src: "/media/energy/equipment.webp", width: 1400, height: 1050 },
+  "energy-capability-2": { src: "/media/energy/bess.webp", width: 1400, height: 1050 },
+  "energy-capability-4": { src: "/media/energy/control-panel.webp", width: 1400, height: 933 },
+  "energy-capability-5": {
+    src: "/media/energy/renewables.webp",
+    width: 1400,
+    height: 934,
+    position: "55% 70%",
+  },
   "energy-capability-6": {
     src: "/media/energy/field-support.webp",
     width: 1200,
