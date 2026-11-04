@@ -21,7 +21,7 @@ function Page() {
   return (
     <div className="accent-terracotta">
       <ThreePlWhyYuma page />
-      <ThreePlMap onYumaPage />
+      <ThreePlMap />
       <ThreePlExpansion />
       <ThreePlEstablish />
     </div>

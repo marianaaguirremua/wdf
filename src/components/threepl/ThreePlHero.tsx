@@ -70,8 +70,8 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
   const h = t.threepl.hero;
   const Title = embedded ? "h2" : "h1";
 
-  // Two sections: a full-screen intro (eyebrow, title, subtitle) and, revealed on scroll,
-  // the legend, locations and border map (ThreePlMap).
+  // Full page: a full-screen intro (eyebrow, title, subtitle), then the legend, locations and
+  // border map (ThreePlMap). Embedded (Home): only the intro, with a button to the Yuma page.
   return (
     <>
       <section
@@ -112,6 +112,21 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
           >
             {emphasize(h.body)}
           </p>
+          {embedded && (
+            <div
+              className="fade-up mt-10 flex md:justify-center"
+              style={{ "--d": "700ms" } as CSSProperties}
+            >
+              <ButtonLink
+                to="/{-$locale}/yuma"
+                params={{ locale: localeParam(locale) }}
+                variant="accent"
+                className="min-h-16 w-full gap-4 px-8 text-lg sm:w-auto md:text-xl"
+              >
+                {h.primary}
+              </ButtonLink>
+            </div>
+          )}
         </div>
         {!embedded && (
           <span
@@ -125,32 +140,22 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
         )}
       </section>
 
-      <ThreePlMap />
+      {!embedded && <ThreePlMap />}
     </>
   );
 }
 
 /**
- * The legend, the two locations and the border map. On Home its button opens the Yuma page;
- * on the Yuma page itself (`onYumaPage`) it goes to the 3PL contact instead.
+ * The legend, the two locations and the border map (on the Yuma page), with a button to the
+ * 3PL contact.
  */
-export function ThreePlMap({ onYumaPage = false }: { onYumaPage?: boolean }) {
+export function ThreePlMap() {
   const { locale, t } = useI18n();
   const h = t.threepl.hero;
   return (
-    <section
-      className={cn(
-        "relative isolate overflow-hidden bg-paper text-paper-foreground",
-        onYumaPage && "border-t border-paper-border",
-      )}
-    >
+    <section className="relative isolate overflow-hidden border-t border-paper-border bg-paper text-paper-foreground">
       <div aria-hidden className="column-rules -z-10" />
-      <div
-        className={cn(
-          "container-wdf grid gap-10 pb-20 md:pb-24 lg:grid-cols-12 lg:gap-10",
-          onYumaPage ? "pt-20 md:pt-24" : "pt-4",
-        )}
-      >
+      <div className="container-wdf grid gap-10 pb-20 pt-20 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-10">
         <Reveal className="lg:col-span-4">
           <div className="rounded-sm border border-paper-border bg-white p-6">
             <ul className="flex flex-col gap-5">
@@ -196,25 +201,14 @@ export function ThreePlMap({ onYumaPage = false }: { onYumaPage?: boolean }) {
           </dl>
 
           <div className="mt-8">
-            {onYumaPage ? (
-              <ButtonLink
-                to="/{-$locale}/services/3pl"
-                params={{ locale: localeParam(locale) }}
-                hash="threepl-contact"
-                variant="accent"
-              >
-                {h.contact}
-              </ButtonLink>
-            ) : (
-              <ButtonLink
-                to="/{-$locale}/yuma"
-                params={{ locale: localeParam(locale) }}
-                variant="accent"
-                className="min-h-16 w-full gap-4 px-8 text-lg sm:w-auto md:text-xl"
-              >
-                {h.primary}
-              </ButtonLink>
-            )}
+            <ButtonLink
+              to="/{-$locale}/services/3pl"
+              params={{ locale: localeParam(locale) }}
+              hash="threepl-contact"
+              variant="accent"
+            >
+              {h.contact}
+            </ButtonLink>
           </div>
         </Reveal>
 
