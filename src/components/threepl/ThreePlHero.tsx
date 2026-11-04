@@ -177,6 +177,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
                 to="/{-$locale}/yuma"
                 params={{ locale: localeParam(locale) }}
                 variant="accent"
+                className="min-h-16 w-full gap-4 px-8 text-lg sm:w-auto md:text-xl"
               >
                 {h.primary}
               </ButtonLink>
