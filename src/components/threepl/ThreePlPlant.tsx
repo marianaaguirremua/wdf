@@ -4,7 +4,7 @@ import { Reveal } from "@/components/site/Reveal";
 // Animated isometric illustration of a WDF plant (machining, inspection, integration, energy).
 // Loaded as an <img>: its CSS animation runs inside the file, stays isolated from the site's
 // styles, and stops on its own under prefers-reduced-motion. Its edges are masked so the
-// artwork's darker vignette fades into the section instead of showing as a box.
+// artwork's darker vignette fades into its navy panel on the light section.
 export function ThreePlPlant() {
   const { t } = useI18n();
   const p = t.threepl.plant;
@@ -12,7 +12,7 @@ export function ThreePlPlant() {
   return (
     <section
       aria-labelledby="threepl-plant-title"
-      className="relative isolate overflow-hidden border-t border-ink-border bg-ink text-ink-foreground"
+      className="relative isolate overflow-hidden border-t border-paper-border bg-paper text-paper-foreground"
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
       <div className="container-wdf pb-24 pt-12 md:pb-32 md:pt-16">
@@ -21,11 +21,14 @@ export function ThreePlPlant() {
           className="display mx-auto max-w-4xl text-balance text-center text-[clamp(1.875rem,3.2vw,2.875rem)]"
         >
           <span id="threepl-plant-title">
-            <span className="text-accent">{p.title[0]}</span> {p.title[1]}
+            <span className="text-accent-deep">{p.title[0]}</span> {p.title[1]}
           </span>
         </Reveal>
 
-        <Reveal delay={200} className="mx-auto mt-12 max-w-6xl md:mt-16">
+        <Reveal
+          delay={200}
+          className="mx-auto mt-12 max-w-6xl overflow-hidden rounded-md bg-ink p-4 md:mt-16 md:p-8"
+        >
           <img
             src="/media/3pl/wdf-plant.svg"
             alt={p.alt}

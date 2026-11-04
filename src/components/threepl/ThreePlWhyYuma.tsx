@@ -24,23 +24,23 @@ function RegionStrip() {
           <li
             key={place.name}
             className={cn(
-              "flex flex-col items-center gap-3 rounded-[4px] border bg-ink px-4 py-6 text-center",
-              place.role ? "border-accent" : "border-ink-3",
+              "flex flex-col items-center gap-3 rounded-[4px] border bg-white px-4 py-6 text-center",
+              place.role ? "border-accent" : "border-paper-border",
             )}
           >
             <span
               aria-hidden
               className={cn(
                 "size-3 rounded-full",
-                place.role ? "bg-accent ring-4 ring-accent/25" : "bg-ink-muted",
+                place.role ? "bg-accent ring-4 ring-accent/25" : "bg-paper-muted/50",
               )}
             />
             <span
-              className={cn("font-semibold", place.role ? "text-lg" : "text-ink-foreground/85")}
+              className={cn("font-semibold", place.role ? "text-lg" : "text-paper-foreground/85")}
             >
               {place.name}
             </span>
-            {place.role && <span className="label-mono text-sand">{place.role}</span>}
+            {place.role && <span className="label-mono text-accent-deep">{place.role}</span>}
           </li>
         ))}
       </ol>
@@ -55,7 +55,7 @@ export function ThreePlWhyYuma() {
   return (
     <section
       aria-labelledby="threepl-yuma-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative isolate overflow-hidden bg-white text-paper-foreground border-t border-paper-border"
     >
       <div aria-hidden className="column-rules -z-10 opacity-60" />
       <div className="container-wdf grid items-center gap-14 pb-20 pt-20 md:pb-24 md:pt-24 lg:grid-cols-12 lg:gap-8">
@@ -65,7 +65,7 @@ export function ThreePlWhyYuma() {
             <span id="threepl-yuma-title">{w.eyebrow}</span>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-5 max-w-xl text-balance text-xl font-semibold text-accent md:text-2xl">
+            <p className="mt-5 max-w-xl text-balance text-xl font-semibold text-accent-deep md:text-2xl">
               {w.title}
             </p>
           </Reveal>
@@ -75,7 +75,7 @@ export function ThreePlWhyYuma() {
                 key={paragraph}
                 className={cn(
                   "leading-relaxed",
-                  i ? "text-lg text-ink-muted" : "text-xl text-ink-foreground",
+                  i ? "text-lg text-paper-muted" : "text-xl text-paper-foreground",
                 )}
               >
                 {paragraph}

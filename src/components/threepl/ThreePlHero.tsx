@@ -11,7 +11,7 @@ import { AnchorIcon, CubeIcon, GlobeIcon } from "./icons";
 function emphasize(text: string): ReactNode[] {
   return text.split("**").map((part, i) =>
     i % 2 ? (
-      <strong key={i} className="font-semibold text-ink-foreground">
+      <strong key={i} className="font-semibold text-paper-foreground">
         {part}
       </strong>
     ) : (
@@ -26,7 +26,7 @@ const dash = (color: string, on: number, off: number) =>
 // Legend keys, in message order: the flow (where freight starts, the border, where it lands),
 // then the map's line styles (the Mexicali–Yuma link, dotted trade lanes, seaport anchors).
 const FLOW_KEYS: ReactNode[] = [
-  <GlobeIcon key="globe" className="size-5 text-ink-foreground" />,
+  <GlobeIcon key="globe" className="size-5 text-paper-foreground" />,
   <span
     key="border"
     className="block h-0.5 w-6"
@@ -54,8 +54,8 @@ function LegendItem({ icon, term, text }: { icon: ReactNode; term: string; text:
       <span aria-hidden className="grid h-5 w-6 shrink-0 place-items-center">
         {icon}
       </span>
-      <span className="text-ink-muted">
-        <strong className="font-semibold text-ink-foreground">{term}</strong> — {text}
+      <span className="text-paper-muted">
+        <strong className="font-semibold text-paper-foreground">{term}</strong> — {text}
       </span>
     </li>
   );
@@ -77,7 +77,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
       <section
         aria-labelledby="threepl-title"
         className={cn(
-          "relative isolate flex flex-col overflow-hidden bg-ink text-ink-foreground",
+          "relative isolate flex flex-col overflow-hidden bg-paper text-paper-foreground border-t border-paper-border",
           !embedded && "min-h-[100svh]",
         )}
       >
@@ -89,7 +89,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
           )}
         >
           <p
-            className="label-mono fade-up text-accent md:text-right"
+            className="label-mono fade-up text-accent-deep md:text-right"
             style={{ "--d": "50ms" } as CSSProperties}
           >
             {h.eyebrow}
@@ -107,7 +107,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
             ))}
           </Title>
           <p
-            className="fade-up mx-auto mt-10 max-w-4xl text-[1.0625rem] leading-relaxed text-ink-muted md:text-center md:text-xl"
+            className="fade-up mx-auto mt-10 max-w-4xl text-[1.0625rem] leading-relaxed text-paper-muted md:text-center md:text-xl"
             style={{ "--d": "600ms" } as CSSProperties}
           >
             {emphasize(h.body)}
@@ -116,7 +116,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
         {!embedded && (
           <span
             aria-hidden
-            className="fade-up absolute inset-x-0 bottom-8 mx-auto flex w-max flex-col items-center gap-2 text-ink-muted"
+            className="fade-up absolute inset-x-0 bottom-8 mx-auto flex w-max flex-col items-center gap-2 text-paper-muted"
             style={{ "--d": "1100ms" } as CSSProperties}
           >
             <span className="block h-10 w-px bg-gradient-to-b from-transparent to-accent" />
@@ -125,17 +125,17 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
         )}
       </section>
 
-      <section className="relative isolate overflow-hidden bg-ink text-ink-foreground">
+      <section className="relative isolate overflow-hidden bg-paper text-paper-foreground">
         <div aria-hidden className="column-rules -z-10" />
         <div className="container-wdf grid gap-10 pb-20 pt-4 md:pb-24 lg:grid-cols-12 lg:gap-10">
           <Reveal className="lg:col-span-4">
-            <div className="rounded-sm border border-ink-border bg-ink-2/60 p-6">
+            <div className="rounded-sm border border-paper-border bg-white p-6">
               <ul className="flex flex-col gap-5">
                 {h.legend.flow.map((item, i) => (
                   <LegendItem key={item.term} icon={FLOW_KEYS[i]} {...item} />
                 ))}
               </ul>
-              <div className="my-6 h-px bg-ink-border" />
+              <div className="my-6 h-px bg-paper-border" />
               <ul className="flex flex-col gap-5">
                 {h.legend.lines.map((item, i) => (
                   <LegendItem key={item.term} icon={LINE_KEYS[i]} {...item} />
@@ -145,8 +145,8 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
 
             <dl className="mt-8 grid grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] gap-4 px-1 text-[0.95rem]">
               <div>
-                <dt className="label-mono text-accent">{h.places.mexicali}</dt>
-                <dd className="mt-3 leading-relaxed text-ink-foreground/90">
+                <dt className="label-mono text-accent-deep">{h.places.mexicali}</dt>
+                <dd className="mt-3 leading-relaxed text-paper-foreground/90">
                   {THREEPL_LOCATIONS.mexicali.address.map((line) => (
                     <span key={line} className="block">
                       {line}
@@ -155,8 +155,8 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
                 </dd>
               </div>
               <div>
-                <dt className="label-mono text-accent">{h.places.yuma}</dt>
-                <dd className="mt-3 leading-relaxed text-ink-foreground/90">
+                <dt className="label-mono text-accent-deep">{h.places.yuma}</dt>
+                <dd className="mt-3 leading-relaxed text-paper-foreground/90">
                   {THREEPL_LOCATIONS.yuma.address.map((line) => (
                     <span key={line} className="block">
                       {line}
@@ -186,7 +186,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
 
           <Reveal delay={150} className="min-w-0 lg:col-span-8">
             {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
-            <div className="overflow-x-auto rounded-md border border-ink-border">
+            <div className="overflow-x-auto rounded-md border border-ink-3 bg-ink">
               <div className="min-w-[640px]">
                 <BorderMap copy={h.map} />
               </div>
@@ -198,21 +198,23 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
                   <span
                     className={cn(
                       "label-mono inline-flex items-center gap-2 rounded-sm border px-3 py-2.5 text-[0.62rem] tracking-[0.14em]",
-                      i % 2 ? "border-accent text-accent" : "border-ink-border text-ink-foreground",
+                      i % 2
+                        ? "border-accent text-accent-deep"
+                        : "border-paper-border bg-white text-paper-foreground",
                     )}
                   >
                     {i === 0 && <GlobeIcon className="size-4" />}
                     {step}
                   </span>
                   {i < h.flow.length - 1 && (
-                    <span aria-hidden className="text-ink-muted">
+                    <span aria-hidden className="text-paper-muted">
                       →
                     </span>
                   )}
                 </li>
               ))}
             </ol>
-            <p className="mt-5 text-sm leading-relaxed text-ink-muted">{h.note}</p>
+            <p className="mt-5 text-sm leading-relaxed text-paper-muted">{h.note}</p>
           </Reveal>
         </div>
       </section>
