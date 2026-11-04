@@ -96,7 +96,11 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
           </p>
           <Title
             id="threepl-title"
-            className="display mt-6 text-balance text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold md:text-center"
+            className={cn(
+              "display mt-6 text-balance font-semibold md:text-center",
+              // On Home, the same size as the page's other section titles.
+              embedded ? "text-[clamp(1.75rem,3vw,2.5rem)]" : "text-[clamp(2.6rem,6.2vw,5.6rem)]",
+            )}
           >
             {h.title.map((line, i) => (
               <span key={line} className="rise-line">

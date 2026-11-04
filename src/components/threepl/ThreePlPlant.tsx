@@ -24,7 +24,11 @@ export function ThreePlPlant({ merged = false }: { merged?: boolean }) {
       <div className={cn("container-wdf pb-24 md:pb-32", merged ? "pt-8" : "pt-12 md:pt-16")}>
         <Reveal
           as="h2"
-          className="display mx-auto max-w-4xl text-balance text-center text-[clamp(1.875rem,3.2vw,2.875rem)] lg:max-w-none lg:whitespace-nowrap"
+          className={cn(
+            "display mx-auto max-w-4xl text-balance text-center lg:max-w-none lg:whitespace-nowrap",
+            // On Home, the same size as the page's other section titles.
+            merged ? "text-[clamp(1.75rem,3vw,2.5rem)]" : "text-[clamp(1.875rem,3.2vw,2.875rem)]",
+          )}
         >
           <span id="threepl-plant-title">
             <span className="text-accent-deep">{p.title[0]}</span> {p.title[1]}
