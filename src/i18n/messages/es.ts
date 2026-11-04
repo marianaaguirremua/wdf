@@ -500,6 +500,7 @@ const es: Messages = {
     },
   },
   energy: {
+    clients: "Empresas con las que hemos trabajado",
     hero: {
       eyebrow: "Energía · WDF",
       title: ["Infraestructura para", "lo que viene."],

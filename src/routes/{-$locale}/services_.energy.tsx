@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { ENERGY_CONTACT } from "@/lib/site";
+import { CLIENT_LOGOS, ENERGY_CONTACT } from "@/lib/site";
 import { LightDivisionPage } from "@/components/division/LightDivisionPage";
 import { Bolt } from "@/components/energy/Bolt";
 
@@ -27,6 +27,7 @@ function Page() {
       layout="energy"
       linked={["technology", "manufacturing"]}
       contact={ENERGY_CONTACT}
+      clients={{ label: t.energy.clients, logos: CLIENT_LOGOS }}
     />
   );
 }

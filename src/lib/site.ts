@@ -282,11 +282,11 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
 export type ClientLogo = { name: string; src: string; width: number; height: number; size: string };
 
 /**
- * Companies the Technology division has worked with, as WDF provided them (Nov 2026). Logos are
+ * Companies WDF has worked with, as WDF provided them (Nov 2026), shown on Technology and Energy. Logos are
  * the companies' own marks (backgrounds made transparent), shown at one optical height. Up to
  * eight fit on one row on desktop; add new files under /public/clients/.
  */
-export const TECHNOLOGY_CLIENTS: readonly ClientLogo[] = [
+export const CLIENT_LOGOS: readonly ClientLogo[] = [
   { name: "Siemens", src: "/clients/siemens.png", width: 468, height: 76, size: "1.15rem" },
   {
     name: "Allen-Bradley",

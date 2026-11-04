@@ -495,6 +495,7 @@ const en = {
     },
   },
   energy: {
+    clients: "Companies we have worked with",
     hero: {
       eyebrow: "Energy · WDF",
       title: ["Infrastructure for", "what comes next."],

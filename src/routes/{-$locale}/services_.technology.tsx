@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { getMessages, resolveLocale, useI18n } from "@/i18n";
 import { pageHead } from "@/lib/seo";
-import { TECHNOLOGY_CLIENTS, TECHNOLOGY_CONTACT } from "@/lib/site";
+import { CLIENT_LOGOS, TECHNOLOGY_CONTACT } from "@/lib/site";
 import { LightDivisionPage } from "@/components/division/LightDivisionPage";
 import { Chip } from "@/components/technology/Chip";
 
@@ -27,7 +27,7 @@ function Page() {
       layout="technology"
       linked={["manufacturing", "energy"]}
       contact={TECHNOLOGY_CONTACT}
-      clients={{ label: t.technology.clients, logos: TECHNOLOGY_CLIENTS }}
+      clients={{ label: t.technology.clients, logos: CLIENT_LOGOS }}
     />
   );
 }
