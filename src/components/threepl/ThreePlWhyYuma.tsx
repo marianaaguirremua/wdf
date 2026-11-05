@@ -75,8 +75,8 @@ const MOUNTAINS = { src: "/media/yuma/mountains.webp", width: 2000, height: 1333
 
 /**
  * Opens the Yuma page: "Why Yuma, Arizona?" (its h1) and the location line over a photo of the
- * Yuma-area mountains, the body text in a light box so it stays readable, the California — Yuma
- * — Mexicali strip beside it. The Yuma photos follow the map (YumaPhotos).
+ * Yuma-area mountains, the California — Yuma — Mexicali strip under the subtitle, and the body
+ * text in a light box below it so it stays readable; all centred. The Yuma photos follow the map (YumaPhotos).
  */
 export function ThreePlWhyYuma() {
   const { t } = useI18n();
@@ -114,30 +114,25 @@ export function ThreePlWhyYuma() {
             </p>
           </Reveal>
         </div>
-        <div className="mt-10 grid items-center gap-10 md:mt-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-7">
-            <Reveal delay={160}>
-              <div className="flex flex-col gap-4 rounded-md bg-white/90 p-6 shadow-[0_10px_30px_-12px_rgb(12_24_40/0.25)] backdrop-blur-sm md:p-7">
-                {w.body.map((paragraph, i) => (
-                  <p
-                    key={paragraph}
-                    className={cn(
-                      "leading-relaxed",
-                      i
-                        ? "text-paper-muted md:text-lg"
-                        : "text-lg text-paper-foreground md:text-xl",
-                    )}
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
-            </Reveal>
+        {/* The three places under the subtitle, then the text box; both centred. */}
+        <Reveal delay={160} className="mx-auto mt-10 max-w-3xl md:mt-12">
+          <RegionStrip />
+        </Reveal>
+        <Reveal delay={200} className="mx-auto mt-10 max-w-3xl md:mt-12">
+          <div className="flex flex-col gap-4 rounded-md bg-white/90 p-6 text-center shadow-[0_10px_30px_-12px_rgb(12_24_40/0.25)] backdrop-blur-sm md:p-8">
+            {w.body.map((paragraph, i) => (
+              <p
+                key={paragraph}
+                className={cn(
+                  "leading-relaxed",
+                  i ? "text-paper-muted md:text-lg" : "text-lg text-paper-foreground md:text-xl",
+                )}
+              >
+                {paragraph}
+              </p>
+            ))}
           </div>
-          <Reveal delay={200} className="lg:col-span-5">
-            <RegionStrip />
-          </Reveal>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
