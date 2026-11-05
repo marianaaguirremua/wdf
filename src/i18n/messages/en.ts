@@ -422,7 +422,7 @@ const en = {
       primary: "Tell us what you want to build",
     },
     capabilities: {
-      eyebrow: "01 · Logistics services",
+      eyebrow: "Logistics services",
       crossTag: "MX ⇄ US",
       title: "A scope configured for your project.",
       body: "Third-party logistics services built around your product, volume and delivery commitment, for recurring operations, seasonal capacity or a specific project. Resources and service levels are agreed in writing.",
@@ -454,7 +454,7 @@ const en = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Deliverables & responsibilities",
+      eyebrow: "Deliverables & responsibilities",
       title: "Capability becomes a defined package.",
       items: [
         "Flow map & operating profile",
@@ -465,7 +465,7 @@ const en = {
       note: "Indicators are defined with you in the SLA, such as inventory accuracy, on-time delivery, receiving time and exceptions. Facilities, space, insurance, IMMEX holder, customs regime, employer and third-party services are verified and documented per project.",
     },
     process: {
-      eyebrow: "03 · How we work",
+      eyebrow: "How we work",
       title: "A clear path. From scope to delivery.",
       body: "The schedule depends on facilities, authorizations, resources and your approvals.",
       steps: [
@@ -479,7 +479,7 @@ const en = {
       ],
     },
     connect: {
-      eyebrow: "04 · Connect capabilities",
+      eyebrow: "Connect capabilities",
       title: "This pillar works with the others.",
       body: "Logistics is one of WDF's service areas. When your project also needs engineering, electrical infrastructure, automation or manufacturing, we coordinate those divisions around the same plan, each with its own scope.",
       video: {
@@ -489,7 +489,7 @@ const en = {
       },
     },
     cta: {
-      eyebrow: "05 · Your next project",
+      eyebrow: "Your next project",
       title: "What do you need to move, store or connect?",
       body: "Tell us what needs to move, where it needs to be and when it needs to arrive: product and flow, volume and frequency, and the operating model to assess, whether 3PL, border crossing, staffing, IMMEX or shelter.",
       note: "Project-based solutions. Availability, authorizations, responsibilities, terms and scope are subject to validation and contract.",

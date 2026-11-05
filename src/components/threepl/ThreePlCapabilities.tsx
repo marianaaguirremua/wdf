@@ -1,8 +1,14 @@
-import { useI18n } from "@/i18n";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
+import { useI18n } from "@/i18n";
+import { PAGE_PHOTOS } from "@/lib/site";
 import { CrossTag } from "./CrossTag";
+import { SectionHeader } from "./SectionHeader";
 
-/** Opens the 3PL page: its title is the page's h1, below the fixed header. */
+/**
+ * Opens the 3PL page: "Logistics services" (the page's h1, below the fixed header) with a photo
+ * beside it, then one card with a photo per service.
+ */
 export function ThreePlCapabilities() {
   const { t } = useI18n();
   const c = t.threepl.capabilities;
@@ -12,51 +18,60 @@ export function ThreePlCapabilities() {
       aria-labelledby="threepl-capabilities-title"
       className="relative bg-paper text-paper-foreground"
     >
-      <div className="container-wdf pb-24 pt-[calc(var(--header-h)+4rem)] md:pb-36 md:pt-[calc(var(--header-h)+6rem)]">
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono inline-flex items-center gap-3 text-accent-deep">
-              <span aria-hidden className="h-0.5 w-8 bg-accent" />
-              {c.eyebrow}
-            </p>
+      <div className="container-wdf pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+4rem)]">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
+          <SectionHeader
+            as="h1"
+            id="threepl-capabilities-title"
+            title={c.eyebrow}
+            subtitle={c.title}
+            body={c.body}
+            className="lg:col-span-6"
+          />
+          <Reveal delay={160} className="relative lg:col-span-6">
+            <span
+              aria-hidden
+              className="absolute -bottom-3 -left-3 h-1/2 w-1/2 rounded-md bg-accent"
+            />
+            <PhotoSlot
+              photo={PAGE_PHOTOS["threepl-hero"]}
+              eager
+              className="relative aspect-[5/4] rounded-md"
+            />
           </Reveal>
-          <div className="lg:col-span-9">
-            <Reveal as="h1" delay={80} className="display text-[clamp(2.25rem,5vw,4.25rem)]">
-              <span id="threepl-capabilities-title">{c.title}</span>
-            </Reveal>
-            <Reveal delay={160}>
-              <p className="mt-8 max-w-2xl text-lg leading-relaxed text-paper-muted md:text-[1.25rem]">
-                {c.body}
-              </p>
-            </Reveal>
-          </div>
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-sm border border-paper-foreground/10 bg-paper-foreground/10 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-5 md:mt-20 md:grid-cols-2 lg:grid-cols-3">
           {c.items.map((item, i) => (
             <Reveal
               as="article"
               key={item.title}
               delay={(i % 3) * 70}
-              className="group relative flex flex-col bg-white p-7 md:p-8"
+              className="group flex flex-col overflow-hidden rounded-md border border-paper-border bg-white"
             >
-              <span
-                aria-hidden
-                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-accent transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:scale-x-100"
+              <PhotoSlot
+                photo={PAGE_PHOTOS[`threepl-capability-${i + 1}`]}
+                className="aspect-[4/3]"
+                imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
               />
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <span className="label-mono text-accent-deep">0{i + 1} / WDF 3PL</span>
+              <div className="flex flex-1 flex-col p-6 md:p-7">
                 {/* Customs documentation & crossing is the cross-border service. */}
-                {i === 3 && <CrossTag label={c.crossTag} />}
+                {i === 3 && (
+                  <span className="self-start">
+                    <CrossTag label={c.crossTag} />
+                  </span>
+                )}
+                {/* Anchor for links from the Services page (#threepl-capability-1, …). */}
+                <h3
+                  id={`threepl-capability-${i + 1}`}
+                  className="heading mt-3 scroll-mt-[calc(var(--header-h)+6rem)] text-xl first:mt-0 md:text-[1.375rem]"
+                >
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-[0.9375rem] leading-relaxed text-paper-muted">
+                  {item.body}
+                </p>
               </div>
-              {/* Anchor for links from the Services page (#threepl-capability-1, …). */}
-              <h3
-                id={`threepl-capability-${i + 1}`}
-                className="mt-6 scroll-mt-[calc(var(--header-h)+6rem)] text-[1.6rem] font-semibold leading-tight tracking-[-0.02em]"
-              >
-                {item.title}
-              </h3>
-              <p className="mt-4 leading-relaxed text-paper-muted">{item.body}</p>
             </Reveal>
           ))}
         </div>

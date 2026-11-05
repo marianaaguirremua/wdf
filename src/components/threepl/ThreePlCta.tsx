@@ -12,48 +12,38 @@ export function ThreePlCta() {
     <section
       id="threepl-contact"
       aria-labelledby="threepl-cta-title"
-      className="relative isolate scroll-mt-[var(--header-h)] overflow-hidden bg-ink-2 text-ink-foreground"
+      className="relative isolate scroll-mt-[var(--header-h)] overflow-hidden bg-accent text-ink"
     >
-      <div className="container-wdf grid gap-12 py-24 md:py-36 lg:grid-cols-12 lg:gap-8">
-        <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-          <p className="label-mono inline-flex items-center gap-3 text-sand">
-            <span aria-hidden className="h-0.5 w-8 bg-accent" />
-            {c.eyebrow}
+      <div className="container-wdf py-20 md:py-24">
+        <Reveal as="h2" className="heading text-[clamp(1.75rem,3vw,2.5rem)]">
+          <span id="threepl-cta-title">{c.eyebrow}</span>
+        </Reveal>
+        <Reveal delay={80}>
+          <p className="mt-4 max-w-3xl text-balance text-xl font-semibold text-ink/85 md:text-2xl">
+            {c.title}
           </p>
         </Reveal>
-        <div className="lg:col-span-9">
-          <Reveal
-            as="h2"
-            delay={80}
-            className="display max-w-4xl text-[clamp(2.25rem,5.4vw,4.75rem)]"
-          >
-            <span id="threepl-cta-title">{c.title}</span>
-          </Reveal>
-          <Reveal
-            delay={160}
-            className="mt-10 grid gap-10 border-t border-ink-border pt-10 md:grid-cols-9"
-          >
-            <div className="md:col-span-5">
-              <p className="text-lg leading-relaxed text-ink-muted">{c.body}</p>
-              <p className="mt-4 text-sm leading-relaxed text-ink-muted/80">{c.note}</p>
-              <DirectContact
-                label={c.contact}
-                contact={THREEPL_CONTACT}
-                tone="sand"
-                className="mt-8"
-              />
-            </div>
-            <div className="flex flex-col gap-3 md:col-span-4">
-              <ButtonLink
-                to="/{-$locale}/contact"
-                params={{ locale: localeParam(locale) }}
-                variant="accent"
-              >
-                {c.primary}
-              </ButtonLink>
-            </div>
-          </Reveal>
-        </div>
+        <Reveal delay={160} className="mt-8 grid gap-10 border-t border-ink/20 pt-8 md:grid-cols-9">
+          <div className="md:col-span-5">
+            <p className="text-lg leading-relaxed text-ink/80">{c.body}</p>
+            <p className="mt-4 text-sm leading-relaxed text-ink/70">{c.note}</p>
+            <DirectContact
+              label={c.contact}
+              contact={THREEPL_CONTACT}
+              tone="accent"
+              className="mt-8"
+            />
+          </div>
+          <div className="flex flex-col gap-3 md:col-span-4">
+            <ButtonLink
+              to="/{-$locale}/contact"
+              params={{ locale: localeParam(locale) }}
+              variant="ink"
+            >
+              {c.primary}
+            </ButtonLink>
+          </div>
+        </Reveal>
       </div>
     </section>
   );

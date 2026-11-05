@@ -180,6 +180,8 @@ export type Photo = { src: string; width: number; height: number; position?: str
  * - Energy: "energy-hero", "energy-capability-1" … "energy-capability-6", "energy-deliverables"
  * - Technology: "technology-hero", "technology-capability-1" … "technology-capability-6",
  *   "technology-deliverables"
+ * - 3PL: "threepl-hero", "threepl-capability-1" … "threepl-capability-6", "threepl-deliverables",
+ *   "threepl-process-1" … "threepl-process-4"
  */
 export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
   // Supplied by the WDF team (Nov 2026). `position` keeps the subject in frame at every size.
@@ -262,6 +264,9 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 1273,
     position: "50% 45%",
   },
+  // 3PL: the warehouse photo from the 3PL division card until WDF supplies 3PL photos. Empty
+  // frames: "threepl-capability-1" … "-6", "threepl-deliverables", "threepl-process-1" … "-4".
+  "threepl-hero": { src: "/media/divisions/threepl.webp", width: 960, height: 720 },
 };
 
 /** A logo for the "companies we have worked with" strip; `size` is its rendered height. */

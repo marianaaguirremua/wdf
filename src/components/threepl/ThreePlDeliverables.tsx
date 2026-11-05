@@ -1,6 +1,10 @@
-import { useI18n } from "@/i18n";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
+import { useI18n } from "@/i18n";
+import { PAGE_PHOTOS } from "@/lib/site";
+import { SectionHeader } from "./SectionHeader";
 
+// "Deliverables & responsibilities": a photo beside the four deliverables, then the note.
 export function ThreePlDeliverables() {
   const { t } = useI18n();
   const d = t.threepl.deliverables;
@@ -8,45 +12,38 @@ export function ThreePlDeliverables() {
   return (
     <section
       aria-labelledby="threepl-deliverables-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative bg-white text-paper-foreground"
     >
-      <div aria-hidden className="column-rules -z-10 opacity-60" />
-      <div className="container-wdf py-24 md:py-36">
-        <div className="grid gap-6 lg:grid-cols-12 lg:gap-8">
-          <Reveal className="flex items-start gap-4 lg:col-span-3 lg:flex-col">
-            <p className="label-mono inline-flex items-center gap-3 text-accent">
-              <span aria-hidden className="h-0.5 w-8 bg-accent" />
-              {d.eyebrow}
-            </p>
-          </Reveal>
-          <Reveal
-            as="h2"
-            delay={80}
-            className="display max-w-4xl text-[clamp(2.25rem,5vw,4.25rem)] lg:col-span-9"
-          >
-            <span id="threepl-deliverables-title">{d.title}</span>
-          </Reveal>
-        </div>
+      <div className="container-wdf py-20 md:py-24">
+        <SectionHeader id="threepl-deliverables-title" title={d.eyebrow} subtitle={d.title} />
 
-        <div className="lg:ml-[25%]">
-          <ol className="mt-16 border-t border-ink-border md:mt-20">
-            {d.items.map((item, i) => (
-              <Reveal
-                as="li"
-                key={item}
-                delay={60}
-                className="group flex items-baseline gap-6 border-b border-ink-border py-7 md:gap-10"
-              >
-                <span className="label-mono text-sand">0{i + 1}</span>
-                <span className="text-[1.5rem] font-semibold leading-tight tracking-[-0.02em] md:text-[1.75rem]">
-                  {item}
-                </span>
-              </Reveal>
-            ))}
-          </ol>
-          <Reveal delay={120}>
-            <p className="mt-8 max-w-3xl text-sm leading-relaxed text-ink-muted">{d.note}</p>
+        <div className="mt-12 grid items-center gap-10 md:mt-14 lg:grid-cols-12 lg:gap-14">
+          <Reveal className="lg:col-span-5">
+            <PhotoSlot
+              photo={PAGE_PHOTOS["threepl-deliverables"]}
+              className="aspect-[4/3] rounded-md lg:aspect-[4/5]"
+            />
           </Reveal>
+          <div className="lg:col-span-7">
+            <ol className="border-t border-paper-border">
+              {d.items.map((item, i) => (
+                <Reveal
+                  as="li"
+                  key={item}
+                  delay={60}
+                  className="flex items-center gap-5 border-b border-paper-border py-6 md:gap-8 md:py-7"
+                >
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-accent-soft text-sm font-semibold text-accent-deep">
+                    {i + 1}
+                  </span>
+                  <span className="heading text-xl md:text-2xl">{item}</span>
+                </Reveal>
+              ))}
+            </ol>
+            <Reveal delay={120}>
+              <p className="mt-6 text-sm leading-relaxed text-paper-muted">{d.note}</p>
+            </Reveal>
+          </div>
         </div>
       </div>
     </section>

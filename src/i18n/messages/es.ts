@@ -423,7 +423,7 @@ const es: Messages = {
       primary: "Cuéntenos qué quiere construir",
     },
     capabilities: {
-      eyebrow: "01 · Servicios logísticos",
+      eyebrow: "Servicios logísticos",
       crossTag: "MX ⇄ US",
       title: "Un alcance que se configura para su proyecto.",
       body: "Servicios de logística de terceros diseñados en torno a su producto, volumen y compromiso de entrega, para una operación recurrente, capacidad por temporada o un proyecto específico. Los recursos y niveles de servicio se acuerdan por escrito.",
@@ -455,7 +455,7 @@ const es: Messages = {
       ],
     },
     deliverables: {
-      eyebrow: "02 · Entregables y responsabilidades",
+      eyebrow: "Entregables y responsabilidades",
       title: "La capacidad se convierte en un paquete definido.",
       items: [
         "Mapa de flujo y ficha operativa",
@@ -466,7 +466,7 @@ const es: Messages = {
       note: "Los indicadores se definen con usted en el SLA, como exactitud de inventario, entregas a tiempo, tiempo de recepción y excepciones. Instalaciones, espacio, seguros, titular IMMEX, régimen aduanero, patrón y servicios de terceros se validan y documentan por proyecto.",
     },
     process: {
-      eyebrow: "03 · Cómo trabajamos",
+      eyebrow: "Cómo trabajamos",
       title: "Una ruta clara. De principio a entrega.",
       body: "El calendario depende de las instalaciones, autorizaciones, recursos y sus aprobaciones.",
       steps: [
@@ -486,7 +486,7 @@ const es: Messages = {
       ],
     },
     connect: {
-      eyebrow: "04 · Conecte capacidades",
+      eyebrow: "Conecte capacidades",
       title: "Este pilar trabaja con los demás.",
       body: "La logística es una de las áreas de servicio de WDF. Cuando su proyecto también requiere ingeniería, infraestructura eléctrica, automatización o manufactura, coordinamos esas divisiones en torno a un mismo plan, cada una con su propio alcance.",
       video: {
@@ -497,7 +497,7 @@ const es: Messages = {
       },
     },
     cta: {
-      eyebrow: "05 · Su siguiente proyecto",
+      eyebrow: "Su siguiente proyecto",
       title: "¿Qué necesita mover, guardar o conectar?",
       body: "Cuéntenos qué necesita mover, a dónde debe llegar y cuándo: producto y flujo, volumen y frecuencia, y el modelo operativo a evaluar, ya sea 3PL, cruce fronterizo, personal, IMMEX o shelter.",
       note: "Soluciones por proyecto. Disponibilidad, autorizaciones, responsabilidades, términos y alcance sujetos a validación y contrato.",
