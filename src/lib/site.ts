@@ -264,9 +264,26 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 1273,
     position: "50% 45%",
   },
-  // 3PL: the warehouse photo from the 3PL division card until WDF supplies 3PL photos. Empty
-  // frames: "threepl-capability-1" … "-6", "threepl-deliverables", "threepl-process-1" … "-4".
+  // 3PL: the hero reuses the warehouse photo from the 3PL division card. Still empty:
+  // "threepl-capability-6", "threepl-deliverables", "threepl-process-1" … "-4".
   "threepl-hero": { src: "/media/divisions/threepl.webp", width: 960, height: 720 },
+  // Supplied by the WDF team (Nov 2026), in service order.
+  "threepl-capability-1": { src: "/media/3pl/warehousing.webp", width: 1200, height: 800 },
+  "threepl-capability-2": { src: "/media/3pl/handling.webp", width: 1200, height: 800 },
+  "threepl-capability-3": {
+    src: "/media/3pl/distribution.webp",
+    width: 900,
+    height: 1349,
+    position: "50% 60%",
+  },
+  // Cropped to the two flags.
+  "threepl-capability-4": {
+    src: "/media/3pl/crossing.webp",
+    width: 1600,
+    height: 656,
+    position: "15% 50%",
+  },
+  "threepl-capability-5": { src: "/media/3pl/shelter.webp", width: 1200, height: 900 },
 };
 
 /** A logo for the "companies we have worked with" strip; `size` is its rendered height. */
@@ -328,11 +345,11 @@ export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
     [1, 2, 3, 4, 5, 6].flatMap((i) => [
       [`energy-${i}`, PAGE_PHOTOS[`energy-capability-${i}`]],
       [`technology-${i}`, PAGE_PHOTOS[`technology-capability-${i}`]],
+      [`threepl-${i}`, PAGE_PHOTOS[`threepl-capability-${i}`]],
     ]),
   ),
   // Its division-page photo is the 3D printer, already on the 3D Printing card beside it.
   "technology-1": PAGE_PHOTOS["technology-hero"],
-  "threepl-1": { src: "/media/divisions/threepl.webp", width: 960, height: 720 }, // warehouse racks
 };
 
 /** The Yuma page's photo row, in order (under "Why Yuma, Arizona?"). */
