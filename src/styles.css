@@ -183,6 +183,18 @@
   --sand: #d9c4a0;
 }
 
+/* Light version of the 3PL border map (Yuma page). BorderMap draws with the ink variables, so
+   redefining them here recolours it: water and labels' cards a pale blue, the U.S. near white,
+   Mexico a light grey, dark text, and a deeper sand for the border line. */
+.map-light {
+  --ink: #e2ebf1;
+  --ink-2: #f7f9fa;
+  --ink-3: #e3e8eb;
+  --ink-muted: #66778a;
+  --ink-foreground: #0c1828;
+  --sand: #a8823f;
+}
+
 /* Architectural column rules behind sections: 4 columns on mobile, 12 on desktop. */
 .column-rules {
   position: absolute;

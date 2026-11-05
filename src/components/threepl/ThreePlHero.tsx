@@ -205,8 +205,9 @@ export function ThreePlMap() {
         </Reveal>
 
         <Reveal delay={150} className="min-w-0 lg:col-span-8">
-          {/* The map keeps a readable size on phones and scrolls sideways inside its frame. */}
-          <div className="overflow-x-auto rounded-md border border-ink-3 bg-ink">
+          {/* The map keeps a readable size on phones and scrolls sideways inside its frame.
+              .map-light recolours it (its colours are CSS variables) without changing BorderMap. */}
+          <div className="map-light overflow-x-auto rounded-md border border-paper-border bg-ink">
             <div className="min-w-[640px]">
               <BorderMap copy={h.map} />
             </div>
