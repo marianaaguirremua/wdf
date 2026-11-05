@@ -1,16 +1,38 @@
 import { useI18n } from "@/i18n";
 import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
+import { MxFlag, UsFlag } from "./icons";
+
+/** The country flag above each place name. */
+function Flag({ country }: { country: "us" | "mx" }) {
+  return country === "us" ? (
+    <svg
+      viewBox="0 0 19 10"
+      aria-hidden
+      className="h-4 w-auto shrink-0 shadow-[0_0_0_1px_rgb(12_24_40/0.12)]"
+    >
+      <UsFlag x={0} y={0} w={19} />
+    </svg>
+  ) : (
+    <svg
+      viewBox="0 0 7 4"
+      aria-hidden
+      className="h-4 w-auto shrink-0 shadow-[0_0_0_1px_rgb(12_24_40/0.12)]"
+    >
+      <MxFlag x={0} y={0} w={7} />
+    </svg>
+  );
+}
 
 /** California — Yuma — Mexicali, west to east across the region, with Yuma highlighted. */
 function RegionStrip() {
   const { t } = useI18n();
   const d = t.threepl.whyYuma.diagram;
   const places = [
-    { name: d.california, role: null },
-    { name: d.yuma, role: d.yumaRole },
-    { name: d.mexico, role: null },
-  ];
+    { name: d.california, role: null, country: "us" },
+    { name: d.yuma, role: d.yumaRole, country: "us" },
+    { name: d.mexico, role: null, country: "mx" },
+  ] as const;
 
   return (
     <div role="img" aria-label={d.label} className="relative">
@@ -35,6 +57,7 @@ function RegionStrip() {
                 place.role ? "bg-accent ring-4 ring-accent/25" : "bg-paper-muted/50",
               )}
             />
+            <Flag country={place.country} />
             <span
               className={cn("font-semibold", place.role ? "text-lg" : "text-paper-foreground/85")}
             >
