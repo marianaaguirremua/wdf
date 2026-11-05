@@ -1,8 +1,5 @@
 import { useI18n } from "@/i18n";
-import { LoopCarousel } from "@/components/site/LoopCarousel";
-import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
-import { YUMA_PHOTOS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 /** California — Yuma — Mexicali, west to east across the region, with Yuma highlighted. */
@@ -56,7 +53,7 @@ const MOUNTAINS = { src: "/media/yuma/mountains.webp", width: 2000, height: 1333
 /**
  * Opens the Yuma page: "Why Yuma, Arizona?" (its h1) and the location line over a photo of the
  * Yuma-area mountains, the body text in a light box so it stays readable, the California — Yuma
- * — Mexicali strip beside it, and the Yuma photos in the shared endless carousel below.
+ * — Mexicali strip beside it. The Yuma photos follow the map (YumaPhotos).
  */
 export function ThreePlWhyYuma() {
   const { t } = useI18n();
@@ -74,7 +71,7 @@ export function ThreePlWhyYuma() {
         height={MOUNTAINS.height}
         fetchPriority="high"
         decoding="async"
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_70%]"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_25%]"
       />
       {/* Paper behind the header and the title, fading into the photo. */}
       <div
@@ -82,7 +79,7 @@ export function ThreePlWhyYuma() {
         className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,var(--paper)_0%,color-mix(in_oklab,var(--paper)_70%,transparent)_22%,transparent_50%)]"
       />
 
-      <div className="container-wdf pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-20 md:pt-[calc(var(--header-h)+4rem)]">
+      <div className="container-wdf pb-24 pt-[calc(var(--header-h)+3rem)] md:pb-32 md:pt-[calc(var(--header-h)+4rem)]">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
             {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. */}
@@ -116,28 +113,6 @@ export function ThreePlWhyYuma() {
             <RegionStrip />
           </Reveal>
         </div>
-
-        <Reveal delay={240} className="mt-12 md:mt-16">
-          <LoopCarousel
-            id="yuma-photos"
-            items={YUMA_PHOTOS.map((photo) => ({
-              key: photo.src,
-              node: (
-                <PhotoSlot
-                  photo={photo}
-                  className="aspect-[4/3] rounded-md shadow-[0_20px_50px_-20px_rgb(12_24_40/0.5)]"
-                  imgClassName="pointer-events-none select-none"
-                />
-              ),
-            }))}
-            label={w.photos.region}
-            previous={w.photos.previous}
-            next={w.photos.next}
-            tileClassName="w-[85%] sm:w-[60%] lg:w-[calc((100%-3rem)/3)]"
-            thumbClassName="bg-accent"
-            captioned={false}
-          />
-        </Reveal>
       </div>
     </section>
   );
