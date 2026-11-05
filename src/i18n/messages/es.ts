@@ -383,6 +383,11 @@ const es: Messages = {
         "Yuma está en el suroeste de Arizona, junto a California en Estados Unidos y cerca de Baja California y Sonora en México. Acerca su negocio a clientes en EE. UU. y a recursos de manufactura transfronterizos.",
         "Desde Yuma, WDF le ayuda a evaluar cómo los proveedores regionales, la logística, los servicios técnicos y los requisitos de operación se ajustan a sus planes de expansión, para que tome decisiones informadas antes de comprometer recursos.",
       ],
+      photos: {
+        region: "Fotos de Yuma — desplácese horizontalmente",
+        previous: "Fotos anteriores",
+        next: "Fotos siguientes",
+      },
       diagram: {
         label: "Yuma, Arizona, se ubica entre California y Mexicali, Baja California, México.",
         california: "California, EE. UU.",

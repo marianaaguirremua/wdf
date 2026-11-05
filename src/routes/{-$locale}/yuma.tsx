@@ -20,7 +20,7 @@ export const Route = createFileRoute("/{-$locale}/yuma")({
 function Page() {
   return (
     <div className="accent-terracotta">
-      <ThreePlWhyYuma page />
+      <ThreePlWhyYuma />
       <ThreePlMap />
       <ThreePlExpansion />
       <ThreePlEstablish />

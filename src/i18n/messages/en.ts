@@ -386,6 +386,11 @@ const en = {
         "Yuma is in southwestern Arizona, next to California in the United States and close to Baja California and Sonora in Mexico. It brings your business closer to U.S. customers and to cross-border manufacturing resources.",
         "From Yuma, WDF helps you evaluate how regional suppliers, logistics, technical services, and operating requirements fit your expansion plans—so you can make informed decisions before committing resources.",
       ],
+      photos: {
+        region: "Yuma photos — scroll horizontally",
+        previous: "Previous photos",
+        next: "Next photos",
+      },
       diagram: {
         label: "Yuma, Arizona sits between California and Mexicali, Baja California, Mexico.",
         california: "California, USA",

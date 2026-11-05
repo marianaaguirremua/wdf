@@ -1,4 +1,5 @@
 import { useI18n } from "@/i18n";
+import { LoopCarousel } from "@/components/site/LoopCarousel";
 import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
 import { YUMA_PHOTOS } from "@/lib/site";
@@ -50,61 +51,93 @@ function RegionStrip() {
   );
 }
 
-/** `page`: opens the Yuma page — the title is its h1 and the section clears the fixed header. */
-export function ThreePlWhyYuma({ page = false }: { page?: boolean }) {
+const MOUNTAINS = { src: "/media/yuma/mountains.webp", width: 2000, height: 1333 };
+
+/**
+ * Opens the Yuma page: "Why Yuma, Arizona?" (its h1) and the location line over a photo of the
+ * Yuma-area mountains, the body text in a light box so it stays readable, the California — Yuma
+ * — Mexicali strip beside it, and the Yuma photos in the shared endless carousel below.
+ */
+export function ThreePlWhyYuma() {
   const { t } = useI18n();
   const w = t.threepl.whyYuma;
 
   return (
     <section
       aria-labelledby="threepl-yuma-title"
-      className="relative isolate overflow-hidden bg-white text-paper-foreground border-t border-paper-border"
+      className="relative isolate overflow-hidden bg-paper text-paper-foreground"
     >
-      <div aria-hidden className="column-rules -z-10 opacity-60" />
+      <img
+        src={MOUNTAINS.src}
+        alt=""
+        width={MOUNTAINS.width}
+        height={MOUNTAINS.height}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 -z-20 h-full w-full object-cover object-[center_70%]"
+      />
+      {/* Paper behind the header and the title, fading into the photo. */}
       <div
-        className={cn(
-          "container-wdf grid items-center gap-14 pb-20 md:pb-24 lg:grid-cols-12 lg:gap-8",
-          page
-            ? "pt-[calc(var(--header-h)+4rem)] md:pt-[calc(var(--header-h)+5rem)]"
-            : "pt-20 md:pt-24",
-        )}
-      >
-        <div className="lg:col-span-6">
-          {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. */}
-          <Reveal as={page ? "h1" : "h2"} className="display text-[clamp(2.25rem,4.4vw,4rem)]">
-            <span id="threepl-yuma-title">{w.eyebrow}</span>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-5 max-w-xl text-balance text-xl font-semibold text-accent-deep md:text-2xl">
-              {w.title}
-            </p>
-          </Reveal>
-          <Reveal delay={160} className="mt-8 flex flex-col gap-5">
-            {w.body.map((paragraph, i) => (
-              <p
-                key={paragraph}
-                className={cn(
-                  "leading-relaxed",
-                  i ? "text-lg text-paper-muted" : "text-xl text-paper-foreground",
-                )}
-              >
-                {paragraph}
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[linear-gradient(to_bottom,var(--paper)_0%,color-mix(in_oklab,var(--paper)_70%,transparent)_22%,transparent_50%)]"
+      />
+
+      <div className="container-wdf pb-16 pt-[calc(var(--header-h)+3rem)] md:pb-20 md:pt-[calc(var(--header-h)+4rem)]">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+          <div className="lg:col-span-7">
+            {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. */}
+            <Reveal as="h1" className="heading text-[clamp(2.25rem,4.2vw,3.5rem)]">
+              <span id="threepl-yuma-title">{w.eyebrow}</span>
+            </Reveal>
+            <Reveal delay={80}>
+              <p className="mt-4 max-w-xl text-balance text-xl font-semibold text-accent-deep md:text-2xl">
+                {w.title}
               </p>
-            ))}
+            </Reveal>
+            <Reveal delay={160} className="mt-8">
+              <div className="flex flex-col gap-4 rounded-md bg-white/90 p-6 shadow-[0_10px_30px_-12px_rgb(12_24_40/0.25)] backdrop-blur-sm md:p-7">
+                {w.body.map((paragraph, i) => (
+                  <p
+                    key={paragraph}
+                    className={cn(
+                      "leading-relaxed",
+                      i
+                        ? "text-paper-muted md:text-lg"
+                        : "text-lg text-paper-foreground md:text-xl",
+                    )}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+          <Reveal delay={200} className="lg:col-span-5">
+            <RegionStrip />
           </Reveal>
         </div>
-        <Reveal delay={200} className="lg:col-span-5 lg:col-start-8">
-          <RegionStrip />
+
+        <Reveal delay={240} className="mt-12 md:mt-16">
+          <LoopCarousel
+            id="yuma-photos"
+            items={YUMA_PHOTOS.map((photo) => ({
+              key: photo.src,
+              node: (
+                <PhotoSlot
+                  photo={photo}
+                  className="aspect-[4/3] rounded-md shadow-[0_20px_50px_-20px_rgb(12_24_40/0.5)]"
+                  imgClassName="pointer-events-none select-none"
+                />
+              ),
+            }))}
+            label={w.photos.region}
+            previous={w.photos.previous}
+            next={w.photos.next}
+            tileClassName="w-[85%] sm:w-[60%] lg:w-[calc((100%-3rem)/3)]"
+            thumbClassName="bg-accent"
+            captioned={false}
+          />
         </Reveal>
-        {page && (
-          <ul className="grid grid-cols-2 gap-3 md:gap-4 lg:col-span-12 lg:grid-cols-4">
-            {YUMA_PHOTOS.map((photo, i) => (
-              <Reveal as="li" key={photo.src} delay={240 + i * 70}>
-                <PhotoSlot photo={photo} eager className="aspect-[4/3] rounded-md" />
-              </Reveal>
-            ))}
-          </ul>
-        )}
       </div>
     </section>
   );
