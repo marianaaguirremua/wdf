@@ -103,18 +103,20 @@ export function ThreePlWhyYuma() {
       />
 
       <div className="container-wdf pb-24 pt-[calc(var(--header-h)+3rem)] md:pb-32 md:pt-[calc(var(--header-h)+4rem)]">
-        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-8">
+        {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. Both centred. */}
+        <div className="text-center">
+          <Reveal as="h1" className="heading text-[clamp(2.25rem,4.2vw,3.5rem)]">
+            <span id="threepl-yuma-title">{w.eyebrow}</span>
+          </Reveal>
+          <Reveal delay={80}>
+            <p className="mx-auto mt-4 max-w-3xl text-balance text-xl font-semibold text-accent-deep md:text-2xl">
+              {w.title}
+            </p>
+          </Reveal>
+        </div>
+        <div className="mt-10 grid items-center gap-10 md:mt-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
-            {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. */}
-            <Reveal as="h1" className="heading text-[clamp(2.25rem,4.2vw,3.5rem)]">
-              <span id="threepl-yuma-title">{w.eyebrow}</span>
-            </Reveal>
-            <Reveal delay={80}>
-              <p className="mt-4 max-w-xl text-balance text-xl font-semibold text-accent-deep md:text-2xl">
-                {w.title}
-              </p>
-            </Reveal>
-            <Reveal delay={160} className="mt-8">
+            <Reveal delay={160}>
               <div className="flex flex-col gap-4 rounded-md bg-white/90 p-6 shadow-[0_10px_30px_-12px_rgb(12_24_40/0.25)] backdrop-blur-sm md:p-7">
                 {w.body.map((paragraph, i) => (
                   <p
