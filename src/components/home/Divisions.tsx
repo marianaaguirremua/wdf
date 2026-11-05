@@ -114,6 +114,8 @@ export function Divisions({
       <div
         className={cn(
           "container-wdf py-20 md:py-24",
+          // Home: less space before the Yuma band that follows.
+          centered && "pb-10 md:pb-12",
           as === "h1" && "pt-[calc(var(--header-h)+3rem)] md:pt-[calc(var(--header-h)+4.5rem)]",
         )}
       >

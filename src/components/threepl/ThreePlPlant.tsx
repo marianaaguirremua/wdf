@@ -7,27 +7,24 @@ import { Reveal } from "@/components/site/Reveal";
 // Loaded as an <img>: its CSS animation runs inside the file, stays isolated from the site's
 // styles, and stops on its own under prefers-reduced-motion. Its edges are masked so the
 // artwork's darker vignette fades into its navy panel on the light section.
-/** `merged`: continues the section above (Home) — no divider, no top padding. */
-export function ThreePlPlant({ merged = false }: { merged?: boolean }) {
+/** `home`: the title takes the size of the other Home section titles. */
+export function ThreePlPlant({ home = false }: { home?: boolean }) {
   const { t } = useI18n();
   const p = t.threepl.plant;
 
   return (
     <section
       aria-labelledby="threepl-plant-title"
-      className={cn(
-        "relative isolate overflow-hidden bg-paper text-paper-foreground",
-        !merged && "border-t border-paper-border",
-      )}
+      className="relative isolate overflow-hidden border-t border-paper-border bg-paper text-paper-foreground"
     >
-      {!merged && <div aria-hidden className="column-rules -z-10 opacity-60" />}
-      <div className={cn("container-wdf pb-24 md:pb-32", merged ? "pt-8" : "pt-12 md:pt-16")}>
+      <div aria-hidden className="column-rules -z-10 opacity-60" />
+      <div className="container-wdf pb-24 pt-16 md:pb-28 md:pt-20">
         <Reveal
           as="h2"
           className={cn(
             "display mx-auto max-w-4xl text-balance text-center lg:max-w-none lg:whitespace-nowrap",
             // On Home, the same size as the page's other section titles.
-            merged ? "text-[clamp(1.75rem,3vw,2.5rem)]" : "text-[clamp(1.875rem,3.2vw,2.875rem)]",
+            home ? "text-[clamp(1.75rem,3vw,2.5rem)]" : "text-[clamp(1.875rem,3.2vw,2.875rem)]",
           )}
         >
           <span id="threepl-plant-title">

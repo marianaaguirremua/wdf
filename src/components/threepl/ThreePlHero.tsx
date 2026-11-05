@@ -1,24 +1,12 @@
-import { Fragment, type CSSProperties, type ReactNode } from "react";
+import type { CSSProperties, ReactNode } from "react";
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 import { THREEPL_LOCATIONS } from "@/lib/site";
 import { cn } from "@/lib/utils";
 import { BorderMap } from "./BorderMap";
+import { emphasize } from "./emphasize";
 import { AnchorIcon, CubeIcon, GlobeIcon } from "./icons";
-
-/** Renders `**…**` spans in a copy string as emphasis. */
-function emphasize(text: string): ReactNode[] {
-  return text.split("**").map((part, i) =>
-    i % 2 ? (
-      <strong key={i} className="font-semibold text-paper-foreground">
-        {part}
-      </strong>
-    ) : (
-      <Fragment key={i}>{part}</Fragment>
-    ),
-  );
-}
 
 const dash = (color: string, on: number, off: number) =>
   `repeating-linear-gradient(90deg,${color} 0 ${on}px,transparent ${on}px ${on + off}px)`;
