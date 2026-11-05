@@ -1,6 +1,7 @@
 import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
-import { useI18n } from "@/i18n";
+import { localeParam, useI18n } from "@/i18n";
+import { ButtonLink } from "@/components/site/Button";
 import { PAGE_PHOTOS } from "@/lib/site";
 import { CrossTag } from "./CrossTag";
 import { SectionHeader } from "./SectionHeader";
@@ -10,7 +11,7 @@ import { SectionHeader } from "./SectionHeader";
  * beside it, then one card with a photo per service.
  */
 export function ThreePlCapabilities() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const c = t.threepl.capabilities;
 
   return (
@@ -20,14 +21,25 @@ export function ThreePlCapabilities() {
     >
       <div className="container-wdf pb-20 pt-[calc(var(--header-h)+3rem)] md:pb-24 md:pt-[calc(var(--header-h)+4rem)]">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-14">
-          <SectionHeader
-            as="h1"
-            id="threepl-capabilities-title"
-            title={c.eyebrow}
-            subtitle={c.title}
-            body={c.body}
-            className="lg:col-span-6"
-          />
+          <div className="lg:col-span-6">
+            <SectionHeader
+              as="h1"
+              id="threepl-capabilities-title"
+              title={c.eyebrow}
+              subtitle={c.title}
+              body={c.body}
+            />
+            {/* Like the Energy and Technology heroes: opens the project & RFQ form. */}
+            <Reveal delay={200} className="mt-9">
+              <ButtonLink
+                to="/{-$locale}/contact"
+                params={{ locale: localeParam(locale) }}
+                variant="accent"
+              >
+                {c.primary}
+              </ButtonLink>
+            </Reveal>
+          </div>
           <Reveal delay={160} className="relative lg:col-span-6">
             <span
               aria-hidden

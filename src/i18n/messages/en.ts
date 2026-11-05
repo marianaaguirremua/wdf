@@ -429,6 +429,7 @@ const en = {
     capabilities: {
       eyebrow: "Third-party logistics",
       crossTag: "MX ⇄ US",
+      primary: "Contact WDF",
       title: "A scope configured for your project.",
       body: "Third-party logistics services built around your product, volume and delivery commitment, for recurring operations, seasonal capacity or a specific project. Resources and service levels are agreed in writing.",
       items: [
