@@ -280,7 +280,7 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     src: "/media/3pl/crossing.webp",
     width: 1600,
     height: 656,
-    position: "15% 50%",
+    position: "32% 50%",
   },
   "threepl-capability-5": { src: "/media/3pl/shelter.webp", width: 1200, height: 900 },
   "threepl-capability-6": { src: "/media/3pl/people.webp", width: 1400, height: 933 },
@@ -289,7 +289,7 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     src: "/media/3pl/deliverables.webp",
     width: 1400,
     height: 932,
-    position: "45% 50%",
+    position: "30% 50%",
   },
   // "How we work" steps, in order.
   "threepl-process-1": {
