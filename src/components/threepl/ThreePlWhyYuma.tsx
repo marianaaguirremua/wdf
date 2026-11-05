@@ -9,7 +9,7 @@ function Flag({ country }: { country: "us" | "mx" }) {
     <svg
       viewBox="0 0 19 10"
       aria-hidden
-      className="h-4 w-auto shrink-0 shadow-[0_0_0_1px_rgb(12_24_40/0.12)]"
+      className="h-3 w-auto shrink-0 shadow-[0_0_0_1px_rgb(12_24_40/0.12)]"
     >
       <UsFlag x={0} y={0} w={19} />
     </svg>
@@ -17,7 +17,7 @@ function Flag({ country }: { country: "us" | "mx" }) {
     <svg
       viewBox="0 0 7 4"
       aria-hidden
-      className="h-4 w-auto shrink-0 shadow-[0_0_0_1px_rgb(12_24_40/0.12)]"
+      className="h-3 w-auto shrink-0 shadow-[0_0_0_1px_rgb(12_24_40/0.12)]"
     >
       <MxFlag x={0} y={0} w={7} />
     </svg>
@@ -39,31 +39,36 @@ function RegionStrip() {
       {/* Dotted link behind the three places */}
       <span
         aria-hidden
-        className="absolute bottom-8 left-1/2 top-8 w-0.5 -translate-x-1/2 border-l-2 border-dotted border-accent md:inset-x-8 md:bottom-auto md:left-auto md:top-1/2 md:h-0.5 md:w-auto md:translate-x-0 md:border-l-0 md:border-t-2"
+        className="absolute inset-x-6 top-1/2 h-0.5 border-t-2 border-dotted border-accent"
       />
-      <ol className="relative grid gap-6 md:grid-cols-3 md:gap-4">
+      <ol className="relative grid grid-cols-3 gap-2 md:gap-3">
         {places.map((place) => (
           <li
             key={place.name}
             className={cn(
-              "flex flex-col items-center gap-3 rounded-[4px] border bg-white px-4 py-6 text-center",
+              "flex flex-col items-center gap-1.5 rounded-[4px] border bg-white px-3 py-3 text-center",
               place.role ? "border-accent" : "border-paper-border",
             )}
           >
             <span
               aria-hidden
               className={cn(
-                "size-3 rounded-full",
-                place.role ? "bg-accent ring-4 ring-accent/25" : "bg-paper-muted/50",
+                "size-2 rounded-full",
+                place.role ? "bg-accent ring-2 ring-accent/25" : "bg-paper-muted/50",
               )}
             />
             <Flag country={place.country} />
             <span
-              className={cn("font-semibold", place.role ? "text-lg" : "text-paper-foreground/85")}
+              className={cn(
+                "text-sm font-semibold leading-snug",
+                !place.role && "text-paper-foreground/85",
+              )}
             >
               {place.name}
             </span>
-            {place.role && <span className="label-mono text-accent-deep">{place.role}</span>}
+            {place.role && (
+              <span className="label-mono text-[0.6rem] text-accent-deep">{place.role}</span>
+            )}
           </li>
         ))}
       </ol>
@@ -105,7 +110,7 @@ export function ThreePlWhyYuma() {
       <div className="container-wdf pb-24 pt-[calc(var(--header-h)+3rem)] md:pb-32 md:pt-[calc(var(--header-h)+4rem)]">
         {/* "Why Yuma, Arizona?" is the title; the location line is its subtitle. Both centred. */}
         <div className="text-center">
-          <Reveal as="h1" className="heading text-[clamp(2.25rem,4.2vw,3.5rem)]">
+          <Reveal as="h1" className="heading text-[clamp(2.75rem,6vw,5rem)]">
             <span id="threepl-yuma-title">{w.eyebrow}</span>
           </Reveal>
           <Reveal delay={80}>
@@ -115,7 +120,7 @@ export function ThreePlWhyYuma() {
           </Reveal>
         </div>
         {/* The three places under the subtitle, then the text box; both centred. */}
-        <Reveal delay={160} className="mx-auto mt-10 max-w-3xl md:mt-12">
+        <Reveal delay={160} className="mx-auto mt-6 max-w-xl md:mt-8">
           <RegionStrip />
         </Reveal>
         <Reveal delay={200} className="mx-auto mt-10 max-w-3xl md:mt-12">
