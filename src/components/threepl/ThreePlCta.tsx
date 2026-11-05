@@ -4,13 +4,14 @@ import { Reveal } from "@/components/site/Reveal";
 import { DirectContact } from "@/components/site/DirectContact";
 import { THREEPL_CONTACT } from "@/lib/site";
 
-export function ThreePlCta() {
+/** The 3PL contact band; `id` is its anchor (#threepl-contact on 3PL, #yuma-contact on Yuma). */
+export function ThreePlCta({ id = "threepl-contact" }: { id?: string }) {
   const { locale, t } = useI18n();
   const c = t.threepl.cta;
 
   return (
     <section
-      id="threepl-contact"
+      id={id}
       aria-labelledby="threepl-cta-title"
       className="relative isolate scroll-mt-[var(--header-h)] overflow-hidden bg-accent text-ink"
     >

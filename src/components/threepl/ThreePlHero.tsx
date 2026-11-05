@@ -139,7 +139,7 @@ export function ThreePlHero({ embedded = false }: { embedded?: boolean }) {
 
 /**
  * The legend, the two locations and the border map (on the Yuma page), with a button to the
- * 3PL contact.
+ * contact band at the end of that page.
  */
 export function ThreePlMap() {
   const { locale, t } = useI18n();
@@ -194,9 +194,9 @@ export function ThreePlMap() {
 
           <div className="mt-8">
             <ButtonLink
-              to="/{-$locale}/services/3pl"
+              to="/{-$locale}/yuma"
               params={{ locale: localeParam(locale) }}
-              hash="threepl-contact"
+              hash="yuma-contact"
               variant="accent"
             >
               {h.contact}

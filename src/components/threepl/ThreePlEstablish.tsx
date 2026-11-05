@@ -3,7 +3,7 @@ import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 
 // How WDF helps a company get established in the U.S.: four steps in order (the numbering is the
-// sequence), then a call to action to the 3PL contact.
+// sequence), then a call to action to the contact band at the end of the Yuma page.
 export function ThreePlEstablish() {
   const { locale, t } = useI18n();
   const e = t.threepl.establish;
@@ -56,9 +56,9 @@ export function ThreePlEstablish() {
 
         <Reveal delay={200} className="mt-14">
           <ButtonLink
-            to="/{-$locale}/services/3pl"
+            to="/{-$locale}/yuma"
             params={{ locale: localeParam(locale) }}
-            hash="threepl-contact"
+            hash="yuma-contact"
             variant="accent"
           >
             {e.primary}

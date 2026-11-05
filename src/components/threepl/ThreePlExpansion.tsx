@@ -49,9 +49,9 @@ export function ThreePlExpansion() {
           </div>
           <div className="mt-10">
             <ButtonLink
-              to="/{-$locale}/services/3pl"
+              to="/{-$locale}/yuma"
               params={{ locale: localeParam(locale) }}
-              hash="threepl-contact"
+              hash="yuma-contact"
               variant="accent"
             >
               {e.primary}
