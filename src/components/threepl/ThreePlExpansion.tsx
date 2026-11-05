@@ -1,9 +1,12 @@
 import { localeParam, useI18n } from "@/i18n";
 import { ButtonLink } from "@/components/site/Button";
+import { PhotoSlot } from "@/components/site/PhotoSlot";
 import { Reveal } from "@/components/site/Reveal";
+import { PAGE_PHOTOS } from "@/lib/site";
 
 // U.S. expansion: WDF's Yuma office helps international companies set up in the U.S. Southwest,
-// with Mexicali as support on the Mexican side.
+// with Mexicali as support on the Mexican side. The flags photo (cropped above the crowd, the same
+// file as the 3PL customs card) sits under the title.
 export function ThreePlExpansion() {
   const { locale, t } = useI18n();
   const e = t.threepl.expansion;
@@ -26,6 +29,12 @@ export function ThreePlExpansion() {
             <span id="threepl-expansion-title">
               {e.title[0]} <span className="block text-accent-deep">{e.title[1]}</span>
             </span>
+          </Reveal>
+          <Reveal delay={140} className="mt-10">
+            <PhotoSlot
+              photo={PAGE_PHOTOS["threepl-capability-4"]}
+              className="aspect-[16/9] rounded-md shadow-[0_20px_50px_-20px_rgb(12_24_40/0.45)]"
+            />
           </Reveal>
         </div>
 
