@@ -369,10 +369,16 @@ export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
   "technology-1": PAGE_PHOTOS["technology-hero"],
 };
 
-/** The Yuma page's photo row, in order (under "Why Yuma, Arizona?"). */
+/** The Yuma page's photo carousel, in order (below the border map). */
 export const YUMA_PHOTOS: Photo[] = [
   { src: "/media/yuma/office.webp", width: 1400, height: 1050 },
   { src: "/media/yuma/aerial.webp", width: 1400, height: 932 },
   { src: "/media/yuma/warehouse.webp", width: 1400, height: 934 },
   { src: "/media/yuma/racks.webp", width: 1400, height: 933 },
+  // Added Nov 2026; three reuse the 3PL "How we work" / Fulfillment files.
+  { src: "/media/3pl/preparation.webp", width: 1200, height: 800 },
+  { src: "/media/yuma/plans.webp", width: 1000, height: 1333 },
+  { src: "/media/3pl/design.webp", width: 1200, height: 800 },
+  { src: "/media/3pl/distribution.webp", width: 900, height: 1349, position: "50% 60%" },
+  { src: "/media/yuma/truck-yard.webp", width: 1400, height: 932 },
 ];
