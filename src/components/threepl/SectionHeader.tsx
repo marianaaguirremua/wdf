@@ -2,7 +2,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
 
 /**
- * 3PL page section header: the section name is the title ("Logistics services"), the old
+ * 3PL page section header: the section name is the title ("Third-party logistics"), the old
  * headline is its subtitle ("A scope configured for your project."), then an optional lead.
  */
 export function SectionHeader({

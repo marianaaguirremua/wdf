@@ -19,8 +19,8 @@ export const Route = createFileRoute("/{-$locale}/services_/3pl")({
 
 function Page() {
   // 3PL-only palette: terracotta accent and sand (see .accent-terracotta in styles.css).
-  // The page opens on "01 · Logistics services"; the cross-border intro, map, Why Yuma, plant
-  // animation and "How we help you get established" are on the Home page.
+  // The page opens on "Third-party logistics". The cross-border intro and plant animation are on
+  // Home; the map, Why Yuma, Two countries and "How we help you get established" on the Yuma page.
   return (
     <div className="accent-terracotta">
       <ThreePlCapabilities />

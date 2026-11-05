@@ -423,7 +423,7 @@ const es: Messages = {
       primary: "Cuéntenos qué quiere construir",
     },
     capabilities: {
-      eyebrow: "Servicios logísticos",
+      eyebrow: "Logística de terceros",
       crossTag: "MX ⇄ US",
       title: "Un alcance que se configura para su proyecto.",
       body: "Servicios de logística de terceros diseñados en torno a su producto, volumen y compromiso de entrega, para una operación recurrente, capacidad por temporada o un proyecto específico. Los recursos y niveles de servicio se acuerdan por escrito.",

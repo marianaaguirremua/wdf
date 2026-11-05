@@ -6,7 +6,7 @@ import { CrossTag } from "./CrossTag";
 import { SectionHeader } from "./SectionHeader";
 
 /**
- * Opens the 3PL page: "Logistics services" (the page's h1, below the fixed header) with a photo
+ * Opens the 3PL page: "Third-party logistics" (the page's h1, below the fixed header) with a photo
  * beside it, then one card with a photo per service.
  */
 export function ThreePlCapabilities() {

@@ -422,7 +422,7 @@ const en = {
       primary: "Tell us what you want to build",
     },
     capabilities: {
-      eyebrow: "Logistics services",
+      eyebrow: "Third-party logistics",
       crossTag: "MX ⇄ US",
       title: "A scope configured for your project.",
       body: "Third-party logistics services built around your product, volume and delivery commitment, for recurring operations, seasonal capacity or a specific project. Resources and service levels are agreed in writing.",
