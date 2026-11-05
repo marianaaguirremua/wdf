@@ -357,7 +357,15 @@ export const SERVICE_PHOTOS: Partial<Record<string, Photo>> = {
   "manufacturing-1": PAGE_PHOTOS["manufacturing-hero"], // engineer at the test bench
   "manufacturing-2": PAGE_PHOTOS["manufacturing-support"], // plant floor and materials
   "manufacturing-3": INDUSTRY_PHOTOS["metalmechanic"], // welding
+  "manufacturing-4": {
+    src: "/media/services/finishing.webp",
+    width: 900,
+    height: 1350,
+    position: "50% 45%",
+  }, // polished truck trim
   "manufacturing-5": PAGE_PHOTOS["manufacturing-integrate"], // assembly line
+  "manufacturing-6": { src: "/media/services/teamwork.webp", width: 900, height: 1350 }, // joined hands
+  "manufacturing-7": PAGE_PHOTOS["threepl-capability-2"], // forklift at the dock (3PL handling)
   ...Object.fromEntries(
     [1, 2, 3, 4, 5, 6].flatMap((i) => [
       [`energy-${i}`, PAGE_PHOTOS[`energy-capability-${i}`]],
