@@ -1,4 +1,5 @@
-import { useI18n } from "@/i18n";
+import { localeParam, useI18n } from "@/i18n";
+import { ButtonLink } from "@/components/site/Button";
 import { Reveal } from "@/components/site/Reveal";
 import { cn } from "@/lib/utils";
 import { MxFlag, UsFlag } from "./icons";
@@ -81,10 +82,11 @@ const MOUNTAINS = { src: "/media/yuma/mountains.webp", width: 2000, height: 1333
 /**
  * Opens the Yuma page: "Why Yuma, Arizona?" (its h1) and the location line over a photo of the
  * Yuma-area mountains, the California — Yuma — Mexicali strip under the subtitle, and the body
- * text in a light box below it so it stays readable; all centred. The Yuma photos follow the map (YumaPhotos).
+ * text in a light box below it so it stays readable, and a Contact Us button to the project &
+ * RFQ form; all centred. The Yuma photos follow the map (YumaPhotos).
  */
 export function ThreePlWhyYuma() {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
   const w = t.threepl.whyYuma;
 
   return (
@@ -137,6 +139,15 @@ export function ThreePlWhyYuma() {
               </p>
             ))}
           </div>
+        </Reveal>
+        <Reveal delay={240} className="mt-8 flex justify-center">
+          <ButtonLink
+            to="/{-$locale}/contact"
+            params={{ locale: localeParam(locale) }}
+            variant="accent"
+          >
+            {w.contact}
+          </ButtonLink>
         </Reveal>
       </div>
     </section>

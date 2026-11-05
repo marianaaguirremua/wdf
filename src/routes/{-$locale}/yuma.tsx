@@ -9,8 +9,8 @@ import { ThreePlWhyYuma } from "@/components/threepl/ThreePlWhyYuma";
 import { YumaPhotos } from "@/components/threepl/YumaPhotos";
 
 // Why Yuma, Arizona, the border map, the Yuma photos, the cross-border operation and how WDF
-// helps you get established, then the 3PL contact band (#yuma-contact, where this page's buttons
-// lead); linked from Home's Yuma section.
+// helps you get established, then the 3PL contact band (#yuma-contact). The page's orange buttons
+// open the project & RFQ form (Contact page). Linked from Home's Yuma section.
 export const Route = createFileRoute("/{-$locale}/yuma")({
   head: ({ params }) => {
     const locale = resolveLocale(params.locale);
