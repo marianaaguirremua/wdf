@@ -264,8 +264,7 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 1273,
     position: "50% 45%",
   },
-  // 3PL: the hero reuses the warehouse photo from the 3PL division card. Still empty:
-  // "threepl-process-1" … "threepl-process-4".
+  // 3PL: the hero reuses the warehouse photo from the 3PL division card.
   "threepl-hero": { src: "/media/divisions/threepl.webp", width: 960, height: 720 },
   // Supplied by the WDF team (Nov 2026), in service order.
   "threepl-capability-1": { src: "/media/3pl/warehousing.webp", width: 1200, height: 800 },
@@ -292,6 +291,16 @@ export const PAGE_PHOTOS: Partial<Record<string, Photo>> = {
     height: 932,
     position: "45% 50%",
   },
+  // "How we work" steps, in order.
+  "threepl-process-1": {
+    src: "/media/3pl/discovery.webp",
+    width: 1000,
+    height: 1333,
+    position: "50% 40%",
+  },
+  "threepl-process-2": { src: "/media/3pl/design.webp", width: 1200, height: 800 },
+  "threepl-process-3": { src: "/media/3pl/validation.webp", width: 1200, height: 800 },
+  "threepl-process-4": { src: "/media/3pl/preparation.webp", width: 1200, height: 800 },
 };
 
 /** A logo for the "companies we have worked with" strip; `size` is its rendered height. */
