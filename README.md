@@ -46,6 +46,18 @@ The build is plain Vite (`vite.config.ts`). There is no Lovable tooling or sync.
 - `public/brand/` — official WDF logos copied unaltered from the Manufacturing repository
   (`wdf-logo-white.svg` on dark backgrounds, `wdf-logo-black.svg` on light). Never edit them.
 
+## TV displays (`public/tv/`)
+
+Full-screen, auto-advancing slideshows for lobby and office screens, served as static
+files (no React, no router). They are `noindex` and not in the sitemap.
+
+- **3PL:** `public/tv/3pl/index.html` → [wdfgroup.us/tv/3pl](https://wdfgroup.us/tv/3pl/).
+  Copy mirrors the 3PL page; photos and logo are the site's own (`/media/3pl/`, `/brand/`).
+- Open the URL on the TV and press `F` for fullscreen. Keys: `←`/`→` previous/next,
+  `Space` pause, `1`–`9` jump. URL options: `?slide=5`, `?speed=1.5` (slower), `?pause`.
+- Each `<section class="slide">` is one slide; `data-duration` is its time on screen in ms.
+  Keep the copy in step with the 3PL page when that page changes.
+
 ## Content rules
 
 - Copy marked as draft renders a visible "Draft" tag until approved; set
