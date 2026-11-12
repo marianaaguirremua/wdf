@@ -53,6 +53,7 @@ files (no React, no router). They are `noindex` and not in the sitemap.
 
 | Display       | File                                 | URL                                                                   |
 | ------------- | ------------------------------------ | --------------------------------------------------------------------- |
+| Home          | `public/tv/home/index.html`          | [wdfgroup.us/tv/home](https://wdfgroup.us/tv/home/)                   |
 | 3PL           | `public/tv/3pl/index.html`           | [wdfgroup.us/tv/3pl](https://wdfgroup.us/tv/3pl/)                     |
 | Manufacturing | `public/tv/manufacturing/index.html` | [wdfgroup.us/tv/manufacturing](https://wdfgroup.us/tv/manufacturing/) |
 | Technology    | `public/tv/technology/index.html`    | [wdfgroup.us/tv/technology](https://wdfgroup.us/tv/technology/)       |

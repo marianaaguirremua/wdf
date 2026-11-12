@@ -1195,3 +1195,108 @@ body.accent-mustard {
 .logo-wall img.tall {
   max-height: 100px;
 }
+
+/* ---------- home display ---------- */
+.s-home-cover h1 {
+  font-size: 124px;
+}
+.s-home-divs .intro {
+  width: 1300px;
+  margin-top: 26px;
+  font-size: 28px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.s-home-divs .pillars {
+  top: 520px;
+}
+.s-home-divs .pillar {
+  border-top: 4px solid var(--accent);
+}
+.s-home-divs .pillar .n {
+  color: var(--accent);
+}
+.s-yuma h2 {
+  font-size: 80px;
+}
+.s-yuma .lede {
+  font-size: 29px;
+}
+.s-yuma .lede b {
+  color: var(--fg);
+  font-weight: 600;
+}
+.s-industries .head {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  top: 170px;
+}
+.s-industries h2 {
+  margin-top: 28px;
+}
+.industries {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  top: 400px;
+  bottom: 140px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+.industries figure {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: var(--ink-3);
+}
+.industries img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.02);
+}
+.slide.active .industries img {
+  animation: drift 15s linear forwards;
+}
+.industries figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 50%, rgba(12, 24, 40, 0.92));
+}
+.industries figcaption {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.s-home-cta .partners {
+  display: flex;
+  align-items: center;
+  gap: 56px;
+  margin-top: 64px;
+}
+.s-home-cta .partners .lbl {
+  font-family: var(--mono);
+  font-size: 20px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.s-home-cta .partners img {
+  height: 72px;
+  width: auto;
+}
+.s-home-cta .contact .name {
+  margin-bottom: 0;
+}
+.s-home-div h2 {
+  font-size: 78px;
+}
