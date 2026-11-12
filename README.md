@@ -51,12 +51,21 @@ The build is plain Vite (`vite.config.ts`). There is no Lovable tooling or sync.
 Full-screen, auto-advancing slideshows for lobby and office screens, served as static
 files (no React, no router). They are `noindex` and not in the sitemap.
 
-- **3PL:** `public/tv/3pl/index.html` → [wdfgroup.us/tv/3pl](https://wdfgroup.us/tv/3pl/).
-  Copy mirrors the 3PL page; photos and logo are the site's own (`/media/3pl/`, `/brand/`).
+| Display       | File                                 | URL                                                                   |
+| ------------- | ------------------------------------ | --------------------------------------------------------------------- |
+| 3PL           | `public/tv/3pl/index.html`           | [wdfgroup.us/tv/3pl](https://wdfgroup.us/tv/3pl/)                     |
+| Manufacturing | `public/tv/manufacturing/index.html` | [wdfgroup.us/tv/manufacturing](https://wdfgroup.us/tv/manufacturing/) |
+| Technology    | `public/tv/technology/index.html`    | [wdfgroup.us/tv/technology](https://wdfgroup.us/tv/technology/)       |
+| Energy        | `public/tv/energy/index.html`        | [wdfgroup.us/tv/energy](https://wdfgroup.us/tv/energy/)               |
+
+- Styles and behaviour are shared: `public/tv/tv.css` and `public/tv/tv.js`. The division
+  colour comes from the `<body>` class (`accent-cyan`, `accent-mustard`; 3PL uses the default).
+- Copy mirrors each division page; photos, logos and client marks are the site's own
+  (`/media/`, `/brand/`, `/partners/`, `/clients/`). Each folder has a QR code to its page.
 - Open the URL on the TV and press `F` for fullscreen. Keys: `←`/`→` previous/next,
   `Space` pause, `1`–`9` jump. URL options: `?slide=5`, `?speed=1.5` (slower), `?pause`.
 - Each `<section class="slide">` is one slide; `data-duration` is its time on screen in ms.
-  Keep the copy in step with the 3PL page when that page changes.
+  Keep the copy in step with the division pages when they change.
 
 ## Content rules
 
