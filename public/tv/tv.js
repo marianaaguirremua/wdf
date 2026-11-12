@@ -116,7 +116,8 @@
     if (e.clientX > innerWidth / 2) show(i + 1);
     else show(i - 1);
   });
-  wake();
+  // Hide the cursor after a moment; the hint only shows once someone interacts.
+  idleT = setTimeout(() => document.body.classList.add("idle"), 3000);
 
   // Keep the screen awake where supported
   const lock = () => navigator.wakeLock?.request("screen").catch(() => {});
