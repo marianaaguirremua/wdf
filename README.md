@@ -53,12 +53,16 @@ files (no React, no router). They are `noindex` and not in the sitemap.
 
 | Display       | File                                 | URL                                                                   |
 | ------------- | ------------------------------------ | --------------------------------------------------------------------- |
+| All (63)      | `public/tv/all/index.html`           | [wdfgroup.us/tv/all](https://wdfgroup.us/tv/all/)                     |
 | Home          | `public/tv/home/index.html`          | [wdfgroup.us/tv/home](https://wdfgroup.us/tv/home/)                   |
 | 3PL           | `public/tv/3pl/index.html`           | [wdfgroup.us/tv/3pl](https://wdfgroup.us/tv/3pl/)                     |
 | Manufacturing | `public/tv/manufacturing/index.html` | [wdfgroup.us/tv/manufacturing](https://wdfgroup.us/tv/manufacturing/) |
 | Technology    | `public/tv/technology/index.html`    | [wdfgroup.us/tv/technology](https://wdfgroup.us/tv/technology/)       |
 | Energy        | `public/tv/energy/index.html`        | [wdfgroup.us/tv/energy](https://wdfgroup.us/tv/energy/)               |
 
+- `/tv/all` holds no slides of its own: `tv.js` loads them from the other displays
+  (`data-compose` on `#stage`, in that order), so it always matches them. Keys `1`–`5` jump to
+  each display there.
 - Styles and behaviour are shared: `public/tv/tv.css` and `public/tv/tv.js`. The division
   colour comes from the `<body>` class (`accent-cyan`, `accent-mustard`; 3PL uses the default).
 - Copy mirrors each division page; photos, logos and client marks are the site's own
