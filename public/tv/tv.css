@@ -1525,3 +1525,11 @@ body.accent-mustard {
 .s-establish .step h3 {
   font-size: 36px;
 }
+body.accent-terracotta {
+  --accent: #d2642a;
+  --accent-deep: #a8441a;
+}
+/* /tv/all: one progress segment per display */
+.bars.chapters .bar {
+  height: 5px;
+}

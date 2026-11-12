@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>WDF · All displays · TV</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/tv/tv.css" />
+  </head>
+  <body class="accent-cyan">
+    <!-- The slides are loaded from these displays, in this order. -->
+    <div id="stage" data-compose="home,manufacturing,energy,technology,3pl">
+      <header class="chrome-top">
+        <div class="brand">
+          <img src="/brand/wdf-logo-white.svg" alt="WDF" />
+          <span class="div"><b>WDF</b> · Industrial solutions across North America</span>
+        </div>
+        <div class="clock">
+          <div class="t" id="clock-t">--:--</div>
+          <div class="d" id="clock-d"></div>
+        </div>
+      </header>
+
+      <footer class="chrome-bottom">
+        <div class="counter"><b id="cur">01</b> / <span id="tot">--</span></div>
+        <div class="bars" id="bars"></div>
+        <span class="paused-tag">PAUSED</span>
+        <div class="url">wdfgroup.us</div>
+      </footer>
+    </div>
+
+    <div class="hint" id="hint">
+      ← → navigate · Space pause · 1–5 jump to a display · F fullscreen
+    </div>
+
+    <script src="/tv/tv.js"></script>
+  </body>
+</html>
