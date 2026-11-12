@@ -1300,3 +1300,228 @@ body.accent-mustard {
 .s-home-div h2 {
   font-size: 78px;
 }
+
+/* ---------- Yuma slides (home display) ---------- */
+.s-why h2 {
+  font-size: 76px;
+}
+.s-why .lede {
+  font-size: 28px;
+}
+.s-why .note {
+  font-size: 22px;
+}
+.places {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0 0 34px;
+}
+.places span {
+  font-family: var(--mono);
+  font-size: 19px;
+  color: var(--muted);
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--ink-2);
+  white-space: nowrap;
+}
+.places span.here {
+  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 500;
+}
+.places small {
+  display: block;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.75;
+}
+.places i {
+  flex: 0 0 26px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, var(--accent) 0 6px, transparent 6px 11px);
+}
+
+.s-flow .photo {
+  inset: 0;
+}
+.s-flow .photo img {
+  opacity: 0.16;
+}
+.s-flow .head {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  top: 170px;
+}
+.s-flow h2 {
+  margin-top: 28px;
+}
+.flow {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  top: 420px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: stretch;
+  gap: 18px;
+}
+.flow .fnode {
+  background: rgba(19, 32, 47, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 26px 28px;
+}
+.flow .fnode.hub {
+  border: 2px solid var(--accent);
+}
+.flow .n {
+  font-family: var(--mono);
+  font-size: 18px;
+  color: var(--accent);
+}
+.flow h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 8px 0 6px;
+  line-height: 1.1;
+}
+.flow p {
+  font-size: 21px;
+  color: var(--muted);
+}
+.flow .arrow {
+  align-self: center;
+  font-size: 44px;
+  color: var(--accent);
+}
+.sites {
+  position: absolute;
+  left: 88px;
+  right: 88px;
+  top: 680px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.site {
+  background: rgba(19, 32, 47, 0.9);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 26px 34px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 40px;
+  align-items: start;
+}
+.site .lbl {
+  grid-column: 1 / -1;
+  font-family: var(--mono);
+  font-size: 17px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+.site h3 {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+}
+.site .role {
+  grid-column: 1;
+  font-size: 20px;
+  color: var(--accent);
+  margin-top: 8px;
+}
+.site p:last-child {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  font-family: var(--mono);
+  font-size: 21px;
+  line-height: 1.5;
+  color: var(--fg);
+}
+
+.s-entities .photo {
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 34%;
+}
+.s-entities .photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--ink), rgba(12, 24, 40, 0.2) 50%);
+}
+.s-entities .copy {
+  position: absolute;
+  left: 88px;
+  top: 170px;
+  width: 1220px;
+}
+.s-entities h2 {
+  margin: 28px 0 30px;
+}
+.s-entities .lede {
+  font-size: 28px;
+}
+.entities {
+  position: absolute;
+  left: 88px;
+  top: 600px;
+  width: 1220px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.entity {
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--accent);
+  border-radius: 6px;
+  padding: 28px 32px;
+}
+.entity .flag {
+  font-family: var(--mono);
+  font-size: 17px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.entity h3 {
+  font-size: 30px;
+  font-weight: 700;
+  margin: 8px 0 10px;
+  line-height: 1.15;
+}
+.entity p {
+  font-size: 22px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.entities .note {
+  grid-column: 1 / -1;
+  font-size: 22px;
+  line-height: 1.45;
+  color: var(--muted);
+  border-left: 3px solid var(--accent);
+  padding: 4px 0 4px 22px;
+}
+
+.s-establish h2 {
+  font-size: 68px;
+}
+.s-establish .steps {
+  top: 450px;
+}
+.s-establish .step h3 {
+  font-size: 36px;
+}
