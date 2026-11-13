@@ -27,7 +27,7 @@ function BackButton() {
     <button
       type="button"
       onClick={onClick}
-      className="label-mono fade-up group mb-10 inline-flex items-center gap-2 text-ink-muted transition-colors hover:text-primary"
+      className="label-mono fade-up group mb-10 inline-flex items-center gap-2 text-paper-muted transition-colors hover:text-cyan-deep"
     >
       <span aria-hidden className="transition-transform group-hover:-translate-x-1">
         ←
@@ -54,17 +54,12 @@ function Page() {
   return (
     <section
       aria-labelledby="contact-title"
-      className="relative isolate overflow-hidden bg-ink text-ink-foreground"
+      className="relative isolate overflow-hidden bg-paper text-paper-foreground"
     >
-      <div
-        aria-hidden
-        className="blueprint absolute inset-0 -z-10 opacity-60 [mask-image:radial-gradient(80%_70%_at_70%_30%,#000,transparent)]"
-      />
-      <div aria-hidden className="column-rules -z-10" />
       <div className="container-wdf grid gap-14 pb-24 pt-[calc(var(--header-h)+3.5rem)] md:pb-32 lg:grid-cols-12 lg:gap-10 lg:pt-[calc(var(--header-h)+5rem)]">
         <div className="lg:col-span-5">
           <BackButton />
-          <p className="label-mono fade-up text-primary">{c.eyebrow}</p>
+          <p className="label-mono fade-up text-cyan-deep">{c.eyebrow}</p>
           <h1
             id="contact-title"
             className="display mt-6 text-[clamp(2.6rem,6.2vw,5.6rem)] font-semibold"
@@ -74,22 +69,22 @@ function Page() {
             </span>
           </h1>
           <p
-            className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-ink-muted"
+            className="fade-up mt-8 max-w-xl text-lg leading-relaxed text-paper-muted"
             style={{ "--d": "300ms" } as CSSProperties}
           >
             {c.body}
           </p>
 
           <dl
-            className="fade-up mt-12 grid gap-8 border-t border-ink-border pt-10 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2"
+            className="fade-up mt-12 grid gap-8 border-t border-paper-border pt-10 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2"
             style={{ "--d": "450ms" } as CSSProperties}
           >
             {info.map(({ label, lines, href }) => (
               <div key={label}>
-                <dt className="label-mono text-primary">{label}</dt>
-                <dd className="mt-3 leading-relaxed text-ink-foreground/90">
+                <dt className="label-mono text-cyan-deep">{label}</dt>
+                <dd className="mt-3 leading-relaxed text-paper-foreground/90">
                   {href ? (
-                    <a href={href} className="break-words transition-colors hover:text-primary">
+                    <a href={href} className="break-words transition-colors hover:text-cyan-deep">
                       {lines[0]}
                     </a>
                   ) : (
@@ -106,22 +101,22 @@ function Page() {
         </div>
 
         <div className="fade-up lg:col-span-7" style={{ "--d": "250ms" } as CSSProperties}>
-          <div className="rounded-md border border-ink-border bg-ink-2/80 p-6 shadow-2xl backdrop-blur md:p-8">
-            <div className="flex items-center gap-3 border-b border-ink-border pb-5">
+          <div className="rounded-md border border-paper-border bg-white p-6 shadow-[0_20px_50px_-24px_rgb(12_24_40/0.3)] md:p-8">
+            <div className="flex items-center gap-3 border-b border-paper-border pb-5">
               <span className="grid size-9 shrink-0 place-items-center rounded-full bg-primary text-[0.65rem] font-bold text-primary-foreground">
                 RFQ
               </span>
               <div>
                 <h2 className="text-xl font-semibold tracking-[-0.01em]">{c.form.title}</h2>
-                <p className="text-sm text-ink-muted">{c.form.sub}</p>
+                <p className="text-sm text-paper-muted">{c.form.sub}</p>
               </div>
             </div>
             <div className="mt-6">
               <ContactForm />
             </div>
-            <div className="mt-6 rounded-sm border border-primary/30 bg-primary/5 p-4">
-              <p className="label-mono text-primary">{c.form.cadTitle}</p>
-              <p className="mt-1 text-sm text-ink-foreground/85">{c.form.cadBody}</p>
+            <div className="mt-6 rounded-sm border border-cyan-deep/25 bg-cyan-soft p-4">
+              <p className="label-mono text-cyan-deep">{c.form.cadTitle}</p>
+              <p className="mt-1 text-sm text-paper-foreground/85">{c.form.cadBody}</p>
             </div>
           </div>
         </div>

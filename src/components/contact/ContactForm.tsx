@@ -12,12 +12,12 @@ const DIVISION_DOTS: Record<Division, string> = {
 };
 
 const field =
-  "w-full rounded-sm border border-ink-border bg-ink-2 px-4 py-3.5 text-ink-foreground outline-none transition-colors placeholder:text-ink-muted/60 focus:border-primary";
+  "w-full rounded-sm border border-paper-foreground/15 bg-white px-4 py-3.5 text-paper-foreground outline-none transition-colors placeholder:text-paper-muted/70 focus:border-cyan-deep";
 
 function Field({ label, full, children }: { label: string; full?: boolean; children: ReactNode }) {
   return (
     <label className={cn("block", full && "sm:col-span-2")}>
-      <span className="label-mono mb-2 block text-ink-muted">{label}</span>
+      <span className="label-mono mb-2 block text-paper-muted">{label}</span>
       {children}
     </label>
   );
@@ -68,10 +68,10 @@ export function ContactForm() {
 
   if (sent)
     return (
-      <div role="status" className="rounded-sm border border-primary bg-ink-2 p-10">
-        <p className="label-mono text-primary">{f.received}</p>
+      <div role="status" className="rounded-sm border border-cyan-deep bg-cyan-soft p-10">
+        <p className="label-mono text-cyan-deep">{f.received}</p>
         <p className="display mt-3 text-3xl">{f.thanks}</p>
-        <p className="mt-2 text-ink-muted">{f.follow}</p>
+        <p className="mt-2 text-paper-muted">{f.follow}</p>
       </div>
     );
 
@@ -108,10 +108,10 @@ export function ContactForm() {
         aria-describedby="contact-divisions-hint"
         aria-invalid={missingDivision || undefined}
       >
-        <legend className="label-mono mb-2 block text-ink-muted">{f.divisions}</legend>
+        <legend className="label-mono mb-2 block text-paper-muted">{f.divisions}</legend>
         <p
           id="contact-divisions-hint"
-          className={cn("mb-3 text-sm", missingDivision ? "text-[#ff8a7a]" : "text-ink-muted")}
+          className={cn("mb-3 text-sm", missingDivision ? "text-[#b42318]" : "text-paper-muted")}
         >
           {missingDivision ? f.divisionsRequired : f.divisionsHint}
         </p>
@@ -125,7 +125,7 @@ export function ContactForm() {
                 onChange={() => setMissingDivision(false)}
                 className="peer sr-only"
               />
-              <span className="flex min-h-12 items-center gap-3 rounded-sm border border-ink-border bg-ink-2 py-3 pl-4 pr-10 text-[0.95rem] font-semibold transition-colors hover:border-ink-muted peer-checked:border-primary peer-checked:bg-primary/10 peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary">
+              <span className="flex min-h-12 items-center gap-3 rounded-sm border border-paper-foreground/15 bg-white py-3 pl-4 pr-10 text-[0.95rem] font-semibold text-paper-foreground transition-colors hover:border-paper-foreground/40 peer-checked:border-cyan-deep peer-checked:bg-cyan-soft peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-cyan-deep">
                 <span
                   aria-hidden
                   className="size-2 shrink-0 rounded-full"
@@ -136,7 +136,7 @@ export function ContactForm() {
               <svg
                 aria-hidden
                 viewBox="0 0 16 16"
-                className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-primary opacity-0 transition-opacity peer-checked:opacity-100"
+                className="pointer-events-none absolute right-3 top-1/2 size-4 -translate-y-1/2 text-cyan-deep opacity-0 transition-opacity peer-checked:opacity-100"
               >
                 <path d="M3 8.5l3.2 3L13 4.5" fill="none" stroke="currentColor" strokeWidth="2" />
               </svg>
@@ -159,18 +159,18 @@ export function ContactForm() {
         <input name="quantity" maxLength={200} className={field} />
       </Field>
       <Field label={f.date}>
-        <input type="date" name="date" className={cn(field, "[color-scheme:dark]")} />
+        <input type="date" name="date" className={cn(field, "[color-scheme:light]")} />
       </Field>
 
       {error && (
-        <p role="alert" className="text-[#ff8a7a] sm:col-span-2">
+        <p role="alert" className="text-[#b42318] sm:col-span-2">
           {error}
         </p>
       )}
       <button
         type="submit"
         disabled={sending}
-        className="group mt-2 inline-flex min-h-14 items-center justify-center gap-3 rounded-sm bg-primary px-6 text-base font-semibold text-primary-foreground transition-colors hover:bg-ink-foreground disabled:opacity-60 sm:col-span-2"
+        className="group mt-2 inline-flex min-h-14 items-center justify-center gap-3 rounded-sm bg-primary px-6 text-base font-semibold text-primary-foreground transition-colors hover:bg-petroleum hover:text-white disabled:opacity-60 sm:col-span-2"
       >
         {sending ? f.sending : f.submit}
         {!sending && (

@@ -124,6 +124,7 @@ export const LIGHT_HERO_PAGES = [
   "/about/team",
   "/services/energy",
   "/services/technology",
+  "/contact",
 ];
 
 /**
